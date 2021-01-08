@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGAO", "StartPoint\GGAO.csproj", "{BB3D7276-4A5A-4BB8-A854-0AAFF217BB9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB3D7276-4A5A-4BB8-A854-0AAFF217BB9D}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D7276-4A5A-4BB8-A854-0AAFF217BB9D}.All|Any CPU.Build.0 = Release|Any CPU
+		{BB3D7276-4A5A-4BB8-A854-0AAFF217BB9D}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D7276-4A5A-4BB8-A854-0AAFF217BB9D}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{BB3D7276-4A5A-4BB8-A854-0AAFF217BB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D7276-4A5A-4BB8-A854-0AAFF217BB9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D906278E-41B8-44CC-9F95-7897E4CF13AE}
+	EndGlobalSection
+EndGlobal
