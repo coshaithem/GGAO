@@ -48,7 +48,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ggao.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -215,7 +216,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DBcosider.mdf</DependentUpon>
     </Content>
-    <Content Include="ggao.ico" />
     <Content Include="GGAO.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
