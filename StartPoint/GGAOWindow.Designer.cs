@@ -122,6 +122,13 @@
             this.produitTableAdapter = new GGAO.GGAODataSetTableAdapters.ProduitTableAdapter();
             this.engineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.engineTableAdapter = new GGAO.GGAODataSetTableAdapters.EngineTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateNaissanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lieuNaissanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gGAODataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gGAODataSet)).BeginInit();
@@ -664,9 +671,19 @@
             // 
             this.DGVMain.AllowUserToAddRows = false;
             this.DGVMain.AllowUserToDeleteRows = false;
+            this.DGVMain.AutoGenerateColumns = false;
             this.DGVMain.AutoGenerateContextFilters = true;
             this.DGVMain.BackgroundColor = System.Drawing.Color.White;
             this.DGVMain.ColumnHeadersHeight = 24;
+            this.DGVMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.nomDataGridViewTextBoxColumn,
+            this.prenomDataGridViewTextBoxColumn,
+            this.cINDataGridViewTextBoxColumn,
+            this.dateNaissanceDataGridViewTextBoxColumn,
+            this.lieuNaissanceDataGridViewTextBoxColumn,
+            this.mobileDataGridViewTextBoxColumn});
+            this.DGVMain.DataSource = this.driverBindingSource;
             this.DGVMain.DateWithTime = false;
             this.DGVMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGVMain.Location = new System.Drawing.Point(0, 152);
@@ -908,6 +925,69 @@
             // 
             this.engineTableAdapter.ClearBeforeFill = true;
             // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // nomDataGridViewTextBoxColumn
+            // 
+            this.nomDataGridViewTextBoxColumn.DataPropertyName = "Nom";
+            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nomDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
+            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // prenomDataGridViewTextBoxColumn
+            // 
+            this.prenomDataGridViewTextBoxColumn.DataPropertyName = "Prenom";
+            this.prenomDataGridViewTextBoxColumn.HeaderText = "Prenom";
+            this.prenomDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.prenomDataGridViewTextBoxColumn.Name = "prenomDataGridViewTextBoxColumn";
+            this.prenomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prenomDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // cINDataGridViewTextBoxColumn
+            // 
+            this.cINDataGridViewTextBoxColumn.DataPropertyName = "CIN";
+            this.cINDataGridViewTextBoxColumn.HeaderText = "CIN";
+            this.cINDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.cINDataGridViewTextBoxColumn.Name = "cINDataGridViewTextBoxColumn";
+            this.cINDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cINDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dateNaissanceDataGridViewTextBoxColumn
+            // 
+            this.dateNaissanceDataGridViewTextBoxColumn.DataPropertyName = "DateNaissance";
+            this.dateNaissanceDataGridViewTextBoxColumn.HeaderText = "DateNaissance";
+            this.dateNaissanceDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.dateNaissanceDataGridViewTextBoxColumn.Name = "dateNaissanceDataGridViewTextBoxColumn";
+            this.dateNaissanceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateNaissanceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // lieuNaissanceDataGridViewTextBoxColumn
+            // 
+            this.lieuNaissanceDataGridViewTextBoxColumn.DataPropertyName = "LieuNaissance";
+            this.lieuNaissanceDataGridViewTextBoxColumn.HeaderText = "LieuNaissance";
+            this.lieuNaissanceDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.lieuNaissanceDataGridViewTextBoxColumn.Name = "lieuNaissanceDataGridViewTextBoxColumn";
+            this.lieuNaissanceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lieuNaissanceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // mobileDataGridViewTextBoxColumn
+            // 
+            this.mobileDataGridViewTextBoxColumn.DataPropertyName = "Mobile";
+            this.mobileDataGridViewTextBoxColumn.HeaderText = "Mobile";
+            this.mobileDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.mobileDataGridViewTextBoxColumn.Name = "mobileDataGridViewTextBoxColumn";
+            this.mobileDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mobileDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
             // GGAOWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1025,5 +1105,12 @@
         private System.Windows.Forms.BindingSource gGAODataSetBindingSource;
         private System.Windows.Forms.BindingSource engineBindingSource;
         private GGAODataSetTableAdapters.EngineTableAdapter engineTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prenomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cINDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateNaissanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lieuNaissanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mobileDataGridViewTextBoxColumn;
     }
 }
