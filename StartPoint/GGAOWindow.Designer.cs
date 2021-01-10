@@ -454,7 +454,7 @@
             this.ribbonPanel4.Items.Add(this.EditPoleBtn);
             this.ribbonPanel4.Items.Add(this.DelPoleBtn);
             this.ribbonPanel4.Name = "ribbonPanel4";
-            this.ribbonPanel4.Text = "Pole";
+            this.ribbonPanel4.Text = "Depot";
             // 
             // PoleBtn
             // 
@@ -462,7 +462,7 @@
             this.PoleBtn.LargeImage = global::GGAO.Properties.Resources.pole;
             this.PoleBtn.Name = "PoleBtn";
             this.PoleBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("PoleBtn.SmallImage")));
-            this.PoleBtn.Text = "Pole";
+            this.PoleBtn.Text = "Depot";
             this.PoleBtn.Click += new System.EventHandler(this.PoleBtn_Click);
             // 
             // NewPoleBtn

@@ -6,10 +6,11 @@ Parmi les fonctionnalité :
 * Stock detaillé (les entrées, les sorties)
 * Gestion Plusieure type des produits
 * Gestion les mouvements des produits 
-(les depots, les Transpourteurs out les moyens de transport)
-* Filtrer affichage pour obtenir tout de suite des informations
-* Simple pour emegrer de et à cette outils par d'importation ou exportation des donneés
-* 
+(les depots, les Transpourteurs ou les moyens de transport)
+* Filtrer l'affichage pour obtenir tout de suite des informations
+* Simple pour immigrer de et à cette application par d'importation ou exportation des données
+* Impression des rapports quotidienne ou mensuelle
+* Visualisé des Courbes de Consommation des produits
 
 Prerequisite
 ------------
@@ -22,4 +23,11 @@ Screenshot
 
 ![alt text](StartPoint/Resources/scshot2.png)
 
+
+Credit
+----------
+ images used in this app from :
+ * freepik
+ * flaticon
+ * pichon
 Enjoy.
