@@ -85,7 +85,8 @@ namespace GGAO
         {
             if (lastSelectedBindingSource != null)
             {
-                lastSelectedBindingSource.Sort = this.DGVMain.SortString;
+                lastSelectedBindingSource.Sort = this.DGVMain.SortString; 
+                this.updateTotalRow();
             }
         }
 
@@ -94,7 +95,15 @@ namespace GGAO
             if (lastSelectedBindingSource != null)
             {
                 lastSelectedBindingSource.Filter = this.DGVMain.FilterString;
+                this.updateTotalRow();
             }
+        }
+
+        private void updateTotalRow()
+        {
+            this.totalRow.Text = string.Format("Total row {0}",
+                this.lastSelectedBindingSource.List.Count
+                );
         }
     }
 }

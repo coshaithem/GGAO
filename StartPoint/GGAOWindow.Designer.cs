@@ -122,6 +122,8 @@
             this.produitTableAdapter = new GGAO.GGAODataSetTableAdapters.ProduitTableAdapter();
             this.engineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.engineTableAdapter = new GGAO.GGAODataSetTableAdapters.EngineTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.totalRow = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gGAODataSet)).BeginInit();
@@ -129,6 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.engineBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -911,11 +914,31 @@
             // 
             this.engineTableAdapter.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.totalRow);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 485);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(844, 26);
+            this.panel1.TabIndex = 2;
+            // 
+            // totalRow
+            // 
+            this.totalRow.AutoSize = true;
+            this.totalRow.Location = new System.Drawing.Point(769, 5);
+            this.totalRow.Name = "totalRow";
+            this.totalRow.Size = new System.Drawing.Size(0, 13);
+            this.totalRow.TabIndex = 0;
+            // 
             // GGAOWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 511);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.DGVMain);
             this.Controls.Add(this.ribbon1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -930,6 +953,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.poleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.engineBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1028,5 +1053,7 @@
         private System.Windows.Forms.BindingSource gGAODataSetBindingSource;
         private System.Windows.Forms.BindingSource engineBindingSource;
         private GGAODataSetTableAdapters.EngineTableAdapter engineTableAdapter;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label totalRow;
     }
 }
