@@ -12,7 +12,7 @@ namespace GGAO
 {
     public partial class GGAOWindow : Form
     {
-        private BindingSource lastSelectedBindingSource = null ;
+        private BindingSource lastSelectedBindingSource = null;
         public GGAOWindow()
         {
             InitializeComponent();
@@ -28,20 +28,16 @@ namespace GGAO
             // TODO: This line of code loads data into the 'gGAODataSet.Pole' table. You can move, or remove it, as needed.
             this.poleTableAdapter.Fill(this.gGAODataSet.Pole);
             // TODO: This line of code loads data into the 'gGAODataSet.Driver' table. You can move, or remove it, as needed.
-            this.driverTableAdapter.Fill(this.gGAODataSet.Driver); 
+            this.driverTableAdapter.Fill(this.gGAODataSet.Driver);
 
-
-        }
-
-        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
 
 
         private void FillMainGridWith(BindingSource outSource)
         {
-            if ( lastSelectedBindingSource != outSource) { 
+            if (lastSelectedBindingSource != outSource)
+            {
                 this.DGVMain.Columns.Clear();
                 this.DGVMain.AutoGenerateColumns = true;
                 this.DGVMain.DataSource = outSource; //driverBindingSource
@@ -77,12 +73,28 @@ namespace GGAO
 
         private void ProductBtn_Click(object sender, EventArgs e)
         {
-            this.FillMainGridWith(this.produitBindingSource) ;
+            this.FillMainGridWith(this.produitBindingSource);
         }
- 
+
         private void EngineBtn_Click(object sender, EventArgs e)
         {
-            this.FillMainGridWith(this.engineBindingSource );
+            this.FillMainGridWith(this.engineBindingSource);
+        }
+
+        private void DGVMain_SortStringChanged(object sender, EventArgs e)
+        {
+            if (lastSelectedBindingSource != null)
+            {
+                lastSelectedBindingSource.Sort = this.DGVMain.SortString;
+            }
+        }
+
+        private void DGVMain_FilterStringChanged(object sender, EventArgs e)
+        {
+            if (lastSelectedBindingSource != null)
+            {
+                lastSelectedBindingSource.Filter = this.DGVMain.FilterString;
+            }
         }
     }
 }

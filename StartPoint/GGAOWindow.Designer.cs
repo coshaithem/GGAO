@@ -89,6 +89,8 @@
             this.ribbonButton28 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton29 = new System.Windows.Forms.RibbonButton();
             this.DGVMain = new ADGV.AdvancedDataGridView();
+            this.driverBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gGAODataSet = new GGAO.GGAODataSet();
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton9 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton10 = new System.Windows.Forms.RibbonButton();
@@ -113,28 +115,19 @@
             this.CIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gGAODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gGAODataSet = new GGAO.GGAODataSet();
             this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.driverBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.driverTableAdapter = new GGAO.GGAODataSetTableAdapters.DriverTableAdapter();
             this.poleTableAdapter = new GGAO.GGAODataSetTableAdapters.PoleTableAdapter();
             this.produitTableAdapter = new GGAO.GGAODataSetTableAdapters.ProduitTableAdapter();
             this.engineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.engineTableAdapter = new GGAO.GGAODataSetTableAdapters.EngineTableAdapter();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateNaissanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lieuNaissanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gGAODataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gGAODataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gGAODataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.engineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -671,19 +664,11 @@
             // 
             this.DGVMain.AllowUserToAddRows = false;
             this.DGVMain.AllowUserToDeleteRows = false;
-            this.DGVMain.AutoGenerateColumns = false;
+            this.DGVMain.AllowUserToOrderColumns = true;
             this.DGVMain.AutoGenerateContextFilters = true;
+            this.DGVMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVMain.BackgroundColor = System.Drawing.Color.White;
             this.DGVMain.ColumnHeadersHeight = 24;
-            this.DGVMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.nomDataGridViewTextBoxColumn,
-            this.prenomDataGridViewTextBoxColumn,
-            this.cINDataGridViewTextBoxColumn,
-            this.dateNaissanceDataGridViewTextBoxColumn,
-            this.lieuNaissanceDataGridViewTextBoxColumn,
-            this.mobileDataGridViewTextBoxColumn});
-            this.DGVMain.DataSource = this.driverBindingSource;
             this.DGVMain.DateWithTime = false;
             this.DGVMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGVMain.Location = new System.Drawing.Point(0, 152);
@@ -692,7 +677,18 @@
             this.DGVMain.Size = new System.Drawing.Size(844, 359);
             this.DGVMain.TabIndex = 1;
             this.DGVMain.TimeFilter = false;
-            this.DGVMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellContentClick);
+            this.DGVMain.SortStringChanged += new System.EventHandler(this.DGVMain_SortStringChanged);
+            this.DGVMain.FilterStringChanged += new System.EventHandler(this.DGVMain_FilterStringChanged);
+            // 
+            // driverBindingSource
+            // 
+            this.driverBindingSource.DataMember = "Driver";
+            this.driverBindingSource.DataSource = this.gGAODataSet;
+            // 
+            // gGAODataSet
+            // 
+            this.gGAODataSet.DataSetName = "GGAODataSet";
+            this.gGAODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ribbonButton2
             // 
@@ -884,11 +880,6 @@
             this.gGAODataSetBindingSource.DataSource = this.gGAODataSet;
             this.gGAODataSetBindingSource.Position = 0;
             // 
-            // gGAODataSet
-            // 
-            this.gGAODataSet.DataSetName = "GGAODataSet";
-            this.gGAODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // produitBindingSource
             // 
             this.produitBindingSource.DataMember = "Produit";
@@ -898,11 +889,6 @@
             // 
             this.poleBindingSource.DataMember = "Pole";
             this.poleBindingSource.DataSource = this.gGAODataSet;
-            // 
-            // driverBindingSource
-            // 
-            this.driverBindingSource.DataMember = "Driver";
-            this.driverBindingSource.DataSource = this.gGAODataSet;
             // 
             // driverTableAdapter
             // 
@@ -925,69 +911,6 @@
             // 
             this.engineTableAdapter.ClearBeforeFill = true;
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // nomDataGridViewTextBoxColumn
-            // 
-            this.nomDataGridViewTextBoxColumn.DataPropertyName = "Nom";
-            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
-            this.nomDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
-            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // prenomDataGridViewTextBoxColumn
-            // 
-            this.prenomDataGridViewTextBoxColumn.DataPropertyName = "Prenom";
-            this.prenomDataGridViewTextBoxColumn.HeaderText = "Prenom";
-            this.prenomDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.prenomDataGridViewTextBoxColumn.Name = "prenomDataGridViewTextBoxColumn";
-            this.prenomDataGridViewTextBoxColumn.ReadOnly = true;
-            this.prenomDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // cINDataGridViewTextBoxColumn
-            // 
-            this.cINDataGridViewTextBoxColumn.DataPropertyName = "CIN";
-            this.cINDataGridViewTextBoxColumn.HeaderText = "CIN";
-            this.cINDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.cINDataGridViewTextBoxColumn.Name = "cINDataGridViewTextBoxColumn";
-            this.cINDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cINDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dateNaissanceDataGridViewTextBoxColumn
-            // 
-            this.dateNaissanceDataGridViewTextBoxColumn.DataPropertyName = "DateNaissance";
-            this.dateNaissanceDataGridViewTextBoxColumn.HeaderText = "DateNaissance";
-            this.dateNaissanceDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.dateNaissanceDataGridViewTextBoxColumn.Name = "dateNaissanceDataGridViewTextBoxColumn";
-            this.dateNaissanceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateNaissanceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // lieuNaissanceDataGridViewTextBoxColumn
-            // 
-            this.lieuNaissanceDataGridViewTextBoxColumn.DataPropertyName = "LieuNaissance";
-            this.lieuNaissanceDataGridViewTextBoxColumn.HeaderText = "LieuNaissance";
-            this.lieuNaissanceDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.lieuNaissanceDataGridViewTextBoxColumn.Name = "lieuNaissanceDataGridViewTextBoxColumn";
-            this.lieuNaissanceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lieuNaissanceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // mobileDataGridViewTextBoxColumn
-            // 
-            this.mobileDataGridViewTextBoxColumn.DataPropertyName = "Mobile";
-            this.mobileDataGridViewTextBoxColumn.HeaderText = "Mobile";
-            this.mobileDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.mobileDataGridViewTextBoxColumn.Name = "mobileDataGridViewTextBoxColumn";
-            this.mobileDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mobileDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
             // GGAOWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1001,11 +924,11 @@
             this.Text = "Gestion Gazoil ";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gGAODataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gGAODataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gGAODataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.poleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.engineBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1105,12 +1028,5 @@
         private System.Windows.Forms.BindingSource gGAODataSetBindingSource;
         private System.Windows.Forms.BindingSource engineBindingSource;
         private GGAODataSetTableAdapters.EngineTableAdapter engineTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prenomDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cINDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateNaissanceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lieuNaissanceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mobileDataGridViewTextBoxColumn;
     }
 }
