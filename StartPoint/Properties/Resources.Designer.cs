@@ -83,6 +83,16 @@ namespace GGAO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap AugmenterFont {
+            get {
+                object obj = ResourceManager.GetObject("AugmenterFont", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap car {
             get {
                 object obj = ResourceManager.GetObject("car", resourceCulture);
@@ -326,6 +336,16 @@ namespace GGAO.Properties {
         public static System.Drawing.Bitmap rapport {
             get {
                 object obj = ResourceManager.GetObject("rapport", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ReduireFont {
+            get {
+                object obj = ResourceManager.GetObject("ReduireFont", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

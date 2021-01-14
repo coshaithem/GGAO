@@ -223,6 +223,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GGAO.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\AugmenterFont.png" />
+    <None Include="Resources\ReduireFont.png" />
     <None Include="Resources\linkedin.png" />
     <None Include="Resources\gmail.png" />
     <None Include="Resources\github.png" />

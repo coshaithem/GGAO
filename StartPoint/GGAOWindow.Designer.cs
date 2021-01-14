@@ -31,12 +31,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GGAOWindow));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonOrbOptionButton1 = new System.Windows.Forms.RibbonOrbOptionButton();
             this.randomClear = new System.Windows.Forms.RibbonButton();
             this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton17 = new System.Windows.Forms.RibbonButton();
+            this.AccueilTab = new System.Windows.Forms.RibbonTab();
+            this.PolicePanel = new System.Windows.Forms.RibbonPanel();
+            this.AugmentFont = new System.Windows.Forms.RibbonButton();
+            this.ReduireFont = new System.Windows.Forms.RibbonButton();
             this.StockTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
             this.OilInBtn = new System.Windows.Forms.RibbonButton();
@@ -57,7 +62,7 @@
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
-            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
+            this.AutreTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.ProductBtn = new System.Windows.Forms.RibbonButton();
             this.NewProductBtn = new System.Windows.Forms.RibbonButton();
@@ -78,7 +83,7 @@
             this.NewCarBtn = new System.Windows.Forms.RibbonButton();
             this.EditCarBtn = new System.Windows.Forms.RibbonButton();
             this.DelCarBtn = new System.Windows.Forms.RibbonButton();
-            this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
+            this.HelpTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.infoBtn = new System.Windows.Forms.RibbonButton();
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
@@ -89,6 +94,15 @@
             this.ribbonButton28 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton29 = new System.Windows.Forms.RibbonButton();
             this.DGVMain = new ADGV.AdvancedDataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cINDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateNaissanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lieuNaissanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recordViewDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.recordInsertedInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driverBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gGAODataSet = new GGAO.GGAODataSet();
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
@@ -160,11 +174,13 @@
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
             this.ribbon1.Size = new System.Drawing.Size(844, 152);
             this.ribbon1.TabIndex = 0;
+            this.ribbon1.Tabs.Add(this.AccueilTab);
             this.ribbon1.Tabs.Add(this.StockTab);
-            this.ribbon1.Tabs.Add(this.ribbonTab2);
-            this.ribbon1.Tabs.Add(this.ribbonTab1);
+            this.ribbon1.Tabs.Add(this.AutreTab);
+            this.ribbon1.Tabs.Add(this.HelpTab);
             this.ribbon1.TabSpacing = 3;
             this.ribbon1.Text = "ribbon1";
+            this.ribbon1.Click += new System.EventHandler(this.ribbon1_Click);
             // 
             // ribbonOrbOptionButton1
             // 
@@ -210,6 +226,37 @@
             this.ribbonButton17.Name = "ribbonButton17";
             this.ribbonButton17.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton17.SmallImage")));
             this.ribbonButton17.Text = "ribbonButton17";
+            // 
+            // AccueilTab
+            // 
+            this.AccueilTab.Name = "AccueilTab";
+            this.AccueilTab.Panels.Add(this.PolicePanel);
+            this.AccueilTab.Text = "Accueil";
+            // 
+            // PolicePanel
+            // 
+            this.PolicePanel.Items.Add(this.AugmentFont);
+            this.PolicePanel.Items.Add(this.ReduireFont);
+            this.PolicePanel.Name = "PolicePanel";
+            this.PolicePanel.Text = "Police";
+            // 
+            // AugmentFont
+            // 
+            this.AugmentFont.Image = global::GGAO.Properties.Resources.AugmenterFont;
+            this.AugmentFont.LargeImage = global::GGAO.Properties.Resources.AugmenterFont;
+            this.AugmentFont.Name = "AugmentFont";
+            this.AugmentFont.SmallImage = ((System.Drawing.Image)(resources.GetObject("AugmentFont.SmallImage")));
+            this.AugmentFont.Text = "Augmenter ";
+            this.AugmentFont.Click += new System.EventHandler(this.AugmentFont_Click);
+            // 
+            // ReduireFont
+            // 
+            this.ReduireFont.Image = global::GGAO.Properties.Resources.ReduireFont;
+            this.ReduireFont.LargeImage = global::GGAO.Properties.Resources.ReduireFont;
+            this.ReduireFont.Name = "ReduireFont";
+            this.ReduireFont.SmallImage = ((System.Drawing.Image)(resources.GetObject("ReduireFont.SmallImage")));
+            this.ReduireFont.Text = "ReduireFont";
+            this.ReduireFont.Click += new System.EventHandler(this.ReduireFont_Click);
             // 
             // StockTab
             // 
@@ -389,14 +436,14 @@
             this.ribbonButton4.SmallImage = global::GGAO.Properties.Resources.XLExport;
             this.ribbonButton4.Text = "Export Excel";
             // 
-            // ribbonTab2
+            // AutreTab
             // 
-            this.ribbonTab2.Name = "ribbonTab2";
-            this.ribbonTab2.Panels.Add(this.ribbonPanel2);
-            this.ribbonTab2.Panels.Add(this.ribbonPanel4);
-            this.ribbonTab2.Panels.Add(this.ribbonPanel5);
-            this.ribbonTab2.Panels.Add(this.ribbonPanel12);
-            this.ribbonTab2.Text = "Autre";
+            this.AutreTab.Name = "AutreTab";
+            this.AutreTab.Panels.Add(this.ribbonPanel2);
+            this.AutreTab.Panels.Add(this.ribbonPanel4);
+            this.AutreTab.Panels.Add(this.ribbonPanel5);
+            this.AutreTab.Panels.Add(this.ribbonPanel12);
+            this.AutreTab.Text = "Autre";
             // 
             // ribbonPanel2
             // 
@@ -581,11 +628,11 @@
             this.DelCarBtn.SmallImage = global::GGAO.Properties.Resources.del;
             this.DelCarBtn.Text = "Supprimer";
             // 
-            // ribbonTab1
+            // HelpTab
             // 
-            this.ribbonTab1.Name = "ribbonTab1";
-            this.ribbonTab1.Panels.Add(this.ribbonPanel6);
-            this.ribbonTab1.Text = "Help";
+            this.HelpTab.Name = "HelpTab";
+            this.HelpTab.Panels.Add(this.ribbonPanel6);
+            this.HelpTab.Text = "Help";
             // 
             // ribbonPanel6
             // 
@@ -668,20 +715,123 @@
             this.DGVMain.AllowUserToAddRows = false;
             this.DGVMain.AllowUserToDeleteRows = false;
             this.DGVMain.AllowUserToOrderColumns = true;
+            this.DGVMain.AutoGenerateColumns = false;
             this.DGVMain.AutoGenerateContextFilters = true;
             this.DGVMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVMain.BackgroundColor = System.Drawing.Color.White;
-            this.DGVMain.ColumnHeadersHeight = 24;
+            this.DGVMain.ColumnHeadersHeight = 26;
+            this.DGVMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.nomDataGridViewTextBoxColumn,
+            this.prenomDataGridViewTextBoxColumn,
+            this.cINDataGridViewTextBoxColumn,
+            this.dateNaissanceDataGridViewTextBoxColumn,
+            this.lieuNaissanceDataGridViewTextBoxColumn,
+            this.mobileDataGridViewTextBoxColumn,
+            this.recordViewDataGridViewCheckBoxColumn,
+            this.recordInsertedInDataGridViewTextBoxColumn});
+            this.DGVMain.DataSource = this.driverBindingSource;
             this.DGVMain.DateWithTime = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVMain.DefaultCellStyle = dataGridViewCellStyle1;
             this.DGVMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGVMain.Location = new System.Drawing.Point(0, 152);
             this.DGVMain.Name = "DGVMain";
             this.DGVMain.ReadOnly = true;
+            this.DGVMain.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DGVMain.Size = new System.Drawing.Size(844, 359);
             this.DGVMain.TabIndex = 1;
             this.DGVMain.TimeFilter = false;
             this.DGVMain.SortStringChanged += new System.EventHandler(this.DGVMain_SortStringChanged);
             this.DGVMain.FilterStringChanged += new System.EventHandler(this.DGVMain_FilterStringChanged);
+            this.DGVMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVMain_CellContentClick);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // nomDataGridViewTextBoxColumn
+            // 
+            this.nomDataGridViewTextBoxColumn.DataPropertyName = "Nom";
+            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nomDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
+            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // prenomDataGridViewTextBoxColumn
+            // 
+            this.prenomDataGridViewTextBoxColumn.DataPropertyName = "Prenom";
+            this.prenomDataGridViewTextBoxColumn.HeaderText = "Prenom";
+            this.prenomDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.prenomDataGridViewTextBoxColumn.Name = "prenomDataGridViewTextBoxColumn";
+            this.prenomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prenomDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // cINDataGridViewTextBoxColumn
+            // 
+            this.cINDataGridViewTextBoxColumn.DataPropertyName = "CIN";
+            this.cINDataGridViewTextBoxColumn.HeaderText = "CIN";
+            this.cINDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.cINDataGridViewTextBoxColumn.Name = "cINDataGridViewTextBoxColumn";
+            this.cINDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cINDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dateNaissanceDataGridViewTextBoxColumn
+            // 
+            this.dateNaissanceDataGridViewTextBoxColumn.DataPropertyName = "DateNaissance";
+            this.dateNaissanceDataGridViewTextBoxColumn.HeaderText = "DateNaissance";
+            this.dateNaissanceDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.dateNaissanceDataGridViewTextBoxColumn.Name = "dateNaissanceDataGridViewTextBoxColumn";
+            this.dateNaissanceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateNaissanceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // lieuNaissanceDataGridViewTextBoxColumn
+            // 
+            this.lieuNaissanceDataGridViewTextBoxColumn.DataPropertyName = "LieuNaissance";
+            this.lieuNaissanceDataGridViewTextBoxColumn.HeaderText = "LieuNaissance";
+            this.lieuNaissanceDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.lieuNaissanceDataGridViewTextBoxColumn.Name = "lieuNaissanceDataGridViewTextBoxColumn";
+            this.lieuNaissanceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lieuNaissanceDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // mobileDataGridViewTextBoxColumn
+            // 
+            this.mobileDataGridViewTextBoxColumn.DataPropertyName = "Mobile";
+            this.mobileDataGridViewTextBoxColumn.HeaderText = "Mobile";
+            this.mobileDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.mobileDataGridViewTextBoxColumn.Name = "mobileDataGridViewTextBoxColumn";
+            this.mobileDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mobileDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // recordViewDataGridViewCheckBoxColumn
+            // 
+            this.recordViewDataGridViewCheckBoxColumn.DataPropertyName = "recordView";
+            this.recordViewDataGridViewCheckBoxColumn.HeaderText = "recordView";
+            this.recordViewDataGridViewCheckBoxColumn.MinimumWidth = 22;
+            this.recordViewDataGridViewCheckBoxColumn.Name = "recordViewDataGridViewCheckBoxColumn";
+            this.recordViewDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.recordViewDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // recordInsertedInDataGridViewTextBoxColumn
+            // 
+            this.recordInsertedInDataGridViewTextBoxColumn.DataPropertyName = "recordInsertedIn";
+            this.recordInsertedInDataGridViewTextBoxColumn.HeaderText = "recordInsertedIn";
+            this.recordInsertedInDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.recordInsertedInDataGridViewTextBoxColumn.Name = "recordInsertedInDataGridViewTextBoxColumn";
+            this.recordInsertedInDataGridViewTextBoxColumn.ReadOnly = true;
+            this.recordInsertedInDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // driverBindingSource
             // 
@@ -964,7 +1114,7 @@
         private System.Windows.Forms.Ribbon ribbon1;
         private System.Windows.Forms.RibbonTab StockTab;
         private System.Windows.Forms.RibbonPanel ribbonPanel1;
-        private System.Windows.Forms.RibbonTab ribbonTab2;
+        private System.Windows.Forms.RibbonTab AutreTab;
         private System.Windows.Forms.RibbonOrbOptionButton ribbonOrbOptionButton1;
         private System.Windows.Forms.RibbonPanel ribbonPanel3;
         private System.Windows.Forms.RibbonPanel ribbonPanel2;
@@ -976,7 +1126,7 @@
         private System.Windows.Forms.RibbonButton ribbonButton27;
         private System.Windows.Forms.RibbonButton ribbonButton28;
         private System.Windows.Forms.RibbonButton ribbonButton29;
-        private System.Windows.Forms.RibbonTab ribbonTab1;
+        private System.Windows.Forms.RibbonTab HelpTab;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
         private System.Windows.Forms.RibbonButton infoBtn;
         private System.Windows.Forms.RibbonButton ribbonButton2;
@@ -1055,5 +1205,18 @@
         private GGAODataSetTableAdapters.EngineTableAdapter engineTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label totalRow;
+        private System.Windows.Forms.RibbonTab AccueilTab;
+        private System.Windows.Forms.RibbonPanel PolicePanel;
+        private System.Windows.Forms.RibbonButton AugmentFont;
+        private System.Windows.Forms.RibbonButton ReduireFont;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prenomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cINDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateNaissanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lieuNaissanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mobileDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn recordViewDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn recordInsertedInDataGridViewTextBoxColumn;
     }
 }

@@ -105,5 +105,36 @@ namespace GGAO
                 this.lastSelectedBindingSource.List.Count
                 );
         }
+
+        private void ribbon1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DGVMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void AugmentFont_Click(object sender, EventArgs e)
+        {
+            float fontsize = DGVMain.DefaultCellStyle.Font.Size;
+            if (fontsize < 20)
+            {
+                DGVMain.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", fontsize + 2);
+                DGVMain.RowTemplate.Height = DGVMain.RowTemplate.Height + 2;
+            }
+        }
+
+
+        private void ReduireFont_Click(object sender, EventArgs e)
+        {
+            float fontsize = DGVMain.DefaultCellStyle.Font.Size;
+            if ( fontsize > 12) 
+            { 
+                DGVMain.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", fontsize - 2 );
+                DGVMain.RowTemplate.Height = DGVMain.RowTemplate.Height - 2 ;
+            }
+        }
     }
 }
