@@ -718,6 +718,7 @@
             this.DGVMain.AutoGenerateColumns = false;
             this.DGVMain.AutoGenerateContextFilters = true;
             this.DGVMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVMain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DGVMain.BackgroundColor = System.Drawing.Color.White;
             this.DGVMain.ColumnHeadersHeight = 26;
             this.DGVMain.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -744,6 +745,7 @@
             this.DGVMain.Location = new System.Drawing.Point(0, 152);
             this.DGVMain.Name = "DGVMain";
             this.DGVMain.ReadOnly = true;
+            this.DGVMain.RowTemplate.Height = 26;
             this.DGVMain.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DGVMain.Size = new System.Drawing.Size(844, 359);
             this.DGVMain.TabIndex = 1;

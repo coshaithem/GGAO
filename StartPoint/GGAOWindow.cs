@@ -122,7 +122,13 @@ namespace GGAO
             if (fontsize < 20)
             {
                 DGVMain.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", fontsize + 2);
-                DGVMain.RowTemplate.Height = DGVMain.RowTemplate.Height + 2;
+                //DGVMain.RowTemplate.Height = DGVMain.RowTemplate.Height + 2;
+               /* 
+                foreach (DataGridViewRow x in DGVMain.Rows)
+                {
+                    x.Height = x.Height + 2 ;
+                }
+               */
             }
         }
 
@@ -133,7 +139,13 @@ namespace GGAO
             if ( fontsize > 12) 
             { 
                 DGVMain.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", fontsize - 2 );
-                DGVMain.RowTemplate.Height = DGVMain.RowTemplate.Height - 2 ;
+                //DGVMain.RowTemplate.Height = DGVMain.RowTemplate.Height - 2 ;
+                /*
+                foreach (DataGridViewRow x in DGVMain.Rows)
+                {
+                    x.Height = x.Height - 2;
+                }
+                */
             }
         }
     }
