@@ -32,8 +32,7 @@
             this.htlp = new StartPoint.HeaderTopLevelPanel();
             this.headerTopLevelPanel1 = new StartPoint.HeaderTopLevelPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
+           
             this.SuspendLayout();
             // 
             // htlp
@@ -60,18 +59,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(410, 33);
             this.textBox1.TabIndex = 2;
-            // 
-            // advancedDataGridView1
-            // 
-            this.advancedDataGridView1.AllowUserToOrderColumns = true;
-            this.advancedDataGridView1.AutoGenerateContextFilters = true;
-            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView1.DateWithTime = false;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(2, 81);
-            this.advancedDataGridView1.Name = "advancedDataGridView1";
-            this.advancedDataGridView1.Size = new System.Drawing.Size(727, 397);
-            this.advancedDataGridView1.TabIndex = 3;
-            this.advancedDataGridView1.TimeFilter = false;
+ 
             // 
             // f_Main
             // 
@@ -79,14 +67,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(729, 490);
-            this.Controls.Add(this.advancedDataGridView1);
+             
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.headerTopLevelPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "f_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "f_Main";
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
+            this.Text = "f_Main"; 
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,6 +83,5 @@
 
         private HeaderTopLevelPanel headerTopLevelPanel1;
         private System.Windows.Forms.TextBox textBox1;
-        private ADGV.AdvancedDataGridView advancedDataGridView1;
     }
 }

@@ -123,6 +123,16 @@ namespace GGAO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap DisableFilter {
+            get {
+                object obj = ResourceManager.GetObject("DisableFilter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap driver {
             get {
                 object obj = ResourceManager.GetObject("driver", resourceCulture);
@@ -136,6 +146,16 @@ namespace GGAO.Properties {
         public static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap EnableFilter {
+            get {
+                object obj = ResourceManager.GetObject("EnableFilter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -286,6 +306,16 @@ namespace GGAO.Properties {
         public static System.Drawing.Bitmap OilOut {
             get {
                 object obj = ResourceManager.GetObject("OilOut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ORBimage {
+            get {
+                object obj = ResourceManager.GetObject("ORBimage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
