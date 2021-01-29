@@ -353,6 +353,7 @@
             this.ProductBtn.Name = "ProductBtn";
             this.ProductBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ProductBtn.SmallImage")));
             this.ProductBtn.Text = "";
+            this.ProductBtn.Click += new System.EventHandler(this.ProductBtn_Click);
             // 
             // NewProductBtn
             // 
@@ -362,6 +363,7 @@
             this.NewProductBtn.Name = "NewProductBtn";
             this.NewProductBtn.SmallImage = global::GGAO.Properties.Resources.add;
             this.NewProductBtn.Text = "Nouveau";
+            this.NewProductBtn.Click += new System.EventHandler(this.NewProductBtn_Click);
             // 
             // EditProductBtn
             // 
@@ -371,6 +373,7 @@
             this.EditProductBtn.Name = "EditProductBtn";
             this.EditProductBtn.SmallImage = global::GGAO.Properties.Resources.edit;
             this.EditProductBtn.Text = "Modifier";
+            this.EditProductBtn.Click += new System.EventHandler(this.EditProductBtn_Click);
             // 
             // DelProductBtn
             // 
@@ -380,6 +383,7 @@
             this.DelProductBtn.Name = "DelProductBtn";
             this.DelProductBtn.SmallImage = global::GGAO.Properties.Resources.del;
             this.DelProductBtn.Text = "Supprimer";
+            this.DelProductBtn.Click += new System.EventHandler(this.DelProductBtn_Click);
             // 
             // DepoRibbonPanel
             // 
@@ -901,7 +905,6 @@
             this.Name = "GGAOWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Gazoil ";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).EndInit();

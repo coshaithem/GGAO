@@ -9,13 +9,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GGAO.Driver;
+using GGAO.Product;
 namespace GGAO
 {
     public partial class GGAOWindow : Form
     {
         SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
-
-        
+        private byte activeTable = 0 ;
+        /*
+         0 - none 
+         1 - alimentation
+         2 - consommation
+         3 - produit
+         4 - pole
+         5 - Driver
+         6 - engine
+         
+         */
         private BindingSource lastSelectedBindingSource = null;
 
         public GGAOWindow()
@@ -23,55 +33,51 @@ namespace GGAO
             InitializeComponent();
              
         }
-        
-        private void Form1_Load(object sender, EventArgs e)
-        { 
-            // TODO: This line of code loads data into the 'gGAODataSet.Driver' table. You can move, or remove it, as needed.
-           // this.driverTableAdapter.Fill(this.gGAODataSet.Driver);
-             
 
-        }
-
-
-        private  void resetDGVMain()
+        private void resetDGVMain()
         {
-            getTheMainGrid().Columns.Clear();
+            if (getTheMainGrid().Columns.Count >= 1)
+                getTheMainGrid().Columns.Clear();
+
+            if (getTheMainGrid().Rows.Count >= 1)
+                getTheMainGrid().Rows.Clear();
+
+            if (lastSelectedBindingSource != null) { 
+                lastSelectedBindingSource = null;
+                getTheMainGrid().DataSource = null;
+            }
             getTheMainGrid().AutoGenerateColumns = true; 
  
         }
 
-         
-
-        public void LoadVisibleDriver()
+         private void LoadVisible( string table)
         {
+
+
             resetDGVMain();
-            /*
-            SqlCommand cmd = new SqlCommand("CRUDDriver", con);
-            cmd.Parameters.AddWithValue("@choise", SqlDbType.NVarChar).Value = "SELECT";
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-
-            da.Fill(dt);
-            */
             BindingSource MyOwnBindingSource = new BindingSource();
-            MyOwnBindingSource.DataSource = DriverCRUDOps.getVisibleDriver();
-            //this.MyOwnBindingSource.DataMember = "Driver";
+            switch ( table)
+            {
+                case "Driver": MyOwnBindingSource.DataSource = DriverCRUDOps.getVisibleDriver(); break;
+                case "Product": MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct() ; break;
+            }
             lastSelectedBindingSource = MyOwnBindingSource;
-            getTheMainGrid().DataSource =  MyOwnBindingSource ;
+            getTheMainGrid().DataSource = MyOwnBindingSource;
             // you should add Status Label .text here
             this.StatusLabel.Text = string.Format("Mise a jour {0}",
-                DateTime.Now.ToString("dd/MM/yyyy  hh:mm:ss") 
+                DateTime.Now.ToString("dd/MM/yyyy  hh:mm:ss")
                 );
+
         }
-
-
+         
         private void NewDriverBtn_Click(object sender, EventArgs e)
         {
-            InsertUpdateDriver form = new InsertUpdateDriver(true);
-            
-            form.ShowDialog();
-            LoadVisibleDriver();
+            if ( this.activeTable == 5) { 
+                InsertUpdateDriver form = new InsertUpdateDriver(true);
+                form.ShowDialog();
+                LoadVisible("Driver");
+            }
+
         }
  
 
@@ -124,8 +130,12 @@ namespace GGAO
 
         private void DriverBtn_Click(object sender, EventArgs e)
         {
-            
-            LoadVisibleDriver();
+            LoadVisible("Driver");
+            this.activeTable = 5;
+            // toggle Sort and Filter stat
+            if (DGVMain.FilterAndSortEnabled == true)
+                this.toggleFilterAndSort();
+
         }
 
         
@@ -141,28 +151,29 @@ namespace GGAO
 
         private void DelDriverBtn_Click(object sender, EventArgs e)
         {
-            // get the ID of the selected row
-            if (selectedRowIndex >= 0)
-            {
-                string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString() ;
-
-                // ask comfirmation from the user  
-                if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation ) == DialogResult.Yes)
+            if ( this.activeTable == 5 ) { 
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
                 {
-                    DriverCRUDOps.deleteDriver(ID);
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString() ;
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation ) == DialogResult.Yes)
+                    {
+                        DriverCRUDOps.deleteDriver(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible("Driver");
                 }
-                // to  obligate the user to reselect
-                selectedRowIndex = -1;
-                selectedColIndex = -1;
-                LoadVisibleDriver();
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
             }
-            else
-            {
-                MessageBox.Show("Selectioner une ligne pour supprimer",
-                   "Action incorrect", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
-            }
-           
         }
 
         private void FilterBtn_Click(object sender, EventArgs e)
@@ -172,34 +183,63 @@ namespace GGAO
 
             if ( DGVMain.Columns.Count >= 1)
             {
-                foreach( DataGridViewColumn col in DGVMain.Columns  )
-                   DGVMain.SetFilterAndSortEnabled(col  , !filter);
 
                 //DGVMain.SetFilterEnabled(DGVMain.Columns[1], true);
                 //MessageBox.Show(" NB Column " +  DGVMain.Columns.Count.ToString() );
-
+                /*
                 if (filter) // if its true means show the user the disable img
                 {
-                    // First disable filter and Sort
-                    lastSelectedBindingSource.Sort = "";
-                    lastSelectedBindingSource.Filter = "";
+                    this.clearFilterSortString();
+
                     
-                    // change the image
-                    this.FilterBtn.Image = global::GGAO.Properties.Resources.EnableFilter;
-                    this.FilterBtn.LargeImage = global::GGAO.Properties.Resources.EnableFilter;
                 }
                 else // means show the user the enable img
                 {
-                    this.FilterBtn.Image = global::GGAO.Properties.Resources.DisableFilter;
-                    this.FilterBtn.LargeImage = global::GGAO.Properties.Resources.DisableFilter;
-                }
-                DGVMain.FilterAndSortEnabled = !filter;
+                    
+                }*/
+                this.toggleFilterAndSort();
             }
 
             
         }
 
+        private void toggleFilterAndSort()
+        {
+            bool filter = DGVMain.FilterAndSortEnabled;
+            if ( filter )
+            {
+                this.allowUserToActivateFilter();
+            }
+            else
+            {
+                this.allowUserToDisableFilter();
+            }
 
+            foreach (DataGridViewColumn col in DGVMain.Columns)
+                DGVMain.SetFilterAndSortEnabled(col, !filter);
+            DGVMain.FilterAndSortEnabled = !filter;
+            this.clearFilterSortString();
+        }
+
+        private void clearFilterSortString()
+        {
+            // First disable filter and Sort
+            lastSelectedBindingSource.Sort = "";
+            lastSelectedBindingSource.Filter = "";
+        }
+
+        private void allowUserToActivateFilter()
+        {
+            // change the image
+            this.FilterBtn.Image = global::GGAO.Properties.Resources.EnableFilter;
+            this.FilterBtn.LargeImage = global::GGAO.Properties.Resources.EnableFilter; 
+        }
+
+        private void allowUserToDisableFilter()
+        {
+            this.FilterBtn.Image = global::GGAO.Properties.Resources.DisableFilter;
+            this.FilterBtn.LargeImage = global::GGAO.Properties.Resources.DisableFilter;
+        }
         private void DGVMain_SortStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.SortEventArgs e)
         {
             if (lastSelectedBindingSource != null)
@@ -218,32 +258,114 @@ namespace GGAO
             }
         }
 
+        private void ProductBtn_Click(object sender, EventArgs e)
+        {
+            LoadVisible("Product");
+            this.activeTable = 3; 
+            // toggle Sort and Filter stat
+            if (DGVMain.FilterAndSortEnabled == true)
+                this.toggleFilterAndSort();
+
+        }
+
+        private void NewProductBtn_Click(object sender, EventArgs e)
+        {
+            if (this.activeTable == 3)
+            { //InsertUpdateDriver form = new InsertUpdateDriver(true);
+                InsertUpdateProduct form = new InsertUpdateProduct(true);
+                form.ShowDialog();
+                LoadVisible("Product");
+            }
+        }
+
+        private void EditProductBtn_Click(object sender, EventArgs e)
+        {
+            if (this.activeTable == 3)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
+                    , Nom = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
+                    , ptype = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , pdesc = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString();
+                    InsertUpdateProduct form = new InsertUpdateProduct(false); 
+                    form.setDefaultValueforFields(ID, Nom,ptype,pdesc);
+                    form.ShowDialog();
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+
+                    LoadVisible("Product");
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour modifier",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void DelProductBtn_Click(object sender, EventArgs e)
+        {
+            if (this.activeTable == 3)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        ProductCRUDOps.deleteProduct(ID);
+                        // DriverCRUDOps.deleteDriver(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible("Product");
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
         private void EditDriverBtn_Click(object sender, EventArgs e)
         {
-            // get the ID of the selected row
-            if (selectedRowIndex >= 0) { 
-                string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
-                , Nom = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
-                , Prenom = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
-                , CIN = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString()
-                , DATE = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString()
-                , Lieu = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString()
-                , Mobile = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString();
-
-                InsertUpdateDriver form = new InsertUpdateDriver(false);
-                form.setDefaultValueforFields(ID, Nom, Prenom, CIN, DATE, Lieu, Mobile);
-                form.ShowDialog();
-                // to  obligate the user to reselect
-                selectedRowIndex = -1;
-                selectedColIndex = -1;
-
-                LoadVisibleDriver();
-            }
-            else
+            if (this.activeTable == 5)
             {
-                MessageBox.Show("Selectioner une ligne pour modifier",
-                   "Action incorrect", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
+                    , Nom = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
+                    , Prenom = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , CIN = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString()
+                    , DATE = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString()
+                    , Lieu = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString()
+                    , Mobile = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString();
+
+                    InsertUpdateDriver form = new InsertUpdateDriver(false);
+                    form.setDefaultValueforFields(ID, Nom, Prenom, CIN, DATE, Lieu, Mobile);
+                    form.ShowDialog();
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+
+                    LoadVisible("Driver");
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour modifier",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
             }
         }
     }
