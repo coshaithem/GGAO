@@ -73,50 +73,7 @@ namespace GGAO
             form.ShowDialog();
             LoadVisibleDriver();
         }
-
-        private void PoleBtn_Click(object sender, EventArgs e)
-        {
-        //        this.FillMainGridWith(this.poleBindingSource);
-        }
-
-        private void randomClearAction(object sender, EventArgs e)
-        {
-
-            DGVMain.Columns.Clear();
-            DGVMain.Rows.Clear();
-
-            DGVMain.AutoGenerateColumns = true;
-            //this.DGVMain.DataSource = null; // this.driverBindingSource; //driverBindingSource
-
-        }
-
-        private void ProductBtn_Click(object sender, EventArgs e)
-        {
-           // this.FillMainGridWith(this.produitBindingSource);
-        }
-
-        private void EngineBtn_Click(object sender, EventArgs e)
-        {
-           //  this.FillMainGridWith(this.engineBindingSource);
-        }
-
-        private void DGVMain_SortStringChanged(object sender, EventArgs e)
-        {
-            if (lastSelectedBindingSource != null)
-            {
-                lastSelectedBindingSource.Sort = DGVMain.SortString; 
-                this.updateTotalRow();
-            }
-        }
-
-        private void DGVMain_FilterStringChanged(object sender, EventArgs e)
-        {
-            if (lastSelectedBindingSource != null)
-            {
-                lastSelectedBindingSource.Filter = DGVMain.FilterString;
-                this.updateTotalRow();
-            }
-        }
+ 
 
         private void updateTotalRow()
         {
@@ -126,11 +83,6 @@ namespace GGAO
         }
 
         private void ribbon1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DGVMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -228,6 +180,11 @@ namespace GGAO
 
                 if (filter) // if its true means show the user the disable img
                 {
+                    // First disable filter and Sort
+                    lastSelectedBindingSource.Sort = "";
+                    lastSelectedBindingSource.Filter = "";
+                    
+                    // change the image
                     this.FilterBtn.Image = global::GGAO.Properties.Resources.EnableFilter;
                     this.FilterBtn.LargeImage = global::GGAO.Properties.Resources.EnableFilter;
                 }
@@ -242,15 +199,23 @@ namespace GGAO
             
         }
 
-        private void DGVMain_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
 
         private void DGVMain_SortStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.SortEventArgs e)
         {
-            lastSelectedBindingSource.Sort = DGVMain.SortString;
-            this.updateTotalRow();
+            if (lastSelectedBindingSource != null)
+            {
+                lastSelectedBindingSource.Sort = DGVMain.SortString;
+                this.updateTotalRow();  
+            }
+        }  
+
+        private void DGVMain_FilterStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.FilterEventArgs e)
+        {
+            if (lastSelectedBindingSource != null)
+            {
+                lastSelectedBindingSource.Filter = DGVMain.FilterString;
+                this.updateTotalRow();
+            }
         }
 
         private void EditDriverBtn_Click(object sender, EventArgs e)
