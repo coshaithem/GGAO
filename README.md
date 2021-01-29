@@ -19,9 +19,9 @@ Prerequisite
 
 Screenshot
 ----------
-![alt text](StartPoint/Resources/scshot.png)
+![alt text](StartPoint/Resources/img1.png)
 
-![alt text](StartPoint/Resources/scshot2.png)
+![alt text](StartPoint/Resources/img2.png)
 
 
 Credit
