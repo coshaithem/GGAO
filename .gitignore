@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/StartPoint/db with 4 driver
+/StartPoint/db raw version 2 driver
