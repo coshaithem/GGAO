@@ -401,6 +401,7 @@
             this.PoleBtn.Name = "PoleBtn";
             this.PoleBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("PoleBtn.SmallImage")));
             this.PoleBtn.Text = "";
+            this.PoleBtn.Click += new System.EventHandler(this.PoleBtn_Click);
             // 
             // NewPoleBtn
             // 
@@ -411,6 +412,7 @@
             this.NewPoleBtn.Name = "NewPoleBtn";
             this.NewPoleBtn.SmallImage = global::GGAO.Properties.Resources.add;
             this.NewPoleBtn.Text = "Nouveau";
+            this.NewPoleBtn.Click += new System.EventHandler(this.NewPoleBtn_Click);
             // 
             // EditPoleBtn
             // 
@@ -421,6 +423,7 @@
             this.EditPoleBtn.Name = "EditPoleBtn";
             this.EditPoleBtn.SmallImage = global::GGAO.Properties.Resources.edit;
             this.EditPoleBtn.Text = "Modifier";
+            this.EditPoleBtn.Click += new System.EventHandler(this.EditPoleBtn_Click);
             // 
             // DelPoleBtn
             // 
@@ -431,6 +434,7 @@
             this.DelPoleBtn.Name = "DelPoleBtn";
             this.DelPoleBtn.SmallImage = global::GGAO.Properties.Resources.del;
             this.DelPoleBtn.Text = "Supprimer";
+            this.DelPoleBtn.Click += new System.EventHandler(this.DelPoleBtn_Click);
             // 
             // DriverRibbonPanel
             // 

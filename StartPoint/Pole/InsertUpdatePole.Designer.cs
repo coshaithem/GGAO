@@ -1,6 +1,6 @@
-﻿namespace GGAO.Product
+﻿namespace GGAO.Pole
 {
-    partial class InsertUpdateProduct
+    partial class InsertUpdatePole
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxProductDesc = new System.Windows.Forms.TextBox();
+            this.DescriptiontextBox = new System.Windows.Forms.TextBox();
+            this.AddresstextBox = new System.Windows.Forms.TextBox();
+            this.LibelletextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxProductType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxProductName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.SaveButton = new System.Windows.Forms.Button();
@@ -43,110 +43,112 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxProductDesc);
+            this.groupBox1.Controls.Add(this.DescriptiontextBox);
+            this.groupBox1.Controls.Add(this.AddresstextBox);
+            this.groupBox1.Controls.Add(this.LibelletextBox);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBoxProductType);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBoxProductName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(-1, 0);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 166);
+            this.groupBox1.Size = new System.Drawing.Size(313, 199);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
-            // textBoxProductDesc
+            // DescriptiontextBox
             // 
-            this.textBoxProductDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProductDesc.Location = new System.Drawing.Point(114, 90);
-            this.textBoxProductDesc.Multiline = true;
-            this.textBoxProductDesc.Name = "textBoxProductDesc";
-            this.textBoxProductDesc.Size = new System.Drawing.Size(178, 65);
-            this.textBoxProductDesc.TabIndex = 5;
+            this.DescriptiontextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DescriptiontextBox.Location = new System.Drawing.Point(118, 110);
+            this.DescriptiontextBox.Multiline = true;
+            this.DescriptiontextBox.Name = "DescriptiontextBox";
+            this.DescriptiontextBox.Size = new System.Drawing.Size(180, 82);
+            this.DescriptiontextBox.TabIndex = 5;
+            // 
+            // AddresstextBox
+            // 
+            this.AddresstextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddresstextBox.Location = new System.Drawing.Point(118, 68);
+            this.AddresstextBox.Name = "AddresstextBox";
+            this.AddresstextBox.Size = new System.Drawing.Size(180, 26);
+            this.AddresstextBox.TabIndex = 4;
+            // 
+            // LibelletextBox
+            // 
+            this.LibelletextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LibelletextBox.Location = new System.Drawing.Point(118, 29);
+            this.LibelletextBox.Name = "LibelletextBox";
+            this.LibelletextBox.Size = new System.Drawing.Size(180, 26);
+            this.LibelletextBox.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 90);
+            this.label3.Location = new System.Drawing.Point(22, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 20);
-            this.label3.TabIndex = 4;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Description";
-            // 
-            // textBoxProductType
-            // 
-            this.textBoxProductType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProductType.Location = new System.Drawing.Point(114, 55);
-            this.textBoxProductType.Name = "textBoxProductType";
-            this.textBoxProductType.Size = new System.Drawing.Size(178, 26);
-            this.textBoxProductType.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 55);
+            this.label2.Location = new System.Drawing.Point(22, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Type";
-            // 
-            // textBoxProductName
-            // 
-            this.textBoxProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProductName.Location = new System.Drawing.Point(114, 19);
-            this.textBoxProductName.Name = "textBoxProductName";
-            this.textBoxProductName.Size = new System.Drawing.Size(178, 26);
-            this.textBoxProductName.TabIndex = 1;
+            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Address";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 21);
+            this.label1.Location = new System.Drawing.Point(22, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 20);
+            this.label1.Size = new System.Drawing.Size(54, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nom";
+            this.label1.Text = "Libelle";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.SaveButton);
-            this.groupBox2.Location = new System.Drawing.Point(-1, 172);
+            this.groupBox2.Location = new System.Drawing.Point(0, 198);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 56);
+            this.groupBox2.Size = new System.Drawing.Size(313, 67);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operation";
             // 
-            // SaveButton
+            // SaveBtn
             // 
-            this.SaveButton.Location = new System.Drawing.Point(217, 16);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 31);
-            this.SaveButton.TabIndex = 0;
+            this.SaveButton.Location = new System.Drawing.Point(217, 19);
+            this.SaveButton.Name = "SaveBtn";
+            this.SaveButton.Size = new System.Drawing.Size(81, 35);
+            this.SaveButton.TabIndex = 3;
             this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            this.SaveButton.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
-            // InsertUpdateProduct
+            // InsertUpdatePole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 234);
+            this.ClientSize = new System.Drawing.Size(315, 265);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "InsertUpdateProduct";
+            this.Name = "InsertUpdatePole";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.InsertUpdatePole_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
+         
         public void setTitle(bool insertOrupdate)
         {
             if (!insertOrupdate)
@@ -160,20 +162,20 @@
                 this.SaveButton.Text = "Enregistrer";
             }
         }
-        #endregion
-        void setInitialValue(string _nom, string _type, string _desc )
-        {
-            textBoxProductName.Text = _nom;
-            textBoxProductType.Text = _type;
-            textBoxProductDesc.Text = _desc; 
-        }
         
+        void setInitialValue(string _nom, string _addr, string _desc)
+        {
+            LibelletextBox.Text = _nom;
+            AddresstextBox.Text = _addr;
+            DescriptiontextBox.Text = _desc;
+        }
+        #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxProductDesc;
+        private System.Windows.Forms.TextBox DescriptiontextBox;
+        private System.Windows.Forms.TextBox AddresstextBox;
+        private System.Windows.Forms.TextBox LibelletextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxProductType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxProductName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button SaveButton;

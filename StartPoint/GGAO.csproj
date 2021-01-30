@@ -74,8 +74,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AdvancedDataGridView, Version=1.1.24722.8, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\INFO-PC\.nuget\packages\dg.advanceddatagridview\1.1.24722.8\lib\net40\AdvancedDataGridView.dll</HintPath>
+      <HintPath>..\packages\DG.AdvancedDataGridView.1.1.24722.8\lib\net40\AdvancedDataGridView.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll</HintPath>
@@ -127,6 +126,13 @@
     <Compile Include="HeaderTopLevelPanel.Designer.cs">
       <DependentUpon>HeaderTopLevelPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pole\InsertUpdatePole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pole\InsertUpdatePole.Designer.cs">
+      <DependentUpon>InsertUpdatePole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pole\PoleCRUDOps.cs" />
     <Compile Include="Product\InsertUpdateProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HeaderTopLevelPanel.resx">
       <DependentUpon>HeaderTopLevelPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pole\InsertUpdatePole.resx">
+      <DependentUpon>InsertUpdatePole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product\InsertUpdateProduct.resx">
       <DependentUpon>InsertUpdateProduct.cs</DependentUpon>
@@ -282,5 +291,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

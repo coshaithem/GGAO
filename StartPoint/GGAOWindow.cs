@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GGAO.Driver;
 using GGAO.Product;
+using GGAO.Pole;
 namespace GGAO
 {
     public partial class GGAOWindow : Form
@@ -59,13 +60,14 @@ namespace GGAO
             switch ( table)
             {
                 case "Driver": MyOwnBindingSource.DataSource = DriverCRUDOps.getVisibleDriver(); break;
-                case "Product": MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct() ; break;
+                case "Product": MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct(); break;
+                case "Pole": MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole() ; break;
             }
             lastSelectedBindingSource = MyOwnBindingSource;
             getTheMainGrid().DataSource = MyOwnBindingSource;
             // you should add Status Label .text here
-            this.StatusLabel.Text = string.Format("Mise a jour {0}",
-                DateTime.Now.ToString("dd/MM/yyyy  hh:mm:ss")
+            this.StatusLabel.Text = string.Format("Mise a jour "+table+"  {0}",
+                DateTime.Now.ToString("hh:mm:ss")
                 );
 
         }
@@ -149,32 +151,7 @@ namespace GGAO
 
         }
 
-        private void DelDriverBtn_Click(object sender, EventArgs e)
-        {
-            if ( this.activeTable == 5 ) { 
-                // get the ID of the selected row
-                if (selectedRowIndex >= 0)
-                {
-                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString() ;
-
-                    // ask comfirmation from the user  
-                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation ) == DialogResult.Yes)
-                    {
-                        DriverCRUDOps.deleteDriver(ID);
-                    }
-                    // to  obligate the user to reselect
-                    selectedRowIndex = -1;
-                    selectedColIndex = -1;
-                    LoadVisible("Driver");
-                }
-                else
-                {
-                    MessageBox.Show("Selectioner une ligne pour supprimer",
-                       "Action incorrect", MessageBoxButtons.OK,
-                       MessageBoxIcon.Information);
-                }
-            }
-        }
+       
 
         private void FilterBtn_Click(object sender, EventArgs e)
         {
@@ -307,34 +284,61 @@ namespace GGAO
             }
         }
 
-        private void DelProductBtn_Click(object sender, EventArgs e)
+        
+
+        private void PoleBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 3)
+            LoadVisible("Pole");
+            this.activeTable = 4;
+            // toggle Sort and Filter stat
+            if (DGVMain.FilterAndSortEnabled == true)
+                this.toggleFilterAndSort();
+
+        }
+
+        private void NewPoleBtn_Click(object sender, EventArgs e)
+        {
+            if (this.activeTable == 4)
+            { //InsertUpdateDriver form = new InsertUpdateDriver(true);
+              // InsertUpdateProduct form = new InsertUpdateProduct(true);
+                InsertUpdatePole form = new InsertUpdatePole(true);  
+                form.ShowDialog();
+                LoadVisible("Pole");
+            }
+        }
+
+        private void EditPoleBtn_Click(object sender, EventArgs e)
+        {
+            if (this.activeTable == 4)
             {
                 // get the ID of the selected row
                 if (selectedRowIndex >= 0)
                 {
-                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
+                    , lib = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
+                    , addr = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , desc = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString();
 
-                    // ask comfirmation from the user  
-                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-                    {
-                        ProductCRUDOps.deleteProduct(ID);
-                        // DriverCRUDOps.deleteDriver(ID);
-                    }
+                    //InsertUpdateDriver form = new InsertUpdateDriver(false);
+                    InsertUpdatePole form = new InsertUpdatePole(false);
+                    form.setDefaultValueforFields(ID, lib, addr, desc);
+                    form.ShowDialog();
                     // to  obligate the user to reselect
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
-                    LoadVisible("Product");
+
+                    LoadVisible("Pole");
                 }
                 else
                 {
-                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                    MessageBox.Show("Selectioner une ligne pour modifier",
                        "Action incorrect", MessageBoxButtons.OK,
                        MessageBoxIcon.Information);
                 }
             }
         }
+
+        
 
         private void EditDriverBtn_Click(object sender, EventArgs e)
         {
@@ -363,6 +367,90 @@ namespace GGAO
                 else
                 {
                     MessageBox.Show("Selectioner une ligne pour modifier",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void DelPoleBtn_Click(object sender, EventArgs e)
+        {
+            if (this.activeTable == 4)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        PoleCRUDOps.deletePole(ID);
+                        //DriverCRUDOps.deleteDriver(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible("Pole");
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+        private void DelDriverBtn_Click(object sender, EventArgs e)
+        {
+            if (this.activeTable == 5)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        DriverCRUDOps.deleteDriver(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible("Driver");
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+        private void DelProductBtn_Click(object sender, EventArgs e)
+        {
+            if (this.activeTable == 3)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        ProductCRUDOps.deleteProduct(ID);
+                        // DriverCRUDOps.deleteDriver(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible("Product");
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
                        "Action incorrect", MessageBoxButtons.OK,
                        MessageBoxIcon.Information);
                 }
