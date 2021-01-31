@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using GGAO.Engine;
 namespace StartPoint
 {
     static class Program
@@ -17,7 +17,8 @@ namespace StartPoint
              
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GGAO.GGAOWindow());
+            //Application.Run(new GGAO.GGAOWindow());
+            Application.Run(new test() );
         }
     }
 }

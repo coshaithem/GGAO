@@ -93,6 +93,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VMultiColumnComboBox">
+      <HintPath>C:\Users\INFO-PC\Downloads\VMultiColumnComboBox\VMultiColumnComboBox\VMultiColumnComboBoxTester\bin\Debug\VMultiColumnComboBox.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver\DriverCRUDOps.cs" />
@@ -101,6 +104,18 @@
     </Compile>
     <Compile Include="Driver\InsertUpdateDriver.Designer.cs">
       <DependentUpon>InsertUpdateDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Engine\EngineCRUDOps.cs" />
+    <Compile Include="Engine\InsertUpdateEngine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Engine\InsertUpdateEngine.Designer.cs">
+      <DependentUpon>InsertUpdateEngine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GGAODataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GGAODataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GGAOWindow.cs">
       <SubType>Form</SubType>
@@ -151,6 +166,9 @@
     <EmbeddedResource Include="Driver\InsertUpdateDriver.resx">
       <DependentUpon>InsertUpdateDriver.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Engine\InsertUpdateEngine.resx">
+      <DependentUpon>InsertUpdateEngine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GGAOWindow.resx">
       <DependentUpon>GGAOWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +202,17 @@
     </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
+    </None>
+    <None Include="GGAODataSet.xsc">
+      <DependentUpon>GGAODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GGAODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GGAODataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GGAODataSet.xss">
+      <DependentUpon>GGAODataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
