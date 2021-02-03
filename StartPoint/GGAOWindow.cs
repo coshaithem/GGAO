@@ -11,12 +11,24 @@ using System.Windows.Forms;
 using GGAO.Driver;
 using GGAO.Product;
 using GGAO.Pole;
+using GGAO.Engine;
 namespace GGAO
 {
     public partial class GGAOWindow : Form
     {
+        enum Table
+        {
+            NONE,
+            ALIMENTATION,
+            CONSOMMATION,
+            PRODUIT,
+            POLE,
+            DRIVER,
+            ENGINE,
+        }
+
         SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
-        private byte activeTable = 0 ;
+        private Table selectedTable = Table.NONE;
         /*
          0 - none 
          1 - alimentation
@@ -27,6 +39,7 @@ namespace GGAO
          6 - engine
          
          */
+
         private BindingSource lastSelectedBindingSource = null;
 
         public GGAOWindow()
@@ -51,7 +64,7 @@ namespace GGAO
  
         }
 
-         private void LoadVisible( string table)
+         private void LoadVisible( Table table )
         {
 
 
@@ -59,25 +72,26 @@ namespace GGAO
             BindingSource MyOwnBindingSource = new BindingSource();
             switch ( table)
             {
-                case "Driver": MyOwnBindingSource.DataSource = DriverCRUDOps.getVisibleDriver(); break;
-                case "Product": MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct(); break;
-                case "Pole": MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole() ; break;
+                case Table.DRIVER : MyOwnBindingSource.DataSource = DriverCRUDOps.getVisibleDriver(); break;
+                case Table.PRODUIT : MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct(); break;
+                case Table.POLE : MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole() ; break;
+                case Table.ENGINE : MyOwnBindingSource.DataSource = EngineCRUDOps.getVisibleEngine() ; break;
             }
             lastSelectedBindingSource = MyOwnBindingSource;
             getTheMainGrid().DataSource = MyOwnBindingSource;
             // you should add Status Label .text here
-            this.StatusLabel.Text = string.Format("Mise a jour "+table+"  {0}",
+            this.StatusLabel.Text = string.Format("Mise a jour "+table.ToString()+"  {0}",
                 DateTime.Now.ToString("hh:mm:ss")
                 );
 
         }
          
         private void NewDriverBtn_Click(object sender, EventArgs e)
-        {
-            if ( this.activeTable == 5) { 
+        {   //Table.DRIVER
+            if ( this.selectedTable == Table.DRIVER ) { 
                 InsertUpdateDriver form = new InsertUpdateDriver(true);
                 form.ShowDialog();
-                LoadVisible("Driver");
+                LoadVisible(Table.DRIVER);
             }
 
         }
@@ -132,8 +146,8 @@ namespace GGAO
 
         private void DriverBtn_Click(object sender, EventArgs e)
         {
-            LoadVisible("Driver");
-            this.activeTable = 5;
+            LoadVisible(Table.DRIVER );
+            this.selectedTable = Table.DRIVER ; //this.selectedTable == Table.DRIVER 
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
@@ -144,7 +158,7 @@ namespace GGAO
         int selectedRowIndex = -1, selectedColIndex = -1;
         private void DGVMain_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-             
+             // single selecttion
            selectedColIndex = e.ColumnIndex;
             selectedRowIndex = e.RowIndex;
             //MessageBox.Show(DGVMain.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), " selected ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -237,8 +251,8 @@ namespace GGAO
 
         private void ProductBtn_Click(object sender, EventArgs e)
         {
-            LoadVisible("Product");
-            this.activeTable = 3; 
+            LoadVisible(Table.PRODUIT);
+            this.selectedTable = Table.PRODUIT; // 3 Table.DRIVER
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
@@ -247,17 +261,17 @@ namespace GGAO
 
         private void NewProductBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 3)
+            if (this.selectedTable == Table.PRODUIT )
             { //InsertUpdateDriver form = new InsertUpdateDriver(true);
                 InsertUpdateProduct form = new InsertUpdateProduct(true);
                 form.ShowDialog();
-                LoadVisible("Product");
+                LoadVisible( Table.PRODUIT );
             }
         }
 
         private void EditProductBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 3)
+            if (this.selectedTable == Table.PRODUIT)
             {
                 // get the ID of the selected row
                 if (selectedRowIndex >= 0)
@@ -273,7 +287,7 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
 
-                    LoadVisible("Product");
+                    LoadVisible(Table.PRODUIT);
                 }
                 else
                 {
@@ -288,28 +302,38 @@ namespace GGAO
 
         private void PoleBtn_Click(object sender, EventArgs e)
         {
-            LoadVisible("Pole");
-            this.activeTable = 4;
+            LoadVisible(Table.POLE);
+            this.selectedTable =  Table.POLE  ;
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
 
         }
 
+        private void EngineBtn_Click(object sender, EventArgs e)
+        {
+
+            LoadVisible(Table.ENGINE);
+            this.selectedTable = Table.ENGINE;
+            // toggle Sort and Filter stat
+            if (DGVMain.FilterAndSortEnabled == true)
+                this.toggleFilterAndSort();
+        }
+
         private void NewPoleBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 4)
+            if (this.selectedTable == Table.POLE)
             { //InsertUpdateDriver form = new InsertUpdateDriver(true);
               // InsertUpdateProduct form = new InsertUpdateProduct(true);
                 InsertUpdatePole form = new InsertUpdatePole(true);  
                 form.ShowDialog();
-                LoadVisible("Pole");
+                LoadVisible(Table.POLE);
             }
         }
 
         private void EditPoleBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 4)
+            if (this.selectedTable == Table.POLE)
             {
                 // get the ID of the selected row
                 if (selectedRowIndex >= 0)
@@ -317,7 +341,7 @@ namespace GGAO
                     string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
                     , lib = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
                     , addr = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
-                    , desc = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString();
+                    , desc = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString();
 
                     //InsertUpdateDriver form = new InsertUpdateDriver(false);
                     InsertUpdatePole form = new InsertUpdatePole(false);
@@ -327,7 +351,7 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
 
-                    LoadVisible("Pole");
+                    LoadVisible(Table.POLE);
                 }
                 else
                 {
@@ -342,7 +366,7 @@ namespace GGAO
 
         private void EditDriverBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 5)
+            if (this.selectedTable == Table.DRIVER ) 
             {
                 // get the ID of the selected row
                 if (selectedRowIndex >= 0)
@@ -362,7 +386,7 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
 
-                    LoadVisible("Driver");
+                    LoadVisible(Table.DRIVER);
                 }
                 else
                 {
@@ -375,7 +399,7 @@ namespace GGAO
 
         private void DelPoleBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 4)
+            if (this.selectedTable == Table.POLE )
             {
                 // get the ID of the selected row
                 if (selectedRowIndex >= 0)
@@ -391,7 +415,7 @@ namespace GGAO
                     // to  obligate the user to reselect
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
-                    LoadVisible("Pole");
+                    LoadVisible(Table.POLE);
                 }
                 else
                 {
@@ -403,7 +427,7 @@ namespace GGAO
         }
         private void DelDriverBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 5)
+            if (this.selectedTable == Table.DRIVER )
             {
                 // get the ID of the selected row
                 if (selectedRowIndex >= 0)
@@ -418,7 +442,7 @@ namespace GGAO
                     // to  obligate the user to reselect
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
-                    LoadVisible("Driver");
+                    LoadVisible(Table.DRIVER);
                 }
                 else
                 {
@@ -428,9 +452,84 @@ namespace GGAO
                 }
             }
         }
+
+        private void NewEngineBtn_Click(object sender, EventArgs e)
+        {
+            //Table.DRIVER
+            if (this.selectedTable == Table.ENGINE)
+            {
+                InsertUpdateEngine form = new InsertUpdateEngine(true);
+                form.ShowDialog();
+                LoadVisible(Table.ENGINE);
+            }
+        }
+
+        private void EditCarBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.ENGINE )
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
+                    , Libelle = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
+                    , Marque = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , Code = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString() 
+                    , Matricule = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString() 
+                    , PoleId = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString()
+                    , Color = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString();
+                    //MessageBox.Show(ID + " " + Libelle + " " + Matricule + " " + Code + " " + Marque + " " + Color + " " + PoleId);
+                    InsertUpdateEngine form = new InsertUpdateEngine(false);
+                    form.setDefaultValueforFields(ID, Libelle, Matricule, Code, Marque, Color, PoleId);
+                    form.ShowDialog();
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+
+                    LoadVisible(Table.ENGINE);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour modifier",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void DelCarBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.ENGINE )
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        EngineCRUDOps.deleteEngine(ID);
+                        //ProductCRUDOps.deleteProduct(ID);
+                        // DriverCRUDOps.deleteDriver(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible(Table.ENGINE);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
         private void DelProductBtn_Click(object sender, EventArgs e)
         {
-            if (this.activeTable == 3)
+            if (this.selectedTable == Table.PRODUIT)
             {
                 // get the ID of the selected row
                 if (selectedRowIndex >= 0)
@@ -446,7 +545,7 @@ namespace GGAO
                     // to  obligate the user to reselect
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
-                    LoadVisible("Product");
+                    LoadVisible(Table.PRODUIT);
                 }
                 else
                 {

@@ -20,7 +20,7 @@ namespace GGAO
             try
             {
                 SqlCommand cmd = new SqlCommand("CRUDEngine", con);
-                cmd.Parameters.AddWithValue("@choise", SqlDbType.NVarChar).Value = "SELECT";
+                cmd.Parameters.AddWithValue("@choise", SqlDbType.NVarChar).Value = "SELECTwithPole";
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 
@@ -30,7 +30,7 @@ namespace GGAO
             {
 
                 MessageBox.Show(exs.ToString(),
-                                   "Nouveau engine", MessageBoxButtons.OK,
+                                   "Liste des engines", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally
@@ -97,7 +97,7 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@Couleur", SqlDbType.NVarChar).Value = color;
                 int poleId;
                 bool parseOps = int.TryParse(poleID, out poleId);
-                if (!parseOps) poleId = -1;
+                if (!parseOps) poleId = 0;
                 cmd.Parameters.AddWithValue("@PoleID", SqlDbType.Int).Value = poleId;
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "UPDATE";
 

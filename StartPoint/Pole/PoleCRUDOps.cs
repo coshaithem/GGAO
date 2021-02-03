@@ -30,7 +30,7 @@ namespace GGAO
             {
 
                 MessageBox.Show(exs.ToString(),
-                                   "Nouveau pôle", MessageBoxButtons.OK,
+                                   "Liste des pôles", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally

@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ColortextBox = new System.Windows.Forms.TextBox();
             this.multiColumComboBox = new VMultiColumnComboBox.MultiColumComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.SaveBtn = new System.Windows.Forms.Button();
+            this.MarquetextBox = new System.Windows.Forms.TextBox();
+            this.CodetextBox = new System.Windows.Forms.TextBox();
+            this.MatrtextBox = new System.Windows.Forms.TextBox();
+            this.LibelletextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.ColortextBox);
             this.groupBox1.Controls.Add(this.multiColumComboBox);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.MarquetextBox);
+            this.groupBox1.Controls.Add(this.CodetextBox);
+            this.groupBox1.Controls.Add(this.MatrtextBox);
+            this.groupBox1.Controls.Add(this.LibelletextBox);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -69,108 +69,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
-            // groupBox2
+            // ColortextBox
             // 
-            this.groupBox2.Controls.Add(this.SaveBtn);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 278);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(329, 67);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Operation";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Libelle";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Matricule";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 112);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Codification";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 154);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Marque";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 194);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Couleur";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 235);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Pole";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(110, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 26);
-            this.textBox1.TabIndex = 6;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox2.Location = new System.Drawing.Point(110, 68);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(195, 26);
-            this.textBox2.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox3.Location = new System.Drawing.Point(110, 109);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(195, 26);
-            this.textBox3.TabIndex = 8;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox4.Location = new System.Drawing.Point(110, 148);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(195, 26);
-            this.textBox4.TabIndex = 9;
+            this.ColortextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ColortextBox.Location = new System.Drawing.Point(110, 191);
+            this.ColortextBox.Name = "ColortextBox";
+            this.ColortextBox.Size = new System.Drawing.Size(195, 26);
+            this.ColortextBox.TabIndex = 12;
             // 
             // multiColumComboBox
             // 
@@ -191,21 +96,119 @@
             this.multiColumComboBox.TabIndex = 11;
             this.multiColumComboBox.ValueColumnNo = 0;
             // 
-            // textBox5
+            // MarquetextBox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox5.Location = new System.Drawing.Point(110, 191);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(195, 26);
-            this.textBox5.TabIndex = 12;
+            this.MarquetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.MarquetextBox.Location = new System.Drawing.Point(110, 148);
+            this.MarquetextBox.Name = "MarquetextBox";
+            this.MarquetextBox.Size = new System.Drawing.Size(195, 26);
+            this.MarquetextBox.TabIndex = 9;
             // 
-            // SaveBtn
+            // CodetextBox
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(222, 20);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(83, 35);
-            this.SaveBtn.TabIndex = 0;
-            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.CodetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CodetextBox.Location = new System.Drawing.Point(110, 109);
+            this.CodetextBox.Name = "CodetextBox";
+            this.CodetextBox.Size = new System.Drawing.Size(195, 26);
+            this.CodetextBox.TabIndex = 8;
+            this.CodetextBox.Text = "  ";
+            // 
+            // MatrtextBox
+            // 
+            this.MatrtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.MatrtextBox.Location = new System.Drawing.Point(110, 68);
+            this.MatrtextBox.Name = "MatrtextBox";
+            this.MatrtextBox.Size = new System.Drawing.Size(195, 26);
+            this.MatrtextBox.TabIndex = 7;
+            this.MatrtextBox.Text = "  ";
+            // 
+            // LibelletextBox
+            // 
+            this.LibelletextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LibelletextBox.Location = new System.Drawing.Point(110, 29);
+            this.LibelletextBox.Name = "LibelletextBox";
+            this.LibelletextBox.Size = new System.Drawing.Size(195, 26);
+            this.LibelletextBox.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(17, 235);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 20);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Pole";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Couleur";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 154);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Marque";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Codification";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Matricule";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Libelle";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.SaveButton);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Location = new System.Drawing.Point(0, 278);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(329, 67);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Operation";
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(222, 20);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(83, 35);
+            this.SaveButton.TabIndex = 0;
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // InsertUpdateEngine
             // 
@@ -218,22 +221,52 @@
             this.Name = "InsertUpdateEngine";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.InsertUpdateEngine_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
+        public void setTitle(bool insertOrupdate)
+        {
+            if (!insertOrupdate)
+            {
+                this.Text = "Mise a jour d'engine";
+                this.SaveButton.Text = "Mettre a jour";
+            }
+            else
+            {
+                this.Text = "Nouveau Engine";
+                this.SaveButton.Text = "Enregistrer";
+            }
+        }
+
+        void setInitialValue(string _libelle, string _Matr,string _code, string _marque ,string _Color, string _poleLibelle)
+        {
+
+           // System.Windows.Forms.MessageBox.Show(  _libelle+" "+ _Matr+" "+ _code+" "+ _marque+" "+ _Color+" "+ _poleLibelle);
+
+            LibelletextBox.Text = _libelle;
+            MatrtextBox.Text = _Matr;
+            CodetextBox.Text = _code ;
+            MarquetextBox.Text = _marque;
+            ColortextBox.Text = _Color;
+            // put this value into textbox in the multicolumnbombox
+            // multiColumComboBox
+            // multiColumComboBox.setTextBox(_poleLibelle.Trim());
+            // multiColumComboBox.SelectedItem.Value = _poleLibelle.Trim();
+        }
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox ColortextBox;
         private VMultiColumnComboBox.MultiColumComboBox multiColumComboBox;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MarquetextBox;
+        private System.Windows.Forms.TextBox CodetextBox;
+        private System.Windows.Forms.TextBox MatrtextBox;
+        private System.Windows.Forms.TextBox LibelletextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -241,6 +274,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.Button SaveButton;
     }
 }

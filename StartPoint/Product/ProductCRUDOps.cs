@@ -30,7 +30,7 @@ namespace GGAO
             {
 
                 MessageBox.Show(exs.ToString(),
-                                   "Nouveau Produit", MessageBoxButtons.OK,
+                                   "Liste des Produits", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally

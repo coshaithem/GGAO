@@ -30,7 +30,7 @@ namespace GGAO
             {
 
                 MessageBox.Show(exs.ToString(),
-                                   "Nouveau chaffeure", MessageBoxButtons.OK,
+                                   "List des chaffeures", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally

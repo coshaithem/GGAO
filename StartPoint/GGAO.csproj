@@ -48,8 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>ggao.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -111,11 +110,6 @@
     </Compile>
     <Compile Include="Engine\InsertUpdateEngine.Designer.cs">
       <DependentUpon>InsertUpdateEngine.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GGAODataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GGAODataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GGAOWindow.cs">
       <SubType>Form</SubType>
@@ -203,17 +197,6 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
-    <None Include="GGAODataSet.xsc">
-      <DependentUpon>GGAODataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GGAODataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GGAODataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GGAODataSet.xss">
-      <DependentUpon>GGAODataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -254,6 +237,7 @@
     <None Include="Resources\icons8_warehouse_100px.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ggao.ico" />
     <Content Include="GGAO.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

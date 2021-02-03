@@ -392,7 +392,7 @@
             this.DepoRibbonPanel.Items.Add(this.EditPoleBtn);
             this.DepoRibbonPanel.Items.Add(this.DelPoleBtn);
             this.DepoRibbonPanel.Name = "DepoRibbonPanel";
-            this.DepoRibbonPanel.Text = "Depot";
+            this.DepoRibbonPanel.Text = "Pole";
             // 
             // PoleBtn
             // 
@@ -500,6 +500,7 @@
             this.EngineBtn.Name = "EngineBtn";
             this.EngineBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("EngineBtn.SmallImage")));
             this.EngineBtn.Text = "";
+            this.EngineBtn.Click += new System.EventHandler(this.EngineBtn_Click);
             // 
             // NewCarBtn
             // 
@@ -509,6 +510,7 @@
             this.NewCarBtn.Name = "NewCarBtn";
             this.NewCarBtn.SmallImage = global::GGAO.Properties.Resources.add;
             this.NewCarBtn.Text = "Nouveau";
+            this.NewCarBtn.Click += new System.EventHandler(this.NewEngineBtn_Click);
             // 
             // EditCarBtn
             // 
@@ -518,6 +520,7 @@
             this.EditCarBtn.Name = "EditCarBtn";
             this.EditCarBtn.SmallImage = global::GGAO.Properties.Resources.edit;
             this.EditCarBtn.Text = "Modifier";
+            this.EditCarBtn.Click += new System.EventHandler(this.EditCarBtn_Click);
             // 
             // DelCarBtn
             // 
@@ -527,6 +530,7 @@
             this.DelCarBtn.Name = "DelCarBtn";
             this.DelCarBtn.SmallImage = global::GGAO.Properties.Resources.del;
             this.DelCarBtn.Text = "Supprimer";
+            this.DelCarBtn.Click += new System.EventHandler(this.DelCarBtn_Click);
             // 
             // HelpTab
             // 
