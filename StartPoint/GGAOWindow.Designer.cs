@@ -79,9 +79,6 @@
             this.HelpTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.infoBtn = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton18 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton19 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
@@ -541,9 +538,6 @@
             // ribbonPanel6
             // 
             this.ribbonPanel6.Items.Add(this.infoBtn);
-            this.ribbonPanel6.Items.Add(this.ribbonButton5);
-            this.ribbonPanel6.Items.Add(this.ribbonButton18);
-            this.ribbonPanel6.Items.Add(this.ribbonButton19);
             this.ribbonPanel6.Name = "ribbonPanel6";
             this.ribbonPanel6.Text = "Help";
             // 
@@ -554,33 +548,7 @@
             this.infoBtn.Name = "infoBtn";
             this.infoBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("infoBtn.SmallImage")));
             this.infoBtn.Text = "";
-            // 
-            // ribbonButton5
-            // 
-            this.ribbonButton5.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.Image")));
-            this.ribbonButton5.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.LargeImage")));
-            this.ribbonButton5.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
-            this.ribbonButton5.Name = "ribbonButton5";
-            this.ribbonButton5.SmallImage = global::GGAO.Properties.Resources.linkedin;
-            this.ribbonButton5.Text = "Linked In";
-            // 
-            // ribbonButton18
-            // 
-            this.ribbonButton18.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton18.Image")));
-            this.ribbonButton18.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton18.LargeImage")));
-            this.ribbonButton18.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
-            this.ribbonButton18.Name = "ribbonButton18";
-            this.ribbonButton18.SmallImage = global::GGAO.Properties.Resources.gmail;
-            this.ribbonButton18.Text = "Gmail";
-            // 
-            // ribbonButton19
-            // 
-            this.ribbonButton19.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton19.Image")));
-            this.ribbonButton19.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton19.LargeImage")));
-            this.ribbonButton19.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
-            this.ribbonButton19.Name = "ribbonButton19";
-            this.ribbonButton19.SmallImage = global::GGAO.Properties.Resources.github;
-            this.ribbonButton19.Text = "Github";
+            this.infoBtn.Click += new System.EventHandler(this.infoBtn_Click);
             // 
             // ribbonButton1
             // 
@@ -994,9 +962,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Prenom;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIN;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mobile;
-        private System.Windows.Forms.RibbonButton ribbonButton5;
-        private System.Windows.Forms.RibbonButton ribbonButton18;
-        private System.Windows.Forms.RibbonButton ribbonButton19;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.RibbonTab AccueilTab;

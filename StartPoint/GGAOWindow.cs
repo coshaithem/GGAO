@@ -527,6 +527,12 @@ namespace GGAO
             }
         }
 
+        private void infoBtn_Click(object sender, EventArgs e)
+        {
+            StartPoint.f_About form = new StartPoint.f_About();
+            form.ShowDialog();
+        }
+
         private void DelProductBtn_Click(object sender, EventArgs e)
         {
             if (this.selectedTable == Table.PRODUIT)
