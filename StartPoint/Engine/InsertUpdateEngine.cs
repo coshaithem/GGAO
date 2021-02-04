@@ -101,16 +101,12 @@ namespace GGAO.Engine
                         this.MatrtextBox.Text.Trim(),
                         this.MarquetextBox.Text.Trim(),
                         this.ColortextBox.Text.Trim(),
-                        selectedPoleID  // this is supose to get the ID 
+                        (selectedPoleID == "0")?null: selectedPoleID  // this is supose to get the ID 
 
                         );
                 }
             }
         }
 
-        private void TEST_Click(object sender, EventArgs e)
-        {
-            multiColumComboBox.setTextBox(DateTime.Now.ToString() );
-        }
     }
 }

@@ -95,10 +95,12 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@MatriculeNational", SqlDbType.NVarChar).Value = MatriculeNat;
                 cmd.Parameters.AddWithValue("@Marque", SqlDbType.NVarChar).Value = marque;
                 cmd.Parameters.AddWithValue("@Couleur", SqlDbType.NVarChar).Value = color;
-                int poleId;
-                bool parseOps = int.TryParse(poleID, out poleId);
-                if (!parseOps) poleId = 0;
-                cmd.Parameters.AddWithValue("@PoleID", SqlDbType.Int).Value = poleId;
+                if( poleID != null) { 
+                    int poleId;
+                    bool parseOps = int.TryParse(poleID, out poleId);
+                    if (!parseOps) poleId = 0;
+                        cmd.Parameters.AddWithValue("@PoleID", SqlDbType.Int).Value = poleId;
+                }
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "UPDATE";
 
                 //string formattedTime = DateTime.Now.ToString("yyyy, MM, dd, hh, mm, ss");
