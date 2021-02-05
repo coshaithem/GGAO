@@ -98,6 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alimentation\AlimentationCRUDOps.cs" />
+    <Compile Include="Alimentation\InsertUpdateAlimentation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alimentation\InsertUpdateAlimentation.Designer.cs">
+      <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Driver\DriverCRUDOps.cs" />
     <Compile Include="Driver\InsertUpdateDriver.cs">
       <SubType>Form</SubType>
@@ -158,6 +164,9 @@
     <Compile Include="old_f_Login.Designer.cs">
       <DependentUpon>old_f_Login.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Alimentation\InsertUpdateAlimentation.resx">
+      <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Driver\InsertUpdateDriver.resx">
       <DependentUpon>InsertUpdateDriver.cs</DependentUpon>
     </EmbeddedResource>
