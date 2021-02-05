@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alimentation\AlimentationCRUDOps.cs" />
     <Compile Include="Driver\DriverCRUDOps.cs" />
     <Compile Include="Driver\InsertUpdateDriver.cs">
       <SubType>Form</SubType>
