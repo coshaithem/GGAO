@@ -38,7 +38,7 @@
             this.ribbonOrbOptionButton1 = new System.Windows.Forms.RibbonOrbOptionButton();
             this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
             this.AccueilTab = new System.Windows.Forms.RibbonTab();
-            this.PolicePanel = new System.Windows.Forms.RibbonPanel();
+            this.TableauPanel = new System.Windows.Forms.RibbonPanel();
             this.AugmentFont = new System.Windows.Forms.RibbonButton();
             this.ReduireFont = new System.Windows.Forms.RibbonButton();
             this.FilterBtn = new System.Windows.Forms.RibbonButton();
@@ -139,7 +139,8 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 72);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2013;
-            this.ribbon1.OrbText = "Option";
+            this.ribbon1.OrbText = "Parametrage";
+            this.ribbon1.OrbVisible = false;
             // 
             // 
             // 
@@ -176,16 +177,16 @@
             // AccueilTab
             // 
             this.AccueilTab.Name = "AccueilTab";
-            this.AccueilTab.Panels.Add(this.PolicePanel);
+            this.AccueilTab.Panels.Add(this.TableauPanel);
             this.AccueilTab.Text = "Accueil";
             // 
-            // PolicePanel
+            // TableauPanel
             // 
-            this.PolicePanel.Items.Add(this.AugmentFont);
-            this.PolicePanel.Items.Add(this.ReduireFont);
-            this.PolicePanel.Items.Add(this.FilterBtn);
-            this.PolicePanel.Name = "PolicePanel";
-            this.PolicePanel.Text = "Tableau";
+            this.TableauPanel.Items.Add(this.AugmentFont);
+            this.TableauPanel.Items.Add(this.ReduireFont);
+            this.TableauPanel.Items.Add(this.FilterBtn);
+            this.TableauPanel.Name = "TableauPanel";
+            this.TableauPanel.Text = "Tableau";
             // 
             // AugmentFont
             // 
@@ -238,6 +239,7 @@
             this.OilInBtn.Name = "OilInBtn";
             this.OilInBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("OilInBtn.SmallImage")));
             this.OilInBtn.Text = "";
+            this.OilInBtn.Click += new System.EventHandler(this.OilInBtn_Click);
             // 
             // NewOilInBtn
             // 
@@ -248,6 +250,7 @@
             this.NewOilInBtn.Name = "NewOilInBtn";
             this.NewOilInBtn.SmallImage = global::GGAO.Properties.Resources.add;
             this.NewOilInBtn.Text = "Nouveau";
+            this.NewOilInBtn.Click += new System.EventHandler(this.NewOilInBtn_Click);
             // 
             // ribbonButton7
             // 
@@ -265,6 +268,7 @@
             this.EditOilInBtn.Name = "EditOilInBtn";
             this.EditOilInBtn.SmallImage = global::GGAO.Properties.Resources.edit;
             this.EditOilInBtn.Text = "Modifier";
+            this.EditOilInBtn.Click += new System.EventHandler(this.EditOilInBtn_Click);
             // 
             // DelOilInBtn
             // 
@@ -274,6 +278,7 @@
             this.DelOilInBtn.Name = "DelOilInBtn";
             this.DelOilInBtn.SmallImage = global::GGAO.Properties.Resources.del;
             this.DelOilInBtn.Text = "Supprimer";
+            this.DelOilInBtn.Click += new System.EventHandler(this.DelOilInBtn_Click);
             // 
             // ribbonPanel3
             // 
@@ -832,6 +837,7 @@
             this.DGVMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVMain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DGVMain.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.DGVMain.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -850,6 +856,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVMain.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGVMain.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DGVMain.FilterAndSortEnabled = false;
             this.DGVMain.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DGVMain.Location = new System.Drawing.Point(0, 152);
@@ -965,7 +972,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.RibbonTab AccueilTab;
-        private System.Windows.Forms.RibbonPanel PolicePanel;
+        private System.Windows.Forms.RibbonPanel TableauPanel;
         private System.Windows.Forms.RibbonButton AugmentFont;
         private System.Windows.Forms.RibbonButton ReduireFont;
         private System.Windows.Forms.RibbonButton FilterBtn;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using GGAO.Utilities;
 namespace GGAO.Engine
 {
     public partial class InsertUpdateEngine : Form
@@ -36,27 +36,29 @@ namespace GGAO.Engine
             // load POLE table
               DataTable dt =   GGAO.PoleCRUDOps.getVisiblePole();
             // scrap column names of  the table 
-            List<string> ColumnNames = new List<string>();
+            /*List<string> ColumnNames = new List<string>();
             string collect = "";
             foreach (DataColumn DTC in dt.Columns)
             {
                 ColumnNames.Add(DTC.ColumnName.Trim());
                 collect += DTC.ColumnName.Trim() +" ";
-            }
+            }*/
             // set up the MulticolumnComboBox
             multiColumComboBox.Clear();
             // auto generate this column
-            multiColumComboBox.SourceDataString = ColumnNames.ToArray();
+            //multiColumComboBox.SourceDataString = ColumnNames.ToArray();
+            multiColumComboBox.SourceDataString = Tools.ConvColNametoArray(dt.Columns);
             //MessageBox.Show(collect);
             //multiColumComboBox.ColumnWidth = new string[3] { "30", "200", "50" };  
             //multiColumComboBox.ColumnWidth = GetColumnWidths(3, "30");
-            multiColumComboBox.ShowHeader = true;
+
+            /*
+             * multiColumComboBox.ShowHeader = true;
             multiColumComboBox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
             multiColumComboBox.DropDownHeight = 200; //Convert.ToInt32(textBox1.Text);
             multiColumComboBox.DisplayColumnNo = 1; // Convert.ToInt32(textBox2.Text);
             multiColumComboBox.ValueColumnNo = 0; // Convert.ToInt32(textBox3.Text);
-
-
+            */
             // set up the datasource of MultiColumnBox
             multiColumComboBox.DataSource = dt;
             multiColumComboBox.setTextBox( this.selectedPoleLibelle.Trim() );

@@ -12,6 +12,8 @@ using GGAO.Driver;
 using GGAO.Product;
 using GGAO.Pole;
 using GGAO.Engine;
+using GGAO.Alimentation;
+
 namespace GGAO
 {
     public partial class GGAOWindow : Form
@@ -27,6 +29,7 @@ namespace GGAO
             ENGINE,
         }
 
+        private const bool V = true;
         SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
         private Table selectedTable = Table.NONE;
         /*
@@ -65,9 +68,7 @@ namespace GGAO
         }
 
          private void LoadVisible( Table table )
-        {
-
-
+        { 
             resetDGVMain();
             BindingSource MyOwnBindingSource = new BindingSource();
             switch ( table)
@@ -76,26 +77,48 @@ namespace GGAO
                 case Table.PRODUIT : MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct(); break;
                 case Table.POLE : MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole() ; break;
                 case Table.ENGINE : MyOwnBindingSource.DataSource = EngineCRUDOps.getVisibleEngine() ; break;
+                case Table.ALIMENTATION: MyOwnBindingSource.DataSource = AlimentationCRUDOps.getVisibleAlimentation(); break;
             }
             lastSelectedBindingSource = MyOwnBindingSource;
             getTheMainGrid().DataSource = MyOwnBindingSource;
+
+            getTheMainGrid().Columns[0].Visible = false;
+            ResetColumnWidths();
             // you should add Status Label .text here
             this.StatusLabel.Text = string.Format("Mise a jour "+table.ToString()+"  {0}",
                 DateTime.Now.ToString("hh:mm:ss")
                 );
 
         }
-         
+        public void ResetColumnWidths()
+        {
+            if (getTheMainGrid() != null)
+            {
+                foreach (DataGridViewColumn col in getTheMainGrid().Columns)
+                {
+                    col.Resizable = DataGridViewTriState.True ;
+                }
+            }
+        }
         private void NewDriverBtn_Click(object sender, EventArgs e)
-        {   //Table.DRIVER
+        {  
+            //Table.DRIVER
             if ( this.selectedTable == Table.DRIVER ) { 
                 InsertUpdateDriver form = new InsertUpdateDriver(true);
                 form.ShowDialog();
                 LoadVisible(Table.DRIVER);
             }
-
         }
- 
+        private void NewOilInBtn_Click(object sender, EventArgs e)
+        {
+            //Table.DRIVER
+            if (this.selectedTable == Table.ALIMENTATION)
+            {
+                InsertUpdateAlimentation form = new InsertUpdateAlimentation(true);
+                form.ShowDialog();
+                LoadVisible(Table.ALIMENTATION);
+            }
+        }
 
         private void updateTotalRow()
         {
@@ -310,6 +333,16 @@ namespace GGAO
 
         }
 
+        private void OilInBtn_Click(object sender, EventArgs e)
+        {
+            LoadVisible(Table.ALIMENTATION);
+            this.selectedTable = Table.ALIMENTATION ;
+            // toggle Sort and Filter stat
+            if (DGVMain.FilterAndSortEnabled == true)
+                this.toggleFilterAndSort();
+
+        }
+
         private void EngineBtn_Click(object sender, EventArgs e)
         {
 
@@ -463,7 +496,41 @@ namespace GGAO
                 LoadVisible(Table.ENGINE);
             }
         }
+        private void EditOilInBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.ALIMENTATION)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
+                    , Ref = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
+                    , type = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , date = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString()
+                    , kilo = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString()
+                    , quantity = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString()
+                    , _engine = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString()
+                    , _produit = DGVMain.Rows[selectedRowIndex].Cells[7].Value.ToString()
+                    , _pole = DGVMain.Rows[selectedRowIndex].Cells[8].Value.ToString()
+                    , _driver = DGVMain.Rows[selectedRowIndex].Cells[9].Value.ToString() ;
 
+                    InsertUpdateAlimentation form = new InsertUpdateAlimentation(false);
+                    form.setDefaultValueforFields(ID, Ref, type, date, quantity,kilo,_driver,_pole,_produit,_engine);
+                    form.ShowDialog();
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+
+                    LoadVisible(Table.ALIMENTATION);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour modifier",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
         private void EditCarBtn_Click(object sender, EventArgs e)
         {
             if (this.selectedTable == Table.ENGINE )
@@ -531,6 +598,36 @@ namespace GGAO
         {
             StartPoint.f_About form = new StartPoint.f_About();
             form.ShowDialog();
+        }
+
+        private void DelOilInBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.ALIMENTATION )
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        //ProductCRUDOps.deleteProduct(ID);
+                        // DriverCRUDOps.deleteDriver(ID);
+                        AlimentationCRUDOps.deleteAlimentation(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible(Table.ALIMENTATION);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)

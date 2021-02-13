@@ -164,6 +164,7 @@
     <Compile Include="old_f_Login.Designer.cs">
       <DependentUpon>old_f_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Tools.cs" />
     <EmbeddedResource Include="Alimentation\InsertUpdateAlimentation.resx">
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
     </EmbeddedResource>

@@ -50,13 +50,13 @@ namespace GGAO
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Ref", SqlDbType.NVarChar).Value = Ref; // this.nomTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@Type", SqlDbType.NVarChar).Value = Type;// this.prenomTextBox.Text.Trim();
-                cmd.Parameters.AddWithValue("@DocDate", SqlDbType.DateTime).Value = DocDate ;
+                cmd.Parameters.AddWithValue("@Date", SqlDbType.DateTime).Value = DocDate ;
                 cmd.Parameters.AddWithValue("@engineID", SqlDbType.NVarChar).Value = engineID; // this.lieuNaissanceTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@productID", SqlDbType.NVarChar).Value = productID; // this.lieuNaissanceTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@poleID", SqlDbType.NVarChar).Value = poleID; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@driverID", SqlDbType.NVarChar).Value = driverID; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@kilo", SqlDbType.NVarChar).Value = kilo; // this.mobileTextBox.Text.Trim();
-                cmd.Parameters.AddWithValue("@quanity", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
+                cmd.Parameters.AddWithValue("@quant", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "INSERT";
  
                 cmd.Parameters.AddWithValue("@recordInsertedIn", SqlDbType.DateTime).Value = DateTime.Now;
@@ -92,13 +92,13 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@ID", SqlDbType.NVarChar).Value = ID; // this.nomTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@Ref", SqlDbType.NVarChar).Value = Ref; // this.nomTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@Type", SqlDbType.NVarChar).Value = Type;// this.prenomTextBox.Text.Trim();
-                cmd.Parameters.AddWithValue("@DocDate", SqlDbType.DateTime).Value = DocDate;
+                cmd.Parameters.AddWithValue("@Date", SqlDbType.DateTime).Value = DocDate;
                 cmd.Parameters.AddWithValue("@engineID", SqlDbType.NVarChar).Value = engineID; // this.lieuNaissanceTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@productID", SqlDbType.NVarChar).Value = productID; // this.lieuNaissanceTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@poleID", SqlDbType.NVarChar).Value = poleID; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@driverID", SqlDbType.NVarChar).Value = driverID; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@kilo", SqlDbType.NVarChar).Value = kilo; // this.mobileTextBox.Text.Trim();
-                cmd.Parameters.AddWithValue("@quanity", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
+                cmd.Parameters.AddWithValue("@quant", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "UPDATE";
                 
                 cmd.ExecuteNonQuery();

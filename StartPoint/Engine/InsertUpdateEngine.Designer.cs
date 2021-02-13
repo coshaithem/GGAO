@@ -89,7 +89,7 @@
             this.multiColumComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.multiColumComboBox.Name = "multiColumComboBox";
             this.multiColumComboBox.SelectedItem = null;
-            this.multiColumComboBox.ShowHeader = false;
+            this.multiColumComboBox.ShowHeader = true;
             this.multiColumComboBox.Size = new System.Drawing.Size(195, 26);
             this.multiColumComboBox.SourceDataHeader = null;
             this.multiColumComboBox.SourceDataString = null;

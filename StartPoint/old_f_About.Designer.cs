@@ -64,7 +64,7 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(111, 178);
+            this.label5.Location = new System.Drawing.Point(92, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(287, 20);
             this.label5.TabIndex = 16;
@@ -155,11 +155,11 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(18, 178);
+            this.label1.Location = new System.Drawing.Point(32, 179);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 18);
+            this.label1.Size = new System.Drawing.Size(34, 18);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Developeure";
+            this.label1.Text = "Dev";
             // 
             // label2
             // 
