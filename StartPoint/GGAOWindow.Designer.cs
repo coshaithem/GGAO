@@ -50,7 +50,7 @@
             this.EditOilInBtn = new System.Windows.Forms.RibbonButton();
             this.DelOilInBtn = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
-            this.OilBtn = new System.Windows.Forms.RibbonButton();
+            this.OilOutBtn = new System.Windows.Forms.RibbonButton();
             this.ribbonLabel1 = new System.Windows.Forms.RibbonLabel();
             this.NewOilOutBtn = new System.Windows.Forms.RibbonButton();
             this.EditOilOutBtn = new System.Windows.Forms.RibbonButton();
@@ -282,21 +282,22 @@
             // 
             // ribbonPanel3
             // 
-            this.ribbonPanel3.Items.Add(this.OilBtn);
+            this.ribbonPanel3.Items.Add(this.OilOutBtn);
             this.ribbonPanel3.Items.Add(this.NewOilOutBtn);
             this.ribbonPanel3.Items.Add(this.EditOilOutBtn);
             this.ribbonPanel3.Items.Add(this.DelOilOutBtn);
             this.ribbonPanel3.Name = "ribbonPanel3";
             this.ribbonPanel3.Text = "Bon Sortie";
             // 
-            // OilBtn
+            // OilOutBtn
             // 
-            this.OilBtn.DropDownItems.Add(this.ribbonLabel1);
-            this.OilBtn.Image = global::GGAO.Properties.Resources.OilOut;
-            this.OilBtn.LargeImage = global::GGAO.Properties.Resources.OilOut;
-            this.OilBtn.Name = "OilBtn";
-            this.OilBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("OilBtn.SmallImage")));
-            this.OilBtn.Text = "";
+            this.OilOutBtn.DropDownItems.Add(this.ribbonLabel1);
+            this.OilOutBtn.Image = global::GGAO.Properties.Resources.OilOut;
+            this.OilOutBtn.LargeImage = global::GGAO.Properties.Resources.OilOut;
+            this.OilOutBtn.Name = "OilOutBtn";
+            this.OilOutBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("OilOutBtn.SmallImage")));
+            this.OilOutBtn.Text = "";
+            this.OilOutBtn.Click += new System.EventHandler(this.OilOutBtn_Click);
             // 
             // ribbonLabel1
             // 
@@ -311,6 +312,7 @@
             this.NewOilOutBtn.Name = "NewOilOutBtn";
             this.NewOilOutBtn.SmallImage = global::GGAO.Properties.Resources.add;
             this.NewOilOutBtn.Text = "Nouveau";
+            this.NewOilOutBtn.Click += new System.EventHandler(this.NewOilOutBtn_Click);
             // 
             // EditOilOutBtn
             // 
@@ -320,6 +322,7 @@
             this.EditOilOutBtn.Name = "EditOilOutBtn";
             this.EditOilOutBtn.SmallImage = global::GGAO.Properties.Resources.edit;
             this.EditOilOutBtn.Text = "Modifier";
+            this.EditOilOutBtn.Click += new System.EventHandler(this.EditOilOutBtn_Click);
             // 
             // DelOilOutBtn
             // 
@@ -329,6 +332,7 @@
             this.DelOilOutBtn.Name = "DelOilOutBtn";
             this.DelOilOutBtn.SmallImage = global::GGAO.Properties.Resources.del;
             this.DelOilOutBtn.Text = "Supprimer";
+            this.DelOilOutBtn.Click += new System.EventHandler(this.DelOilOutBtn_Click);
             // 
             // AutreTab
             // 
@@ -493,12 +497,12 @@
             this.EngineRibbonPanel.Items.Add(this.EditCarBtn);
             this.EngineRibbonPanel.Items.Add(this.DelCarBtn);
             this.EngineRibbonPanel.Name = "EngineRibbonPanel";
-            this.EngineRibbonPanel.Text = "Engine";
+            this.EngineRibbonPanel.Text = "Réservoir";
             // 
             // EngineBtn
             // 
-            this.EngineBtn.Image = global::GGAO.Properties.Resources.engine;
-            this.EngineBtn.LargeImage = global::GGAO.Properties.Resources.engine;
+            this.EngineBtn.Image = global::GGAO.Properties.Resources.TankHolder;
+            this.EngineBtn.LargeImage = global::GGAO.Properties.Resources.TankHolder;
             this.EngineBtn.Name = "EngineBtn";
             this.EngineBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("EngineBtn.SmallImage")));
             this.EngineBtn.Text = "";
@@ -906,7 +910,7 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel3;
         private System.Windows.Forms.RibbonPanel ProduitribbonPanel;
         private System.Windows.Forms.RibbonButton OilInBtn;
-        private System.Windows.Forms.RibbonButton OilBtn;
+        private System.Windows.Forms.RibbonButton OilOutBtn;
         private System.Windows.Forms.RibbonPanel DepoRibbonPanel;
         private System.Windows.Forms.RibbonPanel DriverRibbonPanel; 
         private System.Windows.Forms.RibbonButton ribbonButton27;

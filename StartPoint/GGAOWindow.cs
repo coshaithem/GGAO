@@ -12,7 +12,7 @@ using GGAO.Driver;
 using GGAO.Product;
 using GGAO.Pole;
 using GGAO.Engine;
-using GGAO.Alimentation;
+using GGAO.Consommation;
 
 namespace GGAO
 {
@@ -78,6 +78,7 @@ namespace GGAO
                 case Table.POLE : MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole() ; break;
                 case Table.ENGINE : MyOwnBindingSource.DataSource = EngineCRUDOps.getVisibleEngine() ; break;
                 case Table.ALIMENTATION: MyOwnBindingSource.DataSource = AlimentationCRUDOps.getVisibleAlimentation(); break;
+                case Table.CONSOMMATION: MyOwnBindingSource.DataSource = ConsommationCRUDOps.getVisibleAlimentation(); break;
             }
             lastSelectedBindingSource = MyOwnBindingSource;
             getTheMainGrid().DataSource = MyOwnBindingSource;
@@ -620,6 +621,93 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
                     LoadVisible(Table.ALIMENTATION);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void OilOutBtn_Click(object sender, EventArgs e)
+        {
+
+            LoadVisible(Table.CONSOMMATION );
+            this.selectedTable = Table.CONSOMMATION ;
+            // toggle Sort and Filter stat
+            if (DGVMain.FilterAndSortEnabled == true)
+                this.toggleFilterAndSort();
+        }
+
+        private void NewOilOutBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.CONSOMMATION )
+            {
+                InsertUpdateConsommation form = new InsertUpdateConsommation(true);
+                form.ShowDialog();
+                LoadVisible( Table.CONSOMMATION );
+            }
+        }
+
+        private void EditOilOutBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.CONSOMMATION )
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
+                    , Ref = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
+                    , type = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , date = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString()
+                    , kilo = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString()
+                    , quantity = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString()
+                    , _engine = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString()
+                    , _produit = DGVMain.Rows[selectedRowIndex].Cells[7].Value.ToString()
+                    , _pole = DGVMain.Rows[selectedRowIndex].Cells[8].Value.ToString()
+                    , _driver = DGVMain.Rows[selectedRowIndex].Cells[9].Value.ToString();
+
+                    InsertUpdateConsommation form = new InsertUpdateConsommation(false);
+                    form.setDefaultValueforFields(ID, Ref, type, date, quantity, kilo, _driver, _pole, _produit, _engine);
+                    form.ShowDialog();
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+
+                    LoadVisible(Table.CONSOMMATION);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour modifier",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void DelOilOutBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.CONSOMMATION )
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        //ProductCRUDOps.deleteProduct(ID);
+                        // DriverCRUDOps.deleteDriver(ID);
+                        //AlimentationCRUDOps.deleteAlimentation(ID);
+                        ConsommationCRUDOps.deleteConsommation(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible(Table.CONSOMMATION);
                 }
                 else
                 {

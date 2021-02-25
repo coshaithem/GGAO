@@ -104,6 +104,13 @@
     <Compile Include="Alimentation\InsertUpdateAlimentation.Designer.cs">
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consommation\ConsommationCRUDOps.cs" />
+    <Compile Include="Consommation\InsertUpdateConsommation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consommation\InsertUpdateConsommation.Designer.cs">
+      <DependentUpon>InsertUpdateConsommation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Driver\DriverCRUDOps.cs" />
     <Compile Include="Driver\InsertUpdateDriver.cs">
       <SubType>Form</SubType>
@@ -167,6 +174,9 @@
     <Compile Include="Utilities\Tools.cs" />
     <EmbeddedResource Include="Alimentation\InsertUpdateAlimentation.resx">
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consommation\InsertUpdateConsommation.resx">
+      <DependentUpon>InsertUpdateConsommation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Driver\InsertUpdateDriver.resx">
       <DependentUpon>InsertUpdateDriver.cs</DependentUpon>
@@ -256,6 +266,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GGAO.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\icons8-oil-tanker-85%281%29.png" />
+    <None Include="Resources\icons8-oil-tanker-85.png" />
+    <None Include="Resources\icons8-oil-tanker-60.png" />
     <None Include="Resources\ORBimage.png" />
     <None Include="Resources\EnableFilter.png" />
     <None Include="Resources\DisableFilter.png" />
