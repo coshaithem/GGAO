@@ -77,8 +77,8 @@ namespace GGAO
                 case Table.PRODUIT : MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct(); break;
                 case Table.POLE : MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole() ; break;
                 case Table.ENGINE : MyOwnBindingSource.DataSource = EngineCRUDOps.getVisibleEngine() ; break;
-                case Table.ALIMENTATION: MyOwnBindingSource.DataSource = AlimentationCRUDOps.getVisibleAlimentation(); break;
-                case Table.CONSOMMATION: MyOwnBindingSource.DataSource = ConsommationCRUDOps.getVisibleAlimentation(); break;
+                case Table.ALIMENTATION: MyOwnBindingSource.DataSource = AlimentationCRUDOps.getVisibleAlimentation(); updateCurrentStock(); break;
+                case Table.CONSOMMATION: MyOwnBindingSource.DataSource = ConsommationCRUDOps.getVisibleConsommation(); updateCurrentStock(); break;
             }
             lastSelectedBindingSource = MyOwnBindingSource;
             getTheMainGrid().DataSource = MyOwnBindingSource;
@@ -224,6 +224,7 @@ namespace GGAO
             if ( filter )
             {
                 this.allowUserToActivateFilter();
+                getFiltredQuantity().Text = "";
             }
             else
             {
@@ -260,15 +261,30 @@ namespace GGAO
             if (lastSelectedBindingSource != null)
             {
                 lastSelectedBindingSource.Sort = DGVMain.SortString;
-                this.updateTotalRow();  
+                
+                this.updateTotalRow();
             }
         }  
+        private int updateSumOfFilteredQuantities()
+        {
+            int sum = 0;
+            for (int i = 0; i < getTheMainGrid().Rows.Count; i++)
+            {
+                // MessageBox.Show(getTheMainGrid().Rows[i].Cells[5].Value.ToString());
+                sum += Convert.ToInt32(getTheMainGrid().Rows[i].Cells[5].Value.ToString().Trim());
+                // MessageBox.Show(getTheMainGrid().Rows[i].Cells[2].Value.ToString());
+            }
+            MessageBox.Show(sum.ToString());
+            getFiltredQuantity().Text ="Quantité : " + sum.ToString();
+            return sum;
 
+        }
         private void DGVMain_FilterStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.FilterEventArgs e)
         {
             if (lastSelectedBindingSource != null)
             {
                 lastSelectedBindingSource.Filter = DGVMain.FilterString;
+                this.updateSumOfFilteredQuantities();
                 this.updateTotalRow();
             }
         }
@@ -716,6 +732,34 @@ namespace GGAO
                        MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void ribbonButton5_Click(object sender, EventArgs e)
+        {
+            int sum = 0;
+            for ( int i = 0; i < getTheMainGrid().Rows.Count; i++)
+            {
+               // MessageBox.Show(getTheMainGrid().Rows[i].Cells[5].Value.ToString());
+                sum += Convert.ToInt32(getTheMainGrid().Rows[i].Cells[5].Value.ToString().Trim());
+               // MessageBox.Show(getTheMainGrid().Rows[i].Cells[2].Value.ToString());
+            }
+            MessageBox.Show( sum.ToString() ) ;
+        }
+
+        private void ribbonButton17_Click(object sender, EventArgs e)
+        {
+            AlimentationCRUDOps.getSumOfQuantities();
+        }
+
+        private void GGAOWindow_Load(object sender, EventArgs e)
+        {
+            updateCurrentStock();
+        }
+        private void updateCurrentStock()
+        {
+            int cons = ConsommationCRUDOps.getSumOfQuantities();
+            int alim = AlimentationCRUDOps.getSumOfQuantities();
+            getTheActuelStock().Text = (alim - cons).ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)

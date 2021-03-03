@@ -31,9 +31,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GGAOWindow));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonOrbOptionButton1 = new System.Windows.Forms.RibbonOrbOptionButton();
             this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
@@ -42,6 +42,7 @@
             this.AugmentFont = new System.Windows.Forms.RibbonButton();
             this.ReduireFont = new System.Windows.Forms.RibbonButton();
             this.FilterBtn = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
             this.StockTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
             this.OilInBtn = new System.Windows.Forms.RibbonButton();
@@ -110,9 +111,12 @@
             this.CIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.FilteredQuantity = new System.Windows.Forms.Label();
             this.StatusLabel = new System.Windows.Forms.Label();
             this.DGVMain = new Zuby.ADGV.AdvancedDataGridView();
             this.driverBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.StockActuel = new System.Windows.Forms.Label();
+            this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
@@ -185,6 +189,7 @@
             this.TableauPanel.Items.Add(this.AugmentFont);
             this.TableauPanel.Items.Add(this.ReduireFont);
             this.TableauPanel.Items.Add(this.FilterBtn);
+            this.TableauPanel.Items.Add(this.ribbonButton5);
             this.TableauPanel.Name = "TableauPanel";
             this.TableauPanel.Text = "Tableau";
             // 
@@ -214,6 +219,15 @@
             this.FilterBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("FilterBtn.SmallImage")));
             this.FilterBtn.Text = "";
             this.FilterBtn.Click += new System.EventHandler(this.FilterBtn_Click);
+            // 
+            // ribbonButton5
+            // 
+            this.ribbonButton5.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.Image")));
+            this.ribbonButton5.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.LargeImage")));
+            this.ribbonButton5.Name = "ribbonButton5";
+            this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
+            this.ribbonButton5.Text = "Sum Cons";
+            this.ribbonButton5.Click += new System.EventHandler(this.ribbonButton5_Click);
             // 
             // StockTab
             // 
@@ -809,6 +823,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.FilteredQuantity);
             this.panel1.Controls.Add(this.StatusLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 476);
@@ -816,16 +831,25 @@
             this.panel1.Size = new System.Drawing.Size(945, 20);
             this.panel1.TabIndex = 2;
             // 
+            // FilteredQuantity
+            // 
+            this.FilteredQuantity.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.FilteredQuantity.AutoSize = true;
+            this.FilteredQuantity.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FilteredQuantity.Location = new System.Drawing.Point(456, 0);
+            this.FilteredQuantity.Name = "FilteredQuantity";
+            this.FilteredQuantity.Size = new System.Drawing.Size(0, 19);
+            this.FilteredQuantity.TabIndex = 1;
+            // 
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatusLabel.Location = new System.Drawing.Point(927, 0);
+            this.StatusLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusLabel.Location = new System.Drawing.Point(943, 0);
             this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(16, 18);
+            this.StatusLabel.Size = new System.Drawing.Size(0, 19);
             this.StatusLabel.TabIndex = 0;
-            this.StatusLabel.Text = "_";
             // 
             // DGVMain
             // 
@@ -833,32 +857,32 @@
             this.DGVMain.AllowUserToDeleteRows = false;
             this.DGVMain.AllowUserToResizeColumns = false;
             this.DGVMain.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGVMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGVMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVMain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DGVMain.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.DGVMain.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGVMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DGVMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVMain.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVMain.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGVMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGVMain.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DGVMain.FilterAndSortEnabled = false;
@@ -879,11 +903,35 @@
             // 
             this.driverBindingSource.AllowNew = false;
             // 
+            // StockActuel
+            // 
+            this.StockActuel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.StockActuel.AutoSize = true;
+            this.StockActuel.BackColor = System.Drawing.Color.White;
+            this.StockActuel.Font = new System.Drawing.Font("Open 24 Display St", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StockActuel.Location = new System.Drawing.Point(835, -9);
+            this.StockActuel.Margin = new System.Windows.Forms.Padding(0);
+            this.StockActuel.Name = "StockActuel";
+            this.StockActuel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StockActuel.Size = new System.Drawing.Size(123, 57);
+            this.StockActuel.TabIndex = 1;
+            this.StockActuel.Text = "12345";
+            this.StockActuel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ribbonButton6
+            // 
+            this.ribbonButton6.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.Image")));
+            this.ribbonButton6.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.LargeImage")));
+            this.ribbonButton6.Name = "ribbonButton6";
+            this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
+            this.ribbonButton6.Text = "Sum Cons";
+            // 
             // GGAOWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 496);
+            this.Controls.Add(this.StockActuel);
             this.Controls.Add(this.DGVMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
@@ -892,11 +940,13 @@
             this.Name = "GGAOWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Gazoil ";
+            this.Load += new System.EventHandler(this.GGAOWindow_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -986,8 +1036,20 @@
             return DGVMain;
         }
 
+        public System.Windows.Forms.Label getTheActuelStock()
+        {
+            return this.StockActuel;
+        }
+        public System.Windows.Forms.Label getFiltredQuantity()
+        {
+            return this.FilteredQuantity;
+        }
         private Zuby.ADGV.AdvancedDataGridView DGVMain;
         private System.Windows.Forms.BindingSource driverBindingSource;
+        private System.Windows.Forms.Label StockActuel;
+        private System.Windows.Forms.RibbonButton ribbonButton5;
+        private System.Windows.Forms.RibbonButton ribbonButton6;
+        private System.Windows.Forms.Label FilteredQuantity;
         //private System.Windows.Forms.RibbonTab __DataRibbonTab;
         // private GGAODataSetTableAdapters.DriverTableAdapter driverTableAdapter;
     }

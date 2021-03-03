@@ -13,7 +13,7 @@ namespace GGAO
     {
         static SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
 
-        public static DataTable getVisibleAlimentation()
+        public static DataTable getVisibleConsommation()
         {
             DataTable dt = new DataTable(); 
             System.Data.DataSet ds = new DataSet();
@@ -111,7 +111,7 @@ namespace GGAO
             {
 
                 MessageBox.Show(exs.ToString(),
-                                    "Metre a jour un chaffeure", MessageBoxButtons.OK,
+                                     "Metre a jour un chaffeure", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally
@@ -150,5 +150,34 @@ namespace GGAO
             }
         }
     
+        public static int getSumOfQuantities()
+        {
+            int sum = 0;
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("CRUDConsommation", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "SUMQuanity";
+                SqlDataReader rdr = cmd.ExecuteReader();
+                rdr.Read();
+                int mySum = 0;
+                if (rdr.GetValue(0) != System.DBNull.Value )
+                    mySum = Convert.ToInt32(rdr[0]);
+                //MessageBox.Show("The sum is: " + mySum.ToString());
+
+                sum = mySum;
+            }
+            catch (Exception exs)
+            { //2007 DEBUT OUMACHE
+                MessageBox.Show(exs.ToString()," ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+
+                con.Close();
+            }
+            return sum; 
+        }
     }
 }
