@@ -275,7 +275,7 @@ namespace GGAO
                 // MessageBox.Show(getTheMainGrid().Rows[i].Cells[2].Value.ToString());
             }
             MessageBox.Show(sum.ToString());
-            getFiltredQuantity().Text ="Quantité : " + sum.ToString();
+            getFiltredQuantity().Text ="Quantité : " + sum.ToString("N1", System.Globalization.CultureInfo.InvariantCulture); ;
             return sum;
 
         }
@@ -761,6 +761,7 @@ namespace GGAO
             int alim = AlimentationCRUDOps.getSumOfQuantities();
             getTheActuelStock().Text = (alim - cons).ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
         }
+
 
         private void DelProductBtn_Click(object sender, EventArgs e)
         {
