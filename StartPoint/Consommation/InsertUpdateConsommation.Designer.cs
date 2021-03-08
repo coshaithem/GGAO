@@ -225,7 +225,8 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
             this.dateTimePicker.TabIndex = 14;
-            this.dateTimePicker.Value = new System.DateTime(2021, 2, 13, 20, 6, 41, 81);
+            //this.dateTimePicker.Value = new System.DateTime(2021, 2, 13, 20, 6, 41, 81);
+            this.dateTimePicker.Value = System.DateTime.Now;
             // 
             // TypeComboBox
             // 
@@ -327,6 +328,7 @@
             this.ClientSize = new System.Drawing.Size(562, 279);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "InsertUpdateConsommation";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -366,6 +368,17 @@
             KilotextBox.Text = _kilo;
             //System.Windows.Forms.MessageBox.Show( _Driver + _Pole + _Product + _Engine.Split('-')[0].Trim());
             // #bugs12022021
+        }
+        void ResetFields()
+        {
+            ReftextBox.Text = "";
+            TypeComboBox.ValueMember = "- Choisir -";
+            QuanitytextBox.Text = "";
+            KilotextBox.Text = "";
+            DriverCombobox.setTextBox("");
+            PoleCombobox.setTextBox("");
+            ProductCombobox.setTextBox("");
+            EngineCombobox.setTextBox("");
         }
         bool fieldsAreEmpty(bool InsertOrUpdate)
         {

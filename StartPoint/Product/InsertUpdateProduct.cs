@@ -42,7 +42,6 @@ namespace GGAO.Product
                         this.textBoxProductType.Text.Trim(),
                         this.textBoxProductDesc.Text.Trim()
                         );
- 
                 }
                 else // means Update existing record
                 {
@@ -53,6 +52,7 @@ namespace GGAO.Product
                         this.textBoxProductDesc.Text.Trim()
                         );
                 }
+                this.resetFields();
             }
         }
 

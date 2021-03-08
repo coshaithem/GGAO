@@ -218,6 +218,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "InsertUpdateEngine";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -241,7 +242,15 @@
                 this.SaveButton.Text = "Enregistrer";
             }
         }
-
+        void resetFields()
+        {
+            this.ColortextBox.Text = "";
+            this.MarquetextBox.Text = "";
+            this.CodetextBox.Text = "";
+            this.MatrtextBox.Text = "";
+            this.LibelletextBox.Text = "";
+            this.multiColumComboBox.setTextBox("");
+        }
         void setInitialValue(string _libelle, string _Matr,string _code, string _marque ,string _Color, string _poleLibelle)
         {
 

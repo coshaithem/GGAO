@@ -26,8 +26,8 @@ namespace GGAO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\GGAO.mdf;Inte" +
-            "grated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\MyData\\GGAO.m" +
+            "df;Integrated Security=True;Connect Timeout=30")]
         public string GGAOConnectionString {
             get {
                 return ((string)(this["GGAOConnectionString"]));

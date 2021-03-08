@@ -37,10 +37,10 @@ namespace GGAO.Driver
             System.Windows.Forms.Label lieuNaissanceLabel;
             System.Windows.Forms.Label mobileLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cINTextBox = new System.Windows.Forms.TextBox();
             this.mobileTextBox = new System.Windows.Forms.TextBox();
             this.lieuNaissanceTextBox = new System.Windows.Forms.TextBox();
             this.dateNaissanceDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.cINTextBox = new System.Windows.Forms.TextBox();
             this.prenomTextBox = new System.Windows.Forms.TextBox();
             this.nomTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -143,6 +143,14 @@ namespace GGAO.Driver
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chauffeur Information";
             // 
+            // cINTextBox
+            // 
+            this.cINTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cINTextBox.Location = new System.Drawing.Point(152, 225);
+            this.cINTextBox.Name = "cINTextBox";
+            this.cINTextBox.Size = new System.Drawing.Size(200, 28);
+            this.cINTextBox.TabIndex = 5;
+            // 
             // mobileTextBox
             // 
             this.mobileTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -167,15 +175,7 @@ namespace GGAO.Driver
             this.dateNaissanceDateTimePicker.Name = "dateNaissanceDateTimePicker";
             this.dateNaissanceDateTimePicker.Size = new System.Drawing.Size(200, 28);
             this.dateNaissanceDateTimePicker.TabIndex = 3;
-            this.dateNaissanceDateTimePicker.Value = new System.DateTime(2021, 1, 27, 0, 0, 0, 0);
-            // 
-            // cINTextBox
-            // 
-            this.cINTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cINTextBox.Location = new System.Drawing.Point(152, 225);
-            this.cINTextBox.Name = "cINTextBox";
-            this.cINTextBox.Size = new System.Drawing.Size(200, 28);
-            this.cINTextBox.TabIndex = 5;
+            this.dateNaissanceDateTimePicker.Value = new System.DateTime(1911, 1, 1, 13, 11, 0, 0);
             // 
             // prenomTextBox
             // 
@@ -220,6 +220,7 @@ namespace GGAO.Driver
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "InsertUpdateDriver";
             this.Opacity = 0.97D;
             this.ShowIcon = false;
@@ -231,7 +232,15 @@ namespace GGAO.Driver
             this.ResumeLayout(false);
 
         }
+        void ResetFields()
+        {
+            nomTextBox.Text = "";
+            mobileTextBox.Text = "";
+            lieuNaissanceTextBox.Text = "";
+            cINTextBox.Text = "";
+            prenomTextBox.Text = "";
 
+        }
         public void setTitle( bool insertOrupdate)
         {
             if (!insertOrupdate)

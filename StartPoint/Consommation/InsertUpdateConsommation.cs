@@ -106,6 +106,7 @@ namespace GGAO.Consommation
 
                         );
                 }
+                this.ResetFields();
             }
         }
     }

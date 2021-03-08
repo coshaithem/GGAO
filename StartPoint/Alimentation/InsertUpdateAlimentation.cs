@@ -37,7 +37,7 @@ namespace GGAO.Consommation
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if ( this.fieldsAreEmpty(InsertOrUpdate ) )
+            if ( this.fieldsAreEmpty( InsertOrUpdate ) )
             {
                 MessageBox.Show("Vous devez remplir les champs nécessaires", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -53,10 +53,10 @@ namespace GGAO.Consommation
                          (ProductCombobox.SelectedItem == null) ? "0" : ProductCombobox.SelectedItem.Value,
                          (PoleCombobox.SelectedItem == null) ? "0" : PoleCombobox.SelectedItem.Value,
                          (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
-                         KilotextBox.Text.Trim(),
+                         (KilotextBox.Text.Trim() == "") ? "0": KilotextBox.Text.Trim(),
                          QuanitytextBox.Text.Trim()
 
-                        ); 
+                        ); ; 
                    
                 }
                 else // means Update existing record
@@ -75,6 +75,7 @@ namespace GGAO.Consommation
 
                         );
                 }
+                this.ResetFields();
             }
         }
 

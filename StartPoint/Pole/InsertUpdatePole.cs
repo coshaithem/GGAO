@@ -58,6 +58,7 @@ namespace GGAO.Pole
                         this.DescriptiontextBox.Text.Trim()
                         );
                 }
+                this.resetFields();
             }
         }
     }

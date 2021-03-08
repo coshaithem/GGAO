@@ -203,7 +203,8 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
             this.dateTimePicker.TabIndex = 14;
-            this.dateTimePicker.Value = new System.DateTime(2021, 2, 13, 20, 6, 41, 81);
+            //this.dateTimePicker.Value = new System.DateTime(2021, 3, 6, 15, 7, 1, 624);
+            this.dateTimePicker.Value = System.DateTime.Now;
             // 
             // TypeComboBox
             // 
@@ -213,6 +214,7 @@
             "Carte Naftal",
             "TAC",
             "Bon Pour",
+            "Facture",
             "Autres"});
             this.TypeComboBox.Location = new System.Drawing.Point(111, 101);
             this.TypeComboBox.Name = "TypeComboBox";
@@ -326,7 +328,9 @@
             this.ClientSize = new System.Drawing.Size(560, 265);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "InsertUpdateAlimentation";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -367,6 +371,17 @@
             //System.Windows.Forms.MessageBox.Show( _Driver + _Pole + _Product + _Engine.Split('-')[0].Trim());
            // #bugs12022021
         }
+        void ResetFields()
+        {
+            ReftextBox.Text = "";
+            TypeComboBox.ValueMember = "- Choisir -";
+            QuanitytextBox.Text = "";
+            KilotextBox.Text = "";
+            DriverCombobox.setTextBox("");
+            PoleCombobox.setTextBox("");
+            ProductCombobox.setTextBox("");
+            EngineCombobox.setTextBox("");
+        }
         bool fieldsAreEmpty( bool InsertOrUpdate )
         {
             /* System.Windows.Forms.MessageBox.Show(
@@ -374,21 +389,22 @@
                   KilotextBox.Text.Trim()+" * "+ DriverCombobox.SelectedItem.ToString() +" * "+ PoleCombobox.SelectedItem.ToString() +" * "+ ProductCombobox.SelectedItem.ToString() +" * "+
                   EngineCombobox.SelectedItem.ToString());
             */
-            bool level1 = true, level2 = true ;
+            bool level1 = false;
+            //level2 = true ;
             int a;
-            float b;
+            //float b;
             int.TryParse(ReftextBox.Text.Trim(), out a);
-            if ((string.IsNullOrEmpty(ReftextBox.Text.Trim()) || TypeComboBox.ValueMember.Trim().Equals("- Choisir -") || string.IsNullOrEmpty(QuanitytextBox.Text.Trim()) ||
-
-                string.IsNullOrEmpty(KilotextBox.Text.Trim())))
-            {
-                level1 = false;
+            if ((string.IsNullOrEmpty(ReftextBox.Text.Trim()) || TypeComboBox.ValueMember.Trim().Equals("- Choisir -") || string.IsNullOrEmpty(QuanitytextBox.Text.Trim()) ))
+            { // string.IsNullOrEmpty(KilotextBox.Text.Trim()
+                level1 = true;
             }
+            return level1;
+            /*
             if ( ! int.TryParse(KilotextBox.Text.Trim(), out a) || !float.TryParse(QuanitytextBox.Text.Trim(), out b) )
             {
                 level2 = false;
             }
-
+            // this.dateTimePicker.Value = System.DateTime.Now;
             if ( InsertOrUpdate)
             { //means insert new record
                 if ( !level1 || !level2) { return true; }
@@ -403,6 +419,7 @@
             {
                 return (!level1 || !level2);
             }
+            */
 
         }
         #endregion

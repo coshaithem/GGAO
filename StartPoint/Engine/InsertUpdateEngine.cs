@@ -107,6 +107,7 @@ namespace GGAO.Engine
 
                         );
                 }
+                this.resetFields();
             }
         }
 

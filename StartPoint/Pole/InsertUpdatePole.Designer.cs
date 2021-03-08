@@ -121,10 +121,10 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operation";
             // 
-            // SaveBtn
+            // SaveButton
             // 
             this.SaveButton.Location = new System.Drawing.Point(217, 19);
-            this.SaveButton.Name = "SaveBtn";
+            this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(81, 35);
             this.SaveButton.TabIndex = 3;
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -138,6 +138,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "InsertUpdatePole";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -168,6 +169,12 @@
             LibelletextBox.Text = _nom;
             AddresstextBox.Text = _addr;
             DescriptiontextBox.Text = _desc;
+        }
+        void resetFields()
+        {
+            this.LibelletextBox.Text = "";
+            this.AddresstextBox.Text = "";
+            this.DescriptiontextBox.Text = "";
         }
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;

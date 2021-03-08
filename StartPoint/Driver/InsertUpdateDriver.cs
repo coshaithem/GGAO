@@ -28,7 +28,7 @@ namespace GGAO.Driver
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (this.nomTextBox.Text.Trim() == "" ||  this.prenomTextBox.Text.Trim() == "" ||  this.mobileTextBox.Text.Trim() == "" )
+            if (this.nomTextBox.Text.Trim() == "" ||  this.prenomTextBox.Text.Trim() == "" )
             {
                 MessageBox.Show("Vous devez remplir les champs nécessaires", "Alert",MessageBoxButtons.OK, MessageBoxIcon.Exclamation) ;
             }
@@ -56,6 +56,7 @@ namespace GGAO.Driver
                         this.mobileTextBox.Text.Trim()
                         );
                 }
+                this.ResetFields();
             }
         }
     }

@@ -138,6 +138,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "InsertUpdateProduct";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -159,6 +160,12 @@
                 this.Text = "Nouveau Produit";
                 this.SaveButton.Text = "Enregistrer";
             }
+        }
+        void resetFields()
+        {
+            this.textBoxProductName.Text ="";
+            this.textBoxProductType.Text = "";
+            this.textBoxProductDesc.Text = "";
         }
         #endregion
         void setInitialValue(string _nom, string _type, string _desc )

@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Gestion Gaz Oil Assisté par Ordinateur")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("cosider canalisation")]
-[assembly: AssemblyProduct("GGAO")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyProduct("Gestion Gaz Oil Assisté par Ordinateur")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
