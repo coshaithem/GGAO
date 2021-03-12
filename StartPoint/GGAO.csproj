@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>GGAO</RootNamespace>
     <AssemblyName>GGAO</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -72,16 +73,43 @@
     <StartupObject>StartPoint.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdvancedDataGridView, Version=1.1.24722.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DG.AdvancedDataGridView.1.1.24722.8\lib\net40\AdvancedDataGridView.dll</HintPath>
+    <Reference Include="AdvancedDataGridView, Version=1.1.25411.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DG.AdvancedDataGridView.1.1.25411.9\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms.Ribbon, Version=2.0.0.0, Culture=neutral, PublicKeyToken=928736e248aa81f9, processorArchitecture=MSIL">
-      <HintPath>..\packages\RibbonWinForms.5.0.1.1\lib\net45\System.Windows.Forms.Ribbon.dll</HintPath>
+      <HintPath>..\packages\RibbonWinForms.5.0.1.1\lib\net46\System.Windows.Forms.Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -125,29 +153,22 @@
     <Compile Include="Engine\InsertUpdateEngine.Designer.cs">
       <DependentUpon>InsertUpdateEngine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\mainReportWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\mainReportWin.Designer.cs">
+      <DependentUpon>mainReportWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\GGAOEngineDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GGAOEngineDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GGAOWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GGAOWindow.Designer.cs">
       <DependentUpon>GGAOWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="old_f_About.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="old_f_About.Designer.cs">
-      <DependentUpon>old_f_About.cs</DependentUpon>
-    </Compile>
-    <Compile Include="old_f_Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="old_f_Main.Designer.cs">
-      <DependentUpon>old_f_Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HeaderTopLevelPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="HeaderTopLevelPanel.Designer.cs">
-      <DependentUpon>HeaderTopLevelPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Pole\InsertUpdatePole.cs">
       <SubType>Form</SubType>
@@ -165,12 +186,7 @@
     <Compile Include="Product\ProductCRUDOps.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="old_f_Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="old_f_Login.Designer.cs">
-      <DependentUpon>old_f_Login.cs</DependentUpon>
-    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utilities\Tools.cs" />
     <EmbeddedResource Include="Alimentation\InsertUpdateAlimentation.resx">
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
@@ -184,17 +200,11 @@
     <EmbeddedResource Include="Engine\InsertUpdateEngine.resx">
       <DependentUpon>InsertUpdateEngine.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\mainReportWin.resx">
+      <DependentUpon>mainReportWin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GGAOWindow.resx">
       <DependentUpon>GGAOWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="old_f_About.resx">
-      <DependentUpon>old_f_About.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="old_f_Main.resx">
-      <DependentUpon>old_f_Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HeaderTopLevelPanel.resx">
-      <DependentUpon>HeaderTopLevelPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pole\InsertUpdatePole.resx">
       <DependentUpon>InsertUpdatePole.cs</DependentUpon>
@@ -212,11 +222,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="old_f_Login.resx">
-      <DependentUpon>old_f_Login.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptEngine.rdlc" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
+    </None>
+    <None Include="Reports\GGAOEngineDataSet.xsc">
+      <DependentUpon>GGAOEngineDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\GGAOEngineDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GGAOEngineDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reports\GGAOEngineDataSet.xss">
+      <DependentUpon>GGAOEngineDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -265,6 +284,19 @@
     <Content Include="MyData\GGAO_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GGAO.mdf</DependentUpon>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\icons8-oil-tanker-85%281%29.png" />
     <None Include="Resources\icons8-oil-tanker-85.png" />
@@ -334,5 +366,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

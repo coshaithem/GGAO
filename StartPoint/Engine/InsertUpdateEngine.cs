@@ -22,11 +22,12 @@ namespace GGAO.Engine
             InsertOrUpdate = roleInsertOrUpdate;
         }
 
-        public void setDefaultValueforFields(string _id, string _libelle, string _Matr, string _code, string _marque , string _Color, string _poleLibelle)
+        public void setDefaultValueforFields(string _id, string _libelle, string _Matr, string _code, string _marque , string _Color, string _poleLibelle
+             , string type, string serie)
         {
             this.selectedID = _id;
             this.selectedPoleLibelle = _poleLibelle;
-            this.setInitialValue( _libelle,  _Matr, _code, _marque, _Color,  _poleLibelle);
+            this.setInitialValue( _libelle,  _Matr, _code, _marque, _Color,  _poleLibelle,  type,   serie);
             // _libelle,  _Matr, _code,  _marque , _Color,  _poleLibelle
 
         }
@@ -89,8 +90,10 @@ namespace GGAO.Engine
                         this.MatrtextBox.Text.Trim(),
                         this.MarquetextBox.Text.Trim(),
                         this.ColortextBox.Text.Trim(),
-                        selectedPoleID  // this is supose to get the ID 
+                        selectedPoleID,  // this is supose to get the ID 
 
+                        this.TypetextBox.Text.Trim(),
+                        this.SerietextBox.Text.Trim()
                         );
                 }
                 else // means Update existing record
@@ -103,9 +106,13 @@ namespace GGAO.Engine
                         this.MatrtextBox.Text.Trim(),
                         this.MarquetextBox.Text.Trim(),
                         this.ColortextBox.Text.Trim(),
-                        (selectedPoleID == "0")?null: selectedPoleID  // this is supose to get the ID 
+                        (selectedPoleID == "0")?null: selectedPoleID,  // this is supose to get the ID 
 
+
+                        this.TypetextBox.Text.Trim(),
+                        this.SerietextBox.Text.Trim()
                         );
+                    this.Close();
                 }
                 this.resetFields();
             }

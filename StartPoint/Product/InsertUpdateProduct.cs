@@ -51,6 +51,7 @@ namespace GGAO.Product
                         this.textBoxProductType.Text.Trim(),
                         this.textBoxProductDesc.Text.Trim()
                         );
+                    this.Close();
                 }
                 this.resetFields();
             }

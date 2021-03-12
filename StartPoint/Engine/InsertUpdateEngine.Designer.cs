@@ -43,12 +43,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.SerietextBox = new System.Windows.Forms.TextBox();
+            this.TypetextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.SerietextBox);
+            this.groupBox1.Controls.Add(this.TypetextBox);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.ColortextBox);
             this.groupBox1.Controls.Add(this.multiColumComboBox);
             this.groupBox1.Controls.Add(this.MarquetextBox);
@@ -64,7 +72,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 277);
+            this.groupBox1.Size = new System.Drawing.Size(617, 193);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
@@ -72,7 +80,7 @@
             // ColortextBox
             // 
             this.ColortextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ColortextBox.Location = new System.Drawing.Point(110, 191);
+            this.ColortextBox.Location = new System.Drawing.Point(405, 112);
             this.ColortextBox.Name = "ColortextBox";
             this.ColortextBox.Size = new System.Drawing.Size(195, 26);
             this.ColortextBox.TabIndex = 12;
@@ -85,7 +93,7 @@
             this.multiColumComboBox.DropDownHeight = 200;
             this.multiColumComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.multiColumComboBox.GridLines = VMultiColumnComboBox.GridLines.None;
-            this.multiColumComboBox.Location = new System.Drawing.Point(110, 235);
+            this.multiColumComboBox.Location = new System.Drawing.Point(406, 151);
             this.multiColumComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.multiColumComboBox.Name = "multiColumComboBox";
             this.multiColumComboBox.SelectedItem = null;
@@ -134,7 +142,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 235);
+            this.label6.Location = new System.Drawing.Point(325, 154);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 20);
             this.label6.TabIndex = 5;
@@ -144,7 +152,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 194);
+            this.label5.Location = new System.Drawing.Point(321, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 20);
             this.label5.TabIndex = 4;
@@ -194,27 +202,65 @@
             // 
             this.groupBox2.Controls.Add(this.SaveButton);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 278);
+            this.groupBox2.Location = new System.Drawing.Point(0, 194);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(329, 67);
+            this.groupBox2.Size = new System.Drawing.Size(617, 67);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operation";
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(222, 20);
+            this.SaveButton.Location = new System.Drawing.Point(517, 20);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(83, 35);
             this.SaveButton.TabIndex = 0;
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // SerietextBox
+            // 
+            this.SerietextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.SerietextBox.Location = new System.Drawing.Point(405, 70);
+            this.SerietextBox.Name = "SerietextBox";
+            this.SerietextBox.Size = new System.Drawing.Size(195, 26);
+            this.SerietextBox.TabIndex = 16;
+            this.SerietextBox.Text = "  ";
+            // 
+            // TypetextBox
+            // 
+            this.TypetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TypetextBox.Location = new System.Drawing.Point(405, 29);
+            this.TypetextBox.Name = "TypetextBox";
+            this.TypetextBox.Size = new System.Drawing.Size(195, 26);
+            this.TypetextBox.TabIndex = 15;
+            this.TypetextBox.Text = "  ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(321, 73);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 20);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Serie";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(321, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 20);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Type";
+            // 
             // InsertUpdateEngine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 345);
+            this.ClientSize = new System.Drawing.Size(617, 261);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -249,9 +295,12 @@
             this.CodetextBox.Text = "";
             this.MatrtextBox.Text = "";
             this.LibelletextBox.Text = "";
+            this.TypetextBox.Text = "";
+            this.SerietextBox.Text = "";
             this.multiColumComboBox.setTextBox("");
         }
-        void setInitialValue(string _libelle, string _Matr,string _code, string _marque ,string _Color, string _poleLibelle)
+        void setInitialValue(string _libelle, string _Matr,string _code, string _marque ,string _Color, string _poleLibelle
+             , string type, string serie)
         {
 
            // System.Windows.Forms.MessageBox.Show(  _libelle+" "+ _Matr+" "+ _code+" "+ _marque+" "+ _Color+" "+ _poleLibelle);
@@ -261,6 +310,8 @@
             CodetextBox.Text = _code ;
             MarquetextBox.Text = _marque;
             ColortextBox.Text = _Color;
+            TypetextBox.Text = type;
+            SerietextBox.Text = serie;
             // put this value into textbox in the multicolumnbombox
             // multiColumComboBox
             // multiColumComboBox.setTextBox(_poleLibelle.Trim());
@@ -284,5 +335,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.TextBox SerietextBox;
+        private System.Windows.Forms.TextBox TypetextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

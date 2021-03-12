@@ -55,6 +55,7 @@ namespace GGAO.Driver
                         this.lieuNaissanceTextBox.Text.Trim(),
                         this.mobileTextBox.Text.Trim()
                         );
+                    this.Close();
                 }
                 this.ResetFields();
             }

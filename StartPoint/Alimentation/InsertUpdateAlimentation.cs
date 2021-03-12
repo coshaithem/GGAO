@@ -74,6 +74,7 @@ namespace GGAO.Consommation
                          QuanitytextBox.Text.Trim()
 
                         );
+                    this.Close();
                 }
                 this.ResetFields();
             }

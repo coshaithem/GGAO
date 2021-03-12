@@ -14,6 +14,7 @@ using GGAO.Pole;
 using GGAO.Engine;
 using GGAO.Consommation;
 
+
 namespace GGAO
 {
     public partial class GGAOWindow : Form
@@ -267,6 +268,7 @@ namespace GGAO
         }  
         private int updateSumOfFilteredQuantities()
         {
+            
             int sum = 0;
             for (int i = 0; i < getTheMainGrid().Rows.Count; i++)
             {
@@ -274,7 +276,7 @@ namespace GGAO
                 sum += Convert.ToInt32(getTheMainGrid().Rows[i].Cells[5].Value.ToString().Trim());
                 // MessageBox.Show(getTheMainGrid().Rows[i].Cells[2].Value.ToString());
             }
-            MessageBox.Show(sum.ToString());
+            //MessageBox.Show(sum.ToString());
             getFiltredQuantity().Text ="Quantité : " + sum.ToString("N1", System.Globalization.CultureInfo.InvariantCulture); ;
             return sum;
 
@@ -284,7 +286,8 @@ namespace GGAO
             if (lastSelectedBindingSource != null)
             {
                 lastSelectedBindingSource.Filter = DGVMain.FilterString;
-                this.updateSumOfFilteredQuantities();
+                if (this.selectedTable == Table.ALIMENTATION || this.selectedTable == Table.CONSOMMATION)
+                    this.updateSumOfFilteredQuantities();
                 this.updateTotalRow();
             }
         }
@@ -556,16 +559,19 @@ namespace GGAO
                 if (selectedRowIndex >= 0)
                 {
                     string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
-                    , Libelle = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
-                    , Marque = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
-                    , Code = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString() 
-                    , Matricule = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString() 
-                    , PoleId = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString()
-                    , Color = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString();
+                    , Libelle = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , Marque = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString()
+                    , Code = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString() 
+                    , Matricule = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString() 
+                    , PoleId = DGVMain.Rows[selectedRowIndex].Cells[7].Value.ToString()
+                    , Color = DGVMain.Rows[selectedRowIndex].Cells[8].Value.ToString()
+                    , type = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString()
+                    , serie = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString();
                     //MessageBox.Show(ID + " " + Libelle + " " + Matricule + " " + Code + " " + Marque + " " + Color + " " + PoleId);
                     InsertUpdateEngine form = new InsertUpdateEngine(false);
-                    form.setDefaultValueforFields(ID, Libelle, Matricule, Code, Marque, Color, PoleId);
+                    form.setDefaultValueforFields(ID, Libelle, Matricule, Code, Marque, Color, PoleId, type, serie);
                     form.ShowDialog();
+                    
                     // to  obligate the user to reselect
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
@@ -611,11 +617,6 @@ namespace GGAO
             }
         }
 
-        private void infoBtn_Click(object sender, EventArgs e)
-        {
-            StartPoint.f_About form = new StartPoint.f_About();
-            form.ShowDialog();
-        }
 
         private void DelOilInBtn_Click(object sender, EventArgs e)
         {
@@ -762,6 +763,13 @@ namespace GGAO
             getTheActuelStock().Text = (alim - cons).ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
         }
 
+        private void ribbonButton5_Click_1(object sender, EventArgs e)
+        {
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
+            
+            ReportWin test = new ReportWin();
+            test.Show();
+        }
 
         private void DelProductBtn_Click(object sender, EventArgs e)
         {

@@ -55,6 +55,10 @@
             this.NewOilOutBtn = new System.Windows.Forms.RibbonButton();
             this.EditOilOutBtn = new System.Windows.Forms.RibbonButton();
             this.DelOilOutBtn = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
+            this.PrintribbonButton = new System.Windows.Forms.RibbonButton();
+            this.ScanribbonButton = new System.Windows.Forms.RibbonButton();
             this.AutreTab = new System.Windows.Forms.RibbonTab();
             this.ProduitribbonPanel = new System.Windows.Forms.RibbonPanel();
             this.ProductBtn = new System.Windows.Forms.RibbonButton();
@@ -143,7 +147,6 @@
             this.ribbon1.OrbDropDown.OptionItems.Add(this.ribbonOrbOptionButton1);
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 72);
             this.ribbon1.OrbDropDown.TabIndex = 0;
-            this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2013;
             this.ribbon1.OrbText = "Parametrage";
             this.ribbon1.OrbVisible = false;
             // 
@@ -158,7 +161,6 @@
             this.ribbon1.Tabs.Add(this.StockTab);
             this.ribbon1.Tabs.Add(this.AutreTab);
             this.ribbon1.Tabs.Add(this.HelpTab);
-            this.ribbon1.TabSpacing = 4;
             this.ribbon1.Text = "ribbon1";
             this.ribbon1.Click += new System.EventHandler(this.ribbon1_Click);
             // 
@@ -225,6 +227,7 @@
             this.StockTab.Name = "StockTab";
             this.StockTab.Panels.Add(this.ribbonPanel1);
             this.StockTab.Panels.Add(this.ribbonPanel3);
+            this.StockTab.Panels.Add(this.ribbonPanel2);
             this.StockTab.Text = "Stock";
             this.StockTab.ToolTipImage = global::GGAO.Properties.Resources.ggao1;
             // 
@@ -339,6 +342,47 @@
             this.DelOilOutBtn.Text = "Supprimer";
             this.DelOilOutBtn.Click += new System.EventHandler(this.DelOilOutBtn_Click);
             // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.Items.Add(this.ribbonButton5);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Text = "Rapport";
+            // 
+            // ribbonButton5
+            // 
+            this.ribbonButton5.CheckOnClick = true;
+            this.ribbonButton5.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Up;
+            this.ribbonButton5.DropDownItems.Add(this.PrintribbonButton);
+            this.ribbonButton5.DropDownItems.Add(this.ScanribbonButton);
+            this.ribbonButton5.DropDownResizable = true;
+            this.ribbonButton5.Image = global::GGAO.Properties.Resources.show;
+            this.ribbonButton5.LargeImage = global::GGAO.Properties.Resources.show;
+            this.ribbonButton5.Name = "ribbonButton5";
+            this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
+            this.ribbonButton5.Text = "";
+            this.ribbonButton5.Click += new System.EventHandler(this.ribbonButton5_Click_1);
+            // 
+            // PrintribbonButton
+            // 
+            this.PrintribbonButton.CheckOnClick = true;
+            this.PrintribbonButton.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Up;
+            this.PrintribbonButton.DropDownResizable = true;
+            this.PrintribbonButton.FlashImage = global::GGAO.Properties.Resources.printer;
+            this.PrintribbonButton.Image = ((System.Drawing.Image)(resources.GetObject("PrintribbonButton.Image")));
+            this.PrintribbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("PrintribbonButton.LargeImage")));
+            this.PrintribbonButton.Name = "PrintribbonButton";
+            this.PrintribbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("PrintribbonButton.SmallImage")));
+            this.PrintribbonButton.Text = "Print";
+            // 
+            // ScanribbonButton
+            // 
+            this.ScanribbonButton.CheckOnClick = true;
+            this.ScanribbonButton.Image = ((System.Drawing.Image)(resources.GetObject("ScanribbonButton.Image")));
+            this.ScanribbonButton.LargeImage = ((System.Drawing.Image)(resources.GetObject("ScanribbonButton.LargeImage")));
+            this.ScanribbonButton.Name = "ScanribbonButton";
+            this.ScanribbonButton.SmallImage = global::GGAO.Properties.Resources.printer;
+            this.ScanribbonButton.Text = "Scan";
+            // 
             // AutreTab
             // 
             this.AutreTab.Name = "AutreTab";
@@ -368,6 +412,7 @@
             // 
             // NewProductBtn
             // 
+            this.NewProductBtn.Enabled = false;
             this.NewProductBtn.Image = ((System.Drawing.Image)(resources.GetObject("NewProductBtn.Image")));
             this.NewProductBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("NewProductBtn.LargeImage")));
             this.NewProductBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
@@ -388,6 +433,7 @@
             // 
             // DelProductBtn
             // 
+            this.DelProductBtn.Enabled = false;
             this.DelProductBtn.Image = ((System.Drawing.Image)(resources.GetObject("DelProductBtn.Image")));
             this.DelProductBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("DelProductBtn.LargeImage")));
             this.DelProductBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
@@ -562,7 +608,6 @@
             this.infoBtn.Name = "infoBtn";
             this.infoBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("infoBtn.SmallImage")));
             this.infoBtn.Text = "";
-            this.infoBtn.Click += new System.EventHandler(this.infoBtn_Click);
             // 
             // ribbonButton1
             // 
@@ -897,10 +942,10 @@
             // StockActuel
             // 
             this.StockActuel.AutoSize = true;
-            this.StockActuel.BackColor = System.Drawing.Color.White;
+            this.StockActuel.BackColor = System.Drawing.Color.Transparent;
             this.StockActuel.Dock = System.Windows.Forms.DockStyle.Right;
             this.StockActuel.Font = new System.Drawing.Font("Open 24 Display St", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StockActuel.Location = new System.Drawing.Point(531, 0);
+            this.StockActuel.Location = new System.Drawing.Point(448, 0);
             this.StockActuel.Margin = new System.Windows.Forms.Padding(0);
             this.StockActuel.Name = "StockActuel";
             this.StockActuel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -920,11 +965,11 @@
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.StockActuel);
-            this.panel2.Location = new System.Drawing.Point(303, 0);
+            this.panel2.Location = new System.Drawing.Point(386, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(642, 49);
+            this.panel2.Size = new System.Drawing.Size(559, 49);
             this.panel2.TabIndex = 4;
             // 
             // GGAOWindow
@@ -1052,6 +1097,10 @@
         private System.Windows.Forms.RibbonButton ribbonButton6;
         private System.Windows.Forms.Label FilteredQuantity;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RibbonPanel ribbonPanel2;
+        private System.Windows.Forms.RibbonButton ribbonButton5;
+        private System.Windows.Forms.RibbonButton PrintribbonButton;
+        private System.Windows.Forms.RibbonButton ScanribbonButton;
         //private System.Windows.Forms.RibbonTab __DataRibbonTab;
         // private GGAODataSetTableAdapters.DriverTableAdapter driverTableAdapter;
     }

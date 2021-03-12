@@ -57,6 +57,7 @@ namespace GGAO.Pole
                         this.AddresstextBox.Text.Trim(),
                         this.DescriptiontextBox.Text.Trim()
                         );
+                    this.Close();
                 }
                 this.resetFields();
             }

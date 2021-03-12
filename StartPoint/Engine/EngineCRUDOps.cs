@@ -40,7 +40,8 @@ namespace GGAO
             //MessageBox.Show(" DataSet Tables number " + ds.Tables.Count.ToString() + "   "+ds.Tables[0].TableName  );
             return ds.Tables[0];
         }
-        public static void createEngine(String Libelle, String MatriculeIn, String MatriculeNat, string marque, string color, string poleID )
+        public static void createEngine(String Libelle, String MatriculeIn, String MatriculeNat, string marque, string color, string poleID
+            , string type, string serie)
         {
             try
             {
@@ -52,6 +53,8 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@MatriculeNational", SqlDbType.NVarChar).Value = MatriculeNat ;
                 cmd.Parameters.AddWithValue("@Marque", SqlDbType.NVarChar).Value = marque ;
                 cmd.Parameters.AddWithValue("@Couleur", SqlDbType.NVarChar).Value = color;
+                cmd.Parameters.AddWithValue("@TYPE", SqlDbType.NVarChar).Value = type;
+                cmd.Parameters.AddWithValue("@SERIE", SqlDbType.NVarChar).Value = serie;
                 int poleId;
                 bool parseOps = int.TryParse(poleID, out poleId);
                 if (!parseOps) poleId = -1;
@@ -82,7 +85,8 @@ namespace GGAO
                 con.Close();
             }
         }
-        public static void UpdateEngine(string ID, String Libelle, String MatriculeIn, String MatriculeNat, string marque, string color, string poleID)
+        public static void UpdateEngine(string ID, String Libelle, String MatriculeIn, String MatriculeNat, string marque, string color, string poleID
+            , string type, string serie)
         {
             try
             {
@@ -95,7 +99,11 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@MatriculeNational", SqlDbType.NVarChar).Value = MatriculeNat;
                 cmd.Parameters.AddWithValue("@Marque", SqlDbType.NVarChar).Value = marque;
                 cmd.Parameters.AddWithValue("@Couleur", SqlDbType.NVarChar).Value = color;
-                if( poleID != null) { 
+
+                cmd.Parameters.AddWithValue("@TYPE", SqlDbType.NVarChar).Value = type;
+                cmd.Parameters.AddWithValue("@SERIE", SqlDbType.NVarChar).Value = serie;
+
+                if ( poleID != null) { 
                     int poleId;
                     bool parseOps = int.TryParse(poleID, out poleId);
                     if (!parseOps) poleId = 0;
