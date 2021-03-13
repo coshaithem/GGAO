@@ -20,17 +20,17 @@ namespace GGAO.Reports {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("GGAOEngineDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("GGAODataSetConsumption")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class GGAOEngineDataSet : global::System.Data.DataSet {
+    public partial class GGAODataSetConsumption : global::System.Data.DataSet {
         
-        private ListOfEngineDataTable tableListOfEngine;
+        private ConsumptionByDateAndPoleDataTable tableConsumptionByDateAndPole;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public GGAOEngineDataSet() {
+        public GGAODataSetConsumption() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace GGAO.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected GGAOEngineDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected GGAODataSetConsumption(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace GGAO.Reports {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["ListOfEngine"] != null)) {
-                    base.Tables.Add(new ListOfEngineDataTable(ds.Tables["ListOfEngine"]));
+                if ((ds.Tables["ConsumptionByDateAndPole"] != null)) {
+                    base.Tables.Add(new ConsumptionByDateAndPoleDataTable(ds.Tables["ConsumptionByDateAndPole"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace GGAO.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ListOfEngineDataTable ListOfEngine {
+        public ConsumptionByDateAndPoleDataTable ConsumptionByDateAndPole {
             get {
-                return this.tableListOfEngine;
+                return this.tableConsumptionByDateAndPole;
             }
         }
         
@@ -127,7 +127,7 @@ namespace GGAO.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            GGAOEngineDataSet cln = ((GGAOEngineDataSet)(base.Clone()));
+            GGAODataSetConsumption cln = ((GGAODataSetConsumption)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace GGAO.Reports {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["ListOfEngine"] != null)) {
-                    base.Tables.Add(new ListOfEngineDataTable(ds.Tables["ListOfEngine"]));
+                if ((ds.Tables["ConsumptionByDateAndPole"] != null)) {
+                    base.Tables.Add(new ConsumptionByDateAndPoleDataTable(ds.Tables["ConsumptionByDateAndPole"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace GGAO.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableListOfEngine = ((ListOfEngineDataTable)(base.Tables["ListOfEngine"]));
+            this.tableConsumptionByDateAndPole = ((ConsumptionByDateAndPoleDataTable)(base.Tables["ConsumptionByDateAndPole"]));
             if ((initTable == true)) {
-                if ((this.tableListOfEngine != null)) {
-                    this.tableListOfEngine.InitVars();
+                if ((this.tableConsumptionByDateAndPole != null)) {
+                    this.tableConsumptionByDateAndPole.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace GGAO.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "GGAOEngineDataSet";
+            this.DataSetName = "GGAODataSetConsumption";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/GGAOEngineDataSet.xsd";
+            this.Namespace = "http://tempuri.org/GGAODataSetConsumption.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableListOfEngine = new ListOfEngineDataTable();
-            base.Tables.Add(this.tableListOfEngine);
+            this.tableConsumptionByDateAndPole = new ConsumptionByDateAndPoleDataTable();
+            base.Tables.Add(this.tableConsumptionByDateAndPole);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeListOfEngine() {
+        private bool ShouldSerializeConsumptionByDateAndPole() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace GGAO.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            GGAOEngineDataSet ds = new GGAOEngineDataSet();
+            GGAODataSetConsumption ds = new GGAODataSetConsumption();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,41 +270,29 @@ namespace GGAO.Reports {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void ListOfEngineRowChangeEventHandler(object sender, ListOfEngineRowChangeEvent e);
+        public delegate void ConsumptionByDateAndPoleRowChangeEventHandler(object sender, ConsumptionByDateAndPoleRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ListOfEngineDataTable : global::System.Data.TypedTableBase<ListOfEngineRow> {
+        public partial class ConsumptionByDateAndPoleDataTable : global::System.Data.TypedTableBase<ConsumptionByDateAndPoleRow> {
             
-            private global::System.Data.DataColumn columnID;
+            private global::System.Data.DataColumn columnDESIGNATION;
             
-            private global::System.Data.DataColumn columnLibelle;
+            private global::System.Data.DataColumn columnIMM_COD;
             
-            private global::System.Data.DataColumn columnMatriculeIntern;
+            private global::System.Data.DataColumn columnCOMPTE_KM_H;
             
-            private global::System.Data.DataColumn columnMatriculeNational;
+            private global::System.Data.DataColumn columnQte;
             
-            private global::System.Data.DataColumn columnMarque;
-            
-            private global::System.Data.DataColumn columnSERIE;
-            
-            private global::System.Data.DataColumn columnTYPE;
-            
-            private global::System.Data.DataColumn columnCouleur;
-            
-            private global::System.Data.DataColumn columnPoleID;
-            
-            private global::System.Data.DataColumn columnrecordView;
-            
-            private global::System.Data.DataColumn columnrecordInsertedIn;
+            private global::System.Data.DataColumn columnCHAUFFEUR;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ListOfEngineDataTable() {
-                this.TableName = "ListOfEngine";
+            public ConsumptionByDateAndPoleDataTable() {
+                this.TableName = "ConsumptionByDateAndPole";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -312,7 +300,7 @@ namespace GGAO.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ListOfEngineDataTable(global::System.Data.DataTable table) {
+            internal ConsumptionByDateAndPoleDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -329,96 +317,48 @@ namespace GGAO.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected ListOfEngineDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ConsumptionByDateAndPoleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
+            public global::System.Data.DataColumn DESIGNATIONColumn {
                 get {
-                    return this.columnID;
+                    return this.columnDESIGNATION;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn LibelleColumn {
+            public global::System.Data.DataColumn IMM_CODColumn {
                 get {
-                    return this.columnLibelle;
+                    return this.columnIMM_COD;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MatriculeInternColumn {
+            public global::System.Data.DataColumn COMPTE_KM_HColumn {
                 get {
-                    return this.columnMatriculeIntern;
+                    return this.columnCOMPTE_KM_H;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MatriculeNationalColumn {
+            public global::System.Data.DataColumn QteColumn {
                 get {
-                    return this.columnMatriculeNational;
+                    return this.columnQte;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MarqueColumn {
+            public global::System.Data.DataColumn CHAUFFEURColumn {
                 get {
-                    return this.columnMarque;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SERIEColumn {
-                get {
-                    return this.columnSERIE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TYPEColumn {
-                get {
-                    return this.columnTYPE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CouleurColumn {
-                get {
-                    return this.columnCouleur;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PoleIDColumn {
-                get {
-                    return this.columnPoleID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn recordViewColumn {
-                get {
-                    return this.columnrecordView;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn recordInsertedInColumn {
-                get {
-                    return this.columnrecordInsertedIn;
+                    return this.columnCHAUFFEUR;
                 }
             }
             
@@ -433,62 +373,49 @@ namespace GGAO.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ListOfEngineRow this[int index] {
+            public ConsumptionByDateAndPoleRow this[int index] {
                 get {
-                    return ((ListOfEngineRow)(this.Rows[index]));
+                    return ((ConsumptionByDateAndPoleRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ListOfEngineRowChangeEventHandler ListOfEngineRowChanging;
+            public event ConsumptionByDateAndPoleRowChangeEventHandler ConsumptionByDateAndPoleRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ListOfEngineRowChangeEventHandler ListOfEngineRowChanged;
+            public event ConsumptionByDateAndPoleRowChangeEventHandler ConsumptionByDateAndPoleRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ListOfEngineRowChangeEventHandler ListOfEngineRowDeleting;
+            public event ConsumptionByDateAndPoleRowChangeEventHandler ConsumptionByDateAndPoleRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ListOfEngineRowChangeEventHandler ListOfEngineRowDeleted;
+            public event ConsumptionByDateAndPoleRowChangeEventHandler ConsumptionByDateAndPoleRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddListOfEngineRow(ListOfEngineRow row) {
+            public void AddConsumptionByDateAndPoleRow(ConsumptionByDateAndPoleRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ListOfEngineRow AddListOfEngineRow(int ID, string Libelle, string MatriculeIntern, string MatriculeNational, string Marque, string SERIE, string TYPE, string Couleur, string PoleID, int recordView, System.DateTime recordInsertedIn) {
-                ListOfEngineRow rowListOfEngineRow = ((ListOfEngineRow)(this.NewRow()));
+            public ConsumptionByDateAndPoleRow AddConsumptionByDateAndPoleRow(string DESIGNATION, string IMM_COD, string COMPTE_KM_H, int Qte, string CHAUFFEUR) {
+                ConsumptionByDateAndPoleRow rowConsumptionByDateAndPoleRow = ((ConsumptionByDateAndPoleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
-                        Libelle,
-                        MatriculeIntern,
-                        MatriculeNational,
-                        Marque,
-                        SERIE,
-                        TYPE,
-                        Couleur,
-                        PoleID,
-                        recordView,
-                        recordInsertedIn};
-                rowListOfEngineRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowListOfEngineRow);
-                return rowListOfEngineRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ListOfEngineRow FindByID(int ID) {
-                return ((ListOfEngineRow)(this.Rows.Find(new object[] {
-                            ID})));
+                        DESIGNATION,
+                        IMM_COD,
+                        COMPTE_KM_H,
+                        Qte,
+                        CHAUFFEUR};
+                rowConsumptionByDateAndPoleRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowConsumptionByDateAndPoleRow);
+                return rowConsumptionByDateAndPoleRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ListOfEngineDataTable cln = ((ListOfEngineDataTable)(base.Clone()));
+                ConsumptionByDateAndPoleDataTable cln = ((ConsumptionByDateAndPoleDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -496,90 +423,66 @@ namespace GGAO.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ListOfEngineDataTable();
+                return new ConsumptionByDateAndPoleDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnLibelle = base.Columns["Libelle"];
-                this.columnMatriculeIntern = base.Columns["MatriculeIntern"];
-                this.columnMatriculeNational = base.Columns["MatriculeNational"];
-                this.columnMarque = base.Columns["Marque"];
-                this.columnSERIE = base.Columns["SERIE"];
-                this.columnTYPE = base.Columns["TYPE"];
-                this.columnCouleur = base.Columns["Couleur"];
-                this.columnPoleID = base.Columns["PoleID"];
-                this.columnrecordView = base.Columns["recordView"];
-                this.columnrecordInsertedIn = base.Columns["recordInsertedIn"];
+                this.columnDESIGNATION = base.Columns["DESIGNATION"];
+                this.columnIMM_COD = base.Columns["IMM_COD"];
+                this.columnCOMPTE_KM_H = base.Columns["COMPTE_KM_H"];
+                this.columnQte = base.Columns["Qte"];
+                this.columnCHAUFFEUR = base.Columns["CHAUFFEUR"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnLibelle = new global::System.Data.DataColumn("Libelle", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLibelle);
-                this.columnMatriculeIntern = new global::System.Data.DataColumn("MatriculeIntern", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMatriculeIntern);
-                this.columnMatriculeNational = new global::System.Data.DataColumn("MatriculeNational", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMatriculeNational);
-                this.columnMarque = new global::System.Data.DataColumn("Marque", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMarque);
-                this.columnSERIE = new global::System.Data.DataColumn("SERIE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSERIE);
-                this.columnTYPE = new global::System.Data.DataColumn("TYPE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTYPE);
-                this.columnCouleur = new global::System.Data.DataColumn("Couleur", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCouleur);
-                this.columnPoleID = new global::System.Data.DataColumn("PoleID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPoleID);
-                this.columnrecordView = new global::System.Data.DataColumn("recordView", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnrecordView);
-                this.columnrecordInsertedIn = new global::System.Data.DataColumn("recordInsertedIn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnrecordInsertedIn);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AllowDBNull = false;
-                this.columnID.Unique = true;
-                this.columnLibelle.MaxLength = 55;
-                this.columnMatriculeIntern.MaxLength = 55;
-                this.columnMatriculeNational.MaxLength = 55;
-                this.columnMarque.MaxLength = 55;
-                this.columnSERIE.MaxLength = 55;
-                this.columnTYPE.MaxLength = 55;
-                this.columnCouleur.MaxLength = 55;
-                this.columnPoleID.MaxLength = 55;
-                this.columnrecordView.AllowDBNull = false;
-                this.columnrecordInsertedIn.AllowDBNull = false;
+                this.columnDESIGNATION = new global::System.Data.DataColumn("DESIGNATION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESIGNATION);
+                this.columnIMM_COD = new global::System.Data.DataColumn("IMM_COD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIMM_COD);
+                this.columnCOMPTE_KM_H = new global::System.Data.DataColumn("COMPTE_KM_H", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOMPTE_KM_H);
+                this.columnQte = new global::System.Data.DataColumn("Qte", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQte);
+                this.columnCHAUFFEUR = new global::System.Data.DataColumn("CHAUFFEUR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCHAUFFEUR);
+                this.columnDESIGNATION.MaxLength = 55;
+                this.columnIMM_COD.ReadOnly = true;
+                this.columnIMM_COD.MaxLength = 111;
+                this.columnCOMPTE_KM_H.AllowDBNull = false;
+                this.columnCOMPTE_KM_H.MaxLength = 15;
+                this.columnQte.AllowDBNull = false;
+                this.columnCHAUFFEUR.AllowDBNull = false;
+                this.columnCHAUFFEUR.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ListOfEngineRow NewListOfEngineRow() {
-                return ((ListOfEngineRow)(this.NewRow()));
+            public ConsumptionByDateAndPoleRow NewConsumptionByDateAndPoleRow() {
+                return ((ConsumptionByDateAndPoleRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ListOfEngineRow(builder);
+                return new ConsumptionByDateAndPoleRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ListOfEngineRow);
+                return typeof(ConsumptionByDateAndPoleRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ListOfEngineRowChanged != null)) {
-                    this.ListOfEngineRowChanged(this, new ListOfEngineRowChangeEvent(((ListOfEngineRow)(e.Row)), e.Action));
+                if ((this.ConsumptionByDateAndPoleRowChanged != null)) {
+                    this.ConsumptionByDateAndPoleRowChanged(this, new ConsumptionByDateAndPoleRowChangeEvent(((ConsumptionByDateAndPoleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -587,8 +490,8 @@ namespace GGAO.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ListOfEngineRowChanging != null)) {
-                    this.ListOfEngineRowChanging(this, new ListOfEngineRowChangeEvent(((ListOfEngineRow)(e.Row)), e.Action));
+                if ((this.ConsumptionByDateAndPoleRowChanging != null)) {
+                    this.ConsumptionByDateAndPoleRowChanging(this, new ConsumptionByDateAndPoleRowChangeEvent(((ConsumptionByDateAndPoleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -596,8 +499,8 @@ namespace GGAO.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ListOfEngineRowDeleted != null)) {
-                    this.ListOfEngineRowDeleted(this, new ListOfEngineRowChangeEvent(((ListOfEngineRow)(e.Row)), e.Action));
+                if ((this.ConsumptionByDateAndPoleRowDeleted != null)) {
+                    this.ConsumptionByDateAndPoleRowDeleted(this, new ConsumptionByDateAndPoleRowChangeEvent(((ConsumptionByDateAndPoleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -605,14 +508,14 @@ namespace GGAO.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ListOfEngineRowDeleting != null)) {
-                    this.ListOfEngineRowDeleting(this, new ListOfEngineRowChangeEvent(((ListOfEngineRow)(e.Row)), e.Action));
+                if ((this.ConsumptionByDateAndPoleRowDeleting != null)) {
+                    this.ConsumptionByDateAndPoleRowDeleting(this, new ConsumptionByDateAndPoleRowChangeEvent(((ConsumptionByDateAndPoleRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveListOfEngineRow(ListOfEngineRow row) {
+            public void RemoveConsumptionByDateAndPoleRow(ConsumptionByDateAndPoleRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -621,7 +524,7 @@ namespace GGAO.Reports {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                GGAOEngineDataSet ds = new GGAOEngineDataSet();
+                GGAODataSetConsumption ds = new GGAODataSetConsumption();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -639,7 +542,7 @@ namespace GGAO.Reports {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ListOfEngineDataTable";
+                attribute2.FixedValue = "ConsumptionByDateAndPoleDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -683,272 +586,105 @@ namespace GGAO.Reports {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ListOfEngineRow : global::System.Data.DataRow {
+        public partial class ConsumptionByDateAndPoleRow : global::System.Data.DataRow {
             
-            private ListOfEngineDataTable tableListOfEngine;
+            private ConsumptionByDateAndPoleDataTable tableConsumptionByDateAndPole;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ListOfEngineRow(global::System.Data.DataRowBuilder rb) : 
+            internal ConsumptionByDateAndPoleRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableListOfEngine = ((ListOfEngineDataTable)(this.Table));
+                this.tableConsumptionByDateAndPole = ((ConsumptionByDateAndPoleDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID {
-                get {
-                    return ((int)(this[this.tableListOfEngine.IDColumn]));
-                }
-                set {
-                    this[this.tableListOfEngine.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Libelle {
+            public string DESIGNATION {
                 get {
                     try {
-                        return ((string)(this[this.tableListOfEngine.LibelleColumn]));
+                        return ((string)(this[this.tableConsumptionByDateAndPole.DESIGNATIONColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Libelle\' in table \'ListOfEngine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DESIGNATION\' in table \'ConsumptionByDateAndPole\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tableListOfEngine.LibelleColumn] = value;
+                    this[this.tableConsumptionByDateAndPole.DESIGNATIONColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MatriculeIntern {
+            public string IMM_COD {
                 get {
                     try {
-                        return ((string)(this[this.tableListOfEngine.MatriculeInternColumn]));
+                        return ((string)(this[this.tableConsumptionByDateAndPole.IMM_CODColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MatriculeIntern\' in table \'ListOfEngine\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'IMM_COD\' in table \'ConsumptionByDateAndPole\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableListOfEngine.MatriculeInternColumn] = value;
+                    this[this.tableConsumptionByDateAndPole.IMM_CODColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MatriculeNational {
+            public string COMPTE_KM_H {
                 get {
-                    try {
-                        return ((string)(this[this.tableListOfEngine.MatriculeNationalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MatriculeNational\' in table \'ListOfEngine\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableConsumptionByDateAndPole.COMPTE_KM_HColumn]));
                 }
                 set {
-                    this[this.tableListOfEngine.MatriculeNationalColumn] = value;
+                    this[this.tableConsumptionByDateAndPole.COMPTE_KM_HColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Marque {
+            public int Qte {
                 get {
-                    try {
-                        return ((string)(this[this.tableListOfEngine.MarqueColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Marque\' in table \'ListOfEngine\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableConsumptionByDateAndPole.QteColumn]));
                 }
                 set {
-                    this[this.tableListOfEngine.MarqueColumn] = value;
+                    this[this.tableConsumptionByDateAndPole.QteColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string SERIE {
+            public string CHAUFFEUR {
                 get {
-                    try {
-                        return ((string)(this[this.tableListOfEngine.SERIEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SERIE\' in table \'ListOfEngine\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableConsumptionByDateAndPole.CHAUFFEURColumn]));
                 }
                 set {
-                    this[this.tableListOfEngine.SERIEColumn] = value;
+                    this[this.tableConsumptionByDateAndPole.CHAUFFEURColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TYPE {
-                get {
-                    try {
-                        return ((string)(this[this.tableListOfEngine.TYPEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TYPE\' in table \'ListOfEngine\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableListOfEngine.TYPEColumn] = value;
-                }
+            public bool IsDESIGNATIONNull() {
+                return this.IsNull(this.tableConsumptionByDateAndPole.DESIGNATIONColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Couleur {
-                get {
-                    try {
-                        return ((string)(this[this.tableListOfEngine.CouleurColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Couleur\' in table \'ListOfEngine\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableListOfEngine.CouleurColumn] = value;
-                }
+            public void SetDESIGNATIONNull() {
+                this[this.tableConsumptionByDateAndPole.DESIGNATIONColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PoleID {
-                get {
-                    try {
-                        return ((string)(this[this.tableListOfEngine.PoleIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PoleID\' in table \'ListOfEngine\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableListOfEngine.PoleIDColumn] = value;
-                }
+            public bool IsIMM_CODNull() {
+                return this.IsNull(this.tableConsumptionByDateAndPole.IMM_CODColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int recordView {
-                get {
-                    return ((int)(this[this.tableListOfEngine.recordViewColumn]));
-                }
-                set {
-                    this[this.tableListOfEngine.recordViewColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime recordInsertedIn {
-                get {
-                    return ((global::System.DateTime)(this[this.tableListOfEngine.recordInsertedInColumn]));
-                }
-                set {
-                    this[this.tableListOfEngine.recordInsertedInColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsLibelleNull() {
-                return this.IsNull(this.tableListOfEngine.LibelleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetLibelleNull() {
-                this[this.tableListOfEngine.LibelleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMatriculeInternNull() {
-                return this.IsNull(this.tableListOfEngine.MatriculeInternColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMatriculeInternNull() {
-                this[this.tableListOfEngine.MatriculeInternColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMatriculeNationalNull() {
-                return this.IsNull(this.tableListOfEngine.MatriculeNationalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMatriculeNationalNull() {
-                this[this.tableListOfEngine.MatriculeNationalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMarqueNull() {
-                return this.IsNull(this.tableListOfEngine.MarqueColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMarqueNull() {
-                this[this.tableListOfEngine.MarqueColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSERIENull() {
-                return this.IsNull(this.tableListOfEngine.SERIEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSERIENull() {
-                this[this.tableListOfEngine.SERIEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTYPENull() {
-                return this.IsNull(this.tableListOfEngine.TYPEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTYPENull() {
-                this[this.tableListOfEngine.TYPEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCouleurNull() {
-                return this.IsNull(this.tableListOfEngine.CouleurColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCouleurNull() {
-                this[this.tableListOfEngine.CouleurColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPoleIDNull() {
-                return this.IsNull(this.tableListOfEngine.PoleIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPoleIDNull() {
-                this[this.tableListOfEngine.PoleIDColumn] = global::System.Convert.DBNull;
+            public void SetIMM_CODNull() {
+                this[this.tableConsumptionByDateAndPole.IMM_CODColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -956,22 +692,22 @@ namespace GGAO.Reports {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class ListOfEngineRowChangeEvent : global::System.EventArgs {
+        public class ConsumptionByDateAndPoleRowChangeEvent : global::System.EventArgs {
             
-            private ListOfEngineRow eventRow;
+            private ConsumptionByDateAndPoleRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ListOfEngineRowChangeEvent(ListOfEngineRow row, global::System.Data.DataRowAction action) {
+            public ConsumptionByDateAndPoleRowChangeEvent(ConsumptionByDateAndPoleRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ListOfEngineRow Row {
+            public ConsumptionByDateAndPoleRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -987,7 +723,7 @@ namespace GGAO.Reports {
         }
     }
 }
-namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
+namespace GGAO.Reports.GGAODataSetConsumptionTableAdapters {
     
     
     /// <summary>
@@ -999,7 +735,7 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ListOfEngineTableAdapter : global::System.ComponentModel.Component {
+    public partial class ConsumptionByDateAndPoleTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1013,7 +749,7 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public ListOfEngineTableAdapter() {
+        public ConsumptionByDateAndPoleTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1110,18 +846,12 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ListOfEngine";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("Libelle", "Libelle");
-            tableMapping.ColumnMappings.Add("MatriculeIntern", "MatriculeIntern");
-            tableMapping.ColumnMappings.Add("MatriculeNational", "MatriculeNational");
-            tableMapping.ColumnMappings.Add("Marque", "Marque");
-            tableMapping.ColumnMappings.Add("SERIE", "SERIE");
-            tableMapping.ColumnMappings.Add("TYPE", "TYPE");
-            tableMapping.ColumnMappings.Add("Couleur", "Couleur");
-            tableMapping.ColumnMappings.Add("PoleID", "PoleID");
-            tableMapping.ColumnMappings.Add("recordView", "recordView");
-            tableMapping.ColumnMappings.Add("recordInsertedIn", "recordInsertedIn");
+            tableMapping.DataSetTable = "ConsumptionByDateAndPole";
+            tableMapping.ColumnMappings.Add("DESIGNATION", "DESIGNATION");
+            tableMapping.ColumnMappings.Add("IMM_COD", "IMM_COD");
+            tableMapping.ColumnMappings.Add("COMPTE_KM_H", "COMPTE_KM_H");
+            tableMapping.ColumnMappings.Add("Qte", "Qte");
+            tableMapping.ColumnMappings.Add("CHAUFFEUR", "CHAUFFEUR");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1138,23 +868,30 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.ListOfEngine";
+            this._commandCollection[0].CommandText = "dbo.ConsumptionByDateAndPole";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@poleID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GGAOEngineDataSet.ListOfEngineDataTable dataTable, global::System.Nullable<global::System.DateTime> date) {
+        public virtual int Fill(GGAODataSetConsumption.ConsumptionByDateAndPoleDataTable dataTable, global::System.Nullable<global::System.DateTime> date, global::System.Nullable<int> poleID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((date.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(date.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((poleID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(poleID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1167,7 +904,7 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GGAOEngineDataSet.ListOfEngineDataTable GetData(global::System.Nullable<global::System.DateTime> date) {
+        public virtual GGAODataSetConsumption.ConsumptionByDateAndPoleDataTable GetData(global::System.Nullable<global::System.DateTime> date, global::System.Nullable<int> poleID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((date.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(date.Value));
@@ -1175,7 +912,13 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            GGAOEngineDataSet.ListOfEngineDataTable dataTable = new GGAOEngineDataSet.ListOfEngineDataTable();
+            if ((poleID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(poleID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            GGAODataSetConsumption.ConsumptionByDateAndPoleDataTable dataTable = new GGAODataSetConsumption.ConsumptionByDateAndPoleDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1249,7 +992,7 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(GGAOEngineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(GGAODataSetConsumption dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1259,7 +1002,7 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(GGAOEngineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(GGAODataSetConsumption dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1269,7 +1012,7 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(GGAOEngineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(GGAODataSetConsumption dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1303,7 +1046,7 @@ namespace GGAO.Reports.GGAOEngineDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(GGAOEngineDataSet dataSet) {
+        public virtual int UpdateAll(GGAODataSetConsumption dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
