@@ -85,6 +85,11 @@ namespace GGAO
             getTheMainGrid().DataSource = MyOwnBindingSource;
 
             getTheMainGrid().Columns[0].Visible = false;
+            if ( table == Table.CONSOMMATION)
+            {
+                getTheMainGrid().Columns[10].Visible = false; // hide printing option
+                getTheMainGrid().Columns[11].Visible = false; // hide calculate option
+            }
             ResetColumnWidths();
             // you should add Status Label .text here
             this.StatusLabel.Text = string.Format("Mise a jour "+table.ToString()+"  {0}",
@@ -686,8 +691,11 @@ namespace GGAO
                     , _pole = DGVMain.Rows[selectedRowIndex].Cells[8].Value.ToString()
                     , _driver = DGVMain.Rows[selectedRowIndex].Cells[9].Value.ToString();
 
+                    bool print = Convert.ToBoolean( DGVMain.Rows[selectedRowIndex].Cells[10].Value.ToString()),
+                        calc = Convert.ToBoolean( DGVMain.Rows[selectedRowIndex].Cells[11].Value.ToString() );
+
                     InsertUpdateConsommation form = new InsertUpdateConsommation(false);
-                    form.setDefaultValueforFields(ID, Ref, type, date, quantity, kilo, _driver, _pole, _produit, _engine);
+                    form.setDefaultValueforFields(ID, Ref, type, date, quantity, kilo, _driver, _pole, _produit, _engine, print, calc);
                     form.ShowDialog();
                     // to  obligate the user to reselect
                     selectedRowIndex = -1;
@@ -765,7 +773,7 @@ namespace GGAO
 
         private void ribbonButton5_Click_1(object sender, EventArgs e)
         {
-            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
+            //SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             
             GGAO.Reports.raportJournalier test = new GGAO.Reports.raportJournalier();
             test.Show();

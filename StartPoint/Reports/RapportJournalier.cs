@@ -116,5 +116,25 @@ namespace GGAO.Reports
             }
             
         }
+
+        private void PoleCombobox_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerLocal_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

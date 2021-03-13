@@ -386,8 +386,10 @@
             }
         }
         void setInitialValue(string _Ref, string _type, string _date, string _quanity, string _kilo,
-            string _Driver, string _Pole, string _Product, string _Engine)
+            string _Driver, string _Pole, string _Product, string _Engine, bool _print, bool calc)
         {
+            checkBoxCalc.Checked = calc;
+            checkBoxPrinting.Checked = _print;
             ReftextBox.Text = _Ref;
 
             string[] a = _date.Split(' ');

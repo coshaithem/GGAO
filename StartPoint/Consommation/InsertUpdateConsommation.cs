@@ -25,7 +25,7 @@ namespace GGAO.Consommation
             InsertOrUpdate = roleInsertOrUpdate;
         }
         public void setDefaultValueforFields(string _id, string _Ref, string _type, string date, string _quanity, string _kilo,
-            string _Driver, string _Pole, string _Product, string _Engine)
+            string _Driver, string _Pole, string _Product, string _Engine, bool _print, bool _calc)
         {
             this.selectedID = _id;
             this.selectedDriverLib = _Driver;
@@ -33,7 +33,7 @@ namespace GGAO.Consommation
             this.selectedProductLib = _Product;
             this.selectedEngineLib = _Engine;
             this.setInitialValue(_Ref, _type, date, _quanity, _kilo,
-             _Driver, _Pole, _Product, _Engine);
+             _Driver, _Pole, _Product, _Engine, _print, _calc);
         }
         private void InsertUpdateConsommation_Load(object sender, EventArgs e)
         {

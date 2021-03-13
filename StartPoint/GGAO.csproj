@@ -233,7 +233,6 @@
       <DependentUpon>ReportWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptConsumption.rdlc" />
-    <EmbeddedResource Include="Reports\RptConsumption_2.rdlc" />
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
