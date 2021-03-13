@@ -49,6 +49,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxPrinting = new System.Windows.Forms.CheckBox();
+            this.checkBoxCalc = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -77,16 +79,18 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(562, 279);
+            this.groupBox1.Size = new System.Drawing.Size(562, 269);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBoxCalc);
+            this.groupBox2.Controls.Add(this.checkBoxPrinting);
             this.groupBox2.Controls.Add(this.SaveButton);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(3, 216);
+            this.groupBox2.Location = new System.Drawing.Point(3, 206);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(556, 60);
             this.groupBox2.TabIndex = 19;
@@ -225,8 +229,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
             this.dateTimePicker.TabIndex = 14;
-            //this.dateTimePicker.Value = new System.DateTime(2021, 2, 13, 20, 6, 41, 81);
-            this.dateTimePicker.Value = System.DateTime.Now;
+            this.dateTimePicker.Value = new System.DateTime(2021, 3, 13, 13, 28, 27, 216);
             // 
             // TypeComboBox
             // 
@@ -321,11 +324,39 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Reference";
             // 
+            // checkBoxPrinting
+            // 
+            this.checkBoxPrinting.AutoSize = true;
+            this.checkBoxPrinting.Checked = true;
+            this.checkBoxPrinting.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPrinting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxPrinting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBoxPrinting.Location = new System.Drawing.Point(14, 21);
+            this.checkBoxPrinting.Name = "checkBoxPrinting";
+            this.checkBoxPrinting.Size = new System.Drawing.Size(90, 24);
+            this.checkBoxPrinting.TabIndex = 20;
+            this.checkBoxPrinting.Text = "Imprimer";
+            this.checkBoxPrinting.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxCalc
+            // 
+            this.checkBoxCalc.AutoSize = true;
+            this.checkBoxCalc.Checked = true;
+            this.checkBoxCalc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxCalc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBoxCalc.Location = new System.Drawing.Point(126, 21);
+            this.checkBoxCalc.Name = "checkBoxCalc";
+            this.checkBoxCalc.Size = new System.Drawing.Size(85, 24);
+            this.checkBoxCalc.TabIndex = 21;
+            this.checkBoxCalc.Text = "Calculer";
+            this.checkBoxCalc.UseVisualStyleBackColor = true;
+            // 
             // InsertUpdateConsommation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 279);
+            this.ClientSize = new System.Drawing.Size(562, 269);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -336,6 +367,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -443,5 +475,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.CheckBox checkBoxCalc;
+        private System.Windows.Forms.CheckBox checkBoxPrinting;
     }
 }

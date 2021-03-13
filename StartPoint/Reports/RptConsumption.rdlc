@@ -308,7 +308,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Constant" />
+                                  <Value>=RowNumber( Nothing )</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -652,7 +652,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Sum( Fields!Qte.Value )</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -1053,8 +1053,9 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="DATE " + Parameters!date.Value</Value>
+                      <Value>="DATE : " + Format(Parameters!date.Value,"dd/MM/yyy")</Value>
                       <Style>
+                        <FontWeight>Bold</FontWeight>
                         <Format>dd/MM/yyy</Format>
                         <TextDecoration>Underline</TextDecoration>
                       </Style>
@@ -1100,7 +1101,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>="POLE "+Parameters!pole.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />

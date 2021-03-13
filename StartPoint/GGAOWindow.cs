@@ -767,8 +767,13 @@ namespace GGAO
         {
             SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             
-            ReportWin test = new ReportWin();
+            GGAO.Reports.raportJournalier test = new GGAO.Reports.raportJournalier();
             test.Show();
+        }
+
+        private void infoBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)

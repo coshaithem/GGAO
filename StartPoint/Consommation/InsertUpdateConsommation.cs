@@ -79,16 +79,17 @@ namespace GGAO.Consommation
                     ConsommationCRUDOps.createConsommation(
                         ReftextBox.Text.Trim(),
                         TypeComboBox.Text.Trim(),
-                        dateTimePicker.Value,
+                        dateTimePicker.Value,  
                          (EngineCombobox.SelectedItem == null) ? "0" : EngineCombobox.SelectedItem.Value,
                          (ProductCombobox.SelectedItem == null) ? "0" : ProductCombobox.SelectedItem.Value,
                          (PoleCombobox.SelectedItem == null) ? "0" : PoleCombobox.SelectedItem.Value,
                          (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
                          KilotextBox.Text.Trim(),
-                         QuanitytextBox.Text.Trim()
+                         QuanitytextBox.Text.Trim(),
+                         checkBoxPrinting.Checked,
+                         checkBoxCalc.Checked
 
                         );
-
                 }
                 else // means Update existing record
                 {
@@ -102,7 +103,9 @@ namespace GGAO.Consommation
                          (PoleCombobox.SelectedItem == null) ? null : PoleCombobox.SelectedItem.Value,
                          (DriverCombobox.SelectedItem == null) ? null : DriverCombobox.SelectedItem.Value,
                          KilotextBox.Text.Trim(),
-                         QuanitytextBox.Text.Trim()
+                         QuanitytextBox.Text.Trim(),
+                         checkBoxPrinting.Checked,
+                         checkBoxCalc.Checked
 
                         );
                     this.Close();

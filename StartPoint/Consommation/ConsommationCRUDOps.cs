@@ -41,7 +41,7 @@ namespace GGAO
             return ds.Tables[0];
         }
         public static void createConsommation(String Ref ,String Type ,DateTime DocDate ,String engineID ,String productID, string poleID,
-            string driverID, string kilo, string quanity )
+            string driverID, string kilo, string quanity, bool print, bool calc )
         {
             try
             {
@@ -57,6 +57,11 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@driverID", SqlDbType.NVarChar).Value = driverID; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@kilo", SqlDbType.NVarChar).Value = kilo; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@quant", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
+                
+                cmd.Parameters.AddWithValue("@print", SqlDbType.Bit ).Value = print; // this.mobileTextBox.Text.Trim();
+                cmd.Parameters.AddWithValue("@calc", SqlDbType.Bit ).Value = calc; // this.mobileTextBox.Text.Trim();
+
+
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "INSERT";
  
                 cmd.Parameters.AddWithValue("@recordInsertedIn", SqlDbType.DateTime).Value = DateTime.Now;
@@ -82,7 +87,7 @@ namespace GGAO
             }
         }
         public static void UpdateConsommation(string ID, String Ref, String Type, DateTime DocDate, String engineID, String productID, string poleID,
-            string driverID, string kilo, string quanity)
+            string driverID, string kilo, string quanity, bool print, bool calc)
         {
             try
             {
@@ -99,6 +104,11 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@driverID", SqlDbType.NVarChar).Value = driverID; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@kilo", SqlDbType.NVarChar).Value = kilo; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@quant", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
+
+                cmd.Parameters.AddWithValue("@print", SqlDbType.Bit).Value = print; // this.mobileTextBox.Text.Trim();
+                cmd.Parameters.AddWithValue("@calc", SqlDbType.Bit).Value = calc; // this.mobileTextBox.Text.Trim();
+                
+
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "UPDATE";
                 
                 cmd.ExecuteNonQuery();
