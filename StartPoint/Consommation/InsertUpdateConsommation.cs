@@ -81,7 +81,7 @@ namespace GGAO.Consommation
                         TypeComboBox.Text.Trim(),
                         dateTimePicker.Value,  
                          (EngineCombobox.SelectedItem == null) ? "0" : EngineCombobox.SelectedItem.Value,
-                         (ProductCombobox.SelectedItem == null) ? "0" : ProductCombobox.SelectedItem.Value,
+                         (ProductCombobox.SelectedItem == null) ? "2" : ProductCombobox.SelectedItem.Value,
                          (PoleCombobox.SelectedItem == null) ? "0" : PoleCombobox.SelectedItem.Value,
                          (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
                          KilotextBox.Text.Trim(),
@@ -112,6 +112,11 @@ namespace GGAO.Consommation
                 }
                 this.ResetFields();
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

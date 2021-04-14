@@ -30,6 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxCalc = new System.Windows.Forms.CheckBox();
+            this.checkBoxPrinting = new System.Windows.Forms.CheckBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox();
             this.KilotextBox = new System.Windows.Forms.TextBox();
@@ -49,8 +51,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBoxPrinting = new System.Windows.Forms.CheckBox();
-            this.checkBoxCalc = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +96,34 @@
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operation";
+            // 
+            // checkBoxCalc
+            // 
+            this.checkBoxCalc.AutoSize = true;
+            this.checkBoxCalc.Checked = true;
+            this.checkBoxCalc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxCalc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBoxCalc.Location = new System.Drawing.Point(126, 21);
+            this.checkBoxCalc.Name = "checkBoxCalc";
+            this.checkBoxCalc.Size = new System.Drawing.Size(85, 24);
+            this.checkBoxCalc.TabIndex = 21;
+            this.checkBoxCalc.Text = "Calculer";
+            this.checkBoxCalc.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxPrinting
+            // 
+            this.checkBoxPrinting.AutoSize = true;
+            this.checkBoxPrinting.Checked = true;
+            this.checkBoxPrinting.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPrinting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxPrinting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBoxPrinting.Location = new System.Drawing.Point(14, 21);
+            this.checkBoxPrinting.Name = "checkBoxPrinting";
+            this.checkBoxPrinting.Size = new System.Drawing.Size(90, 24);
+            this.checkBoxPrinting.TabIndex = 20;
+            this.checkBoxPrinting.Text = "Imprimer";
+            this.checkBoxPrinting.UseVisualStyleBackColor = true;
             // 
             // SaveButton
             // 
@@ -190,7 +218,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Quanité";
+            this.label4.Text = "Quantité"; 
             // 
             // EngineCombobox
             // 
@@ -229,7 +257,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
             this.dateTimePicker.TabIndex = 14;
-            this.dateTimePicker.Value = new System.DateTime(2021, 3, 13, 13, 28, 27, 216);
+            this.dateTimePicker.Value = new System.DateTime(2021, 4, 14, 13, 16, 35, 863);
             // 
             // TypeComboBox
             // 
@@ -244,7 +272,7 @@
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(158, 28);
             this.TypeComboBox.TabIndex = 13;
-            this.TypeComboBox.Text = "- Choisir -";
+            this.TypeComboBox.Text = "Bon Pour";
             // 
             // ReftextBox
             // 
@@ -323,34 +351,6 @@
             this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Reference";
-            // 
-            // checkBoxPrinting
-            // 
-            this.checkBoxPrinting.AutoSize = true;
-            this.checkBoxPrinting.Checked = true;
-            this.checkBoxPrinting.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxPrinting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxPrinting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBoxPrinting.Location = new System.Drawing.Point(14, 21);
-            this.checkBoxPrinting.Name = "checkBoxPrinting";
-            this.checkBoxPrinting.Size = new System.Drawing.Size(90, 24);
-            this.checkBoxPrinting.TabIndex = 20;
-            this.checkBoxPrinting.Text = "Imprimer";
-            this.checkBoxPrinting.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxCalc
-            // 
-            this.checkBoxCalc.AutoSize = true;
-            this.checkBoxCalc.Checked = true;
-            this.checkBoxCalc.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxCalc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBoxCalc.Location = new System.Drawing.Point(126, 21);
-            this.checkBoxCalc.Name = "checkBoxCalc";
-            this.checkBoxCalc.Size = new System.Drawing.Size(85, 24);
-            this.checkBoxCalc.TabIndex = 21;
-            this.checkBoxCalc.Text = "Calculer";
-            this.checkBoxCalc.UseVisualStyleBackColor = true;
             // 
             // InsertUpdateConsommation
             // 
@@ -441,7 +441,7 @@
                 if (!level1 || !level2) { return true; }
                 else
                 {
-                    if (DriverCombobox.SelectedItem == null || PoleCombobox.SelectedItem == null || ProductCombobox.SelectedItem == null || EngineCombobox.SelectedItem == null)
+                    if (DriverCombobox.SelectedItem == null || PoleCombobox.SelectedItem == null  || EngineCombobox.SelectedItem == null)
                         return true;
                     else
                         return false; // means all fields are filled

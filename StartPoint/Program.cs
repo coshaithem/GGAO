@@ -17,6 +17,7 @@ namespace StartPoint
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new GGAO.GGAOWindow());
+            //Application.Run(new GGAO.Reports.Form1() );
         }
     }
 }

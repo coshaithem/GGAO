@@ -85,10 +85,10 @@ namespace GGAO
             getTheMainGrid().DataSource = MyOwnBindingSource;
 
             getTheMainGrid().Columns[0].Visible = false;
-            if ( table == Table.CONSOMMATION)
+            if ( table == Table.CONSOMMATION )
             {
-                getTheMainGrid().Columns[10].Visible = false; // hide printing option
-                getTheMainGrid().Columns[11].Visible = false; // hide calculate option
+                //getTheMainGrid().Columns[10].Visible = false; // hide printing option
+                //getTheMainGrid().Columns[11].Visible = false; // hide calculate option
             }
             ResetColumnWidths();
             // you should add Status Label .text here
@@ -781,7 +781,14 @@ namespace GGAO
 
         private void infoBtn_Click(object sender, EventArgs e)
         {
+            Utilities.About form = new Utilities.About();
+            form.ShowDialog();
+        }
 
+        private void ribbonButton20_Click(object sender, EventArgs e)
+        {
+            GGAO.Reports.ReportMonsuelle test = new GGAO.Reports.ReportMonsuelle();
+            test.Show();
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)

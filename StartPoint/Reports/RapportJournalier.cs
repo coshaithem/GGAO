@@ -84,7 +84,7 @@ namespace GGAO.Reports
             rptViewer.LocalReport.DataSources.Add(rds);
 
             //path
-            rptViewer.LocalReport.ReportPath = "RptConsumption.rdlc";
+            rptViewer.LocalReport.ReportPath = "RptJournalier.rdlc";
             /* */
             // Parameters
             ReportParameter[] rptParams = new ReportParameter[]
@@ -94,7 +94,7 @@ namespace GGAO.Reports
             };
             rptViewer.LocalReport.SetParameters(rptParams);
 
-            //Refresh
+            //Refresh 
             rptViewer.Refresh();
         }
         private void ShowReportBtn_Click(object sender, EventArgs e)

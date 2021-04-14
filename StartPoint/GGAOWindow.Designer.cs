@@ -59,6 +59,8 @@
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
             this.PrintribbonButton = new System.Windows.Forms.RibbonButton();
             this.ScanribbonButton = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton19 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton20 = new System.Windows.Forms.RibbonButton();
             this.AutreTab = new System.Windows.Forms.RibbonTab();
             this.ProduitribbonPanel = new System.Windows.Forms.RibbonPanel();
             this.ProductBtn = new System.Windows.Forms.RibbonButton();
@@ -121,6 +123,8 @@
             this.StockActuel = new System.Windows.Forms.Label();
             this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ribbonButton17 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton18 = new System.Windows.Forms.RibbonButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
@@ -156,7 +160,7 @@
             this.ribbon1.QuickAccessToolbar.Items.Add(this.ribbonButton8);
             this.ribbon1.QuickAccessToolbar.Visible = false;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(1145, 152);
+            this.ribbon1.Size = new System.Drawing.Size(1240, 152);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.AccueilTab);
             this.ribbon1.Tabs.Add(this.StockTab);
@@ -347,6 +351,7 @@
             // ribbonPanel2
             // 
             this.ribbonPanel2.Items.Add(this.ribbonButton5);
+            this.ribbonPanel2.Items.Add(this.ribbonButton20);
             this.ribbonPanel2.Name = "ribbonPanel2";
             this.ribbonPanel2.Text = "Rapport";
             // 
@@ -356,12 +361,14 @@
             this.ribbonButton5.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Up;
             this.ribbonButton5.DropDownItems.Add(this.PrintribbonButton);
             this.ribbonButton5.DropDownItems.Add(this.ScanribbonButton);
+            this.ribbonButton5.DropDownItems.Add(this.ribbonButton19);
             this.ribbonButton5.DropDownResizable = true;
             this.ribbonButton5.Image = global::GGAO.Properties.Resources.rapport;
             this.ribbonButton5.LargeImage = global::GGAO.Properties.Resources.rapport;
             this.ribbonButton5.Name = "ribbonButton5";
             this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
-            this.ribbonButton5.Text = "";
+            this.ribbonButton5.Text = "Journalier";
+            this.ribbonButton5.Value = "";
             this.ribbonButton5.Click += new System.EventHandler(this.ribbonButton5_Click_1);
             // 
             // PrintribbonButton
@@ -384,6 +391,23 @@
             this.ScanribbonButton.Name = "ScanribbonButton";
             this.ScanribbonButton.SmallImage = global::GGAO.Properties.Resources.printer;
             this.ScanribbonButton.Text = "Scan";
+            // 
+            // ribbonButton19
+            // 
+            this.ribbonButton19.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton19.Image")));
+            this.ribbonButton19.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton19.LargeImage")));
+            this.ribbonButton19.Name = "ribbonButton19";
+            this.ribbonButton19.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton19.SmallImage")));
+            this.ribbonButton19.Text = "ribbonButton19";
+            // 
+            // ribbonButton20
+            // 
+            this.ribbonButton20.Image = global::GGAO.Properties.Resources.rapport;
+            this.ribbonButton20.LargeImage = global::GGAO.Properties.Resources.rapport;
+            this.ribbonButton20.Name = "ribbonButton20";
+            this.ribbonButton20.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton20.SmallImage")));
+            this.ribbonButton20.Text = "Monsuelle";
+            this.ribbonButton20.Click += new System.EventHandler(this.ribbonButton20_Click);
             // 
             // AutreTab
             // 
@@ -865,9 +889,9 @@
             this.panel1.Controls.Add(this.FilteredQuantity);
             this.panel1.Controls.Add(this.StatusLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 676);
+            this.panel1.Location = new System.Drawing.Point(0, 748);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1145, 20);
+            this.panel1.Size = new System.Drawing.Size(1240, 20);
             this.panel1.TabIndex = 2;
             // 
             // FilteredQuantity
@@ -875,7 +899,7 @@
             this.FilteredQuantity.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.FilteredQuantity.AutoSize = true;
             this.FilteredQuantity.Font = new System.Drawing.Font("Open 24 Display St", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilteredQuantity.Location = new System.Drawing.Point(556, -4);
+            this.FilteredQuantity.Location = new System.Drawing.Point(604, -4);
             this.FilteredQuantity.Name = "FilteredQuantity";
             this.FilteredQuantity.Size = new System.Drawing.Size(0, 23);
             this.FilteredQuantity.TabIndex = 1;
@@ -885,7 +909,7 @@
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.StatusLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatusLabel.Location = new System.Drawing.Point(1143, 0);
+            this.StatusLabel.Location = new System.Drawing.Point(1238, 0);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 19);
             this.StatusLabel.TabIndex = 0;
@@ -932,7 +956,7 @@
             this.DGVMain.ReadOnly = true;
             this.DGVMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.DGVMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DGVMain.Size = new System.Drawing.Size(1145, 524);
+            this.DGVMain.Size = new System.Drawing.Size(1240, 596);
             this.DGVMain.TabIndex = 3;
             this.DGVMain.SortStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.SortEventArgs>(this.DGVMain_SortStringChanged);
             this.DGVMain.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.DGVMain_FilterStringChanged);
@@ -948,13 +972,12 @@
             this.StockActuel.BackColor = System.Drawing.Color.Transparent;
             this.StockActuel.Dock = System.Windows.Forms.DockStyle.Right;
             this.StockActuel.Font = new System.Drawing.Font("Open 24 Display St", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StockActuel.Location = new System.Drawing.Point(448, 0);
+            this.StockActuel.Location = new System.Drawing.Point(466, 0);
             this.StockActuel.Margin = new System.Windows.Forms.Padding(0);
             this.StockActuel.Name = "StockActuel";
-            this.StockActuel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.StockActuel.Size = new System.Drawing.Size(111, 50);
+            this.StockActuel.Size = new System.Drawing.Size(93, 50);
             this.StockActuel.TabIndex = 1;
-            this.StockActuel.Text = "12345";
+            this.StockActuel.Text = "-16.5";
             this.StockActuel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ribbonButton6
@@ -970,16 +993,42 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.StockActuel);
-            this.panel2.Location = new System.Drawing.Point(586, 0);
+            this.panel2.Location = new System.Drawing.Point(681, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(559, 49);
             this.panel2.TabIndex = 4;
+            // 
+            // ribbonButton17
+            // 
+            this.ribbonButton17.CheckOnClick = true;
+            this.ribbonButton17.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Up;
+            this.ribbonButton17.DropDownItems.Add(this.PrintribbonButton);
+            this.ribbonButton17.DropDownItems.Add(this.ScanribbonButton);
+            this.ribbonButton17.DropDownResizable = true;
+            this.ribbonButton17.Image = global::GGAO.Properties.Resources.rapport;
+            this.ribbonButton17.LargeImage = global::GGAO.Properties.Resources.rapport;
+            this.ribbonButton17.Name = "ribbonButton17";
+            this.ribbonButton17.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton17.SmallImage")));
+            this.ribbonButton17.Text = "";
+            // 
+            // ribbonButton18
+            // 
+            this.ribbonButton18.CheckOnClick = true;
+            this.ribbonButton18.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Up;
+            this.ribbonButton18.DropDownItems.Add(this.PrintribbonButton);
+            this.ribbonButton18.DropDownItems.Add(this.ScanribbonButton);
+            this.ribbonButton18.DropDownResizable = true;
+            this.ribbonButton18.Image = global::GGAO.Properties.Resources.rapport;
+            this.ribbonButton18.LargeImage = global::GGAO.Properties.Resources.rapport;
+            this.ribbonButton18.Name = "ribbonButton18";
+            this.ribbonButton18.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton18.SmallImage")));
+            this.ribbonButton18.Text = "";
             // 
             // GGAOWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1145, 696);
+            this.ClientSize = new System.Drawing.Size(1240, 768);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.DGVMain);
             this.Controls.Add(this.panel1);
@@ -1104,6 +1153,10 @@
         private System.Windows.Forms.RibbonButton ribbonButton5;
         private System.Windows.Forms.RibbonButton PrintribbonButton;
         private System.Windows.Forms.RibbonButton ScanribbonButton;
+        private System.Windows.Forms.RibbonButton ribbonButton19;
+        private System.Windows.Forms.RibbonButton ribbonButton20;
+        private System.Windows.Forms.RibbonButton ribbonButton17;
+        private System.Windows.Forms.RibbonButton ribbonButton18;
         //private System.Windows.Forms.RibbonTab __DataRibbonTab;
         // private GGAODataSetTableAdapters.DriverTableAdapter driverTableAdapter;
     }

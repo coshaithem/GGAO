@@ -153,6 +153,15 @@
     <Compile Include="Engine\InsertUpdateEngine.Designer.cs">
       <DependentUpon>InsertUpdateEngine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\GGAODataSetConsumption.cs">
+      <DependentUpon>GGAODataSetConsumption.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RapportJournalier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,13 +195,19 @@
     <Compile Include="Product\ProductCRUDOps.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\ReportWindow.cs">
+    <Compile Include="Reports\ReportMonsuelle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\ReportWindow.Designer.cs">
-      <DependentUpon>ReportWindow.cs</DependentUpon>
+    <Compile Include="Reports\ReportMonsuelle.Designer.cs">
+      <DependentUpon>ReportMonsuelle.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utilities\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Tools.cs" />
     <EmbeddedResource Include="Alimentation\InsertUpdateAlimentation.resx">
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
@@ -226,13 +241,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RapportJournalier.resx">
       <DependentUpon>RapportJournalier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportWindow.resx">
-      <DependentUpon>ReportWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\RptMonsuelle.rdlc" />
+    <EmbeddedResource Include="Reports\ReportMonsuelle.resx">
+      <DependentUpon>ReportMonsuelle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RptConsumption.rdlc" />
+    <EmbeddedResource Include="Reports\RptJournalier.rdlc" />
+    <EmbeddedResource Include="Utilities\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -295,6 +317,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GGAO.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\phone.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
