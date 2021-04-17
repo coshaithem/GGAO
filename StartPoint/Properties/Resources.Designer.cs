@@ -313,6 +313,16 @@ namespace GGAO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap OilTransfer {
+            get {
+                object obj = ResourceManager.GetObject("OilTransfer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ORBimage {
             get {
                 object obj = ResourceManager.GetObject("ORBimage", resourceCulture);
@@ -416,6 +426,16 @@ namespace GGAO.Properties {
         public static System.Drawing.Bitmap TankHolder {
             get {
                 object obj = ResourceManager.GetObject("TankHolder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Transfer {
+            get {
+                object obj = ResourceManager.GetObject("Transfer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

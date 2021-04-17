@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace GGAO.Consommation
+namespace GGAO.Alimentation
 {
     public partial class InsertUpdateAlimentation : Form
     {
@@ -51,7 +51,8 @@ namespace GGAO.Consommation
                         dateTimePicker.Value,
                          (EngineCombobox.SelectedItem == null) ? "0" : EngineCombobox.SelectedItem.Value,
                          (ProductCombobox.SelectedItem == null) ? "2" : ProductCombobox.SelectedItem.Value,
-                         (PoleCombobox.SelectedItem == null) ? "0" : PoleCombobox.SelectedItem.Value,
+                         // add PoleTo : Destination 
+                         (PoleCombobox.SelectedItem == null) ? "1005" : PoleCombobox.SelectedItem.Value,
                          (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
                          (KilotextBox.Text.Trim() == "") ? "0": KilotextBox.Text.Trim(),
                          QuanitytextBox.Text.Trim()
@@ -89,23 +90,27 @@ namespace GGAO.Consommation
             DataTable produitDt = GGAO.ProductCRUDOps.getVisibleProduct();
              
             this.PoleCombobox.Clear();
+
             this.DriverCombobox.Clear();
             this.EngineCombobox.Clear();
             this.ProductCombobox.Clear();
             // auto generate this column
             //multiColumComboBox.SourceDataString = ColumnNames.ToArray();
             PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDt.Columns);
+
             DriverCombobox.SourceDataString = Tools.ConvColNametoArray(driverDt.Columns);
             EngineCombobox.SourceDataString = Tools.ConvColNametoArray(engineDt.Columns);
             ProductCombobox.SourceDataString = Tools.ConvColNametoArray(produitDt.Columns);
 
             PoleCombobox.DataSource = poleDt;
+
             DriverCombobox.DataSource = driverDt;
             EngineCombobox.DataSource = engineDt;
             ProductCombobox.DataSource = produitDt;
             //multiColumComboBox.setTextBox(this.selectedPoleLibelle.Trim());
             DriverCombobox.setTextBox( this.selectedDriverLib );
             PoleCombobox.setTextBox( this.selectedPoleLib );
+
             ProductCombobox.setTextBox( this.selectedProductLib );
             //_Engine.Split('-')[0].Trim();
             EngineCombobox.setTextBox( this.selectedEngineLib.Split('-')[0].Trim());

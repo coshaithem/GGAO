@@ -1,6 +1,6 @@
 ﻿namespace GGAO.Consommation
 {
-    partial class InsertUpdateAlimentation
+    partial class InsertUpdateConsommation
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxCalc = new System.Windows.Forms.CheckBox();
+            this.checkBoxPrinting = new System.Windows.Forms.CheckBox();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox();
             this.KilotextBox = new System.Windows.Forms.TextBox();
             this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
@@ -47,17 +51,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.DriverCombobox);
             this.groupBox1.Controls.Add(this.KilotextBox);
             this.groupBox1.Controls.Add(this.PoleCombobox);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.ProductCombobox);
             this.groupBox1.Controls.Add(this.label4);
@@ -67,7 +71,6 @@
             this.groupBox1.Controls.Add(this.TypeComboBox);
             this.groupBox1.Controls.Add(this.ReftextBox);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
@@ -76,10 +79,63 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(560, 265);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(562, 269);
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBoxCalc);
+            this.groupBox2.Controls.Add(this.checkBoxPrinting);
+            this.groupBox2.Controls.Add(this.SaveButton);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Location = new System.Drawing.Point(3, 206);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(556, 60);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Operation";
+            // 
+            // checkBoxCalc
+            // 
+            this.checkBoxCalc.AutoSize = true;
+            this.checkBoxCalc.Checked = true;
+            this.checkBoxCalc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxCalc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxCalc.Enabled = false;
+            this.checkBoxCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBoxCalc.Location = new System.Drawing.Point(126, 21);
+            this.checkBoxCalc.Name = "checkBoxCalc";
+            this.checkBoxCalc.Size = new System.Drawing.Size(85, 24);
+            this.checkBoxCalc.TabIndex = 21;
+            this.checkBoxCalc.Text = "Calculer";
+            this.checkBoxCalc.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxPrinting
+            // 
+            this.checkBoxPrinting.AutoSize = true;
+            this.checkBoxPrinting.Checked = true;
+            this.checkBoxPrinting.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxPrinting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxPrinting.Enabled = false;
+            this.checkBoxPrinting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.checkBoxPrinting.Location = new System.Drawing.Point(14, 21);
+            this.checkBoxPrinting.Name = "checkBoxPrinting";
+            this.checkBoxPrinting.Size = new System.Drawing.Size(90, 24);
+            this.checkBoxPrinting.TabIndex = 20;
+            this.checkBoxPrinting.Text = "Imprimer";
+            this.checkBoxPrinting.UseVisualStyleBackColor = true;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.Location = new System.Drawing.Point(445, 15);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(100, 35);
+            this.SaveButton.TabIndex = 0;
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // DriverCombobox
             // 
@@ -116,7 +172,7 @@
             this.PoleCombobox.DropDownHeight = 200;
             this.PoleCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.PoleCombobox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
-            this.PoleCombobox.Location = new System.Drawing.Point(372, 137);
+            this.PoleCombobox.Location = new System.Drawing.Point(374, 65);
             this.PoleCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PoleCombobox.Name = "PoleCombobox";
             this.PoleCombobox.SelectedItem = null;
@@ -145,7 +201,7 @@
             this.ProductCombobox.DropDownHeight = 200;
             this.ProductCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ProductCombobox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
-            this.ProductCombobox.Location = new System.Drawing.Point(372, 101);
+            this.ProductCombobox.Location = new System.Drawing.Point(372, 137);
             this.ProductCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductCombobox.Name = "ProductCombobox";
             this.ProductCombobox.SelectedItem = null;
@@ -174,7 +230,7 @@
             this.EngineCombobox.DropDownHeight = 200;
             this.EngineCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.EngineCombobox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
-            this.EngineCombobox.Location = new System.Drawing.Point(372, 65);
+            this.EngineCombobox.Location = new System.Drawing.Point(372, 101);
             this.EngineCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EngineCombobox.Name = "EngineCombobox";
             this.EngineCombobox.SelectedItem = null;
@@ -203,7 +259,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
             this.dateTimePicker.TabIndex = 14;
-            this.dateTimePicker.Value = new System.DateTime(2021, 4, 14, 13, 17, 11, 710);
+            this.dateTimePicker.Value = new System.DateTime(2021, 4, 14, 13, 16, 35, 863);
             // 
             // TypeComboBox
             // 
@@ -213,7 +269,6 @@
             "Carte Naftal",
             "TAC",
             "Bon Pour",
-            "Facture",
             "Autres"});
             this.TypeComboBox.Location = new System.Drawing.Point(111, 101);
             this.TypeComboBox.Name = "TypeComboBox";
@@ -243,17 +298,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(285, 141);
+            this.label5.Location = new System.Drawing.Point(287, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 20);
+            this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Pole";
+            this.label5.Text = "Source";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(285, 104);
+            this.label6.Location = new System.Drawing.Point(285, 140);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 20);
             this.label6.TabIndex = 6;
@@ -263,7 +318,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(285, 69);
+            this.label7.Location = new System.Drawing.Point(285, 105);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 20);
             this.label7.TabIndex = 5;
@@ -273,7 +328,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(52, 106);
+            this.label8.Location = new System.Drawing.Point(52, 107);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 20);
             this.label8.TabIndex = 4;
@@ -283,7 +338,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(53, 70);
+            this.label3.Location = new System.Drawing.Point(53, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 20);
             this.label3.TabIndex = 3;
@@ -299,44 +354,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Reference";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.SaveButton);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Location = new System.Drawing.Point(0, 205);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(560, 60);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Operation";
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(445, 15);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(100, 35);
-            this.SaveButton.TabIndex = 0;
-            this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // InsertUpdateAlimentation
+            // InsertUpdateConsommation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 265);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(562, 269);
             this.Controls.Add(this.groupBox1);
-            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "InsertUpdateAlimentation";
-            this.Opacity = 0.95D;
+            this.Name = "InsertUpdateConsommation";
+            this.Opacity = 0.97D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Load += new System.EventHandler(this.InsertUpdateAlimentation_Load);
+            this.Load += new System.EventHandler(this.InsertUpdateConsommation_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -355,20 +388,22 @@
             }
         }
         void setInitialValue(string _Ref, string _type, string _date, string _quanity, string _kilo,
-            string _Driver, string _Pole, string _Product,string _Engine)
+            string _Driver, string _Pole, string _Product, string _Engine) //, bool _print, bool calc
         {
+            //checkBoxCalc.Checked = calc;
+            //checkBoxPrinting.Checked = _print;
             ReftextBox.Text = _Ref;
 
             string[] a = _date.Split(' ');
             string[] splitedDate = a[0].Split('/');
             dateTimePicker.Value = new System.DateTime(int.Parse(splitedDate[2]), int.Parse(splitedDate[1]), int.Parse(splitedDate[0]), 0, 0, 0, 0); //dateValue
 
-             
+
             TypeComboBox.Text = _type;
             QuanitytextBox.Text = _quanity;
             KilotextBox.Text = _kilo;
             //System.Windows.Forms.MessageBox.Show( _Driver + _Pole + _Product + _Engine.Split('-')[0].Trim());
-           // #bugs12022021
+            // #bugs12022021
         }
         void ResetFields()
         {
@@ -381,53 +416,59 @@
             ProductCombobox.setTextBox("");
             EngineCombobox.setTextBox("");
         }
-        bool fieldsAreEmpty( bool InsertOrUpdate )
+        bool fieldsAreEmpty(bool InsertOrUpdate)
         {
             /* System.Windows.Forms.MessageBox.Show(
                   ReftextBox.Text.Trim()+" * "+ TypeComboBox.ValueMember.Trim()+" * "+ QuanitytextBox.Text.Trim()+" * "+
                   KilotextBox.Text.Trim()+" * "+ DriverCombobox.SelectedItem.ToString() +" * "+ PoleCombobox.SelectedItem.ToString() +" * "+ ProductCombobox.SelectedItem.ToString() +" * "+
                   EngineCombobox.SelectedItem.ToString());
             */
-            bool level1 = false;
-            //level2 = true ;
+            bool level1 = true, level2 = true;
             int a;
-            //float b;
+            float b;
             int.TryParse(ReftextBox.Text.Trim(), out a);
-            if ((string.IsNullOrEmpty(ReftextBox.Text.Trim()) || TypeComboBox.ValueMember.Trim().Equals("- Choisir -") || string.IsNullOrEmpty(QuanitytextBox.Text.Trim()) ))
-            { // string.IsNullOrEmpty(KilotextBox.Text.Trim()
-                level1 = true;
+            if ((string.IsNullOrEmpty(ReftextBox.Text.Trim()) || TypeComboBox.ValueMember.Trim().Equals("- Choisir -") || string.IsNullOrEmpty(QuanitytextBox.Text.Trim()) ||
+
+                string.IsNullOrEmpty(KilotextBox.Text.Trim())))
+            {
+                level1 = false;
             }
-            return level1;
-            /*
-            if ( ! int.TryParse(KilotextBox.Text.Trim(), out a) || !float.TryParse(QuanitytextBox.Text.Trim(), out b) )
+            if (!int.TryParse(KilotextBox.Text.Trim(), out a) || !float.TryParse(QuanitytextBox.Text.Trim(), out b))
             {
                 level2 = false;
             }
-            // this.dateTimePicker.Value = System.DateTime.Now;
-            if ( InsertOrUpdate)
+
+            if (InsertOrUpdate)
             { //means insert new record
-                if ( !level1 || !level2) { return true; }
+                if (!level1 || !level2) { return true; }
                 else
                 {
-                    if (DriverCombobox.SelectedItem == null || PoleCombobox.SelectedItem == null || ProductCombobox.SelectedItem == null || EngineCombobox.SelectedItem == null)
+                    if (DriverCombobox.SelectedItem == null || PoleCombobox.SelectedItem == null || EngineCombobox.SelectedItem == null)
                         return true;
                     else
                         return false; // means all fields are filled
                 }
-            }else
+            }
+            else
             {
                 return (!level1 || !level2);
             }
-            */
 
         }
+
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private VMultiColumnComboBox.MultiColumComboBox DriverCombobox;
+        private System.Windows.Forms.TextBox KilotextBox;
+        private VMultiColumnComboBox.MultiColumComboBox PoleCombobox;
+        private System.Windows.Forms.Label label2;
+        private VMultiColumnComboBox.MultiColumComboBox ProductCombobox;
+        private System.Windows.Forms.Label label4;
+        private VMultiColumnComboBox.MultiColumComboBox EngineCombobox;
+        private System.Windows.Forms.TextBox QuanitytextBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ComboBox TypeComboBox;
-        private System.Windows.Forms.TextBox QuanitytextBox;
-        private System.Windows.Forms.TextBox KilotextBox;
         private System.Windows.Forms.TextBox ReftextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
@@ -435,14 +476,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private VMultiColumnComboBox.MultiColumComboBox DriverCombobox;
-        private VMultiColumnComboBox.MultiColumComboBox PoleCombobox;
-        private VMultiColumnComboBox.MultiColumComboBox ProductCombobox;
-        private VMultiColumnComboBox.MultiColumComboBox EngineCombobox;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.CheckBox checkBoxCalc;
+        private System.Windows.Forms.CheckBox checkBoxPrinting;
     }
 }

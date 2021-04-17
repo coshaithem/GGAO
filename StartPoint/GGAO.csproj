@@ -125,39 +125,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alimentation\AlimentationCRUDOps.cs" />
-    <Compile Include="Alimentation\InsertUpdateAlimentation.cs">
+    <Compile Include="Stock\Alimentation\AlimentationCRUDOps.cs" />
+    <Compile Include="Stock\Alimentation\InsertUpdateAlimentation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alimentation\InsertUpdateAlimentation.Designer.cs">
+    <Compile Include="Stock\Alimentation\InsertUpdateAlimentation.Designer.cs">
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consommation\ConsommationCRUDOps.cs" />
-    <Compile Include="Consommation\InsertUpdateConsommation.cs">
+    <Compile Include="Stock\Consommation\ConsommationCRUDOps.cs" />
+    <Compile Include="Stock\Consommation\InsertUpdateConsommation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consommation\InsertUpdateConsommation.Designer.cs">
+    <Compile Include="Stock\Consommation\InsertUpdateConsommation.Designer.cs">
       <DependentUpon>InsertUpdateConsommation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Driver\DriverCRUDOps.cs" />
-    <Compile Include="Driver\InsertUpdateDriver.cs">
+    <Compile Include="Base\Driver\DriverCRUDOps.cs" />
+    <Compile Include="Base\Driver\InsertUpdateDriver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Driver\InsertUpdateDriver.Designer.cs">
+    <Compile Include="Base\Driver\InsertUpdateDriver.Designer.cs">
       <DependentUpon>InsertUpdateDriver.cs</DependentUpon>
     </Compile>
-    <Compile Include="Engine\EngineCRUDOps.cs" />
-    <Compile Include="Engine\InsertUpdateEngine.cs">
+    <Compile Include="Base\Engine\EngineCRUDOps.cs" />
+    <Compile Include="Base\Engine\InsertUpdateEngine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Engine\InsertUpdateEngine.Designer.cs">
+    <Compile Include="Base\Engine\InsertUpdateEngine.Designer.cs">
       <DependentUpon>InsertUpdateEngine.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\GGAODataSetConsumption.cs">
       <DependentUpon>GGAODataSetConsumption.xsd</DependentUpon>
@@ -179,20 +173,20 @@
     <Compile Include="GGAOWindow.Designer.cs">
       <DependentUpon>GGAOWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pole\InsertUpdatePole.cs">
+    <Compile Include="Base\Pole\InsertUpdatePole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pole\InsertUpdatePole.Designer.cs">
+    <Compile Include="Base\Pole\InsertUpdatePole.Designer.cs">
       <DependentUpon>InsertUpdatePole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pole\PoleCRUDOps.cs" />
-    <Compile Include="Product\InsertUpdateProduct.cs">
+    <Compile Include="Base\Pole\PoleCRUDOps.cs" />
+    <Compile Include="Base\Product\InsertUpdateProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Product\InsertUpdateProduct.Designer.cs">
+    <Compile Include="Base\Product\InsertUpdateProduct.Designer.cs">
       <DependentUpon>InsertUpdateProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product\ProductCRUDOps.cs" />
+    <Compile Include="Base\Product\ProductCRUDOps.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\ReportMonsuelle.cs">
@@ -201,7 +195,13 @@
     <Compile Include="Reports\ReportMonsuelle.Designer.cs">
       <DependentUpon>ReportMonsuelle.cs</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Stock\Transfer\InsertUpdateTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\Transfer\InsertUpdateTransfer.Designer.cs">
+      <DependentUpon>InsertUpdateTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\Transfer\TransferCRUDOps.cs" />
     <Compile Include="Utilities\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,26 +209,26 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Tools.cs" />
-    <EmbeddedResource Include="Alimentation\InsertUpdateAlimentation.resx">
+    <EmbeddedResource Include="Stock\Alimentation\InsertUpdateAlimentation.resx">
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consommation\InsertUpdateConsommation.resx">
+    <EmbeddedResource Include="Stock\Consommation\InsertUpdateConsommation.resx">
       <DependentUpon>InsertUpdateConsommation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Driver\InsertUpdateDriver.resx">
+    <EmbeddedResource Include="Base\Driver\InsertUpdateDriver.resx">
       <DependentUpon>InsertUpdateDriver.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Engine\InsertUpdateEngine.resx">
+    <EmbeddedResource Include="Base\Engine\InsertUpdateEngine.resx">
       <DependentUpon>InsertUpdateEngine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GGAOWindow.resx">
       <DependentUpon>GGAOWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pole\InsertUpdatePole.resx">
+    <EmbeddedResource Include="Base\Pole\InsertUpdatePole.resx">
       <DependentUpon>InsertUpdatePole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Product\InsertUpdateProduct.resx">
+    <EmbeddedResource Include="Base\Product\InsertUpdateProduct.resx">
       <DependentUpon>InsertUpdateProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -241,9 +241,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RapportJournalier.resx">
       <DependentUpon>RapportJournalier.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +249,9 @@
       <DependentUpon>ReportMonsuelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptJournalier.rdlc" />
+    <EmbeddedResource Include="Stock\Transfer\InsertUpdateTransfer.resx">
+      <DependentUpon>InsertUpdateTransfer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utilities\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,20 +317,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>GGAO.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\OilTransfer.png" />
+    <None Include="Resources\Transfer.png" />
     <None Include="Resources\phone.png" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\icons8-oil-tanker-85%281%29.png" />
     <None Include="Resources\icons8-oil-tanker-85.png" />
     <None Include="Resources\icons8-oil-tanker-60.png" />

@@ -13,6 +13,8 @@ using GGAO.Product;
 using GGAO.Pole;
 using GGAO.Engine;
 using GGAO.Consommation;
+using GGAO.Alimentation;
+using GGAO.Stock.Transfer;
 
 
 namespace GGAO
@@ -24,6 +26,7 @@ namespace GGAO
             NONE,
             ALIMENTATION,
             CONSOMMATION,
+            TRANSFER,
             PRODUIT,
             POLE,
             DRIVER,
@@ -78,6 +81,7 @@ namespace GGAO
                 case Table.PRODUIT : MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct(); break;
                 case Table.POLE : MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole() ; break;
                 case Table.ENGINE : MyOwnBindingSource.DataSource = EngineCRUDOps.getVisibleEngine() ; break;
+                case Table.TRANSFER: MyOwnBindingSource.DataSource = TransferCRUDOps.getVisibleTransfer(); updateCurrentStock(); break;
                 case Table.ALIMENTATION: MyOwnBindingSource.DataSource = AlimentationCRUDOps.getVisibleAlimentation(); updateCurrentStock(); break;
                 case Table.CONSOMMATION: MyOwnBindingSource.DataSource = ConsommationCRUDOps.getVisibleConsommation(); updateCurrentStock(); break;
             }
@@ -282,7 +286,7 @@ namespace GGAO
                 // MessageBox.Show(getTheMainGrid().Rows[i].Cells[2].Value.ToString());
             }
             //MessageBox.Show(sum.ToString());
-            getFiltredQuantity().Text ="Quantité : " + sum.ToString("N1", System.Globalization.CultureInfo.InvariantCulture); ;
+            getFiltredQuantity().Text = "Quantité : " + sum.ToString("N1", System.Globalization.CultureInfo.InvariantCulture); ;
             return sum;
 
         }
@@ -691,11 +695,11 @@ namespace GGAO
                     , _pole = DGVMain.Rows[selectedRowIndex].Cells[8].Value.ToString()
                     , _driver = DGVMain.Rows[selectedRowIndex].Cells[9].Value.ToString();
 
-                    bool print = Convert.ToBoolean( DGVMain.Rows[selectedRowIndex].Cells[10].Value.ToString()),
-                        calc = Convert.ToBoolean( DGVMain.Rows[selectedRowIndex].Cells[11].Value.ToString() );
+                    //bool print = Convert.ToBoolean( DGVMain.Rows[selectedRowIndex].Cells[10].Value.ToString()),
+                    //    calc = Convert.ToBoolean( DGVMain.Rows[selectedRowIndex].Cells[11].Value.ToString() );
 
                     InsertUpdateConsommation form = new InsertUpdateConsommation(false);
-                    form.setDefaultValueforFields(ID, Ref, type, date, quantity, kilo, _driver, _pole, _produit, _engine, print, calc);
+                    form.setDefaultValueforFields(ID, Ref, type, date, quantity, kilo, _driver, _pole, _produit, _engine); //, print, calc
                     form.ShowDialog();
                     // to  obligate the user to reselect
                     selectedRowIndex = -1;
@@ -766,12 +770,15 @@ namespace GGAO
         }
         private void updateCurrentStock()
         {
-            int cons = ConsommationCRUDOps.getSumOfQuantities();
+            // "1007" C01-OUMACHE STOCK PRINCIPAL
+            int transferOut = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Destination,"1007");
+            int transferIn = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Source ,"1007");
+            int cons = ConsommationCRUDOps.getSumOfQuantities("1007"); // ** hello
             int alim = AlimentationCRUDOps.getSumOfQuantities();
-            getTheActuelStock().Text = (alim - cons).ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
+            getTheActuelStock().Text = ((alim+transferIn) - (cons+transferOut)).ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
         }
 
-        private void ribbonButton5_Click_1(object sender, EventArgs e)
+        private void RapportJournalierWindow(object sender, EventArgs e)
         {
             //SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
             
@@ -784,11 +791,100 @@ namespace GGAO
             Utilities.About form = new Utilities.About();
             form.ShowDialog();
         }
+         
 
-        private void ribbonButton20_Click(object sender, EventArgs e)
+        private void RapportMonthlyWindow(object sender, EventArgs e)
         {
             GGAO.Reports.ReportMonsuelle test = new GGAO.Reports.ReportMonsuelle();
             test.Show();
+        }
+
+        private void OilTransferBtn_Click(object sender, EventArgs e)
+        {
+            LoadVisible(Table.TRANSFER);
+            this.selectedTable = Table.TRANSFER;
+            // toggle Sort and Filter stat
+            if (DGVMain.FilterAndSortEnabled == true)
+                this.toggleFilterAndSort();
+        }
+
+        private void NewOilTransferBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.TRANSFER)
+            {
+                //GGAO.Stock.TRANSFER.InsertUpdateTransfer form = new GGAO.Stock.TRANSFER.InsertUpdateTransfer(true);
+                InsertUpdateTransfer form = new InsertUpdateTransfer(true);
+                form.ShowDialog();
+                LoadVisible(Table.TRANSFER);
+            }
+        }
+
+        private void EditOilTransferBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.TRANSFER)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
+                    , Ref = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
+                    , type = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , date = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString()
+                    , kilo = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString()
+                    , quantity = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString()
+                    , _engine = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString()
+                    , _produit = DGVMain.Rows[selectedRowIndex].Cells[7].Value.ToString()
+                    , _pole = DGVMain.Rows[selectedRowIndex].Cells[8].Value.ToString()
+                    , _driver = DGVMain.Rows[selectedRowIndex].Cells[9].Value.ToString()
+                    , _toPole = DGVMain.Rows[selectedRowIndex].Cells[10].Value.ToString();
+                   
+                    InsertUpdateTransfer form = new InsertUpdateTransfer(false);
+                    form.setDefaultValueforFields(ID, Ref, type, date, quantity, kilo, _driver, _pole, _toPole, _produit, _engine ) ;
+                    form.ShowDialog();
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+
+                    LoadVisible(Table.TRANSFER);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour modifier",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void DelOilTransferBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.TRANSFER )
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        //ProductCRUDOps.deleteProduct(ID);
+                        // DriverCRUDOps.deleteDriver(ID);
+                        //AlimentationCRUDOps.deleteAlimentation(ID);
+                        TransferCRUDOps.deleteTransfer(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible(Table.TRANSFER);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)
