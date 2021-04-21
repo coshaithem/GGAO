@@ -29,13 +29,13 @@ namespace GGAO.Reports
 
         private void ReportWindow_Load(object sender, EventArgs e)
         {
-            DataTable poleDt = GGAO.PoleCRUDOps.getVisiblePole();
+            DataTable poleDtRM = GGAO.PoleCRUDOps.getVisiblePole(false,"SELECT");
 
             this.PoleCombobox.Clear();
 
-            PoleCombobox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(poleDt.Columns);
+            PoleCombobox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(poleDtRM.Columns);
 
-            PoleCombobox.DataSource = poleDt;
+            PoleCombobox.DataSource = poleDtRM;
 
             PoleCombobox.setTextBox("");
             //this.rptViewer.RefreshReport();

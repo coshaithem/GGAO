@@ -150,7 +150,7 @@ namespace GGAO
                 con.Close();
             }
         }
-        public static int getSumOfQuantities()
+        public static int getSumOfQuantities(string id)
         {
             int sum = 0;
             try
@@ -159,6 +159,7 @@ namespace GGAO
                 SqlCommand cmd = new SqlCommand("CRUDAlimentation", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "SUMQuanity";
+                cmd.Parameters.AddWithValue("@PoleID", SqlDbType.NVarChar).Value = id;
                 SqlDataReader rdr = cmd.ExecuteReader();
                 rdr.Read();
                 int mySum = 0;

@@ -20,6 +20,7 @@ namespace GGAO
             try
             {
                 SqlCommand cmd = new SqlCommand("CRUDDriver", con);
+
                 cmd.Parameters.AddWithValue("@choise", SqlDbType.NVarChar).Value = "SELECT";
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

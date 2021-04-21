@@ -48,103 +48,6 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="Textbox6">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>="POLE "+Parameters!PoleID.Value</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>0.92306cm</Top>
-            <Left>0.54209cm</Left>
-            <Height>0.6cm</Height>
-            <Width>3.26729cm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox31">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>="Période du " + Format(Parameters!fromDate.Value,"dd/MM/yyy") +" Au "+ Format(Parameters!ToDate.Value,"dd/MM/yyy")</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                      <Format>dd/MM/yyy</Format>
-                      <TextDecoration>Underline</TextDecoration>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox31</rd:DefaultName>
-            <Top>0.92306cm</Top>
-            <Left>19.76396cm</Left>
-            <Height>0.6cm</Height>
-            <Width>9.97448cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox1">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>ATTACHEMENT DE CONSOMMATION GAZ OIL</Value>
-                    <Style>
-                      <FontSize>16pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <TextDecoration>Underline</TextDecoration>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.17639cm</Top>
-            <Left>5.93959cm</Left>
-            <Height>0.67028cm</Height>
-            <Width>18.23613cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Textbox>
           <Tablix Name="Tablix1">
             <TablixCorner>
               <TablixCornerRows>
@@ -227,7 +130,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.70083cm</Width>
+                  <Width>0.99187cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.12417cm</Width>
@@ -250,7 +153,9 @@
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Quantité</rd:DefaultName>
@@ -355,7 +260,9 @@
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox26</rd:DefaultName>
@@ -437,7 +344,9 @@
                                 </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style />
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Date</rd:DefaultName>
@@ -696,11 +605,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.18394cm</Top>
-            <Left>0.79057cm</Left>
+            <Top>0.07056cm</Top>
+            <Left>0.59501cm</Left>
             <Height>1.8cm</Height>
-            <Width>12.77812cm</Width>
-            <ZIndex>3</ZIndex>
+            <Width>13.06916cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -708,13 +616,13 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.02696in</Height>
+        <Height>0.74571in</Height>
         <Style />
       </Body>
-      <Width>11.72633in</Width>
+      <Width>11.1275in</Width>
       <Page>
         <PageHeader>
-          <Height>4.03059cm</Height>
+          <Height>5.27413cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -779,7 +687,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox10</rd:DefaultName>
-              <Top>3.13059cm</Top>
+              <Top>2.96397cm</Top>
               <Height>0.9cm</Height>
               <Width>7.63292cm</Width>
               <Style>
@@ -824,7 +732,7 @@
               <Top>2.25814cm</Top>
               <Left>0.04584cm</Left>
               <Height>0cm</Height>
-              <Width>29.59384cm</Width>
+              <Width>27.74176cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -839,7 +747,7 @@
               <Value>cosiderCanalisation</Value>
               <Sizing>Fit</Sizing>
               <Top>0.26793cm</Top>
-              <Left>23.2978cm</Left>
+              <Left>21.44572cm</Left>
               <Height>1.54957cm</Height>
               <Width>6.34188cm</Width>
               <ZIndex>3</ZIndex>
@@ -985,6 +893,106 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Textbox Name="Textbox1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>ATTACHEMENT DE CONSOMMATION GAZ OIL</Value>
+                      <Style>
+                        <FontSize>16pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <TextDecoration>Underline</TextDecoration>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>3.71404cm</Top>
+              <Left>5.77437cm</Left>
+              <Height>0.67028cm</Height>
+              <Width>18.23613cm</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox31">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="Période du " + Format(Parameters!fromDate.Value,"dd/MM/yyy") +" Au "+ Format(Parameters!ToDate.Value,"dd/MM/yyy")</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>dd/MM/yyy</Format>
+                        <TextDecoration>Underline</TextDecoration>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox31</rd:DefaultName>
+              <Top>4.52543cm</Top>
+              <Left>5.80411cm</Left>
+              <Height>0.6cm</Height>
+              <Width>18.23613cm</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox6">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="POLE "+Parameters!PoleID.Value</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox6</rd:DefaultName>
+              <Top>4.52543cm</Top>
+              <Left>0.62474cm</Left>
+              <Height>0.6cm</Height>
+              <Width>3.26729cm</Width>
+              <ZIndex>8</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -993,7 +1001,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>4.39699cm</Height>
+          <Height>3.57678cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1001,7 +1009,7 @@
               <Source>Embedded</Source>
               <Value>isoLeft</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>2.73824cm</Top>
+              <Top>1.91803cm</Top>
               <Left>0.33689cm</Left>
               <Height>1.5cm</Height>
               <Width>1.5cm</Width>
@@ -1082,8 +1090,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox16</rd:DefaultName>
-              <Top>2.73824cm</Top>
-              <Left>9.72373cm</Left>
+              <Top>1.91803cm</Top>
+              <Left>7.92456cm</Left>
               <Height>1.5cm</Height>
               <Width>10.05511cm</Width>
               <ZIndex>1</ZIndex>
@@ -1101,8 +1109,8 @@
               <Source>Embedded</Source>
               <Value>isoRight</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>2.73824cm</Top>
-              <Left>25.56429cm</Left>
+              <Top>1.91803cm</Top>
+              <Left>23.66637cm</Left>
               <Height>1.5cm</Height>
               <Width>4.12123cm</Width>
               <ZIndex>2</ZIndex>
@@ -1113,10 +1121,10 @@
               </Style>
             </Image>
             <Line Name="Line2">
-              <Top>2.56185cm</Top>
+              <Top>1.74164cm</Top>
               <Left>0.04584cm</Left>
               <Height>0cm</Height>
-              <Width>29.71906cm</Width>
+              <Width>27.74176cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -1143,7 +1151,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>0.58208cm</Top>
+              <Top>0.3175cm</Top>
               <Left>1.26683cm</Left>
               <Height>0.6cm</Height>
               <Width>5.70463cm</Width>
@@ -1167,9 +1175,10 @@
         </PageFooter>
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>
-        <LeftMargin>0cm</LeftMargin>
-        <TopMargin>0.5cm</TopMargin>
-        <BottomMargin>0.5cm</BottomMargin>
+        <LeftMargin>0.5cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>0cm</TopMargin>
+        <BottomMargin>0cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>

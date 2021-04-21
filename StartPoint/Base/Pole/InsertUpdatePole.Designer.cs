@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.stockBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -113,6 +114,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.stockBox);
             this.groupBox2.Controls.Add(this.SaveButton);
             this.groupBox2.Location = new System.Drawing.Point(0, 198);
             this.groupBox2.Name = "groupBox2";
@@ -130,6 +132,17 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
+            // stockBox
+            // 
+            this.stockBox.AutoSize = true;
+            this.stockBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stockBox.Location = new System.Drawing.Point(26, 26);
+            this.stockBox.Name = "stockBox";
+            this.stockBox.Size = new System.Drawing.Size(75, 28);
+            this.stockBox.TabIndex = 4;
+            this.stockBox.Text = "Stock";
+            this.stockBox.UseVisualStyleBackColor = true;
+            // 
             // InsertUpdatePole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +159,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -186,5 +200,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.CheckBox stockBox;
     }
 }

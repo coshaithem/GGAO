@@ -31,7 +31,8 @@
             this.rptViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ShowReportBtn = new System.Windows.Forms.Button();
-            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.PoleCombobox.setFilter(new int[] { 1, 2 });
             this.dateTimePickerLocal = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             this.rptViewer.Name = "rptViewer";
             this.rptViewer.ServerReport.BearerToken = null;
             this.rptViewer.Size = new System.Drawing.Size(1206, 370);
-            this.rptViewer.TabIndex = 23;
+            this.rptViewer.TabIndex = 0;
             // 
             // panel1
             // 
@@ -67,7 +68,7 @@
             this.ShowReportBtn.Location = new System.Drawing.Point(1120, 4);
             this.ShowReportBtn.Name = "ShowReportBtn";
             this.ShowReportBtn.Size = new System.Drawing.Size(75, 31);
-            this.ShowReportBtn.TabIndex = 27;
+            this.ShowReportBtn.TabIndex = 2;
             this.ShowReportBtn.Text = "Afficher";
             this.ShowReportBtn.UseVisualStyleBackColor = true;
             this.ShowReportBtn.Click += new System.EventHandler(this.ShowReportBtn_Click);
@@ -88,7 +89,7 @@
             this.PoleCombobox.Size = new System.Drawing.Size(175, 26);
             this.PoleCombobox.SourceDataHeader = null;
             this.PoleCombobox.SourceDataString = null;
-            this.PoleCombobox.TabIndex = 26;
+            this.PoleCombobox.TabIndex = 1;
             this.PoleCombobox.ValueColumnNo = 0;
             this.PoleCombobox.Load += new System.EventHandler(this.PoleCombobox_Load);
             // 
@@ -101,8 +102,8 @@
             this.dateTimePickerLocal.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerLocal.Name = "dateTimePickerLocal";
             this.dateTimePickerLocal.Size = new System.Drawing.Size(175, 26);
-            this.dateTimePickerLocal.TabIndex = 25;
-            this.dateTimePickerLocal.Value = new System.DateTime(2021, 4, 13, 13, 39, 32, 244);
+            this.dateTimePickerLocal.TabIndex = 0;
+            this.dateTimePickerLocal.Value = System.DateTime.Now;
             this.dateTimePickerLocal.ValueChanged += new System.EventHandler(this.dateTimePickerLocal_ValueChanged);
             // 
             // label5

@@ -30,7 +30,8 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ColortextBox = new System.Windows.Forms.TextBox();
-            this.multiColumComboBox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.multiColumComboBox = new VMultiColumnComboBox.MultiColumComboBox( ); 
+            this.multiColumComboBox.setFilter(new int[] { 1, 2 });
             this.MarquetextBox = new System.Windows.Forms.TextBox();
             this.CodetextBox = new System.Windows.Forms.TextBox();
             this.MatrtextBox = new System.Windows.Forms.TextBox();

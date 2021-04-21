@@ -56,19 +56,19 @@ namespace GGAO
         }
 
         private void resetDGVMain()
-        {
+        { 
             if (getTheMainGrid().Columns.Count >= 1)
                 getTheMainGrid().Columns.Clear();
-
+            
             if (getTheMainGrid().Rows.Count >= 1)
                 getTheMainGrid().Rows.Clear();
-
+        
+            getTheMainGrid().AutoGenerateColumns = true; 
+         
             if (lastSelectedBindingSource != null) { 
                 lastSelectedBindingSource = null;
                 getTheMainGrid().DataSource = null;
             }
-            getTheMainGrid().AutoGenerateColumns = true; 
- 
         }
 
          private void LoadVisible( Table table )
@@ -79,13 +79,23 @@ namespace GGAO
             {
                 case Table.DRIVER : MyOwnBindingSource.DataSource = DriverCRUDOps.getVisibleDriver(); break;
                 case Table.PRODUIT : MyOwnBindingSource.DataSource = ProductCRUDOps.getVisibleProduct(); break;
-                case Table.POLE : MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole() ; break;
+                case Table.POLE : MyOwnBindingSource.DataSource = PoleCRUDOps.getVisiblePole(true,"ALL") ; break;
                 case Table.ENGINE : MyOwnBindingSource.DataSource = EngineCRUDOps.getVisibleEngine() ; break;
                 case Table.TRANSFER: MyOwnBindingSource.DataSource = TransferCRUDOps.getVisibleTransfer(); updateCurrentStock(); break;
                 case Table.ALIMENTATION: MyOwnBindingSource.DataSource = AlimentationCRUDOps.getVisibleAlimentation(); updateCurrentStock(); break;
                 case Table.CONSOMMATION: MyOwnBindingSource.DataSource = ConsommationCRUDOps.getVisibleConsommation(); updateCurrentStock(); break;
             }
+
+            MyOwnBindingSource.Sort = getTheMainGrid().SortString;
+            MyOwnBindingSource.Filter = getTheMainGrid().FilterString;
+            if (selectedTable != table )
+            {
+                MyOwnBindingSource.Sort = "";
+                MyOwnBindingSource.Filter = "";
+            }
+            //MessageBox.Show(MyOwnBindingSource.Filter + " | " + MyOwnBindingSource.Sort);
             lastSelectedBindingSource = MyOwnBindingSource;
+            
             getTheMainGrid().DataSource = MyOwnBindingSource;
 
             getTheMainGrid().Columns[0].Visible = false;
@@ -98,8 +108,7 @@ namespace GGAO
             // you should add Status Label .text here
             this.StatusLabel.Text = string.Format("Mise a jour "+table.ToString()+"  {0}",
                 DateTime.Now.ToString("hh:mm:ss")
-                );
-
+            );
         }
         public void ResetColumnWidths()
         {
@@ -107,8 +116,11 @@ namespace GGAO
             {
                 foreach (DataGridViewColumn col in getTheMainGrid().Columns)
                 {
-                    col.Resizable = DataGridViewTriState.True ;
+                    //col.Resizable = DataGridViewTriState.True ; #madehere
+                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells; 
                 }
+                
+                getTheMainGrid().Columns[getTheMainGrid().Columns.Count -1 ].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; ;
             }
         }
         private void NewDriverBtn_Click(object sender, EventArgs e)
@@ -118,6 +130,8 @@ namespace GGAO
                 InsertUpdateDriver form = new InsertUpdateDriver(true);
                 form.ShowDialog();
                 LoadVisible(Table.DRIVER);
+
+                this.updateFooterInfo();
             }
         }
         private void NewOilInBtn_Click(object sender, EventArgs e)
@@ -128,6 +142,7 @@ namespace GGAO
                 InsertUpdateAlimentation form = new InsertUpdateAlimentation(true);
                 form.ShowDialog();
                 LoadVisible(Table.ALIMENTATION);
+                this.updateFooterInfo();
             }
         }
 
@@ -181,11 +196,12 @@ namespace GGAO
         private void DriverBtn_Click(object sender, EventArgs e)
         {
             LoadVisible(Table.DRIVER );
-            this.selectedTable = Table.DRIVER ; //this.selectedTable == Table.DRIVER 
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
-                this.toggleFilterAndSort();
+             this.toggleFilterAndSort();
+            this.selectedTable = Table.DRIVER; //this.selectedTable == Table.DRIVER 
 
+            this.updateFooterInfo();
         }
 
         
@@ -203,7 +219,10 @@ namespace GGAO
 
         private void FilterBtn_Click(object sender, EventArgs e)
         {
-            
+            //MessageBox.Show(lastSelectedBindingSource.Sort + " | "+ lastSelectedBindingSource.Filter, " selected ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //lastSelectedBindingSource.Sort = "";
+            //lastSelectedBindingSource.Filter = "";
+
             bool filter = DGVMain.FilterAndSortEnabled;
 
             if ( DGVMain.Columns.Count >= 1)
@@ -274,30 +293,36 @@ namespace GGAO
                 
                 this.updateTotalRow();
             }
-        }  
+        }
         private int updateSumOfFilteredQuantities()
         {
-            
             int sum = 0;
-            for (int i = 0; i < getTheMainGrid().Rows.Count; i++)
-            {
-                // MessageBox.Show(getTheMainGrid().Rows[i].Cells[5].Value.ToString());
-                sum += Convert.ToInt32(getTheMainGrid().Rows[i].Cells[5].Value.ToString().Trim());
-                // MessageBox.Show(getTheMainGrid().Rows[i].Cells[2].Value.ToString());
+            if (this.selectedTable == Table.TRANSFER || this.selectedTable == Table.ALIMENTATION || this.selectedTable == Table.CONSOMMATION)
+            { 
+                for (int i = 0; i < getTheMainGrid().Rows.Count; i++)
+                {
+                    // MessageBox.Show(getTheMainGrid().Rows[i].Cells[5].Value.ToString());
+                    sum += Convert.ToInt32(getTheMainGrid().Rows[i].Cells[5].Value.ToString().Trim());
+                    //MessageBox.Show(getTheMainGrid().Rows[i].Cells[5].Value.ToString());
+                }
+                //MessageBox.Show(sum.ToString());
+                getFiltredQuantity().Text = "Quantité : " + sum.ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
             }
-            //MessageBox.Show(sum.ToString());
-            getFiltredQuantity().Text = "Quantité : " + sum.ToString("N1", System.Globalization.CultureInfo.InvariantCulture); ;
-            return sum;
+            else
+            {
+                getFiltredQuantity().Text = "";
+            }
 
+            return sum;
         }
         private void DGVMain_FilterStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.FilterEventArgs e)
         {
             if (lastSelectedBindingSource != null)
             {
-                lastSelectedBindingSource.Filter = DGVMain.FilterString;
-                if (this.selectedTable == Table.ALIMENTATION || this.selectedTable == Table.CONSOMMATION)
-                    this.updateSumOfFilteredQuantities();
-                this.updateTotalRow();
+                //loading all filtred records then apply the sum filter
+                //LoadVisible(selectedTable);
+                lastSelectedBindingSource.Filter = DGVMain.FilterString; 
+                this.updateFooterInfo();
             }
         }
 
@@ -309,6 +334,7 @@ namespace GGAO
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
 
+            this.updateFooterInfo();
         }
 
         private void NewProductBtn_Click(object sender, EventArgs e)
@@ -360,6 +386,7 @@ namespace GGAO
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
 
+            this.updateFooterInfo();
         }
 
         private void OilInBtn_Click(object sender, EventArgs e)
@@ -369,7 +396,7 @@ namespace GGAO
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
-
+            this.updateFooterInfo();
         }
 
         private void EngineBtn_Click(object sender, EventArgs e)
@@ -380,6 +407,7 @@ namespace GGAO
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
+            this.updateFooterInfo();
         }
 
         private void NewPoleBtn_Click(object sender, EventArgs e)
@@ -390,6 +418,8 @@ namespace GGAO
                 InsertUpdatePole form = new InsertUpdatePole(true);  
                 form.ShowDialog();
                 LoadVisible(Table.POLE);
+
+                this.updateFooterInfo();
             }
         }
 
@@ -414,6 +444,7 @@ namespace GGAO
                     selectedColIndex = -1;
 
                     LoadVisible(Table.POLE);
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -449,6 +480,8 @@ namespace GGAO
                     selectedColIndex = -1;
 
                     LoadVisible(Table.DRIVER);
+
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -478,6 +511,7 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
                     LoadVisible(Table.POLE);
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -505,6 +539,8 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
                     LoadVisible(Table.DRIVER);
+
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -523,6 +559,7 @@ namespace GGAO
                 InsertUpdateEngine form = new InsertUpdateEngine(true);
                 form.ShowDialog();
                 LoadVisible(Table.ENGINE);
+                this.updateFooterInfo();
             }
         }
         private void EditOilInBtn_Click(object sender, EventArgs e)
@@ -551,6 +588,7 @@ namespace GGAO
                     selectedColIndex = -1;
 
                     LoadVisible(Table.ALIMENTATION);
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -647,6 +685,7 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
                     LoadVisible(Table.ALIMENTATION);
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -656,7 +695,11 @@ namespace GGAO
                 }
             }
         }
-
+        private void updateFooterInfo()
+        {
+            this.updateSumOfFilteredQuantities();
+            this.updateTotalRow();
+        }
         private void OilOutBtn_Click(object sender, EventArgs e)
         {
 
@@ -665,6 +708,7 @@ namespace GGAO
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
+            this.updateFooterInfo();
         }
 
         private void NewOilOutBtn_Click(object sender, EventArgs e)
@@ -674,6 +718,7 @@ namespace GGAO
                 InsertUpdateConsommation form = new InsertUpdateConsommation(true);
                 form.ShowDialog();
                 LoadVisible( Table.CONSOMMATION );
+                this.updateFooterInfo();
             }
         }
 
@@ -706,6 +751,8 @@ namespace GGAO
                     selectedColIndex = -1;
 
                     LoadVisible(Table.CONSOMMATION);
+                    this.updateFooterInfo();
+
                 }
                 else
                 {
@@ -737,6 +784,7 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
                     LoadVisible(Table.CONSOMMATION);
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -758,12 +806,7 @@ namespace GGAO
             }
             MessageBox.Show( sum.ToString() ) ;
         }
-
-        private void ribbonButton17_Click(object sender, EventArgs e)
-        {
-            AlimentationCRUDOps.getSumOfQuantities();
-        }
-
+  
         private void GGAOWindow_Load(object sender, EventArgs e)
         {
             updateCurrentStock();
@@ -771,13 +814,41 @@ namespace GGAO
         private void updateCurrentStock()
         {
             // "1007" C01-OUMACHE STOCK PRINCIPAL
-            int transferOut = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Destination,"1007");
-            int transferIn = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Source ,"1007");
+            int transferOut = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Destination, "1007");
+            int transferIn = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Source, "1007");
+            int cons = ConsommationCRUDOps.getSumOfQuantities("1007"); // ** hello
+            int alim = AlimentationCRUDOps.getSumOfQuantities("1007");
+            getTheActuelStock().Text = ((alim + transferIn) - (cons + transferOut)).ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
+        }
+        private string updateCurrentStockInAllUnites()
+        {
+            DataTable tbl = PoleCRUDOps.getVisiblePole(true, "select");
+            // "1007" C01-OUMACHE STOCK PRINCIPAL
+            string s = "";
+            foreach ( DataRow dr in tbl.Rows )
+            {
+                string id = dr["ID"].ToString();
+                string libelle = dr["Libelle"].ToString();
+                // s +=dr["ID"].ToString()+"\n";
+                int transferOut = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Destination, id);
+                int transferIn = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Source, id );
+                int cons = ConsommationCRUDOps.getSumOfQuantities(id); // ** hello
+                int alim = AlimentationCRUDOps.getSumOfQuantities(id);
+
+                s +=  ( libelle+Utilities.Tools.Spaces(30,' ') ).ToString().Substring(0,30) +"  "
+                    + (  ((alim + transferIn) - (cons + transferOut)).ToString()  ) 
+                    + "\n";
+            }
+            /*
+            int transferOut = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Destination, "1007");
+            int transferIn = TransferCRUDOps.GetSumOfQuantities(TransferCRUDOps.Target.Source, "1007");
             int cons = ConsommationCRUDOps.getSumOfQuantities("1007"); // ** hello
             int alim = AlimentationCRUDOps.getSumOfQuantities();
-            getTheActuelStock().Text = ((alim+transferIn) - (cons+transferOut)).ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
-        }
-
+            getTheActuelStock().Text = ((alim + transferIn) - (cons + transferOut)).ToString("N1", System.Globalization.CultureInfo.InvariantCulture);
+            */
+            return s;
+            }
+        
         private void RapportJournalierWindow(object sender, EventArgs e)
         {
             //SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
@@ -806,6 +877,7 @@ namespace GGAO
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
+            this.updateFooterInfo();
         }
 
         private void NewOilTransferBtn_Click(object sender, EventArgs e)
@@ -816,6 +888,8 @@ namespace GGAO
                 InsertUpdateTransfer form = new InsertUpdateTransfer(true);
                 form.ShowDialog();
                 LoadVisible(Table.TRANSFER);
+                this.updateFooterInfo();
+
             }
         }
 
@@ -832,9 +906,12 @@ namespace GGAO
                     , date = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString()
                     , kilo = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString()
                     , quantity = DGVMain.Rows[selectedRowIndex].Cells[5].Value.ToString()
-                    , _engine = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString()
-                    , _produit = DGVMain.Rows[selectedRowIndex].Cells[7].Value.ToString()
-                    , _pole = DGVMain.Rows[selectedRowIndex].Cells[8].Value.ToString()
+                    , _pole = DGVMain.Rows[selectedRowIndex].Cells[6].Value.ToString()
+
+                    
+                    , _engine = DGVMain.Rows[selectedRowIndex].Cells[7].Value.ToString()
+                    , _produit = DGVMain.Rows[selectedRowIndex].Cells[8].Value.ToString()
+                   
                     , _driver = DGVMain.Rows[selectedRowIndex].Cells[9].Value.ToString()
                     , _toPole = DGVMain.Rows[selectedRowIndex].Cells[10].Value.ToString();
                    
@@ -846,6 +923,7 @@ namespace GGAO
                     selectedColIndex = -1;
 
                     LoadVisible(Table.TRANSFER);
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -877,6 +955,7 @@ namespace GGAO
                     selectedRowIndex = -1;
                     selectedColIndex = -1;
                     LoadVisible(Table.TRANSFER);
+                    this.updateFooterInfo();
                 }
                 else
                 {
@@ -885,6 +964,42 @@ namespace GGAO
                        MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void ExcelExportBtn_Click(object sender, EventArgs e)
+        {
+            if ( getTheMainGrid().Rows.Count > 0)
+            {
+                Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                for ( byte i = 1; i < getTheMainGrid().Columns.Count; i++)
+                {
+                    xcelApp.Cells[1, i] = getTheMainGrid().Columns[i].HeaderText;
+                }
+
+                for (byte i = 0; i < getTheMainGrid().Rows.Count  ; i++)
+                {
+                    if (getTheMainGrid().Rows[i].Visible == true)
+                    {
+                        for (byte j = 1; j < getTheMainGrid().Columns.Count; j++)
+                        {
+
+                            xcelApp.Cells[i + 2, j ] = getTheMainGrid().Rows[i].Cells[j].Value.ToString();
+
+                        }
+                    }
+                }
+                xcelApp.Columns.AutoFit();
+                xcelApp.Visible = true;
+            }
+        }
+         
+
+        private void StatistiqueBtn_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show(updateCurrentStockInAllUnites(), "Stock Actuel");
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)

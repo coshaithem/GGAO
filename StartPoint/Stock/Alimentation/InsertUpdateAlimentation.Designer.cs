@@ -33,14 +33,16 @@ namespace GGAO.Alimentation
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox();
-            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.DriverCombobox.setFilter(new int[] { 1, 2 });
+            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.PoleCombobox.setFilter(new int[] { 1, 2 });
             this.label5 = new System.Windows.Forms.Label();
             this.KilotextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ProductCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.ProductCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.ProductCombobox.setFilter(new int[] { 1, 2 });
             this.label4 = new System.Windows.Forms.Label();
-            this.EngineCombobox = new VMultiColumnComboBox.MultiColumComboBox();
             this.QuanitytextBox = new System.Windows.Forms.TextBox();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.ReftextBox = new System.Windows.Forms.TextBox();
@@ -50,6 +52,8 @@ namespace GGAO.Alimentation
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.EngineCombobox = new VMultiColumnComboBox.MultiColumComboBox( ) ;
+            this.EngineCombobox.setFilter(new int[] { 1, 2,5,7 }) ;
             this.SaveButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,6 +61,7 @@ namespace GGAO.Alimentation
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.EngineCombobox);
             this.groupBox1.Controls.Add(this.dateTimePicker);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.DriverCombobox);
@@ -66,7 +71,6 @@ namespace GGAO.Alimentation
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.ProductCombobox);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.EngineCombobox);
             this.groupBox1.Controls.Add(this.QuanitytextBox);
             this.groupBox1.Controls.Add(this.TypeComboBox);
             this.groupBox1.Controls.Add(this.ReftextBox);
@@ -92,8 +96,8 @@ namespace GGAO.Alimentation
             this.dateTimePicker.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
-            this.dateTimePicker.TabIndex = 14;
-            this.dateTimePicker.Value = System.DateTime.Now;
+            this.dateTimePicker.TabIndex = 1;
+            this.dateTimePicker.Value = System.DateTime.Now ;
             // 
             // label3
             // 
@@ -121,7 +125,7 @@ namespace GGAO.Alimentation
             this.DriverCombobox.Size = new System.Drawing.Size(175, 26);
             this.DriverCombobox.SourceDataHeader = null;
             this.DriverCombobox.SourceDataString = null;
-            this.DriverCombobox.TabIndex = 18;
+            this.DriverCombobox.TabIndex = 8;
             this.DriverCombobox.ValueColumnNo = 0;
             // 
             // PoleCombobox
@@ -130,10 +134,9 @@ namespace GGAO.Alimentation
             this.PoleCombobox.DataSource = null;
             this.PoleCombobox.DisplayColumnNo = 1;
             this.PoleCombobox.DropDownHeight = 200;
-            this.PoleCombobox.Enabled = false;
             this.PoleCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.PoleCombobox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
-            this.PoleCombobox.Location = new System.Drawing.Point(372, 59);
+            this.PoleCombobox.Location = new System.Drawing.Point(372, 60);
             this.PoleCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PoleCombobox.Name = "PoleCombobox";
             this.PoleCombobox.SelectedItem = null;
@@ -141,18 +144,18 @@ namespace GGAO.Alimentation
             this.PoleCombobox.Size = new System.Drawing.Size(175, 26);
             this.PoleCombobox.SourceDataHeader = null;
             this.PoleCombobox.SourceDataString = null;
-            this.PoleCombobox.TabIndex = 17;
+            this.PoleCombobox.TabIndex = 5;
             this.PoleCombobox.ValueColumnNo = 0;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(324, 62);
+            this.label5.Location = new System.Drawing.Point(303, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 20);
+            this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Pole";
+            this.label5.Text = "Source";
             // 
             // KilotextBox
             // 
@@ -160,7 +163,7 @@ namespace GGAO.Alimentation
             this.KilotextBox.Location = new System.Drawing.Point(111, 138);
             this.KilotextBox.Name = "KilotextBox";
             this.KilotextBox.Size = new System.Drawing.Size(158, 26);
-            this.KilotextBox.TabIndex = 10;
+            this.KilotextBox.TabIndex = 3;
             this.KilotextBox.Text = "00";
             // 
             // label2
@@ -189,7 +192,7 @@ namespace GGAO.Alimentation
             this.ProductCombobox.Size = new System.Drawing.Size(175, 26);
             this.ProductCombobox.SourceDataHeader = null;
             this.ProductCombobox.SourceDataString = null;
-            this.ProductCombobox.TabIndex = 16;
+            this.ProductCombobox.TabIndex = 7;
             this.ProductCombobox.ValueColumnNo = 0;
             // 
             // label4
@@ -202,32 +205,13 @@ namespace GGAO.Alimentation
             this.label4.TabIndex = 2;
             this.label4.Text = "Quantité";
             // 
-            // EngineCombobox
-            // 
-            this.EngineCombobox.ColumnWidth = null;
-            this.EngineCombobox.DataSource = null;
-            this.EngineCombobox.DisplayColumnNo = 1;
-            this.EngineCombobox.DropDownHeight = 200;
-            this.EngineCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.EngineCombobox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
-            this.EngineCombobox.Location = new System.Drawing.Point(372, 100);
-            this.EngineCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.EngineCombobox.Name = "EngineCombobox";
-            this.EngineCombobox.SelectedItem = null;
-            this.EngineCombobox.ShowHeader = true;
-            this.EngineCombobox.Size = new System.Drawing.Size(175, 26);
-            this.EngineCombobox.SourceDataHeader = null;
-            this.EngineCombobox.SourceDataString = null;
-            this.EngineCombobox.TabIndex = 15;
-            this.EngineCombobox.ValueColumnNo = 0;
-            // 
             // QuanitytextBox
             // 
             this.QuanitytextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuanitytextBox.Location = new System.Drawing.Point(111, 175);
             this.QuanitytextBox.Name = "QuanitytextBox";
             this.QuanitytextBox.Size = new System.Drawing.Size(158, 26);
-            this.QuanitytextBox.TabIndex = 11;
+            this.QuanitytextBox.TabIndex = 4;
             // 
             // TypeComboBox
             // 
@@ -242,7 +226,7 @@ namespace GGAO.Alimentation
             this.TypeComboBox.Location = new System.Drawing.Point(111, 101);
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(158, 28);
-            this.TypeComboBox.TabIndex = 13;
+            this.TypeComboBox.TabIndex = 2;
             this.TypeComboBox.Text = "Facture";
             // 
             // ReftextBox
@@ -251,7 +235,8 @@ namespace GGAO.Alimentation
             this.ReftextBox.Location = new System.Drawing.Point(111, 24);
             this.ReftextBox.Name = "ReftextBox";
             this.ReftextBox.Size = new System.Drawing.Size(434, 26);
-            this.ReftextBox.TabIndex = 9;
+            this.ReftextBox.TabIndex = 0;
+            this.ReftextBox.Text = "REF20";
             // 
             // label9
             // 
@@ -314,6 +299,25 @@ namespace GGAO.Alimentation
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operation";
             // 
+            // EngineCombobox
+            // 
+            this.EngineCombobox.ColumnWidth = null;
+            this.EngineCombobox.DataSource = null;
+            this.EngineCombobox.DisplayColumnNo = 1;
+            this.EngineCombobox.DropDownHeight = 200;
+            this.EngineCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EngineCombobox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
+            this.EngineCombobox.Location = new System.Drawing.Point(372, 100);
+            this.EngineCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.EngineCombobox.Name = "EngineCombobox";
+            this.EngineCombobox.SelectedItem = null;
+            this.EngineCombobox.ShowHeader = true;
+            this.EngineCombobox.Size = new System.Drawing.Size(173, 26);
+            this.EngineCombobox.SourceDataHeader = null;
+            this.EngineCombobox.SourceDataString = null;
+            this.EngineCombobox.TabIndex = 2;
+            this.EngineCombobox.ValueColumnNo = 0;
+            // 
             // SaveButton
             // 
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -350,12 +354,12 @@ namespace GGAO.Alimentation
         {
             if (!insertOrupdate)
             {
-                this.Text = "Mise a jour un Bon";
+                this.Text = "Mise a jour un Bon Alimentation";
                 this.SaveButton.Text = "Mettre a jour";
             }
             else
             {
-                this.Text = "Nouveau Bon";
+                this.Text = "Nouveau Bon Alimentation";
                 this.SaveButton.Text = "Enregistrer";
             }
         }
@@ -378,13 +382,12 @@ namespace GGAO.Alimentation
         void ResetFields()
         {
             ReftextBox.Text = "";
-            TypeComboBox.ValueMember = "- Choisir -";
+            TypeComboBox.Text = "";
             QuanitytextBox.Text = "";
             KilotextBox.Text = "";
             DriverCombobox.setTextBox("");
             PoleCombobox.setTextBox("");
             ProductCombobox.setTextBox("");
-            EngineCombobox.setTextBox("");
         }
         bool fieldsAreEmpty(bool InsertOrUpdate)
         {
@@ -398,7 +401,7 @@ namespace GGAO.Alimentation
             int a;
             //float b;
             int.TryParse(ReftextBox.Text.Trim(), out a);
-            if ((string.IsNullOrEmpty(ReftextBox.Text.Trim()) || TypeComboBox.ValueMember.Trim().Equals("- Choisir -") || string.IsNullOrEmpty(QuanitytextBox.Text.Trim())))
+            if ((string.IsNullOrEmpty(ReftextBox.Text.Trim()) || TypeComboBox.Text.Trim().Equals("") || string.IsNullOrEmpty(QuanitytextBox.Text.Trim())))
             { // string.IsNullOrEmpty(KilotextBox.Text.Trim()
                 level1 = true;
             }
@@ -447,7 +450,7 @@ namespace GGAO.Alimentation
         private VMultiColumnComboBox.MultiColumComboBox DriverCombobox;
         private VMultiColumnComboBox.MultiColumComboBox PoleCombobox;
         private VMultiColumnComboBox.MultiColumComboBox ProductCombobox;
-        private VMultiColumnComboBox.MultiColumComboBox EngineCombobox;
         private System.Windows.Forms.Button SaveButton;
+        private VMultiColumnComboBox.MultiColumComboBox EngineCombobox;
     }
 }

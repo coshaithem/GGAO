@@ -1022,7 +1022,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ETAT DE CONSOMMATION DU CARBURANT (INTERN + EXTERN)</Value>
+                      <Value>ETAT DE CONSOMMATION DU CARBURANT (INTERNE + EXTERNE)</Value>
                       <Style>
                         <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>

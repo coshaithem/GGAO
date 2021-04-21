@@ -13,15 +13,23 @@ namespace GGAO
     {
         static SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
         
-        public static DataTable getVisiblePole()
+        public static DataTable getVisiblePole(bool Stock,string choises)
         {
             DataTable dt = new DataTable(); 
             System.Data.DataSet ds = new DataSet();
             try
             {
-                SqlCommand cmd = new SqlCommand("CRUDPole", con);
-                cmd.Parameters.AddWithValue("@choise", SqlDbType.NVarChar).Value = "SELECT";
 
+                //MessageBox.Show(Stock.ToString()+"  "+ choises, "Liste des pôles", MessageBoxButtons.OK,  MessageBoxIcon.Error);
+
+                con.Open();
+                SqlCommand cmd = new SqlCommand("CRUDPole", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = choises;
+
+                //MessageBox.Show(cmd.Parameters.ToString() , "Liste des pôles", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if ( choises.ToLower().Equals("select"))
+                    cmd.Parameters.AddWithValue("@stoc", SqlDbType.Bit).Value = Stock;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 
                 da.Fill( ds );  
@@ -38,9 +46,10 @@ namespace GGAO
                 con.Close(); 
             }
             //MessageBox.Show(" DataSet Tables number " + ds.Tables.Count.ToString() + "   "+ds.Tables[0].TableName  );
+            
             return ds.Tables[0];
         }
-        public static void createPole(  String Libelle  ,String address, String desc  )
+        public static void createPole(  String Libelle  ,String address, String desc , bool stock )
         {
             try
             {
@@ -50,6 +59,7 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@Libelle", SqlDbType.NVarChar).Value = Libelle; // this.nomTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@Addresse", SqlDbType.NVarChar).Value = address;
                 cmd.Parameters.AddWithValue("@Descriptions", SqlDbType.NVarChar).Value = desc;
+                cmd.Parameters.AddWithValue("@stoc", SqlDbType.NVarChar).Value = stock;
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "INSERT";
 
                 string formattedTime = DateTime.Now.ToString("yyyy, MM, dd, hh, mm, ss");
@@ -76,7 +86,7 @@ namespace GGAO
                 con.Close();
             }
         }
-        public static void UpdatePole(string ID, String Libelle, String address, String desc)
+        public static void UpdatePole(string ID, String Libelle, String address, String desc, bool stock)
         {
             try
             {
@@ -87,6 +97,8 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@Libelle", SqlDbType.NVarChar).Value = Libelle; // this.nomTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@Addresse", SqlDbType.NVarChar).Value = address;
                 cmd.Parameters.AddWithValue("@Descriptions", SqlDbType.NVarChar).Value = desc;
+
+                cmd.Parameters.AddWithValue("@stoc", SqlDbType.NVarChar).Value = stock;
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "UPDATE";
 
                 //string formattedTime = DateTime.Now.ToString("yyyy, MM, dd, hh, mm, ss");

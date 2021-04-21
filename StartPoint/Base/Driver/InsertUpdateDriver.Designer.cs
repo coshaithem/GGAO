@@ -175,7 +175,7 @@ namespace GGAO.Driver
             this.dateNaissanceDateTimePicker.Name = "dateNaissanceDateTimePicker";
             this.dateNaissanceDateTimePicker.Size = new System.Drawing.Size(200, 28);
             this.dateNaissanceDateTimePicker.TabIndex = 3;
-            this.dateNaissanceDateTimePicker.Value = new System.DateTime(1911, 1, 1, 13, 11, 0, 0);
+            this.dateNaissanceDateTimePicker.Value = new System.DateTime(1911, 1, 1, 0, 0, 0, 0);
             // 
             // prenomTextBox
             // 

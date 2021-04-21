@@ -33,19 +33,23 @@
             this.checkBoxCalc = new System.Windows.Forms.CheckBox();
             this.checkBoxPrinting = new System.Windows.Forms.CheckBox();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.DriverCombobox.setFilter(new int[] { 1, 2 });
             this.KilotextBox = new System.Windows.Forms.TextBox();
-            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.PoleCombobox.setFilter(new int[] { 1, 2 });
+            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ProductCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.ProductCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.ProductCombobox.setFilter(new int[] { 1, 2 });
             this.label4 = new System.Windows.Forms.Label();
-            this.EngineCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.EngineCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.EngineCombobox.setFilter(new int[] { 1, 2,5,7 });
             this.QuanitytextBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.ReftextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -111,6 +115,7 @@
             this.checkBoxCalc.TabIndex = 21;
             this.checkBoxCalc.Text = "Calculer";
             this.checkBoxCalc.UseVisualStyleBackColor = true;
+            this.checkBoxCalc.Visible = false;
             // 
             // checkBoxPrinting
             // 
@@ -126,6 +131,7 @@
             this.checkBoxPrinting.TabIndex = 20;
             this.checkBoxPrinting.Text = "Imprimer";
             this.checkBoxPrinting.UseVisualStyleBackColor = true;
+            this.checkBoxPrinting.Visible = false;
             // 
             // SaveButton
             // 
@@ -153,7 +159,7 @@
             this.DriverCombobox.Size = new System.Drawing.Size(175, 26);
             this.DriverCombobox.SourceDataHeader = null;
             this.DriverCombobox.SourceDataString = null;
-            this.DriverCombobox.TabIndex = 18;
+            this.DriverCombobox.TabIndex = 8;
             this.DriverCombobox.ValueColumnNo = 0;
             // 
             // KilotextBox
@@ -162,7 +168,7 @@
             this.KilotextBox.Location = new System.Drawing.Point(111, 138);
             this.KilotextBox.Name = "KilotextBox";
             this.KilotextBox.Size = new System.Drawing.Size(158, 26);
-            this.KilotextBox.TabIndex = 10;
+            this.KilotextBox.TabIndex = 3;
             // 
             // PoleCombobox
             // 
@@ -180,8 +186,18 @@
             this.PoleCombobox.Size = new System.Drawing.Size(175, 26);
             this.PoleCombobox.SourceDataHeader = null;
             this.PoleCombobox.SourceDataString = null;
-            this.PoleCombobox.TabIndex = 17;
+            this.PoleCombobox.TabIndex = 5;
             this.PoleCombobox.ValueColumnNo = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(287, 69);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Source";
             // 
             // label2
             // 
@@ -209,7 +225,7 @@
             this.ProductCombobox.Size = new System.Drawing.Size(175, 26);
             this.ProductCombobox.SourceDataHeader = null;
             this.ProductCombobox.SourceDataString = null;
-            this.ProductCombobox.TabIndex = 16;
+            this.ProductCombobox.TabIndex = 7;
             this.ProductCombobox.ValueColumnNo = 0;
             // 
             // label4
@@ -238,7 +254,7 @@
             this.EngineCombobox.Size = new System.Drawing.Size(175, 26);
             this.EngineCombobox.SourceDataHeader = null;
             this.EngineCombobox.SourceDataString = null;
-            this.EngineCombobox.TabIndex = 15;
+            this.EngineCombobox.TabIndex = 6;
             this.EngineCombobox.ValueColumnNo = 0;
             // 
             // QuanitytextBox
@@ -247,7 +263,7 @@
             this.QuanitytextBox.Location = new System.Drawing.Point(111, 175);
             this.QuanitytextBox.Name = "QuanitytextBox";
             this.QuanitytextBox.Size = new System.Drawing.Size(158, 26);
-            this.QuanitytextBox.TabIndex = 11;
+            this.QuanitytextBox.TabIndex = 4;
             // 
             // dateTimePicker
             // 
@@ -258,8 +274,8 @@
             this.dateTimePicker.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
-            this.dateTimePicker.TabIndex = 14;
-            this.dateTimePicker.Value = new System.DateTime(2021, 4, 14, 13, 16, 35, 863);
+            this.dateTimePicker.TabIndex = 1;
+            this.dateTimePicker.Value = System.DateTime.Now;
             // 
             // TypeComboBox
             // 
@@ -273,7 +289,7 @@
             this.TypeComboBox.Location = new System.Drawing.Point(111, 101);
             this.TypeComboBox.Name = "TypeComboBox";
             this.TypeComboBox.Size = new System.Drawing.Size(158, 28);
-            this.TypeComboBox.TabIndex = 13;
+            this.TypeComboBox.TabIndex = 2;
             this.TypeComboBox.Text = "Bon Pour";
             // 
             // ReftextBox
@@ -282,7 +298,8 @@
             this.ReftextBox.Location = new System.Drawing.Point(111, 24);
             this.ReftextBox.Name = "ReftextBox";
             this.ReftextBox.Size = new System.Drawing.Size(436, 26);
-            this.ReftextBox.TabIndex = 9;
+            this.ReftextBox.TabIndex = 0;
+            this.ReftextBox.Text = "REF" + System.DateTime.Now.Day.ToString(); 
             // 
             // label9
             // 
@@ -293,16 +310,6 @@
             this.label9.Size = new System.Drawing.Size(89, 20);
             this.label9.TabIndex = 8;
             this.label9.Text = "Chauffeure";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(287, 69);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Source";
             // 
             // label6
             // 
@@ -378,12 +385,12 @@
         {
             if (!insertOrupdate)
             {
-                this.Text = "Mise a jour un Bon";
+                this.Text = "Mise a jour un Bon Consommation";
                 this.SaveButton.Text = "Mettre a jour";
             }
             else
             {
-                this.Text = "Nouveau Bon";
+                this.Text = "Nouveau Bon Consommation";
                 this.SaveButton.Text = "Enregistrer";
             }
         }
@@ -407,8 +414,8 @@
         }
         void ResetFields()
         {
-            ReftextBox.Text = "";
-            TypeComboBox.ValueMember = "- Choisir -";
+            ReftextBox.Text = "REF" + System.DateTime.Now.Day.ToString() ;
+            TypeComboBox.Text = "Bon Pour"; // ValueMember
             QuanitytextBox.Text = "";
             KilotextBox.Text = "";
             DriverCombobox.setTextBox("");
@@ -427,7 +434,7 @@
             int a;
             float b;
             int.TryParse(ReftextBox.Text.Trim(), out a);
-            if ((string.IsNullOrEmpty(ReftextBox.Text.Trim()) || TypeComboBox.ValueMember.Trim().Equals("- Choisir -") || string.IsNullOrEmpty(QuanitytextBox.Text.Trim()) ||
+            if ((string.IsNullOrEmpty(ReftextBox.Text.Trim()) || TypeComboBox.Text.Trim().Equals("") || string.IsNullOrEmpty(QuanitytextBox.Text.Trim()) ||
 
                 string.IsNullOrEmpty(KilotextBox.Text.Trim())))
             {

@@ -30,10 +30,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GGAOWindow));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonOrbOptionButton1 = new System.Windows.Forms.RibbonOrbOptionButton();
             this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
@@ -42,6 +42,7 @@
             this.AugmentFont = new System.Windows.Forms.RibbonButton();
             this.ReduireFont = new System.Windows.Forms.RibbonButton();
             this.FilterBtn = new System.Windows.Forms.RibbonButton();
+            this.ExcelExportBtn = new System.Windows.Forms.RibbonButton();
             this.StockTab = new System.Windows.Forms.RibbonTab();
             this.AlimentationTab = new System.Windows.Forms.RibbonPanel();
             this.OilInBtn = new System.Windows.Forms.RibbonButton();
@@ -63,6 +64,8 @@
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
             this.dailyBtn = new System.Windows.Forms.RibbonButton();
             this.MonthlyBtn = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
+            this.StatistiqueBtn = new System.Windows.Forms.RibbonButton();
             this.AutreTab = new System.Windows.Forms.RibbonTab();
             this.ProduitribbonPanel = new System.Windows.Forms.RibbonPanel();
             this.ProductBtn = new System.Windows.Forms.RibbonButton();
@@ -131,10 +134,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ribbonButton17 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton18 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton19 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton20 = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonButton21 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton19 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton23 = new System.Windows.Forms.RibbonButton();
+            this.EXCELribbonButton = new System.Windows.Forms.RibbonButton();
+            this.TEST = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel = new System.Windows.Forms.RibbonPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
@@ -208,26 +213,28 @@
             this.TableauPanel.Items.Add(this.AugmentFont);
             this.TableauPanel.Items.Add(this.ReduireFont);
             this.TableauPanel.Items.Add(this.FilterBtn);
-            this.TableauPanel.Items.Add(this.ribbonButton19);
+            this.TableauPanel.Items.Add(this.ExcelExportBtn);
             this.TableauPanel.Name = "TableauPanel";
             this.TableauPanel.Text = "Tableau";
             // 
             // AugmentFont
             // 
-            this.AugmentFont.Image = global::GGAO.Properties.Resources.AugmenterFont;
-            this.AugmentFont.LargeImage = global::GGAO.Properties.Resources.AugmenterFont;
+            this.AugmentFont.Image = ((System.Drawing.Image)(resources.GetObject("AugmentFont.Image")));
+            this.AugmentFont.LargeImage = ((System.Drawing.Image)(resources.GetObject("AugmentFont.LargeImage")));
+            this.AugmentFont.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
             this.AugmentFont.Name = "AugmentFont";
-            this.AugmentFont.SmallImage = ((System.Drawing.Image)(resources.GetObject("AugmentFont.SmallImage")));
-            this.AugmentFont.Text = "";
+            this.AugmentFont.SmallImage = global::GGAO.Properties.Resources.FontAug;
+            this.AugmentFont.Text = "Augmenter";
             this.AugmentFont.Click += new System.EventHandler(this.AugmentFont_Click);
             // 
             // ReduireFont
             // 
-            this.ReduireFont.Image = global::GGAO.Properties.Resources.ReduireFont;
-            this.ReduireFont.LargeImage = global::GGAO.Properties.Resources.ReduireFont;
+            this.ReduireFont.Image = ((System.Drawing.Image)(resources.GetObject("ReduireFont.Image")));
+            this.ReduireFont.LargeImage = ((System.Drawing.Image)(resources.GetObject("ReduireFont.LargeImage")));
+            this.ReduireFont.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
             this.ReduireFont.Name = "ReduireFont";
-            this.ReduireFont.SmallImage = ((System.Drawing.Image)(resources.GetObject("ReduireFont.SmallImage")));
-            this.ReduireFont.Text = "";
+            this.ReduireFont.SmallImage = global::GGAO.Properties.Resources.FontRed;
+            this.ReduireFont.Text = "Reduit";
             this.ReduireFont.Click += new System.EventHandler(this.ReduireFont_Click);
             // 
             // FilterBtn
@@ -239,6 +246,15 @@
             this.FilterBtn.Text = "";
             this.FilterBtn.Click += new System.EventHandler(this.FilterBtn_Click);
             // 
+            // ExcelExportBtn
+            // 
+            this.ExcelExportBtn.Image = global::GGAO.Properties.Resources.XLImportExport;
+            this.ExcelExportBtn.LargeImage = global::GGAO.Properties.Resources.XLImportExport;
+            this.ExcelExportBtn.Name = "ExcelExportBtn";
+            this.ExcelExportBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ExcelExportBtn.SmallImage")));
+            this.ExcelExportBtn.Text = "";
+            this.ExcelExportBtn.Click += new System.EventHandler(this.ExcelExportBtn_Click);
+            // 
             // StockTab
             // 
             this.StockTab.Name = "StockTab";
@@ -247,7 +263,6 @@
             this.StockTab.Panels.Add(this.ConsommationTab);
             this.StockTab.Panels.Add(this.ribbonPanel1);
             this.StockTab.Text = "Stock";
-            this.StockTab.ToolTipImage = global::GGAO.Properties.Resources.ggao1;
             // 
             // AlimentationTab
             // 
@@ -439,6 +454,21 @@
             this.MonthlyBtn.SmallImage = global::GGAO.Properties.Resources.preview;
             this.MonthlyBtn.Text = "Monsuelle";
             this.MonthlyBtn.Click += new System.EventHandler(this.RapportMonthlyWindow);
+            // 
+            // ribbonPanel1
+            // 
+            this.ribbonPanel1.Items.Add(this.StatistiqueBtn);
+            this.ribbonPanel1.Name = "ribbonPanel1";
+            this.ribbonPanel1.Text = "Statistique";
+            // 
+            // StatistiqueBtn
+            // 
+            this.StatistiqueBtn.Image = global::GGAO.Properties.Resources.stat;
+            this.StatistiqueBtn.LargeImage = global::GGAO.Properties.Resources.stat;
+            this.StatistiqueBtn.Name = "StatistiqueBtn";
+            this.StatistiqueBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("StatistiqueBtn.SmallImage")));
+            this.StatistiqueBtn.Text = "";
+            this.StatistiqueBtn.Click += new System.EventHandler(this.StatistiqueBtn_Click);
             // 
             // AutreTab
             // 
@@ -990,32 +1020,32 @@
             this.DGVMain.AllowUserToDeleteRows = false;
             this.DGVMain.AllowUserToResizeColumns = false;
             this.DGVMain.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGVMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVMain.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVMain.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DGVMain.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.DGVMain.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGVMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVMain.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGVMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVMain.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVMain.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGVMain.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DGVMain.FilterAndSortEnabled = false;
@@ -1027,7 +1057,7 @@
             this.DGVMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.DGVMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DGVMain.Size = new System.Drawing.Size(1240, 596);
-            this.DGVMain.TabIndex = 3;
+            this.DGVMain.TabIndex = 0;
             this.DGVMain.SortStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.SortEventArgs>(this.DGVMain_SortStringChanged);
             this.DGVMain.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.DGVMain_FilterStringChanged);
             this.DGVMain.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVMain_CellMouseClick);
@@ -1066,7 +1096,7 @@
             this.panel2.Location = new System.Drawing.Point(681, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(559, 49);
-            this.panel2.TabIndex = 4;
+            this.panel2.TabIndex = 1;
             // 
             // ribbonButton17
             // 
@@ -1094,6 +1124,15 @@
             this.ribbonButton18.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton18.SmallImage")));
             this.ribbonButton18.Text = "";
             // 
+            // ribbonButton20
+            // 
+            this.ribbonButton20.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.ribbonButton20.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton20.Image")));
+            this.ribbonButton20.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton20.LargeImage")));
+            this.ribbonButton20.Name = "ribbonButton20";
+            this.ribbonButton20.SmallImage = global::GGAO.Properties.Resources.XLExport;
+            this.ribbonButton20.Text = "Export";
+            // 
             // ribbonButton19
             // 
             this.ribbonButton19.DropDownItems.Add(this.ribbonButton20);
@@ -1104,28 +1143,38 @@
             this.ribbonButton19.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
             this.ribbonButton19.Text = "";
             // 
-            // ribbonButton20
+            // ribbonButton23
             // 
-            this.ribbonButton20.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.ribbonButton20.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton20.Image")));
-            this.ribbonButton20.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton20.LargeImage")));
-            this.ribbonButton20.Name = "ribbonButton20";
-            this.ribbonButton20.SmallImage = global::GGAO.Properties.Resources.XLExport;
-            this.ribbonButton20.Text = "Export";
+            this.ribbonButton23.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.ribbonButton23.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton23.Image")));
+            this.ribbonButton23.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton23.LargeImage")));
+            this.ribbonButton23.Name = "ribbonButton23";
+            this.ribbonButton23.SmallImage = global::GGAO.Properties.Resources.XLExport;
+            this.ribbonButton23.Text = "Export ...";
             // 
-            // ribbonPanel1
+            // EXCELribbonButton
             // 
-            this.ribbonPanel1.Items.Add(this.ribbonButton21);
-            this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Text = "Statistique";
+            this.EXCELribbonButton.DropDownItems.Add(this.ribbonButton23);
+            this.EXCELribbonButton.Image = global::GGAO.Properties.Resources.XLImportExport;
+            this.EXCELribbonButton.LargeImage = global::GGAO.Properties.Resources.XLImportExport;
+            this.EXCELribbonButton.Name = "EXCELribbonButton";
+            this.EXCELribbonButton.SmallImage = ((System.Drawing.Image)(resources.GetObject("EXCELribbonButton.SmallImage")));
+            this.EXCELribbonButton.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
+            this.EXCELribbonButton.Text = "";
             // 
-            // ribbonButton21
+            // TEST
             // 
-            this.ribbonButton21.Image = global::GGAO.Properties.Resources.stat;
-            this.ribbonButton21.LargeImage = global::GGAO.Properties.Resources.stat;
-            this.ribbonButton21.Name = "ribbonButton21";
-            this.ribbonButton21.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton21.SmallImage")));
-            this.ribbonButton21.Text = "";
+            this.TEST.Image = ((System.Drawing.Image)(resources.GetObject("TEST.Image")));
+            this.TEST.LargeImage = ((System.Drawing.Image)(resources.GetObject("TEST.LargeImage")));
+            this.TEST.Name = "TEST";
+            this.TEST.SmallImage = ((System.Drawing.Image)(resources.GetObject("TEST.SmallImage")));
+            this.TEST.Text = "ribbonButton22";
+            // 
+            // ribbonPanel
+            // 
+            this.ribbonPanel.Items.Add(this.TEST);
+            this.ribbonPanel.Name = "ribbonPanel";
+            this.ribbonPanel.Text = "ribbonPanel2";
             // 
             // GGAOWindow
             // 
@@ -1266,10 +1315,15 @@
         private System.Windows.Forms.RibbonButton ribbonButton5;
         private System.Windows.Forms.RibbonButton dailyBtn;
         private System.Windows.Forms.RibbonButton MonthlyBtn;
-        private System.Windows.Forms.RibbonButton ribbonButton19;
-        private System.Windows.Forms.RibbonButton ribbonButton20;
         private System.Windows.Forms.RibbonPanel ribbonPanel1;
-        private System.Windows.Forms.RibbonButton ribbonButton21;
+        private System.Windows.Forms.RibbonButton StatistiqueBtn;
+        private System.Windows.Forms.RibbonButton ribbonButton20;
+        private System.Windows.Forms.RibbonButton ribbonButton19;
+        private System.Windows.Forms.RibbonButton ExcelExportBtn;
+        private System.Windows.Forms.RibbonButton ribbonButton23;
+        private System.Windows.Forms.RibbonButton EXCELribbonButton;
+        private System.Windows.Forms.RibbonButton TEST;
+        private System.Windows.Forms.RibbonPanel ribbonPanel;
         //private System.Windows.Forms.RibbonTab __DataRibbonTab;
         // private GGAODataSetTableAdapters.DriverTableAdapter driverTableAdapter;
     }

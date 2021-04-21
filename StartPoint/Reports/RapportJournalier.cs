@@ -23,20 +23,15 @@ namespace GGAO.Reports
 
         private void raportJournalier_Load(object sender, EventArgs e)
         {
-            DataTable poleDt = GGAO.PoleCRUDOps.getVisiblePole();
+            DataTable poleDtrj = GGAO.PoleCRUDOps.getVisiblePole(false,"SELECT");
 
             this.PoleCombobox.Clear();
 
-            PoleCombobox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(poleDt.Columns);
+            PoleCombobox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(poleDtrj.Columns);
 
-            PoleCombobox.DataSource = poleDt;
+            PoleCombobox.DataSource = poleDtrj;
 
             PoleCombobox.setTextBox("");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private DataTable getData(DateTime today, string poleid )

@@ -35,7 +35,7 @@ namespace GGAO.Engine
         {
             
             // load POLE table
-              DataTable dt =   GGAO.PoleCRUDOps.getVisiblePole();
+              DataTable dtengine =   GGAO.PoleCRUDOps.getVisiblePole(false,"select");
             // scrap column names of  the table 
             /*List<string> ColumnNames = new List<string>();
             string collect = "";
@@ -48,7 +48,7 @@ namespace GGAO.Engine
             multiColumComboBox.Clear();
             // auto generate this column
             //multiColumComboBox.SourceDataString = ColumnNames.ToArray();
-            multiColumComboBox.SourceDataString = Tools.ConvColNametoArray(dt.Columns);
+            multiColumComboBox.SourceDataString = Tools.ConvColNametoArray(dtengine.Columns);
             //MessageBox.Show(collect);
             //multiColumComboBox.ColumnWidth = new string[3] { "30", "200", "50" };  
             //multiColumComboBox.ColumnWidth = GetColumnWidths(3, "30");
@@ -61,7 +61,7 @@ namespace GGAO.Engine
             multiColumComboBox.ValueColumnNo = 0; // Convert.ToInt32(textBox3.Text);
             */
             // set up the datasource of MultiColumnBox
-            multiColumComboBox.DataSource = dt;
+            multiColumComboBox.DataSource = dtengine;
             multiColumComboBox.setTextBox( this.selectedPoleLibelle.Trim() );
         }
         private void SaveButton_Click(object sender, EventArgs e)

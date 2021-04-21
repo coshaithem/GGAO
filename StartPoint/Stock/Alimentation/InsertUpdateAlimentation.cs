@@ -52,7 +52,7 @@ namespace GGAO.Alimentation
                          (EngineCombobox.SelectedItem == null) ? "0" : EngineCombobox.SelectedItem.Value,
                          (ProductCombobox.SelectedItem == null) ? "2" : ProductCombobox.SelectedItem.Value,
                          // add PoleTo : Destination 
-                         (PoleCombobox.SelectedItem == null) ? "1005" : PoleCombobox.SelectedItem.Value,
+                         (PoleCombobox.SelectedItem == null) ? "1007" : PoleCombobox.SelectedItem.Value,
                          (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
                          (KilotextBox.Text.Trim() == "") ? "0": KilotextBox.Text.Trim(),
                          QuanitytextBox.Text.Trim()
@@ -84,7 +84,7 @@ namespace GGAO.Alimentation
         private void InsertUpdateAlimentation_Load(object sender, EventArgs e)
         {
             // load the tables
-            DataTable poleDt = GGAO.PoleCRUDOps.getVisiblePole();
+            DataTable poleDts = GGAO.PoleCRUDOps.getVisiblePole(true, "SELECT");
             DataTable driverDt = GGAO.DriverCRUDOps.getVisibleDriver();
             DataTable engineDt = GGAO.EngineCRUDOps.getVisibleEngine();
             DataTable produitDt = GGAO.ProductCRUDOps.getVisibleProduct();
@@ -96,13 +96,13 @@ namespace GGAO.Alimentation
             this.ProductCombobox.Clear();
             // auto generate this column
             //multiColumComboBox.SourceDataString = ColumnNames.ToArray();
-            PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDt.Columns);
+            PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDts.Columns);
 
             DriverCombobox.SourceDataString = Tools.ConvColNametoArray(driverDt.Columns);
             EngineCombobox.SourceDataString = Tools.ConvColNametoArray(engineDt.Columns);
             ProductCombobox.SourceDataString = Tools.ConvColNametoArray(produitDt.Columns);
 
-            PoleCombobox.DataSource = poleDt;
+            PoleCombobox.DataSource = poleDts;
 
             DriverCombobox.DataSource = driverDt;
             EngineCombobox.DataSource = engineDt;
@@ -115,6 +115,10 @@ namespace GGAO.Alimentation
             //_Engine.Split('-')[0].Trim();
             EngineCombobox.setTextBox( this.selectedEngineLib.Split('-')[0].Trim());
         }
-        
+
+        private void EngineCombobox_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

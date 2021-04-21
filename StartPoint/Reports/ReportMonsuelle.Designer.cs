@@ -30,13 +30,14 @@
         {
             this.rptViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ToDatePkr = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.ShowReportBtn = new System.Windows.Forms.Button();
-            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.PoleCombobox.setFilter(new int[] { 1, 2 });
             this.fromDatePkr = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ToDatePkr = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             this.rptViewer.Name = "rptViewer";
             this.rptViewer.ServerReport.BearerToken = null;
             this.rptViewer.Size = new System.Drawing.Size(1204, 411);
-            this.rptViewer.TabIndex = 5;
+            this.rptViewer.TabIndex = 0;
             // 
             // panel1
             // 
@@ -64,13 +65,35 @@
             this.panel1.Size = new System.Drawing.Size(1204, 38);
             this.panel1.TabIndex = 25;
             // 
+            // ToDatePkr
+            // 
+            this.ToDatePkr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ToDatePkr.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ToDatePkr.Location = new System.Drawing.Point(334, 7);
+            this.ToDatePkr.MaxDate = new System.DateTime(2200, 2, 5, 0, 0, 0, 0);
+            this.ToDatePkr.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.ToDatePkr.Name = "ToDatePkr";
+            this.ToDatePkr.Size = new System.Drawing.Size(175, 26);
+            this.ToDatePkr.TabIndex = 1;
+            this.ToDatePkr.Value =  System.DateTime.Now;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(264, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 20);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Jusqu\'a";
+            // 
             // ShowReportBtn
             // 
             this.ShowReportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ShowReportBtn.Location = new System.Drawing.Point(1120, 4);
             this.ShowReportBtn.Name = "ShowReportBtn";
             this.ShowReportBtn.Size = new System.Drawing.Size(75, 31);
-            this.ShowReportBtn.TabIndex = 27;
+            this.ShowReportBtn.TabIndex = 3;
             this.ShowReportBtn.Text = "Afficher";
             this.ShowReportBtn.UseVisualStyleBackColor = true;
             this.ShowReportBtn.Click += new System.EventHandler(this.ShowReportBtn_Click);
@@ -91,7 +114,7 @@
             this.PoleCombobox.Size = new System.Drawing.Size(175, 26);
             this.PoleCombobox.SourceDataHeader = null;
             this.PoleCombobox.SourceDataString = null;
-            this.PoleCombobox.TabIndex = 26;
+            this.PoleCombobox.TabIndex = 2;
             this.PoleCombobox.ValueColumnNo = 0;
             // 
             // fromDatePkr
@@ -103,8 +126,8 @@
             this.fromDatePkr.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.fromDatePkr.Name = "fromDatePkr";
             this.fromDatePkr.Size = new System.Drawing.Size(175, 26);
-            this.fromDatePkr.TabIndex = 25;
-            this.fromDatePkr.Value = new System.DateTime(2021, 4, 13, 13, 39, 32, 244);
+            this.fromDatePkr.TabIndex = 0;
+            this.fromDatePkr.Value =   System.DateTime.Now;
             // 
             // label5
             // 
@@ -126,29 +149,7 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "Date";
             // 
-            // ToDatePkr
-            // 
-            this.ToDatePkr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ToDatePkr.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ToDatePkr.Location = new System.Drawing.Point(334, 7);
-            this.ToDatePkr.MaxDate = new System.DateTime(2200, 2, 5, 0, 0, 0, 0);
-            this.ToDatePkr.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.ToDatePkr.Name = "ToDatePkr";
-            this.ToDatePkr.Size = new System.Drawing.Size(175, 26);
-            this.ToDatePkr.TabIndex = 29;
-            this.ToDatePkr.Value = new System.DateTime(2021, 4, 13, 13, 39, 32, 244);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(264, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 20);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Jusqu\'a";
-            // 
-            // ReportWindow
+            // ReportMonsuelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,7 +157,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.rptViewer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "ReportWindow";
+            this.MaximizeBox = false;
+            this.Name = "ReportMonsuelle";
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ReportWindow";

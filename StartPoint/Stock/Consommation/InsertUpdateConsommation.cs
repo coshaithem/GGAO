@@ -38,7 +38,7 @@ namespace GGAO.Consommation
         private void InsertUpdateConsommation_Load(object sender, EventArgs e)
         {
             // load the tables
-            DataTable poleDt = GGAO.PoleCRUDOps.getVisiblePole();
+            DataTable poleDtDES = GGAO.PoleCRUDOps.getVisiblePole(true, "SELECT");
             DataTable driverDt = GGAO.DriverCRUDOps.getVisibleDriver();
             DataTable engineDt = GGAO.EngineCRUDOps.getVisibleEngine();
             DataTable produitDt = GGAO.ProductCRUDOps.getVisibleProduct();
@@ -49,12 +49,12 @@ namespace GGAO.Consommation
             this.ProductCombobox.Clear();
             // auto generate this column
             //multiColumComboBox.SourceDataString = ColumnNames.ToArray();
-            PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDt.Columns);
+            PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDtDES.Columns);
             DriverCombobox.SourceDataString = Tools.ConvColNametoArray(driverDt.Columns);
             EngineCombobox.SourceDataString = Tools.ConvColNametoArray(engineDt.Columns);
             ProductCombobox.SourceDataString = Tools.ConvColNametoArray(produitDt.Columns);
 
-            PoleCombobox.DataSource = poleDt;
+            PoleCombobox.DataSource = poleDtDES;
             DriverCombobox.DataSource = driverDt;
             EngineCombobox.DataSource = engineDt;
             ProductCombobox.DataSource = produitDt;

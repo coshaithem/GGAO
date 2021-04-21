@@ -45,8 +45,9 @@ namespace GGAO.Pole
                     PoleCRUDOps.createPole(
                         this.LibelletextBox.Text.Trim(),
                         this.AddresstextBox.Text.Trim(),
-                        this.DescriptiontextBox.Text.Trim()
-                        );
+                        this.DescriptiontextBox.Text.Trim(),
+                        this.stockBox.Checked
+                        ) ;
 
                 }
                 else // means Update existing record
@@ -55,7 +56,8 @@ namespace GGAO.Pole
                         this.selectedID,
                         this.LibelletextBox.Text.Trim(),
                         this.AddresstextBox.Text.Trim(),
-                        this.DescriptiontextBox.Text.Trim()
+                        this.DescriptiontextBox.Text.Trim(),
+                        this.stockBox.Checked
                         );
                     this.Close();
                 }

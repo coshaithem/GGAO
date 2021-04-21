@@ -10,6 +10,15 @@ namespace GGAO.Utilities
 {
     class Tools
     {
+        public static string Spaces(byte length,char rep)
+        {
+            string start = "";
+            for ( byte i = 1; i<= length; i++)
+            {
+                start += rep;
+            }
+            return start;
+        }
         public static string[] ConvColNametoArray(DataColumnCollection columns )
         {
             // scrap column names of  the table
