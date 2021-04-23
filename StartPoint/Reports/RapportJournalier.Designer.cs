@@ -31,11 +31,12 @@
             this.rptViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ShowReportBtn = new System.Windows.Forms.Button();
-            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
-            this.PoleCombobox.setFilter(new int[] { 1, 2 });
+            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
             this.dateTimePickerLocal = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.SourceComboBox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +52,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.SourceComboBox);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.ShowReportBtn);
             this.panel1.Controls.Add(this.PoleCombobox);
             this.panel1.Controls.Add(this.dateTimePickerLocal);
@@ -81,7 +84,7 @@
             this.PoleCombobox.DropDownHeight = 200;
             this.PoleCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.PoleCombobox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
-            this.PoleCombobox.Location = new System.Drawing.Point(320, 5);
+            this.PoleCombobox.Location = new System.Drawing.Point(737, 7);
             this.PoleCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PoleCombobox.Name = "PoleCombobox";
             this.PoleCombobox.SelectedItem = null;
@@ -103,18 +106,18 @@
             this.dateTimePickerLocal.Name = "dateTimePickerLocal";
             this.dateTimePickerLocal.Size = new System.Drawing.Size(175, 26);
             this.dateTimePickerLocal.TabIndex = 0;
-            this.dateTimePickerLocal.Value = System.DateTime.Now;
+            this.dateTimePickerLocal.Value = new System.DateTime(2021, 4, 23, 9, 12, 43, 712);
             this.dateTimePickerLocal.ValueChanged += new System.EventHandler(this.dateTimePickerLocal_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(273, 9);
+            this.label5.Location = new System.Drawing.Point(293, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 20);
+            this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 24;
-            this.label5.Text = "Pole";
+            this.label5.Text = "Source";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label3
@@ -127,6 +130,35 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "Date";
             this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // SourceComboBox
+            // 
+            this.SourceComboBox.ColumnWidth = null;
+            this.SourceComboBox.DataSource = null;
+            this.SourceComboBox.DisplayColumnNo = 1;
+            this.SourceComboBox.DropDownHeight = 200;
+            this.SourceComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.SourceComboBox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
+            this.SourceComboBox.Location = new System.Drawing.Point(360, 7);
+            this.SourceComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SourceComboBox.Name = "SourceComboBox";
+            this.SourceComboBox.SelectedItem = null;
+            this.SourceComboBox.ShowHeader = true;
+            this.SourceComboBox.Size = new System.Drawing.Size(175, 26);
+            this.SourceComboBox.SourceDataHeader = null;
+            this.SourceComboBox.SourceDataString = null;
+            this.SourceComboBox.TabIndex = 25;
+            this.SourceComboBox.ValueColumnNo = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(601, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Consommateur";
             // 
             // raportJournalier
             // 
@@ -157,5 +189,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerLocal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private VMultiColumnComboBox.MultiColumComboBox SourceComboBox;
+        private System.Windows.Forms.Label label1;
     }
 }

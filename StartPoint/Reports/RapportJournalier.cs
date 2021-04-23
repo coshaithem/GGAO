@@ -24,17 +24,22 @@ namespace GGAO.Reports
         private void raportJournalier_Load(object sender, EventArgs e)
         {
             DataTable poleDtrj = GGAO.PoleCRUDOps.getVisiblePole(false,"SELECT");
+            DataTable SourceDtrj = GGAO.PoleCRUDOps.getVisiblePole(true,"SELECT");
 
             this.PoleCombobox.Clear();
+            this.SourceComboBox.Clear();
 
             PoleCombobox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(poleDtrj.Columns);
+            SourceComboBox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(SourceDtrj.Columns);
 
             PoleCombobox.DataSource = poleDtrj;
+            SourceComboBox.DataSource = SourceDtrj;
 
             PoleCombobox.setTextBox("");
+            SourceComboBox.setTextBox("");
         }
 
-        private DataTable getData(DateTime today, string poleid )
+        private DataTable getData(DateTime today, string Sourceid, string poleid)
         {
             DataTable dt = new DataTable();
             //System.Data.DataSet ds = new DataSet();
@@ -46,6 +51,7 @@ namespace GGAO.Reports
                 cmd.Parameters.AddWithValue("@date", SqlDbType.DateTime).Value = today;
                 //DateTime.Parse("12-03-2021");  new System.DateTime(2021, 03, 12); 
                 cmd.Parameters.AddWithValue("@poleID", SqlDbType.Int).Value = int.Parse(poleid);
+                cmd.Parameters.AddWithValue("@sourceID", SqlDbType.Int).Value = int.Parse(Sourceid);
 
                 //cmd.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -85,7 +91,8 @@ namespace GGAO.Reports
             ReportParameter[] rptParams = new ReportParameter[]
             {
                 new ReportParameter("date", dateTimePickerLocal.Value.ToString() ),
-                new ReportParameter("pole", PoleCombobox.SelectedItem.Text)
+                new ReportParameter("pole", PoleCombobox.SelectedItem.Text),
+                new ReportParameter("source", SourceComboBox.SelectedItem.Text)
             };
             rptViewer.LocalReport.SetParameters(rptParams);
 
@@ -94,9 +101,9 @@ namespace GGAO.Reports
         }
         private void ShowReportBtn_Click(object sender, EventArgs e)
         {
-            if (PoleCombobox.SelectedItem != null)
+            if (SourceComboBox.SelectedItem != null &&  PoleCombobox.SelectedItem != null)
             {
-                DataTable dt = getData(dateTimePickerLocal.Value, PoleCombobox.SelectedItem.Value);
+                DataTable dt = getData(dateTimePickerLocal.Value, SourceComboBox.SelectedItem.Value , PoleCombobox.SelectedItem.Value);
                 if (dt == null || dt.Rows.Count <= 0)
                 {
                     MessageBox.Show("Aucun enregistrement trouvé", " Report ", MessageBoxButtons.OK,

@@ -1024,13 +1024,15 @@
                     <TextRun>
                       <Value>ETAT DE CONSOMMATION DU CARBURANT (INTERNE + EXTERNE)</Value>
                       <Style>
-                        <FontSize>16pt</FontSize>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <TextDecoration>Underline</TextDecoration>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -1131,7 +1133,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="POLE C01"</Value>
+                      <Value>="POLE "+Parameters!source.Value</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -1356,6 +1358,10 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="source">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1371,6 +1377,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>pole</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>source</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
