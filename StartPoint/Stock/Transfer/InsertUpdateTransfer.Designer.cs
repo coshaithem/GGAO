@@ -35,6 +35,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ToPoleCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
             this.ToPoleCombobox.setFilter(new int[] { 1, 2 });
+            this.ToPoleCombobox.setFilter(new int[] { 1, 2 });
             this.label10 = new System.Windows.Forms.Label();
             this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
             this.DriverCombobox.setFilter(new int[] { 1, 2 });

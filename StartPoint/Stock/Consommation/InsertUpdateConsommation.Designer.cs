@@ -178,7 +178,7 @@
             this.PoleCombobox.DropDownHeight = 200;
             this.PoleCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.PoleCombobox.GridLines = VMultiColumnComboBox.GridLines.Horizontal;
-            this.PoleCombobox.Location = new System.Drawing.Point(374, 65);
+            this.PoleCombobox.Location = new System.Drawing.Point(371, 65);
             this.PoleCombobox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PoleCombobox.Name = "PoleCombobox";
             this.PoleCombobox.SelectedItem = null;
@@ -205,9 +205,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(13, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Kilométrage";
+            this.label2.Text = "Klm|Heurs";
             // 
             // ProductCombobox
             // 
@@ -299,7 +299,7 @@
             this.ReftextBox.Name = "ReftextBox";
             this.ReftextBox.Size = new System.Drawing.Size(436, 26);
             this.ReftextBox.TabIndex = 0;
-            this.ReftextBox.Text = "REF" + System.DateTime.Now.Day.ToString(); 
+            this.ReftextBox.Text = "REF" + System.DateTime.Now.Day.ToString();
             // 
             // label9
             // 
@@ -440,11 +440,11 @@
             {
                 level1 = false;
             }
-            if (!int.TryParse(KilotextBox.Text.Trim(), out a) || !float.TryParse(QuanitytextBox.Text.Trim(), out b))
+            if ( !float.TryParse(QuanitytextBox.Text.Trim(), out b))
             {
                 level2 = false;
             }
-
+            
             if (InsertOrUpdate)
             { //means insert new record
                 if (!level1 || !level2) { return true; }

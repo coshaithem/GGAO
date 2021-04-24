@@ -86,12 +86,11 @@ namespace GGAO
                 case Table.CONSOMMATION: MyOwnBindingSource.DataSource = ConsommationCRUDOps.getVisibleConsommation(); updateCurrentStock(); break;
             }
 
-            MyOwnBindingSource.Sort = getTheMainGrid().SortString;
-            MyOwnBindingSource.Filter = getTheMainGrid().FilterString;
-            if (selectedTable != table )
+
+            if (this.selectedTable == table )
             {
-                MyOwnBindingSource.Sort = "";
-                MyOwnBindingSource.Filter = "";
+                MyOwnBindingSource.Sort = getTheMainGrid().SortString;
+                MyOwnBindingSource.Filter = getTheMainGrid().FilterString;
             }
             //MessageBox.Show(MyOwnBindingSource.Filter + " | " + MyOwnBindingSource.Sort);
             lastSelectedBindingSource = MyOwnBindingSource;
@@ -271,6 +270,8 @@ namespace GGAO
             // First disable filter and Sort
             lastSelectedBindingSource.Sort = "";
             lastSelectedBindingSource.Filter = "";
+            //DGVMain.FilterAndSortEnabled = false;
+            DGVMain.CleanFilterAndSort();
         }
 
         private void allowUserToActivateFilter()
@@ -1000,6 +1001,11 @@ namespace GGAO
         {
 
             MessageBox.Show(updateCurrentStockInAllUnites(), "Stock Actuel");
+        }
+
+        private void GGAOWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)

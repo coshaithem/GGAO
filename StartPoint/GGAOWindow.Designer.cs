@@ -175,7 +175,7 @@
             this.ribbon1.QuickAccessToolbar.Items.Add(this.ribbonButton8);
             this.ribbon1.QuickAccessToolbar.Visible = false;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(1240, 152);
+            this.ribbon1.Size = new System.Drawing.Size(1462, 152);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.AccueilTab);
             this.ribbon1.Tabs.Add(this.StockTab);
@@ -989,9 +989,9 @@
             this.panel1.Controls.Add(this.FilteredQuantity);
             this.panel1.Controls.Add(this.StatusLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 748);
+            this.panel1.Location = new System.Drawing.Point(0, 569);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1240, 20);
+            this.panel1.Size = new System.Drawing.Size(1462, 20);
             this.panel1.TabIndex = 2;
             // 
             // FilteredQuantity
@@ -999,7 +999,7 @@
             this.FilteredQuantity.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.FilteredQuantity.AutoSize = true;
             this.FilteredQuantity.Font = new System.Drawing.Font("Open 24 Display St", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilteredQuantity.Location = new System.Drawing.Point(604, -4);
+            this.FilteredQuantity.Location = new System.Drawing.Point(715, -4);
             this.FilteredQuantity.Name = "FilteredQuantity";
             this.FilteredQuantity.Size = new System.Drawing.Size(0, 23);
             this.FilteredQuantity.TabIndex = 1;
@@ -1009,7 +1009,7 @@
             this.StatusLabel.AutoSize = true;
             this.StatusLabel.Dock = System.Windows.Forms.DockStyle.Right;
             this.StatusLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatusLabel.Location = new System.Drawing.Point(1238, 0);
+            this.StatusLabel.Location = new System.Drawing.Point(1460, 0);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(0, 19);
             this.StatusLabel.TabIndex = 0;
@@ -1056,7 +1056,7 @@
             this.DGVMain.ReadOnly = true;
             this.DGVMain.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.DGVMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DGVMain.Size = new System.Drawing.Size(1240, 596);
+            this.DGVMain.Size = new System.Drawing.Size(1462, 417);
             this.DGVMain.TabIndex = 0;
             this.DGVMain.SortStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.SortEventArgs>(this.DGVMain_SortStringChanged);
             this.DGVMain.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.DGVMain_FilterStringChanged);
@@ -1093,7 +1093,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.StockActuel);
-            this.panel2.Location = new System.Drawing.Point(681, 0);
+            this.panel2.Location = new System.Drawing.Point(903, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(559, 49);
             this.panel2.TabIndex = 1;
@@ -1180,7 +1180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 768);
+            this.ClientSize = new System.Drawing.Size(1462, 589);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.DGVMain);
             this.Controls.Add(this.panel1);
@@ -1190,6 +1190,7 @@
             this.Name = "GGAOWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Gazoil ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GGAOWindow_FormClosing);
             this.Load += new System.EventHandler(this.GGAOWindow_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
