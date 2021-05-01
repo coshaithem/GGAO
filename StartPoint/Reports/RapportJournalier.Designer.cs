@@ -93,8 +93,7 @@
             this.PoleCombobox.SourceDataHeader = null;
             this.PoleCombobox.SourceDataString = null;
             this.PoleCombobox.TabIndex = 1;
-            this.PoleCombobox.ValueColumnNo = 0;
-            this.PoleCombobox.Load += new System.EventHandler(this.PoleCombobox_Load);
+            this.PoleCombobox.ValueColumnNo = 0; 
             // 
             // dateTimePickerLocal
             // 
@@ -107,7 +106,7 @@
             this.dateTimePickerLocal.Size = new System.Drawing.Size(175, 26);
             this.dateTimePickerLocal.TabIndex = 0;
             this.dateTimePickerLocal.Value = new System.DateTime(2021, 4, 23, 9, 12, 43, 712);
-            this.dateTimePickerLocal.ValueChanged += new System.EventHandler(this.dateTimePickerLocal_ValueChanged);
+            //this.dateTimePickerLocal.ValueChanged += new System.EventHandler(this.dateTimePickerLocal_ValueChanged);
             // 
             // label5
             // 
@@ -117,8 +116,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 24;
-            this.label5.Text = "Source";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.Text = "Source"; 
             // 
             // label3
             // 
@@ -128,8 +126,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 20);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Date";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Text = "Date"; 
             // 
             // SourceComboBox
             // 

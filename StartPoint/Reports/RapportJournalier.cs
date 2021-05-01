@@ -72,8 +72,42 @@ namespace GGAO.Reports
             //MessageBox.Show(" DataSet Tables number " + ds.Tables.Count.ToString() + "   "+ds.Tables[0].TableName  );
             //MessageBox.Show(dt.Rows.Count.ToString());
             return dt;
+        } 
+        private DataTable getDataTransfer(DateTime today )
+        {
+            DataTable dt = new DataTable();
+            //System.Data.DataSet ds = new DataSet();
+            try
+            {
+                //con.Open();
+                SqlCommand cmd = new SqlCommand("TransferByDate", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@date", SqlDbType.DateTime).Value = today;
+                //DateTime.Parse("12-03-2021");  new System.DateTime(2021, 03, 12); 
+                //cmd.Parameters.AddWithValue("@poleID", SqlDbType.Int).Value = int.Parse(poleid);
+                //cmd.Parameters.AddWithValue("@sourceID", SqlDbType.Int).Value = int.Parse(Sourceid);
+
+                //cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                da.Fill(dt);
+            }
+            catch (Exception exs)
+            {
+
+                MessageBox.Show(exs.ToString(),
+                                   " Report ", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            //MessageBox.Show(" DataSet Tables number " + ds.Tables.Count.ToString() + "   "+ds.Tables[0].TableName  );
+            //MessageBox.Show(dt.Rows.Count.ToString());
+            return dt;
         }
-        private void ShowReport(DataTable dt )
+        private void ShowReport(DataTable dt, DataTable dtTransfer)
         {
             // Reset 
             rptViewer.Reset();
@@ -83,6 +117,8 @@ namespace GGAO.Reports
             //DataTable dt = getData(dateTimePickerLocal.Value, PoleCombobox.SelectedItem.Value);
             ReportDataSource rds = new ReportDataSource("DataSetReportConsumption", dt);
             rptViewer.LocalReport.DataSources.Add(rds);
+            ReportDataSource rds2 = new ReportDataSource("DataSetTransferReport", dtTransfer);
+            rptViewer.LocalReport.DataSources.Add(rds2);
 
             //path
             rptViewer.LocalReport.ReportPath = "RptJournalier.rdlc";
@@ -104,39 +140,23 @@ namespace GGAO.Reports
             if (SourceComboBox.SelectedItem != null &&  PoleCombobox.SelectedItem != null)
             {
                 DataTable dt = getData(dateTimePickerLocal.Value, SourceComboBox.SelectedItem.Value , PoleCombobox.SelectedItem.Value);
-                if (dt == null || dt.Rows.Count <= 0)
+                DataTable dtTransfer = getDataTransfer(dateTimePickerLocal.Value);
+                if ( (dt == null || dt.Rows.Count <= 0) && (dtTransfer == null || dtTransfer.Rows.Count <= 0))
                 {
                     MessageBox.Show("Aucun enregistrement trouvé", " Report ", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
                 }
                 else
                 {
-                    this.ShowReport(dt);
+                    this.ShowReport(dt, dtTransfer);
                     this.rptViewer.RefreshReport();
                 }
 
             }
             
         }
-
-        private void PoleCombobox_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePickerLocal_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
+ 
+ 
     }
 }

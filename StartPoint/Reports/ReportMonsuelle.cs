@@ -177,6 +177,7 @@ namespace GGAO.Reports
                 }
                 else
                 {
+                    dt = this.DataTableProcessing(dt);
                     this.ShowReport(dt);
                     this.rptViewer.RefreshReport();
                 }
@@ -188,6 +189,28 @@ namespace GGAO.Reports
                                   " Report ", MessageBoxButtons.OK,
                                   MessageBoxIcon.Error);
             }
+        }
+
+        private DataTable DataTableProcessing(DataTable dt)
+        {
+            DataRow FirstDR = dt.Rows[0];
+             
+            for (DateTime i = fromDatePkr.Value; i <= ToDatePkr.Value; i=i.AddDays(1) )
+            {
+                //MessageBox.Show(" First " + FirstDR["Date"].ToString());
+                if (i.Day != DateTime.Parse(FirstDR["Date"].ToString()).Day ) //!= FirstDR["Date"].Value
+                {
+                    DataRow row = dt.NewRow();
+                    row["IMM_CODE"] = FirstDR["IMM_CODE"];
+                    row["Libelle"] = FirstDR["Libelle"];
+                    row["Date"] = i.ToShortDateString();
+                    row["Quantité"] = 0;
+                    dt.Rows.Add(row);
+                    //MessageBox.Show("inserted : "+row["Date"].ToString());
+                }
+                //MessageBox.Show( i.ToString() );
+            }
+            return dt;
         }
     }
 }
