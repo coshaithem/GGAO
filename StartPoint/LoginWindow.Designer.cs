@@ -101,7 +101,7 @@
             this.userText.Location = new System.Drawing.Point(14, 124);
             this.userText.Name = "userText";
             this.userText.Size = new System.Drawing.Size(348, 35);
-            this.userText.TabIndex = 7;
+            this.userText.TabIndex = 0;
             this.userText.Text = "Gazoil User";
             this.userText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -111,7 +111,7 @@
             this.button1.Location = new System.Drawing.Point(246, 224);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 36);
-            this.button1.TabIndex = 9;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

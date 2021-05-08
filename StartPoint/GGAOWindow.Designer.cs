@@ -1,4 +1,6 @@
-﻿namespace GGAO
+﻿using System.Data;
+
+namespace GGAO
 {
     partial class GGAOWindow
     {
@@ -64,6 +66,7 @@
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
             this.dailyBtn = new System.Windows.Forms.RibbonButton();
             this.MonthlyBtn = new System.Windows.Forms.RibbonButton();
+            this.EngineConsumption = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
             this.StatistiqueBtn = new System.Windows.Forms.RibbonButton();
             this.AutreTab = new System.Windows.Forms.RibbonTab();
@@ -428,6 +431,7 @@
             // 
             this.ribbonButton5.DropDownItems.Add(this.dailyBtn);
             this.ribbonButton5.DropDownItems.Add(this.MonthlyBtn);
+            this.ribbonButton5.DropDownItems.Add(this.EngineConsumption);
             this.ribbonButton5.Image = global::GGAO.Properties.Resources.rapport;
             this.ribbonButton5.LargeImage = global::GGAO.Properties.Resources.rapport;
             this.ribbonButton5.Name = "ribbonButton5";
@@ -454,6 +458,16 @@
             this.MonthlyBtn.SmallImage = global::GGAO.Properties.Resources.preview;
             this.MonthlyBtn.Text = "Monsuelle";
             this.MonthlyBtn.Click += new System.EventHandler(this.RapportMonthlyWindow);
+            // 
+            // EngineConsumption
+            // 
+            this.EngineConsumption.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.EngineConsumption.Image = ((System.Drawing.Image)(resources.GetObject("EngineConsumption.Image")));
+            this.EngineConsumption.LargeImage = ((System.Drawing.Image)(resources.GetObject("EngineConsumption.LargeImage")));
+            this.EngineConsumption.Name = "EngineConsumption";
+            this.EngineConsumption.SmallImage = global::GGAO.Properties.Resources.preview;
+            this.EngineConsumption.Text = "Annexe III";
+            this.EngineConsumption.Click += new System.EventHandler(this.EngineConsumption_Click);
             // 
             // ribbonPanel1
             // 
@@ -1282,12 +1296,15 @@
         private System.Windows.Forms.RibbonButton AugmentFont;
         private System.Windows.Forms.RibbonButton ReduireFont;
         private System.Windows.Forms.RibbonButton FilterBtn;
-
+        static DataTable localds;
         public Zuby.ADGV.AdvancedDataGridView getTheMainGrid()
         {
             return DGVMain;
         }
-
+        public static DataTable getDataSource()
+        {
+            return localds ;
+        }
         public System.Windows.Forms.Label getTheActuelStock()
         {
             return this.StockActuel;
@@ -1325,6 +1342,7 @@
         private System.Windows.Forms.RibbonButton EXCELribbonButton;
         private System.Windows.Forms.RibbonButton TEST;
         private System.Windows.Forms.RibbonPanel ribbonPanel;
+        private System.Windows.Forms.RibbonButton EngineConsumption;
         //private System.Windows.Forms.RibbonTab __DataRibbonTab;
         // private GGAODataSetTableAdapters.DriverTableAdapter driverTableAdapter;
     }

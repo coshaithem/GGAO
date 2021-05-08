@@ -33,8 +33,7 @@
             this.ToDatePkr = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.ShowReportBtn = new System.Windows.Forms.Button();
-            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
-            this.PoleCombobox.setFilter(new int[] { 1, 2 });
+            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
             this.fromDatePkr = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,7 +74,7 @@
             this.ToDatePkr.Name = "ToDatePkr";
             this.ToDatePkr.Size = new System.Drawing.Size(175, 26);
             this.ToDatePkr.TabIndex = 1;
-            this.ToDatePkr.Value =  System.DateTime.Now;
+            this.ToDatePkr.Value = new System.DateTime(2021, 5, 2, 14, 12, 52, 287);
             // 
             // label1
             // 
@@ -127,7 +126,7 @@
             this.fromDatePkr.Name = "fromDatePkr";
             this.fromDatePkr.Size = new System.Drawing.Size(175, 26);
             this.fromDatePkr.TabIndex = 0;
-            this.fromDatePkr.Value =   System.DateTime.Now;
+            this.fromDatePkr.Value = new System.DateTime(2021, 5, 2, 14, 12, 52, 453);
             // 
             // label5
             // 

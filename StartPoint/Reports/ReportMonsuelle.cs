@@ -32,12 +32,14 @@ namespace GGAO.Reports
             DataTable poleDtRM = GGAO.PoleCRUDOps.getVisiblePole(false,"SELECT");
 
             this.PoleCombobox.Clear();
+            
 
             PoleCombobox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(poleDtRM.Columns);
 
             PoleCombobox.DataSource = poleDtRM;
 
             PoleCombobox.setTextBox("");
+            this.PoleCombobox.setFilter(new int[] { 1, 2 });
             //this.rptViewer.RefreshReport();
             //this.ShowReport();
             //this.rptViewer.RefreshReport();

@@ -65,7 +65,40 @@ namespace GGAO.Consommation
             //_Engine.Split('-')[0].Trim();
             EngineCombobox.setTextBox(this.selectedEngineLib.Split('-')[0].Trim());
         }
+        private string getSelectedEngine()
+        {
+            string engineStr = "";
 
+            if (EngineCombobox.SelectedItem != null)
+            {
+                //string strValue = "";
+                //for (int index = 0; index < EngineCombobox.SelectedItem.ItemData.Count; index++)
+                //{
+                engineStr += EngineCombobox.SelectedItem.ItemData[2] + " - "+
+                    EngineCombobox.SelectedItem.ItemData[5] + " - "+
+                    EngineCombobox.SelectedItem.ItemData[7] ;
+                //}
+                //MessageBox.Show(strValue);
+            }
+            return engineStr;
+        }
+        private bool FindOccurence(string engine,string date)
+        {
+            bool check = false;
+            DataTable tbl = GGAOWindow.getDataSource();
+            if( tbl != null)
+            {
+                DataView dv = new DataView(tbl);
+
+                dv.RowFilter = "([Engine] IN('" + engine + "') ) AND " +
+                    "((Convert([Date], 'System.String') LIKE '%" + date + "%')) ";
+
+                //MessageBox.Show(dv.RowFilter +" \n Count"+ dv.Count.ToString());
+                return  (dv.Count > 0)?true:false;
+            }
+            else
+                return check;
+        }
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (this.fieldsAreEmpty(InsertOrUpdate))
@@ -76,19 +109,35 @@ namespace GGAO.Consommation
             {
                 if (InsertOrUpdate == true) // means Insert new record
                 {
-                    ConsommationCRUDOps.createConsommation(
-                        ReftextBox.Text.Trim(),
-                        TypeComboBox.Text.Trim(),
-                        dateTimePicker.Value,  
-                         (EngineCombobox.SelectedItem == null) ? "0" : EngineCombobox.SelectedItem.Value,
-                         (ProductCombobox.SelectedItem == null) ? "2" : ProductCombobox.SelectedItem.Value,
-                         (PoleCombobox.SelectedItem == null) ? "1007" : PoleCombobox.SelectedItem.Value,
-                         (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
-                         KilotextBox.Text.Trim(),
-                         QuanitytextBox.Text.Trim()
-                         //checkBoxPrinting.Checked,
-                         //checkBoxCalc.Checked
+                    // before you insert notify the user if the engine take productin int he same day
+                    // get the selected engine && date
+                    // MessageBox.Show(this.getSelectedEngine());
+                    bool OccExist = this.FindOccurence(this.getSelectedEngine(),
+                        dateTimePicker.Value.ToShortDateString());
+                    bool userConfirmation = false;
+                    // search for the selected engine in gridView with same date
+                    if (OccExist)
+                    {
+                        if (MessageBox.Show("Attention... \nC'est la 2éme fois pour cette véhicule dans ce jour!\nVous voulez validé", "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            userConfirmation = true;
+                        }
 
+                    }
+                    // if the user accept to insert so be it ;)
+                    if (userConfirmation || !OccExist)
+                        ConsommationCRUDOps.createConsommation(
+                            ReftextBox.Text.Trim(),
+                            TypeComboBox.Text.Trim(),
+                            dateTimePicker.Value,
+                             (EngineCombobox.SelectedItem == null) ? "0" : EngineCombobox.SelectedItem.Value,
+                             (ProductCombobox.SelectedItem == null) ? "2" : ProductCombobox.SelectedItem.Value,
+                             (PoleCombobox.SelectedItem == null) ? "1007" : PoleCombobox.SelectedItem.Value,
+                             (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
+                             KilotextBox.Text.Trim(),
+                             QuanitytextBox.Text.Trim()
+                        //checkBoxPrinting.Checked,
+                        //checkBoxCalc.Checked
                         );
                 }
                 else // means Update existing record

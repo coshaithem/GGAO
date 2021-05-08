@@ -32,10 +32,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ShowReportBtn = new System.Windows.Forms.Button();
             this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.PoleCombobox.setFilter(new int[] { 1,2 });
             this.dateTimePickerLocal = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SourceComboBox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.SourceComboBox.setFilter(new int[] { 1, 2 });
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +107,7 @@
             this.dateTimePickerLocal.Name = "dateTimePickerLocal";
             this.dateTimePickerLocal.Size = new System.Drawing.Size(175, 26);
             this.dateTimePickerLocal.TabIndex = 0;
-            this.dateTimePickerLocal.Value = new System.DateTime(2021, 4, 23, 9, 12, 43, 712);
+            this.dateTimePickerLocal.Value = System.DateTime.Now;
             //this.dateTimePickerLocal.ValueChanged += new System.EventHandler(this.dateTimePickerLocal_ValueChanged);
             // 
             // label5

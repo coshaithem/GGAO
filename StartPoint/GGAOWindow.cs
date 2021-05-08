@@ -96,7 +96,7 @@ namespace GGAO
             lastSelectedBindingSource = MyOwnBindingSource;
             
             getTheMainGrid().DataSource = MyOwnBindingSource;
-
+            GGAOWindow.localds =( DataTable )( MyOwnBindingSource.DataSource ) ;
             getTheMainGrid().Columns[0].Visible = false;
             if ( table == Table.CONSOMMATION )
             {
@@ -240,6 +240,7 @@ namespace GGAO
                 {
                     
                 }*/
+                //MessageBox.Show(DGVMain.FilterString);
                 this.toggleFilterAndSort();
             }
 
@@ -940,7 +941,7 @@ namespace GGAO
             if (this.selectedTable == Table.TRANSFER )
             {
                 // get the ID of the selected row
-                if (selectedRowIndex >= 0)
+                if ( selectedRowIndex >= 0)
                 {
                     string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
 
@@ -969,30 +970,35 @@ namespace GGAO
 
         private void ExcelExportBtn_Click(object sender, EventArgs e)
         {
+
             if ( getTheMainGrid().Rows.Count > 0)
             {
-                Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
-                xcelApp.Application.Workbooks.Add(Type.Missing);
-
-                for ( byte i = 1; i < getTheMainGrid().Columns.Count; i++)
+                if ( DGVMain.FilterAndSortEnabled == true )
                 {
-                    xcelApp.Cells[1, i] = getTheMainGrid().Columns[i].HeaderText;
-                }
+                    Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                    xcelApp.Application.Workbooks.Add(Type.Missing);
 
-                for (byte i = 0; i < getTheMainGrid().Rows.Count  ; i++)
-                {
-                    if (getTheMainGrid().Rows[i].Visible == true)
+                    for (byte i = 1; i < getTheMainGrid().Columns.Count; i++)
                     {
-                        for (byte j = 1; j < getTheMainGrid().Columns.Count; j++)
+                        xcelApp.Cells[1, i] = getTheMainGrid().Columns[i].HeaderText;
+                    }
+
+                    for (byte i = 0; i < getTheMainGrid().Rows.Count; i++)
+                    {
+                        if (getTheMainGrid().Rows[i].Visible == true)
                         {
+                            for (byte j = 1; j < getTheMainGrid().Columns.Count; j++)
+                            {
 
-                            xcelApp.Cells[i + 2, j ] = getTheMainGrid().Rows[i].Cells[j].Value.ToString();
+                                xcelApp.Cells[i + 2, j] = getTheMainGrid().Rows[i].Cells[j].Value.ToString();
 
+                            }
                         }
                     }
+
+                    xcelApp.Columns.AutoFit();
+                    xcelApp.Visible = true;
                 }
-                xcelApp.Columns.AutoFit();
-                xcelApp.Visible = true;
             }
         }
          
@@ -1006,6 +1012,13 @@ namespace GGAO
         private void GGAOWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void EngineConsumption_Click(object sender, EventArgs e)
+        {
+
+            GGAO.Reports.RapportEngine test = new GGAO.Reports.RapportEngine();
+            test.Show();
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)

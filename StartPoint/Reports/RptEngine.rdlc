@@ -37,10 +37,6 @@
           <DataField>CHAUFFEUR</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Ref">
-          <DataField>Ref</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>GGAODataSetConsumption</rd:DataSetName>
@@ -802,16 +798,13 @@
                   <Width>0.6265cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.07667cm</Width>
+                  <Width>3.56069cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.83021cm</Width>
+                  <Width>6.03546cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.07077cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>3.00559cm</Width>
+                  <Width>3.38709cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.76952cm</Width>
@@ -846,42 +839,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox30">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>N°BCL</Value>
-                                  <Style>
-                                    <FontSize>12pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox30</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1110,58 +1067,6 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Ref">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Ref.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Ref</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1460,59 +1365,7 @@
                               <Style>Solid</Style>
                             </Border>
                             <TopBorder>
-                              <Color>Silver</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
                               <Color>White</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>White</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>White</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox33">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox33</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>White</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <TopBorder>
-                              <Color>Silver</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
@@ -1564,7 +1417,7 @@
                               <Style>Solid</Style>
                             </Border>
                             <TopBorder>
-                              <Color>Silver</Color>
+                              <Color>White</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
@@ -1616,7 +1469,7 @@
                               <Style>Solid</Style>
                             </Border>
                             <TopBorder>
-                              <Color>Silver</Color>
+                              <Color>White</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
@@ -1734,7 +1587,7 @@
                               <Style>Solid</Style>
                             </Border>
                             <TopBorder>
-                              <Color>Silver</Color>
+                              <Color>White</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
@@ -1744,7 +1597,7 @@
                               <Width>1pt</Width>
                             </BottomBorder>
                             <LeftBorder>
-                              <Color>Silver</Color>
+                              <Color>White</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
@@ -1773,7 +1626,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1796,7 +1648,7 @@
             <Width>18.27613cm</Width>
             <ZIndex>1</ZIndex>
             <Visibility>
-              <Hidden>=iif( Sum(Fields!Qte.Value, "DataSetTransferReport") &gt; 0 , False ,True )</Hidden>
+              <Hidden>=IIF(CountRows()&gt;0,False,True)</Hidden>
             </Visibility>
             <Style>
               <Border>
@@ -1811,7 +1663,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Transfer Interne</Value>
+                    <Value>Transfer Inter-Pole</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -1843,7 +1695,7 @@
         <Height>1.93077in</Height>
         <Style />
       </Body>
-      <Width>7.40366in</Width>
+      <Width>7.3465in</Width>
       <Page>
         <PageHeader>
           <Height>5.51808cm</Height>
@@ -2205,9 +2057,6 @@
               <Height>0.6cm</Height>
               <Width>3.26729cm</Width>
               <ZIndex>8</ZIndex>
-              <Visibility>
-                <Hidden>=if (Sum(Fields!Qte.Value, "DataSetReportConsumption") &gt; 0 , False ,True)</Hidden>
-              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2240,9 +2089,6 @@
               <Height>0.6cm</Height>
               <Width>3.26729cm</Width>
               <ZIndex>9</ZIndex>
-              <Visibility>
-                <Hidden>=if (Sum(Fields!Qte.Value, "DataSetReportConsumption") &gt; 0 , False ,True)</Hidden>
-              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2442,9 +2288,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox91</rd:DefaultName>
               <Top>1.99713cm</Top>
-              <Left>16.74156cm</Left>
+              <Left>16.34468cm</Left>
               <Height>0.6cm</Height>
-              <Width>1.78563cm</Width>
+              <Width>2.1825cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
