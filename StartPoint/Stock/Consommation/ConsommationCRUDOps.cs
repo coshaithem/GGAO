@@ -13,7 +13,7 @@ namespace GGAO
     {
         static SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
 
-        public static DataTable getVisibleConsommation()
+        public static DataTable getVisibleConsommation( int nbRecord = 1000 )
         {
             DataTable dt = new DataTable(); 
             System.Data.DataSet ds = new DataSet();
@@ -21,7 +21,8 @@ namespace GGAO
             {
                 SqlCommand cmd = new SqlCommand("CRUDConsommation", con);
                 cmd.Parameters.AddWithValue("@choise", SqlDbType.NVarChar).Value = "SELECTALL";
-
+                cmd.Parameters.AddWithValue("@EngineID", SqlDbType.Int).Value = nbRecord ;
+                
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 
                 da.Fill( ds );  
@@ -41,7 +42,7 @@ namespace GGAO
             return ds.Tables[0];
         }
         public static void createConsommation(String Ref ,String Type ,DateTime DocDate ,String engineID ,String productID, string poleID,
-            string driverID, string kilo, string quanity) //, bool print, bool calc
+            string driverID, string kilo, string quanity, bool calc) //, bool print, bool calc
         {
             try
             {
@@ -59,7 +60,7 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@quant", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
                 
                 //cmd.Parameters.AddWithValue("@print", SqlDbType.Bit ).Value = print; // this.mobileTextBox.Text.Trim();
-                //cmd.Parameters.AddWithValue("@calc", SqlDbType.Bit ).Value = calc; // this.mobileTextBox.Text.Trim();
+                cmd.Parameters.AddWithValue("@calc", SqlDbType.Bit ).Value = calc; // this.mobileTextBox.Text.Trim();
 
 
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "INSERT";

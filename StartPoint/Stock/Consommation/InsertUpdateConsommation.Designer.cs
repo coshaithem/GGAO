@@ -33,18 +33,21 @@
             this.checkBoxCalc = new System.Windows.Forms.CheckBox();
             this.checkBoxPrinting = new System.Windows.Forms.CheckBox();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
-            this.DriverCombobox.setFilter(new int[] { 1, 2 });
+            this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+
+            this.DriverCombobox.setFilter(new int[] { 1, 2  });
+
             this.KilotextBox = new System.Windows.Forms.TextBox();
-            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
             this.PoleCombobox.setFilter(new int[] { 1, 2 });
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ProductCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
+            this.ProductCombobox = new VMultiColumnComboBox.MultiColumComboBox();
             this.ProductCombobox.setFilter(new int[] { 1, 2 });
             this.label4 = new System.Windows.Forms.Label();
-            this.EngineCombobox = new VMultiColumnComboBox.MultiColumComboBox( );
-            this.EngineCombobox.setFilter(new int[] { 1, 2,5,7 });
+            this.EngineCombobox = new VMultiColumnComboBox.MultiColumComboBox();
+            this.EngineCombobox.setFilter(new int[] { 1, 2,5 ,7 });
+
             this.QuanitytextBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
@@ -109,13 +112,12 @@
             this.checkBoxCalc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxCalc.Enabled = false;
             this.checkBoxCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBoxCalc.Location = new System.Drawing.Point(126, 21);
+            this.checkBoxCalc.Location = new System.Drawing.Point(17, 21);
             this.checkBoxCalc.Name = "checkBoxCalc";
             this.checkBoxCalc.Size = new System.Drawing.Size(85, 24);
             this.checkBoxCalc.TabIndex = 21;
             this.checkBoxCalc.Text = "Calculer";
             this.checkBoxCalc.UseVisualStyleBackColor = true;
-            this.checkBoxCalc.Visible = false;
             // 
             // checkBoxPrinting
             // 
@@ -125,7 +127,7 @@
             this.checkBoxPrinting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxPrinting.Enabled = false;
             this.checkBoxPrinting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBoxPrinting.Location = new System.Drawing.Point(14, 21);
+            this.checkBoxPrinting.Location = new System.Drawing.Point(108, 21);
             this.checkBoxPrinting.Name = "checkBoxPrinting";
             this.checkBoxPrinting.Size = new System.Drawing.Size(90, 24);
             this.checkBoxPrinting.TabIndex = 20;
@@ -275,7 +277,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
             this.dateTimePicker.TabIndex = 1;
-            this.dateTimePicker.Value = System.DateTime.Now;
+            this.dateTimePicker.Value =   System.DateTime.Now ;
             // 
             // TypeComboBox
             // 
@@ -299,7 +301,7 @@
             this.ReftextBox.Name = "ReftextBox";
             this.ReftextBox.Size = new System.Drawing.Size(436, 26);
             this.ReftextBox.TabIndex = 0;
-            this.ReftextBox.Text = "REF" + System.DateTime.Now.Day.ToString();
+            this.ReftextBox.Text = "REF14";
             // 
             // label9
             // 

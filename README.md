@@ -23,6 +23,8 @@ Screenshot
 
 ![alt text](StartPoint/Resources/img2.png)
 
+![alt text](StartPoint/Resources/img3.png)
+
 
 Credit
 ----------

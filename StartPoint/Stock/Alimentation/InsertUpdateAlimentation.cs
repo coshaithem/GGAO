@@ -90,20 +90,17 @@ namespace GGAO.Alimentation
             DataTable produitDt = GGAO.ProductCRUDOps.getVisibleProduct();
              
             this.PoleCombobox.Clear();
-
             this.DriverCombobox.Clear();
             this.EngineCombobox.Clear();
             this.ProductCombobox.Clear();
             // auto generate this column
             //multiColumComboBox.SourceDataString = ColumnNames.ToArray();
             PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDts.Columns);
-
             DriverCombobox.SourceDataString = Tools.ConvColNametoArray(driverDt.Columns);
             EngineCombobox.SourceDataString = Tools.ConvColNametoArray(engineDt.Columns);
             ProductCombobox.SourceDataString = Tools.ConvColNametoArray(produitDt.Columns);
 
             PoleCombobox.DataSource = poleDts;
-
             DriverCombobox.DataSource = driverDt;
             EngineCombobox.DataSource = engineDt;
             ProductCombobox.DataSource = produitDt;

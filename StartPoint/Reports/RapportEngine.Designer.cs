@@ -35,11 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.rptViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.ToutChkBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ToutChkBox);
             this.panel1.Controls.Add(this.ShowRptBtn);
             this.panel1.Controls.Add(this.EngineComboBox);
             this.panel1.Controls.Add(this.label2);
@@ -115,11 +117,24 @@
             // rptViewer
             // 
             this.rptViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rptViewer.LocalReport.ReportEmbeddedResource = "GGAO.Reports.RptEngineConsumptionALL.rdlc";
             this.rptViewer.Location = new System.Drawing.Point(0, 45);
             this.rptViewer.Name = "rptViewer";
             this.rptViewer.ServerReport.BearerToken = null;
             this.rptViewer.Size = new System.Drawing.Size(1016, 389);
             this.rptViewer.TabIndex = 1;
+            // 
+            // ToutChkBox
+            // 
+            this.ToutChkBox.AutoSize = true;
+            this.ToutChkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToutChkBox.Location = new System.Drawing.Point(459, 10);
+            this.ToutChkBox.Name = "ToutChkBox";
+            this.ToutChkBox.Size = new System.Drawing.Size(67, 28);
+            this.ToutChkBox.TabIndex = 5;
+            this.ToutChkBox.Text = "Tout";
+            this.ToutChkBox.UseVisualStyleBackColor = true;
+            this.ToutChkBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // RapportEngine
             // 
@@ -148,5 +163,6 @@
         private System.Windows.Forms.Button ShowRptBtn;
         private VMultiColumnComboBox.MultiColumComboBox EngineComboBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox ToutChkBox;
     }
 }

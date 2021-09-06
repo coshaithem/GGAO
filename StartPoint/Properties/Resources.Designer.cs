@@ -103,6 +103,26 @@ namespace GGAO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap cardNaftal {
+            get {
+                object obj = ResourceManager.GetObject("cardNaftal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap cardNaftal2 {
+            get {
+                object obj = ResourceManager.GetObject("cardNaftal2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap cosiderCanalisation {
             get {
                 object obj = ResourceManager.GetObject("cosiderCanalisation", resourceCulture);

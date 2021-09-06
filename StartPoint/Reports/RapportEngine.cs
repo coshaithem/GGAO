@@ -64,6 +64,39 @@ namespace GGAO.Reports
 
             }
         }
+        private DataTable tmpgetData()
+        {
+            DataTable dt = new DataTable(); try
+            {
+                //con.Open();
+                SqlCommand cmd = new SqlCommand("CRUDEngine", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@Fdate", SqlDbType.DateTime).Value = from;
+                 cmd.Parameters.AddWithValue("@choice", SqlDbType.VarChar).Value = "SELECT";
+                //DateTime.Parse("12-03-2021");  new System.DateTime(2021, 03, 12); 
+                // disable that for test purposes EngineConsumption
+                //cmd.Parameters.AddWithValue("@EngineID", SqlDbType.Int).Value = int.Parse(engineId);
+
+                //cmd.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                da.Fill(dt);
+            }
+            catch (Exception exs)
+            {
+
+                MessageBox.Show(exs.ToString(),
+                                   " Report ", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+            //MessageBox.Show(" DataSet Tables number " + ds.Tables.Count.ToString() + "   "+ds.Tables[0].TableName  );
+            //MessageBox.Show(dt.Rows.Count.ToString());
+            return dt;
+        }
         private DataTable getData(DateTime from, DateTime To, string engineId)
         {
             DataTable dt = new DataTable();
@@ -71,13 +104,14 @@ namespace GGAO.Reports
             try
             { 
                 //con.Open();
-                SqlCommand cmd = new SqlCommand("EngineConsumption", con);
+                SqlCommand cmd = new SqlCommand("EngineConsumption", con); // EngineConsumptionALL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Fdate", SqlDbType.DateTime).Value = from;
                 cmd.Parameters.AddWithValue("@Tdate", SqlDbType.DateTime).Value = To;
                 //DateTime.Parse("12-03-2021");  new System.DateTime(2021, 03, 12); 
+                // disable that for test purposes EngineConsumption
                 cmd.Parameters.AddWithValue("@EngineID", SqlDbType.Int).Value = int.Parse(engineId);
- 
+
                 //cmd.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
 
@@ -114,6 +148,26 @@ namespace GGAO.Reports
                 this.AddNewRow(dt1, new System.DateTime(year, Month - 1, 31 ) );
             }
             */
+            //String tmpVar = (dt1.Rows[0]["MatriculeIntern"].ToString().Trim() == "") ? dt2.Rows[0]["MatriculeIntern"].ToString() : dt1.Rows[0]["MatriculeIntern"].ToString();
+
+            ReportParameter[] rptParams = new ReportParameter[]
+            {
+                new ReportParameter("Mois",this.dateTimePicker.Value.ToString()  ),
+                new ReportParameter("Code",
+                    (dt1.Rows.Count == 0 || dt1.Rows[0]["MatriculeIntern"].ToString().Trim() == "") ? dt2.Rows[0]["MatriculeIntern"].ToString() : dt1.Rows[0]["MatriculeIntern"].ToString()
+                ),
+                new ReportParameter("Dest",
+                    (dt1.Rows.Count == 0 ||  dt1.Rows[0]["Libelle"].ToString().Trim() == "") ? dt2.Rows[0]["Libelle"].ToString() : dt1.Rows[0]["Libelle"].ToString() 
+                ),
+                new ReportParameter("Marque",
+                    (dt1.Rows.Count == 0 ||  dt1.Rows[0]["Marque"].ToString().Trim() == "") ? dt2.Rows[0]["Marque"].ToString() : dt1.Rows[0]["Marque"].ToString() 
+                ),
+                new ReportParameter("Type",
+                    (dt1.Rows.Count == 0 ||  dt1.Rows[0]["TYPE"].ToString().Trim() == "") ? dt2.Rows[0]["TYPE"].ToString() : dt1.Rows[0]["TYPE"].ToString() 
+                ),
+                new ReportParameter("CmptStart", this.getFirstCmpt(dt1,dt2)  ),
+                new ReportParameter("CmptEnd", this.getLastCmpt(dt1,dt2)  )
+            };
             ReportDataSource rds = new ReportDataSource("DataSet1Part",
                     DataTableProcessing(dt1,
                     new System.DateTime(year, Month -1 , 21),
@@ -126,27 +180,20 @@ namespace GGAO.Reports
                     new System.DateTime(year, Month, 20))
                 );  
             rptViewer.LocalReport.DataSources.Add(rds2);
-
+            
+            ReportDataSource rds3 = new ReportDataSource("dsEngine",
+                   tmpgetData()
+                );  
+            rptViewer.LocalReport.DataSources.Add(rds3);
+            
             //path
-            rptViewer.LocalReport.ReportPath = "RptEngineConsumption.rdlc";
+            rptViewer.LocalReport.ReportPath = "RptEngineConsumption.rdlc"; //RptEngineConsumptionALL.rdlc
             /* */
             // Parameters
-            
+
             //MessageBox.Show( dt2.Rows.Count.ToString()  );
+            //#hotfix2
 
-
-
-
-            ReportParameter[] rptParams = new ReportParameter[]
-            {
-                new ReportParameter("Mois", this.dateTimePicker.Value.ToString() ),
-                new ReportParameter("Code", dt1.Rows[0]["MatriculeIntern"].ToString()  ),
-                new ReportParameter("Dest", dt1.Rows[0]["Libelle"].ToString() ),
-                new ReportParameter("Marque", dt1.Rows[0]["Marque"].ToString() ),
-                new ReportParameter("Type", dt1.Rows[0]["TYPE"].ToString()  ),
-                new ReportParameter("CmptStart", this.getFirstCmpt(dt1,dt2)  ),
-                new ReportParameter("CmptEnd", this.getLastCmpt(dt1,dt2)  )
-            };
             rptViewer.LocalReport.SetParameters(rptParams);
 
             //Refresh 
@@ -187,8 +234,6 @@ namespace GGAO.Reports
 
                 }
                 
-
-
                 //MessageBox.Show("inserted : "+row["Date"].ToString());
             }
             /*
@@ -211,16 +256,18 @@ namespace GGAO.Reports
             return dtLocal;
         }
         private string getCmpt(DataTable dt, string ord)
-        {
+        { // method to get the millage of the car
             DataView dv = dt.DefaultView;
-            dv.Sort = "Date "+ ord;
+            dv.Sort = "Date "+ ord + " ,  recordInsertedIn "+ ord;
             dt = dv.ToTable();
             foreach (DataRow dr in dt.Rows)
             {
                 string STRIMEDKM = dr["Kilometrage"].ToString().Trim().ToLower();
-                if (STRIMEDKM.Length > 2 && (   int.TryParse(STRIMEDKM.Substring(0, STRIMEDKM.Length - 2 ),out int a ) )
-                    )
+                if (STRIMEDKM.Length > 2 )
                 {
+                    // && (   int.TryParse(STRIMEDKM.Substring(0, STRIMEDKM.Length - 2 ),out int a ) )
+                    // unfortunatly the condition is not accurate
+                    // #hotfix
                     return dr["Kilometrage"].ToString().Trim();
                 }
             }
@@ -273,6 +320,15 @@ namespace GGAO.Reports
             
 
             return null ;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+               EngineComboBox.setTextBox("");
+                EngineComboBox.Enabled = !ToutChkBox.Checked ;
+            ShowRptBtn.Text = ( EngineComboBox.Enabled == true ) ? "Afficher" : "Imprimer";
+
+
         }
     }
 

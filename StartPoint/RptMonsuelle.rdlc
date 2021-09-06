@@ -63,7 +63,6 @@
                               <TextRun>
                                 <Value>IMM CODE</Value>
                                 <Style>
-                                  <FontSize>11pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -79,7 +78,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>LightGrey</BackgroundColor>
+                          <BackgroundColor>Silver</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -99,7 +98,6 @@
                               <TextRun>
                                 <Value>Libelle</Value>
                                 <Style>
-                                  <FontSize>11pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -115,7 +113,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>LightGrey</BackgroundColor>
+                          <BackgroundColor>Silver</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -130,10 +128,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.72729cm</Width>
+                  <Width>0.65cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.85959cm</Width>
+                  <Width>0.93687cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -151,7 +149,8 @@
                                 <TextRun>
                                   <Value>= Sum(Fields!Quantité.Value)</Value>
                                   <Style>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>=Iif( Fields!Quantité.Value  = 0, "White", "Black")</Color>
                                   </Style>
                                 </TextRun>
@@ -170,7 +169,6 @@
                             <PaddingTop>3pt</PaddingTop>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -198,7 +196,7 @@
                               <Color>Silver</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <BackgroundColor>Silver</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -239,6 +237,7 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>Silver</BackgroundColor>
+                            <PaddingTop>4pt</PaddingTop>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -305,7 +304,7 @@
                               <TextRun>
                                 <Value>=Fields!Date.Value</Value>
                                 <Style>
-                                  <FontSize>11pt</FontSize>
+                                  <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                   <Format>dd</Format>
                                 </Style>
@@ -322,7 +321,11 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>LightGrey</BackgroundColor>
+                          <BackgroundColor>=iif( Day(Fields!Date.Value) &gt;=21,"LightGrey","Silver")</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
                     </CellContents>
@@ -341,7 +344,7 @@
                               <TextRun>
                                 <Value>Total</Value>
                                 <Style>
-                                  <FontSize>8pt</FontSize>
+                                  <FontSize>9pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -357,7 +360,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>LightGrey</BackgroundColor>
+                          <BackgroundColor>Silver</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -432,10 +435,7 @@
                                 <Style>Solid</Style>
                                 <Width>1pt</Width>
                               </RightBorder>
-                              <PaddingLeft>2pt</PaddingLeft>
-                              <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
-                              <PaddingBottom>2pt</PaddingBottom>
                             </Style>
                           </Textbox>
                         </CellContents>
@@ -443,7 +443,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>4.21777cm</Size>
+                            <Size>3.74089cm</Size>
                             <CellContents>
                               <Textbox Name="Libelle">
                                 <CanGrow>true</CanGrow>
@@ -490,10 +490,7 @@
                                     <Style>Solid</Style>
                                     <Width>1pt</Width>
                                   </RightBorder>
-                                  <PaddingLeft>2pt</PaddingLeft>
-                                  <PaddingRight>2pt</PaddingRight>
                                   <PaddingTop>2pt</PaddingTop>
-                                  <PaddingBottom>2pt</PaddingBottom>
                                 </Style>
                               </Textbox>
                             </CellContents>
@@ -539,7 +536,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>4.21777cm</Size>
+                        <Size>3.74089cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox29">
                             <CanGrow>true</CanGrow>
@@ -575,11 +572,13 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.07056cm</Top>
             <Left>0.04584cm</Left>
             <Height>1.8cm</Height>
-            <Width>9.65083cm</Width>
+            <Width>9.17395cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -659,7 +658,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox10</rd:DefaultName>
               <Top>2.96397cm</Top>
-              <Height>0.9cm</Height>
+              <Height>1.00583cm</Height>
               <Width>7.63292cm</Width>
               <Style>
                 <Border>
@@ -871,7 +870,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ATTACHEMENT DE CONSOMMATION GAZ OIL</Value>
+                      <Value>ATTACHEMENT DE CONSOMMATION GAS OIL</Value>
                       <Style>
                         <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -886,9 +885,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>3.71404cm</Top>
-              <Left>5.77437cm</Left>
+              <Left>7.80931cm</Left>
               <Height>0.67028cm</Height>
-              <Width>18.23613cm</Width>
+              <Width>12.97327cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -972,7 +971,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>4.71449cm</Height>
+          <Height>6.38136cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -980,7 +979,7 @@
               <Source>Embedded</Source>
               <Value>isoLeft</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>3.21449cm</Top>
+              <Top>4.88136cm</Top>
               <Left>0.33689cm</Left>
               <Height>1.5cm</Height>
               <Width>1.5cm</Width>
@@ -1061,7 +1060,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox16</rd:DefaultName>
-              <Top>3.21449cm</Top>
+              <Top>4.88136cm</Top>
               <Left>7.92456cm</Left>
               <Height>1.5cm</Height>
               <Width>10.05511cm</Width>
@@ -1080,7 +1079,7 @@
               <Source>Embedded</Source>
               <Value>isoRight</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>3.17921cm</Top>
+              <Top>4.84608cm</Top>
               <Left>24.64348cm</Left>
               <Height>1.5cm</Height>
               <Width>4.12123cm</Width>
@@ -1092,8 +1091,7 @@
               </Style>
             </Image>
             <Line Name="Line2">
-              <Top>3.00282cm</Top>
-              <Left>0.04584cm</Left>
+              <Top>4.77553cm</Top>
               <Height>0cm</Height>
               <Width>28.71887cm</Width>
               <ZIndex>3</ZIndex>
@@ -1127,6 +1125,68 @@
               <Height>0.6cm</Height>
               <Width>5.70463cm</Width>
               <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="Page "+Globals!PageNumber.ToString() +"/"+ Globals!OverallTotalPages.ToString()</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>4.0697cm</Top>
+              <Left>26.82557cm</Left>
+              <Height>0.6cm</Height>
+              <Width>1.93914cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="GESTIONNAIRE DU MATERIEL / "+Parameters!PoleID.Value</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox3</rd:DefaultName>
+              <Top>0.35068cm</Top>
+              <Left>21.19311cm</Left>
+              <Height>0.6cm</Height>
+              <Width>5.70463cm</Width>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>

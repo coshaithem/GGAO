@@ -58,17 +58,25 @@ namespace GGAO
             this.EditOilTransferBtn = new System.Windows.Forms.RibbonButton();
             this.DelOilTransferBtn = new System.Windows.Forms.RibbonButton();
             this.ConsommationTab = new System.Windows.Forms.RibbonPanel();
-            this.OilOutBtn = new System.Windows.Forms.RibbonButton();
-            this.ribbonLabel1 = new System.Windows.Forms.RibbonLabel();
+            this.btnCC = new System.Windows.Forms.RibbonButton();
+            this.FirstBtn = new System.Windows.Forms.RibbonButton();
+            this.SecondBtnd = new System.Windows.Forms.RibbonButton();
             this.NewOilOutBtn = new System.Windows.Forms.RibbonButton();
             this.EditOilOutBtn = new System.Windows.Forms.RibbonButton();
             this.DelOilOutBtn = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton22 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton24 = new System.Windows.Forms.RibbonButton();
+            this.ReportBtn = new System.Windows.Forms.RibbonButton();
             this.dailyBtn = new System.Windows.Forms.RibbonButton();
             this.MonthlyBtn = new System.Windows.Forms.RibbonButton();
             this.EngineConsumption = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
+            this.DiverPan = new System.Windows.Forms.RibbonPanel();
             this.StatistiqueBtn = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
+            this.NaftalCardBtn = new System.Windows.Forms.RibbonButton();
+            this.newNaftalCardBtn = new System.Windows.Forms.RibbonButton();
+            this.editNaftalCardBtn = new System.Windows.Forms.RibbonButton();
+            this.delNaftalCardBtn = new System.Windows.Forms.RibbonButton();
             this.AutreTab = new System.Windows.Forms.RibbonTab();
             this.ProduitribbonPanel = new System.Windows.Forms.RibbonPanel();
             this.ProductBtn = new System.Windows.Forms.RibbonButton();
@@ -93,6 +101,9 @@ namespace GGAO
             this.HelpTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.infoBtn = new System.Windows.Forms.RibbonButton();
+            this.OilOutBtn = new System.Windows.Forms.RibbonButton();
+            this.ribbonLabel1 = new System.Windows.Forms.RibbonLabel();
+            this.ribbonButton21 = new System.Windows.Forms.RibbonButton();
             this.JournalierRibbonButton = new System.Windows.Forms.RibbonButton();
             this.MonthlyRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ribbonButton25 = new System.Windows.Forms.RibbonButton();
@@ -264,6 +275,7 @@ namespace GGAO
             this.StockTab.Panels.Add(this.AlimentationTab);
             this.StockTab.Panels.Add(this.TransferTab);
             this.StockTab.Panels.Add(this.ConsommationTab);
+            this.StockTab.Panels.Add(this.DiverPan);
             this.StockTab.Panels.Add(this.ribbonPanel1);
             this.StockTab.Text = "Stock";
             // 
@@ -374,28 +386,43 @@ namespace GGAO
             // 
             // ConsommationTab
             // 
-            this.ConsommationTab.Items.Add(this.OilOutBtn);
+            this.ConsommationTab.Items.Add(this.btnCC);
             this.ConsommationTab.Items.Add(this.NewOilOutBtn);
             this.ConsommationTab.Items.Add(this.EditOilOutBtn);
             this.ConsommationTab.Items.Add(this.DelOilOutBtn);
-            this.ConsommationTab.Items.Add(this.ribbonButton5);
+            this.ConsommationTab.Items.Add(this.ReportBtn);
             this.ConsommationTab.Name = "ConsommationTab";
             this.ConsommationTab.Text = "Consommation";
             // 
-            // OilOutBtn
+            // btnCC
             // 
-            this.OilOutBtn.DropDownItems.Add(this.ribbonLabel1);
-            this.OilOutBtn.Image = global::GGAO.Properties.Resources.OilOut;
-            this.OilOutBtn.LargeImage = global::GGAO.Properties.Resources.OilOut;
-            this.OilOutBtn.Name = "OilOutBtn";
-            this.OilOutBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("OilOutBtn.SmallImage")));
-            this.OilOutBtn.Text = "";
-            this.OilOutBtn.Click += new System.EventHandler(this.OilOutBtn_Click);
+            this.btnCC.DropDownItems.Add(this.FirstBtn);
+            this.btnCC.DropDownItems.Add(this.SecondBtnd);
+            this.btnCC.Image = global::GGAO.Properties.Resources.OilOut;
+            this.btnCC.LargeImage = global::GGAO.Properties.Resources.OilOut;
+            this.btnCC.Name = "btnCC";
+            this.btnCC.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCC.SmallImage")));
+            this.btnCC.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
+            this.btnCC.Text = " ";
             // 
-            // ribbonLabel1
+            // FirstBtn
             // 
-            this.ribbonLabel1.Name = "ribbonLabel1";
-            this.ribbonLabel1.Text = "ribbonLabel1";
+            this.FirstBtn.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.FirstBtn.Image = ((System.Drawing.Image)(resources.GetObject("FirstBtn.Image")));
+            this.FirstBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("FirstBtn.LargeImage")));
+            this.FirstBtn.Name = "FirstBtn";
+            this.FirstBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("FirstBtn.SmallImage")));
+            this.FirstBtn.Text = "Dernier 3 Mois";
+            this.FirstBtn.Click += new System.EventHandler(this.OilOutBtn_Click);
+            // 
+            // SecondBtnd
+            // 
+            this.SecondBtnd.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.SecondBtnd.Image = ((System.Drawing.Image)(resources.GetObject("SecondBtnd.Image")));
+            this.SecondBtnd.LargeImage = ((System.Drawing.Image)(resources.GetObject("SecondBtnd.LargeImage")));
+            this.SecondBtnd.Name = "SecondBtnd";
+            this.SecondBtnd.SmallImage = ((System.Drawing.Image)(resources.GetObject("SecondBtnd.SmallImage")));
+            this.SecondBtnd.Text = "Selectioner une Date";
             // 
             // NewOilOutBtn
             // 
@@ -419,6 +446,8 @@ namespace GGAO
             // 
             // DelOilOutBtn
             // 
+            this.DelOilOutBtn.DropDownItems.Add(this.ribbonButton22);
+            this.DelOilOutBtn.DropDownItems.Add(this.ribbonButton24);
             this.DelOilOutBtn.Image = ((System.Drawing.Image)(resources.GetObject("DelOilOutBtn.Image")));
             this.DelOilOutBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("DelOilOutBtn.LargeImage")));
             this.DelOilOutBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
@@ -427,17 +456,33 @@ namespace GGAO
             this.DelOilOutBtn.Text = "Supprimer";
             this.DelOilOutBtn.Click += new System.EventHandler(this.DelOilOutBtn_Click);
             // 
-            // ribbonButton5
+            // ribbonButton22
             // 
-            this.ribbonButton5.DropDownItems.Add(this.dailyBtn);
-            this.ribbonButton5.DropDownItems.Add(this.MonthlyBtn);
-            this.ribbonButton5.DropDownItems.Add(this.EngineConsumption);
-            this.ribbonButton5.Image = global::GGAO.Properties.Resources.rapport;
-            this.ribbonButton5.LargeImage = global::GGAO.Properties.Resources.rapport;
-            this.ribbonButton5.Name = "ribbonButton5";
-            this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
-            this.ribbonButton5.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
-            this.ribbonButton5.Text = "Rapport";
+            this.ribbonButton22.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.ribbonButton22.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton22.Image")));
+            this.ribbonButton22.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton22.LargeImage")));
+            this.ribbonButton22.Name = "ribbonButton22";
+            this.ribbonButton22.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton22.SmallImage")));
+            // 
+            // ribbonButton24
+            // 
+            this.ribbonButton24.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.ribbonButton24.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton24.Image")));
+            this.ribbonButton24.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton24.LargeImage")));
+            this.ribbonButton24.Name = "ribbonButton24";
+            this.ribbonButton24.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton24.SmallImage")));
+            // 
+            // ReportBtn
+            // 
+            this.ReportBtn.DropDownItems.Add(this.dailyBtn);
+            this.ReportBtn.DropDownItems.Add(this.MonthlyBtn);
+            this.ReportBtn.DropDownItems.Add(this.EngineConsumption);
+            this.ReportBtn.Image = global::GGAO.Properties.Resources.rapport;
+            this.ReportBtn.LargeImage = global::GGAO.Properties.Resources.rapport;
+            this.ReportBtn.Name = "ReportBtn";
+            this.ReportBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("ReportBtn.SmallImage")));
+            this.ReportBtn.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
+            this.ReportBtn.Text = "Rapport";
             // 
             // dailyBtn
             // 
@@ -469,11 +514,11 @@ namespace GGAO
             this.EngineConsumption.Text = "Annexe III";
             this.EngineConsumption.Click += new System.EventHandler(this.EngineConsumption_Click);
             // 
-            // ribbonPanel1
+            // DiverPan
             // 
-            this.ribbonPanel1.Items.Add(this.StatistiqueBtn);
-            this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Text = "Statistique";
+            this.DiverPan.Items.Add(this.StatistiqueBtn);
+            this.DiverPan.Name = "DiverPan";
+            this.DiverPan.Text = "Statistique";
             // 
             // StatistiqueBtn
             // 
@@ -483,6 +528,50 @@ namespace GGAO
             this.StatistiqueBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("StatistiqueBtn.SmallImage")));
             this.StatistiqueBtn.Text = "";
             this.StatistiqueBtn.Click += new System.EventHandler(this.StatistiqueBtn_Click);
+            // 
+            // ribbonPanel1
+            // 
+            this.ribbonPanel1.Items.Add(this.NaftalCardBtn);
+            this.ribbonPanel1.Items.Add(this.newNaftalCardBtn);
+            this.ribbonPanel1.Items.Add(this.editNaftalCardBtn);
+            this.ribbonPanel1.Items.Add(this.delNaftalCardBtn);
+            this.ribbonPanel1.Name = "ribbonPanel1";
+            this.ribbonPanel1.Text = "Carte Naftal";
+            // 
+            // NaftalCardBtn
+            // 
+            this.NaftalCardBtn.Image = global::GGAO.Properties.Resources.cardNaftal2;
+            this.NaftalCardBtn.LargeImage = global::GGAO.Properties.Resources.cardNaftal2;
+            this.NaftalCardBtn.Name = "NaftalCardBtn";
+            this.NaftalCardBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("NaftalCardBtn.SmallImage")));
+            this.NaftalCardBtn.Text = "";
+            // 
+            // newNaftalCardBtn
+            // 
+            this.newNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("newNaftalCardBtn.Image")));
+            this.newNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("newNaftalCardBtn.LargeImage")));
+            this.newNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
+            this.newNaftalCardBtn.Name = "newNaftalCardBtn";
+            this.newNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.add;
+            this.newNaftalCardBtn.Text = "Nouveau";
+            // 
+            // editNaftalCardBtn
+            // 
+            this.editNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("editNaftalCardBtn.Image")));
+            this.editNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("editNaftalCardBtn.LargeImage")));
+            this.editNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
+            this.editNaftalCardBtn.Name = "editNaftalCardBtn";
+            this.editNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.edit;
+            this.editNaftalCardBtn.Text = "Modifier";
+            // 
+            // delNaftalCardBtn
+            // 
+            this.delNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("delNaftalCardBtn.Image")));
+            this.delNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("delNaftalCardBtn.LargeImage")));
+            this.delNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
+            this.delNaftalCardBtn.Name = "delNaftalCardBtn";
+            this.delNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.del;
+            this.delNaftalCardBtn.Text = "Supprimer";
             // 
             // AutreTab
             // 
@@ -710,6 +799,29 @@ namespace GGAO
             this.infoBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("infoBtn.SmallImage")));
             this.infoBtn.Text = "";
             this.infoBtn.Click += new System.EventHandler(this.infoBtn_Click);
+            // 
+            // OilOutBtn
+            // 
+            this.OilOutBtn.DropDownItems.Add(this.ribbonLabel1);
+            this.OilOutBtn.DropDownItems.Add(this.ribbonButton21);
+            this.OilOutBtn.Image = ((System.Drawing.Image)(resources.GetObject("OilOutBtn.Image")));
+            this.OilOutBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("OilOutBtn.LargeImage")));
+            this.OilOutBtn.Name = "OilOutBtn";
+            this.OilOutBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("OilOutBtn.SmallImage")));
+            this.OilOutBtn.Text = "";
+            // 
+            // ribbonLabel1
+            // 
+            this.ribbonLabel1.Name = "ribbonLabel1";
+            this.ribbonLabel1.Text = "ribbonLabel1";
+            // 
+            // ribbonButton21
+            // 
+            this.ribbonButton21.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.ribbonButton21.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton21.Image")));
+            this.ribbonButton21.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton21.LargeImage")));
+            this.ribbonButton21.Name = "ribbonButton21";
+            this.ribbonButton21.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton21.SmallImage")));
             // 
             // JournalierRibbonButton
             // 
@@ -1330,10 +1442,10 @@ namespace GGAO
         private System.Windows.Forms.RibbonButton DelOilTransferBtn;
         private System.Windows.Forms.RibbonButton ribbonButton25;
         private System.Windows.Forms.RibbonButton ribbonButton26;
-        private System.Windows.Forms.RibbonButton ribbonButton5;
+        private System.Windows.Forms.RibbonButton ReportBtn;
         private System.Windows.Forms.RibbonButton dailyBtn;
         private System.Windows.Forms.RibbonButton MonthlyBtn;
-        private System.Windows.Forms.RibbonPanel ribbonPanel1;
+        private System.Windows.Forms.RibbonPanel DiverPan;
         private System.Windows.Forms.RibbonButton StatistiqueBtn;
         private System.Windows.Forms.RibbonButton ribbonButton20;
         private System.Windows.Forms.RibbonButton ribbonButton19;
@@ -1343,6 +1455,17 @@ namespace GGAO
         private System.Windows.Forms.RibbonButton TEST;
         private System.Windows.Forms.RibbonPanel ribbonPanel;
         private System.Windows.Forms.RibbonButton EngineConsumption;
+        private System.Windows.Forms.RibbonButton ribbonButton21;
+        private System.Windows.Forms.RibbonButton ribbonButton22;
+        private System.Windows.Forms.RibbonButton ribbonButton24;
+        private System.Windows.Forms.RibbonButton btnCC;
+        private System.Windows.Forms.RibbonButton FirstBtn;
+        private System.Windows.Forms.RibbonButton SecondBtnd;
+        private System.Windows.Forms.RibbonPanel ribbonPanel1;
+        private System.Windows.Forms.RibbonButton NaftalCardBtn;
+        private System.Windows.Forms.RibbonButton newNaftalCardBtn;
+        private System.Windows.Forms.RibbonButton editNaftalCardBtn;
+        private System.Windows.Forms.RibbonButton delNaftalCardBtn;
         //private System.Windows.Forms.RibbonTab __DataRibbonTab;
         // private GGAODataSetTableAdapters.DriverTableAdapter driverTableAdapter;
     }
