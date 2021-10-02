@@ -119,14 +119,14 @@ namespace GGAO
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("le engine est enregistré. ",
-                                   "Metre a jour un engine", MessageBoxButtons.OK,
+                                   "Mettre a jour un engine", MessageBoxButtons.OK,
                                    MessageBoxIcon.Information);
             }
             catch (Exception exs)
             {
 
                 MessageBox.Show(exs.ToString(),
-                                    "Metre a jour un engine", MessageBoxButtons.OK,
+                                    "Mettre a jour un engine", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally

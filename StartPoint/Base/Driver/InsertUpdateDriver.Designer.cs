@@ -172,10 +172,11 @@ namespace GGAO.Driver
             this.dateNaissanceDateTimePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateNaissanceDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateNaissanceDateTimePicker.Location = new System.Drawing.Point(152, 148);
+            this.dateNaissanceDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dateNaissanceDateTimePicker.Name = "dateNaissanceDateTimePicker";
             this.dateNaissanceDateTimePicker.Size = new System.Drawing.Size(200, 28);
             this.dateNaissanceDateTimePicker.TabIndex = 3;
-            this.dateNaissanceDateTimePicker.Value = new System.DateTime(1911, 1, 1, 0, 0, 0, 0);
+            this.dateNaissanceDateTimePicker.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // prenomTextBox
             // 

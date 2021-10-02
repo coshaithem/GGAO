@@ -46,6 +46,7 @@ namespace GGAO
 
         private void button1_Click(object sender, EventArgs e)
         {
+            button1.Text = "Connexion ...";
             if ( this.passwordText.Text.ToLower().Trim().Equals("g")) {
                 button1.Enabled = false;
                 GGAO.GGAOWindow a = new GGAO.GGAOWindow() ;
@@ -54,6 +55,9 @@ namespace GGAO
             }
             else
             {
+
+                button1.Text = "Connexion";
+                button1.Enabled = true;
                 MessageBox.Show("le mot de pass est incorrect", "Login unauthorise");
             }
         }

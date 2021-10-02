@@ -168,12 +168,12 @@
         {
             if (!insertOrupdate)
             {
-                this.Text = "Mise a jour un Produit";
+                this.Text = "Mise a jour une Pôle";
                 this.SaveButton.Text = "Mettre a jour";
             }
             else
             {
-                this.Text = "Nouveau Produit";
+                this.Text = "Nouveau Pôle";
                 this.SaveButton.Text = "Enregistrer";
             }
         }

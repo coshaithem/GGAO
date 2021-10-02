@@ -97,14 +97,14 @@ namespace GGAO
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("le produit est enregistré. ",
-                                   "Metre a jour un produit", MessageBoxButtons.OK,
+                                   "Mettre a jour un produit", MessageBoxButtons.OK,
                                    MessageBoxIcon.Information);
             }
             catch (Exception exs)
             {
 
                 MessageBox.Show(exs.ToString(),
-                                    "Metre a jour un produit", MessageBoxButtons.OK,
+                                    "Mettre a jour un produit", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally

@@ -72,11 +72,6 @@ namespace GGAO
             this.EngineConsumption = new System.Windows.Forms.RibbonButton();
             this.DiverPan = new System.Windows.Forms.RibbonPanel();
             this.StatistiqueBtn = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
-            this.NaftalCardBtn = new System.Windows.Forms.RibbonButton();
-            this.newNaftalCardBtn = new System.Windows.Forms.RibbonButton();
-            this.editNaftalCardBtn = new System.Windows.Forms.RibbonButton();
-            this.delNaftalCardBtn = new System.Windows.Forms.RibbonButton();
             this.AutreTab = new System.Windows.Forms.RibbonTab();
             this.ProduitribbonPanel = new System.Windows.Forms.RibbonPanel();
             this.ProductBtn = new System.Windows.Forms.RibbonButton();
@@ -98,6 +93,11 @@ namespace GGAO
             this.NewCarBtn = new System.Windows.Forms.RibbonButton();
             this.EditCarBtn = new System.Windows.Forms.RibbonButton();
             this.DelCarBtn = new System.Windows.Forms.RibbonButton();
+            this.NaftalPanel = new System.Windows.Forms.RibbonPanel();
+            this.NaftalCardBtn = new System.Windows.Forms.RibbonButton();
+            this.newNaftalCardBtn = new System.Windows.Forms.RibbonButton();
+            this.editNaftalCardBtn = new System.Windows.Forms.RibbonButton();
+            this.delNaftalCardBtn = new System.Windows.Forms.RibbonButton();
             this.HelpTab = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.infoBtn = new System.Windows.Forms.RibbonButton();
@@ -276,7 +276,6 @@ namespace GGAO
             this.StockTab.Panels.Add(this.TransferTab);
             this.StockTab.Panels.Add(this.ConsommationTab);
             this.StockTab.Panels.Add(this.DiverPan);
-            this.StockTab.Panels.Add(this.ribbonPanel1);
             this.StockTab.Text = "Stock";
             // 
             // AlimentationTab
@@ -529,50 +528,6 @@ namespace GGAO
             this.StatistiqueBtn.Text = "";
             this.StatistiqueBtn.Click += new System.EventHandler(this.StatistiqueBtn_Click);
             // 
-            // ribbonPanel1
-            // 
-            this.ribbonPanel1.Items.Add(this.NaftalCardBtn);
-            this.ribbonPanel1.Items.Add(this.newNaftalCardBtn);
-            this.ribbonPanel1.Items.Add(this.editNaftalCardBtn);
-            this.ribbonPanel1.Items.Add(this.delNaftalCardBtn);
-            this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Text = "Carte Naftal";
-            // 
-            // NaftalCardBtn
-            // 
-            this.NaftalCardBtn.Image = global::GGAO.Properties.Resources.cardNaftal2;
-            this.NaftalCardBtn.LargeImage = global::GGAO.Properties.Resources.cardNaftal2;
-            this.NaftalCardBtn.Name = "NaftalCardBtn";
-            this.NaftalCardBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("NaftalCardBtn.SmallImage")));
-            this.NaftalCardBtn.Text = "";
-            // 
-            // newNaftalCardBtn
-            // 
-            this.newNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("newNaftalCardBtn.Image")));
-            this.newNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("newNaftalCardBtn.LargeImage")));
-            this.newNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
-            this.newNaftalCardBtn.Name = "newNaftalCardBtn";
-            this.newNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.add;
-            this.newNaftalCardBtn.Text = "Nouveau";
-            // 
-            // editNaftalCardBtn
-            // 
-            this.editNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("editNaftalCardBtn.Image")));
-            this.editNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("editNaftalCardBtn.LargeImage")));
-            this.editNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
-            this.editNaftalCardBtn.Name = "editNaftalCardBtn";
-            this.editNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.edit;
-            this.editNaftalCardBtn.Text = "Modifier";
-            // 
-            // delNaftalCardBtn
-            // 
-            this.delNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("delNaftalCardBtn.Image")));
-            this.delNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("delNaftalCardBtn.LargeImage")));
-            this.delNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
-            this.delNaftalCardBtn.Name = "delNaftalCardBtn";
-            this.delNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.del;
-            this.delNaftalCardBtn.Text = "Supprimer";
-            // 
             // AutreTab
             // 
             this.AutreTab.Name = "AutreTab";
@@ -580,6 +535,7 @@ namespace GGAO
             this.AutreTab.Panels.Add(this.DepoRibbonPanel);
             this.AutreTab.Panels.Add(this.DriverRibbonPanel);
             this.AutreTab.Panels.Add(this.EngineRibbonPanel);
+            this.AutreTab.Panels.Add(this.NaftalPanel);
             this.AutreTab.Text = "Autre";
             // 
             // ProduitribbonPanel
@@ -778,6 +734,54 @@ namespace GGAO
             this.DelCarBtn.SmallImage = global::GGAO.Properties.Resources.del;
             this.DelCarBtn.Text = "Supprimer";
             this.DelCarBtn.Click += new System.EventHandler(this.DelCarBtn_Click);
+            // 
+            // NaftalPanel
+            // 
+            this.NaftalPanel.Items.Add(this.NaftalCardBtn);
+            this.NaftalPanel.Items.Add(this.newNaftalCardBtn);
+            this.NaftalPanel.Items.Add(this.editNaftalCardBtn);
+            this.NaftalPanel.Items.Add(this.delNaftalCardBtn);
+            this.NaftalPanel.Name = "NaftalPanel";
+            this.NaftalPanel.Text = "Carte Naftal";
+            // 
+            // NaftalCardBtn
+            // 
+            this.NaftalCardBtn.Image = global::GGAO.Properties.Resources.cardNaftal2;
+            this.NaftalCardBtn.LargeImage = global::GGAO.Properties.Resources.cardNaftal2;
+            this.NaftalCardBtn.Name = "NaftalCardBtn";
+            this.NaftalCardBtn.SmallImage = ((System.Drawing.Image)(resources.GetObject("NaftalCardBtn.SmallImage")));
+            this.NaftalCardBtn.Text = "";
+            this.NaftalCardBtn.Click += new System.EventHandler(this.NaftalCardBtn_Click);
+            // 
+            // newNaftalCardBtn
+            // 
+            this.newNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("newNaftalCardBtn.Image")));
+            this.newNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("newNaftalCardBtn.LargeImage")));
+            this.newNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
+            this.newNaftalCardBtn.Name = "newNaftalCardBtn";
+            this.newNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.add;
+            this.newNaftalCardBtn.Text = "Nouveau";
+            this.newNaftalCardBtn.Click += new System.EventHandler(this.newNaftalCardBtn_Click);
+            // 
+            // editNaftalCardBtn
+            // 
+            this.editNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("editNaftalCardBtn.Image")));
+            this.editNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("editNaftalCardBtn.LargeImage")));
+            this.editNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
+            this.editNaftalCardBtn.Name = "editNaftalCardBtn";
+            this.editNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.edit;
+            this.editNaftalCardBtn.Text = "Modifier";
+            this.editNaftalCardBtn.Click += new System.EventHandler(this.editNaftalCardBtn_Click);
+            // 
+            // delNaftalCardBtn
+            // 
+            this.delNaftalCardBtn.Image = ((System.Drawing.Image)(resources.GetObject("delNaftalCardBtn.Image")));
+            this.delNaftalCardBtn.LargeImage = ((System.Drawing.Image)(resources.GetObject("delNaftalCardBtn.LargeImage")));
+            this.delNaftalCardBtn.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium;
+            this.delNaftalCardBtn.Name = "delNaftalCardBtn";
+            this.delNaftalCardBtn.SmallImage = global::GGAO.Properties.Resources.del;
+            this.delNaftalCardBtn.Text = "Supprimer";
+            this.delNaftalCardBtn.Click += new System.EventHandler(this.delNaftalCardBtn_Click);
             // 
             // HelpTab
             // 
@@ -1119,6 +1123,7 @@ namespace GGAO
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1462, 20);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // FilteredQuantity
             // 
@@ -1461,7 +1466,7 @@ namespace GGAO
         private System.Windows.Forms.RibbonButton btnCC;
         private System.Windows.Forms.RibbonButton FirstBtn;
         private System.Windows.Forms.RibbonButton SecondBtnd;
-        private System.Windows.Forms.RibbonPanel ribbonPanel1;
+        private System.Windows.Forms.RibbonPanel NaftalPanel;
         private System.Windows.Forms.RibbonButton NaftalCardBtn;
         private System.Windows.Forms.RibbonButton newNaftalCardBtn;
         private System.Windows.Forms.RibbonButton editNaftalCardBtn;

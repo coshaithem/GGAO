@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnNewDriver = new System.Windows.Forms.Button();
+            this.BtnNewProduct = new System.Windows.Forms.Button();
+            this.BtnNewEngine = new System.Windows.Forms.Button();
+            this.BtnNewSource = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBoxCalc = new System.Windows.Forms.CheckBox();
             this.checkBoxPrinting = new System.Windows.Forms.CheckBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.DriverCombobox = new VMultiColumnComboBox.MultiColumComboBox();
-
-            this.DriverCombobox.setFilter(new int[] { 1, 2  });
-
+            this.DriverCombobox.setFilter(new int[] { 1, 2 });
             this.KilotextBox = new System.Windows.Forms.TextBox();
             this.PoleCombobox = new VMultiColumnComboBox.MultiColumComboBox();
             this.PoleCombobox.setFilter(new int[] { 1, 2 });
@@ -46,8 +48,7 @@
             this.ProductCombobox.setFilter(new int[] { 1, 2 });
             this.label4 = new System.Windows.Forms.Label();
             this.EngineCombobox = new VMultiColumnComboBox.MultiColumComboBox();
-            this.EngineCombobox.setFilter(new int[] { 1, 2,5 ,7 });
-
+            this.EngineCombobox.setFilter(new int[] { 1, 2,5,7 });
             this.QuanitytextBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
@@ -64,6 +65,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnNewDriver);
+            this.groupBox1.Controls.Add(this.BtnNewProduct);
+            this.groupBox1.Controls.Add(this.BtnNewEngine);
+            this.groupBox1.Controls.Add(this.BtnNewSource);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.DriverCombobox);
             this.groupBox1.Controls.Add(this.KilotextBox);
@@ -91,6 +96,54 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
+            // BtnNewDriver
+            // 
+            this.BtnNewDriver.BackColor = System.Drawing.Color.Transparent;
+            this.BtnNewDriver.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNewDriver.Image = global::GGAO.Properties.Resources.add;
+            this.BtnNewDriver.Location = new System.Drawing.Point(524, 172);
+            this.BtnNewDriver.Name = "BtnNewDriver";
+            this.BtnNewDriver.Size = new System.Drawing.Size(26, 26);
+            this.BtnNewDriver.TabIndex = 23;
+            this.BtnNewDriver.UseVisualStyleBackColor = false;
+            this.BtnNewDriver.Click += new System.EventHandler(this.BtnNewDriver_Click);
+            // 
+            // BtnNewProduct
+            // 
+            this.BtnNewProduct.BackColor = System.Drawing.Color.Transparent;
+            this.BtnNewProduct.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNewProduct.Image = global::GGAO.Properties.Resources.add;
+            this.BtnNewProduct.Location = new System.Drawing.Point(524, 138);
+            this.BtnNewProduct.Name = "BtnNewProduct";
+            this.BtnNewProduct.Size = new System.Drawing.Size(26, 26);
+            this.BtnNewProduct.TabIndex = 22;
+            this.BtnNewProduct.UseVisualStyleBackColor = false;
+            this.BtnNewProduct.Click += new System.EventHandler(this.BtnNewProduct_Click);
+            // 
+            // BtnNewEngine
+            // 
+            this.BtnNewEngine.BackColor = System.Drawing.Color.Transparent;
+            this.BtnNewEngine.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNewEngine.Image = global::GGAO.Properties.Resources.add;
+            this.BtnNewEngine.Location = new System.Drawing.Point(524, 101);
+            this.BtnNewEngine.Name = "BtnNewEngine";
+            this.BtnNewEngine.Size = new System.Drawing.Size(26, 26);
+            this.BtnNewEngine.TabIndex = 21;
+            this.BtnNewEngine.UseVisualStyleBackColor = false;
+            this.BtnNewEngine.Click += new System.EventHandler(this.BtnNewEngine_Click);
+            // 
+            // BtnNewSource
+            // 
+            this.BtnNewSource.BackColor = System.Drawing.Color.Transparent;
+            this.BtnNewSource.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNewSource.Image = global::GGAO.Properties.Resources.add;
+            this.BtnNewSource.Location = new System.Drawing.Point(524, 65);
+            this.BtnNewSource.Name = "BtnNewSource";
+            this.BtnNewSource.Size = new System.Drawing.Size(26, 26);
+            this.BtnNewSource.TabIndex = 20;
+            this.BtnNewSource.UseVisualStyleBackColor = false;
+            this.BtnNewSource.Click += new System.EventHandler(this.BtnNewSource_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.checkBoxCalc);
@@ -110,7 +163,6 @@
             this.checkBoxCalc.Checked = true;
             this.checkBoxCalc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCalc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxCalc.Enabled = false;
             this.checkBoxCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.checkBoxCalc.Location = new System.Drawing.Point(17, 21);
             this.checkBoxCalc.Name = "checkBoxCalc";
@@ -133,7 +185,6 @@
             this.checkBoxPrinting.TabIndex = 20;
             this.checkBoxPrinting.Text = "Imprimer";
             this.checkBoxPrinting.UseVisualStyleBackColor = true;
-            this.checkBoxPrinting.Visible = false;
             // 
             // SaveButton
             // 
@@ -158,7 +209,7 @@
             this.DriverCombobox.Name = "DriverCombobox";
             this.DriverCombobox.SelectedItem = null;
             this.DriverCombobox.ShowHeader = true;
-            this.DriverCombobox.Size = new System.Drawing.Size(175, 26);
+            this.DriverCombobox.Size = new System.Drawing.Size(149, 26);
             this.DriverCombobox.SourceDataHeader = null;
             this.DriverCombobox.SourceDataString = null;
             this.DriverCombobox.TabIndex = 8;
@@ -185,7 +236,7 @@
             this.PoleCombobox.Name = "PoleCombobox";
             this.PoleCombobox.SelectedItem = null;
             this.PoleCombobox.ShowHeader = true;
-            this.PoleCombobox.Size = new System.Drawing.Size(175, 26);
+            this.PoleCombobox.Size = new System.Drawing.Size(150, 26);
             this.PoleCombobox.SourceDataHeader = null;
             this.PoleCombobox.SourceDataString = null;
             this.PoleCombobox.TabIndex = 5;
@@ -224,7 +275,7 @@
             this.ProductCombobox.Name = "ProductCombobox";
             this.ProductCombobox.SelectedItem = null;
             this.ProductCombobox.ShowHeader = true;
-            this.ProductCombobox.Size = new System.Drawing.Size(175, 26);
+            this.ProductCombobox.Size = new System.Drawing.Size(150, 26);
             this.ProductCombobox.SourceDataHeader = null;
             this.ProductCombobox.SourceDataString = null;
             this.ProductCombobox.TabIndex = 7;
@@ -253,7 +304,7 @@
             this.EngineCombobox.Name = "EngineCombobox";
             this.EngineCombobox.SelectedItem = null;
             this.EngineCombobox.ShowHeader = true;
-            this.EngineCombobox.Size = new System.Drawing.Size(175, 26);
+            this.EngineCombobox.Size = new System.Drawing.Size(150, 26);
             this.EngineCombobox.SourceDataHeader = null;
             this.EngineCombobox.SourceDataString = null;
             this.EngineCombobox.TabIndex = 6;
@@ -277,7 +328,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(158, 26);
             this.dateTimePicker.TabIndex = 1;
-            this.dateTimePicker.Value =   System.DateTime.Now ;
+            this.dateTimePicker.Value = new System.DateTime(2021, 10, 2, 9, 1, 9, 339);
             // 
             // TypeComboBox
             // 
@@ -293,13 +344,14 @@
             this.TypeComboBox.Size = new System.Drawing.Size(158, 28);
             this.TypeComboBox.TabIndex = 2;
             this.TypeComboBox.Text = "Bon Pour";
+            this.TypeComboBox.SelectedValueChanged += new System.EventHandler(this.TypeComboBox_SelectedValueChanged);
             // 
             // ReftextBox
             // 
             this.ReftextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReftextBox.Location = new System.Drawing.Point(111, 24);
             this.ReftextBox.Name = "ReftextBox";
-            this.ReftextBox.Size = new System.Drawing.Size(436, 26);
+            this.ReftextBox.Size = new System.Drawing.Size(439, 26);
             this.ReftextBox.TabIndex = 0;
             this.ReftextBox.Text = "REF14";
             // 
@@ -417,7 +469,7 @@
         void ResetFields()
         {
             ReftextBox.Text = "REF" + System.DateTime.Now.Day.ToString() ;
-            TypeComboBox.Text = "Bon Pour"; // ValueMember
+            //TypeComboBox.Text = "Bon Pour"; // ValueMember
             QuanitytextBox.Text = "";
             KilotextBox.Text = "";
             DriverCombobox.setTextBox("");
@@ -490,5 +542,9 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.CheckBox checkBoxCalc;
         private System.Windows.Forms.CheckBox checkBoxPrinting;
+        private System.Windows.Forms.Button BtnNewSource;
+        private System.Windows.Forms.Button BtnNewDriver;
+        private System.Windows.Forms.Button BtnNewProduct;
+        private System.Windows.Forms.Button BtnNewEngine;
     }
 }

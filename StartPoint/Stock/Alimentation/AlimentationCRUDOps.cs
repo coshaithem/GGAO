@@ -104,14 +104,14 @@ namespace GGAO
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("le bon a été enregistré. ",
-                                   "Metre a jour un bon", MessageBoxButtons.OK,
+                                   "Mettre a jour un bon", MessageBoxButtons.OK,
                                    MessageBoxIcon.Information);
             }
             catch (Exception exs)
             {
 
                 MessageBox.Show(exs.ToString(),
-                                    "Metre a jour un chaffeure", MessageBoxButtons.OK,
+                                    "Mettre a jour un chaffeure", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally

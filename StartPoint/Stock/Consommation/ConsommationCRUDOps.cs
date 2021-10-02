@@ -13,19 +13,22 @@ namespace GGAO
     {
         static SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
 
-        public static DataTable getVisibleConsommation( int nbRecord = 1000 )
+        public static DataTable getVisibleConsommation( string yourChoise )
         {
             DataTable dt = new DataTable(); 
             System.Data.DataSet ds = new DataSet();
             try
             {
+
+                con.Open();
                 SqlCommand cmd = new SqlCommand("CRUDConsommation", con);
-                cmd.Parameters.AddWithValue("@choise", SqlDbType.NVarChar).Value = "SELECTALL";
-                cmd.Parameters.AddWithValue("@EngineID", SqlDbType.Int).Value = nbRecord ;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = yourChoise.ToString() ;
+                
                 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 
-                da.Fill( ds );  
+                da.Fill( ds );
             }
             catch (Exception exs)
             {
@@ -42,7 +45,7 @@ namespace GGAO
             return ds.Tables[0];
         }
         public static void createConsommation(String Ref ,String Type ,DateTime DocDate ,String engineID ,String productID, string poleID,
-            string driverID, string kilo, string quanity, bool calc) //, bool print, bool calc
+            string driverID, string kilo, string quanity, bool print, bool calc) //, bool print, bool calc
         {
             try
             {
@@ -59,7 +62,7 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@kilo", SqlDbType.NVarChar).Value = kilo; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@quant", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
                 
-                //cmd.Parameters.AddWithValue("@print", SqlDbType.Bit ).Value = print; // this.mobileTextBox.Text.Trim();
+                cmd.Parameters.AddWithValue("@print", SqlDbType.Bit ).Value = print; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@calc", SqlDbType.Bit ).Value = calc; // this.mobileTextBox.Text.Trim();
 
 
@@ -88,7 +91,7 @@ namespace GGAO
             }
         }
         public static void UpdateConsommation(string ID, String Ref, String Type, DateTime DocDate, String engineID, String productID, string poleID,
-            string driverID, string kilo, string quanity)//, bool print, bool calc
+            string driverID, string kilo, string quanity, bool print, bool calc)//, bool print, bool calc
         {
             try
             {
@@ -106,8 +109,8 @@ namespace GGAO
                 cmd.Parameters.AddWithValue("@kilo", SqlDbType.NVarChar).Value = kilo; // this.mobileTextBox.Text.Trim();
                 cmd.Parameters.AddWithValue("@quant", SqlDbType.NVarChar).Value = quanity; // this.mobileTextBox.Text.Trim();
 
-                //cmd.Parameters.AddWithValue("@print", SqlDbType.Bit).Value = print; // this.mobileTextBox.Text.Trim();
-                //cmd.Parameters.AddWithValue("@calc", SqlDbType.Bit).Value = calc; // this.mobileTextBox.Text.Trim();
+                 cmd.Parameters.AddWithValue("@print", SqlDbType.Bit).Value = print; // this.mobileTextBox.Text.Trim();
+                 cmd.Parameters.AddWithValue("@calc", SqlDbType.Bit).Value = calc; // this.mobileTextBox.Text.Trim();
                 
 
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "UPDATE";
@@ -115,14 +118,14 @@ namespace GGAO
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("le bon a été enregistré. ",
-                                   "Metre a jour un bon", MessageBoxButtons.OK,
+                                   "Mettre a jour un bon", MessageBoxButtons.OK,
                                    MessageBoxIcon.Information);
             }
             catch (Exception exs)
             {
 
                 MessageBox.Show(exs.ToString(),
-                                     "Metre a jour un chaffeure", MessageBoxButtons.OK,
+                                     "Mettre a jour un chaffeure", MessageBoxButtons.OK,
                                    MessageBoxIcon.Error);
             }
             finally
@@ -170,6 +173,7 @@ namespace GGAO
                 SqlCommand cmd = new SqlCommand("CRUDConsommation", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@PoleID", SqlDbType.NVarChar).Value = poleID;
+                cmd.Parameters.AddWithValue("@print", SqlDbType.Bit).Value = 1;
                 cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = "SumQuantityOut";
                 SqlDataReader rdr = cmd.ExecuteReader();
                 rdr.Read();

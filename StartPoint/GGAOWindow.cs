@@ -12,6 +12,7 @@ using GGAO.Driver;
 using GGAO.Product;
 using GGAO.Pole;
 using GGAO.Engine;
+using GGAO.NaftalCard;
 using GGAO.Consommation;
 using GGAO.Alimentation;
 using GGAO.Stock.Transfer;
@@ -31,6 +32,7 @@ namespace GGAO
             POLE,
             DRIVER,
             ENGINE,
+            NaftalCard,
         }
 
         private const bool V = true;
@@ -44,6 +46,7 @@ namespace GGAO
          4 - pole
          5 - Driver
          6 - engine
+         7 - NaftalCard
          
          */
 
@@ -83,12 +86,25 @@ namespace GGAO
                 case Table.ENGINE : MyOwnBindingSource.DataSource = EngineCRUDOps.getVisibleEngine() ; break;
                 case Table.TRANSFER: MyOwnBindingSource.DataSource = TransferCRUDOps.getVisibleTransfer(); updateCurrentStock(); break;
                 case Table.ALIMENTATION: MyOwnBindingSource.DataSource = AlimentationCRUDOps.getVisibleAlimentation(); updateCurrentStock(); break;
-                case Table.CONSOMMATION: MyOwnBindingSource.DataSource = ConsommationCRUDOps.getVisibleConsommation(); updateCurrentStock(); break;
+                case Table.CONSOMMATION:
+                    
+
+                    DataTable tbl = ConsommationCRUDOps.getVisibleConsommation("SELECTALL");  //SELECTALL
+                    //MessageBox.Show(tbl.Rows.Count.ToString() );
+                    tbl.Merge(ConsommationCRUDOps.getVisibleConsommation("SELECTALLCARD"));
+                    //MessageBox.Show(tbl.Rows.Count.ToString());
+                    DataView dv = tbl.DefaultView;
+                    dv.Sort = "date desc";
+                    //tbl= dv.ToTable() ;
+                    MyOwnBindingSource.DataSource = dv.ToTable();
+                    updateCurrentStock(); 
+                    break;
+                case Table.NaftalCard: MyOwnBindingSource.DataSource = NaftalCardCRUDOps.getVisibleNaftalCard();   break;
             }
 
 
             if (this.selectedTable == table )
-            {
+            { // to reApply the sort && filter string after the new record
                 MyOwnBindingSource.Sort = getTheMainGrid().SortString;
                 MyOwnBindingSource.Filter = getTheMainGrid().FilterString;
             }
@@ -125,14 +141,14 @@ namespace GGAO
         private void NewDriverBtn_Click(object sender, EventArgs e)
         {  
             //Table.DRIVER
-            if ( this.selectedTable == Table.DRIVER ) { 
+            if ( this.selectedTable == Table.DRIVER ) {
                 InsertUpdateDriver form = new InsertUpdateDriver(true);
                 form.ShowDialog();
                 LoadVisible(Table.DRIVER);
-
                 this.updateFooterInfo();
             }
         }
+ 
         private void NewOilInBtn_Click(object sender, EventArgs e)
         {
             //Table.DRIVER
@@ -304,6 +320,7 @@ namespace GGAO
                 for (int i = 0; i < getTheMainGrid().Rows.Count; i++)
                 {
                     // MessageBox.Show(getTheMainGrid().Rows[i].Cells[5].Value.ToString());
+                    //if (getTheMainGrid().Rows[i].Cells[2].Value.ToString() != "Carte Naftal") // calculer even if its Card
                     sum += Convert.ToInt32(getTheMainGrid().Rows[i].Cells[5].Value.ToString().Trim());
                     //MessageBox.Show(getTheMainGrid().Rows[i].Cells[5].Value.ToString());
                 }
@@ -344,11 +361,10 @@ namespace GGAO
             if (this.selectedTable == Table.PRODUIT )
             { //InsertUpdateDriver form = new InsertUpdateDriver(true);
                 InsertUpdateProduct form = new InsertUpdateProduct(true);
-                form.ShowDialog();
-                LoadVisible( Table.PRODUIT );
+                form.ShowDialog(); 
+                 LoadVisible(Table.PRODUIT);
             }
-        }
-
+        } 
         private void EditProductBtn_Click(object sender, EventArgs e)
         {
             if (this.selectedTable == Table.PRODUIT)
@@ -412,18 +428,18 @@ namespace GGAO
             this.updateFooterInfo();
         }
 
+
         private void NewPoleBtn_Click(object sender, EventArgs e)
         {
             if (this.selectedTable == Table.POLE)
             { //InsertUpdateDriver form = new InsertUpdateDriver(true);
               // InsertUpdateProduct form = new InsertUpdateProduct(true);
-                InsertUpdatePole form = new InsertUpdatePole(true);  
+                InsertUpdatePole form = new InsertUpdatePole(true);
                 form.ShowDialog();
                 LoadVisible(Table.POLE);
-
                 this.updateFooterInfo();
             }
-        }
+        } 
 
         private void EditPoleBtn_Click(object sender, EventArgs e)
         {
@@ -563,7 +579,7 @@ namespace GGAO
                 LoadVisible(Table.ENGINE);
                 this.updateFooterInfo();
             }
-        }
+        } 
         private void EditOilInBtn_Click(object sender, EventArgs e)
         {
             if (this.selectedTable == Table.ALIMENTATION)
@@ -1019,6 +1035,95 @@ namespace GGAO
 
             GGAO.Reports.RapportEngine test = new GGAO.Reports.RapportEngine();
             test.Show();
+        }
+
+        private void NaftalCardBtn_Click(object sender, EventArgs e)
+        {
+            LoadVisible(Table.NaftalCard);
+            this.selectedTable = Table.NaftalCard;
+            // toggle Sort and Filter stat
+            if (DGVMain.FilterAndSortEnabled == true)
+                this.toggleFilterAndSort();
+            this.updateFooterInfo();
+        }
+
+        private void newNaftalCardBtn_Click(object sender, EventArgs e)
+        {
+            //Table.naftalCard
+            if (this.selectedTable == Table.NaftalCard)
+            {
+                InsertUpdateNaftalCard form = new InsertUpdateNaftalCard(true);
+                form.ShowDialog();
+                LoadVisible(Table.NaftalCard);
+                this.updateFooterInfo();
+            }
+        }
+ 
+        private void delNaftalCardBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.NaftalCard)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString();
+
+                    // ask comfirmation from the user  
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet enregistrement...?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    {
+                        NaftalCardCRUDOps.deleteNaftalCard(ID);
+                        //ProductCRUDOps.deleteProduct(ID);
+                        // DriverCRUDOps.deleteDriver(ID);
+                    }
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+                    LoadVisible(Table.NaftalCard);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour supprimer",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void editNaftalCardBtn_Click(object sender, EventArgs e)
+        {
+            if (this.selectedTable == Table.NaftalCard)
+            {
+                // get the ID of the selected row
+                if (selectedRowIndex >= 0)
+                {
+                    string ID = DGVMain.Rows[selectedRowIndex].Cells[0].Value.ToString()
+                    , CODE = DGVMain.Rows[selectedRowIndex].Cells[1].Value.ToString()
+                    , NUM = DGVMain.Rows[selectedRowIndex].Cells[2].Value.ToString()
+                    , LIB = DGVMain.Rows[selectedRowIndex].Cells[3].Value.ToString()
+                    , DATE = DGVMain.Rows[selectedRowIndex].Cells[4].Value.ToString();
+
+                    InsertUpdateNaftalCard form = new InsertUpdateNaftalCard(false);
+                    form.setDefaultValueforFields(ID, CODE, NUM, LIB, DATE);
+                    form.ShowDialog();
+
+                    // to  obligate the user to reselect
+                    selectedRowIndex = -1;
+                    selectedColIndex = -1;
+
+                    LoadVisible(Table.NaftalCard);
+                }
+                else
+                {
+                    MessageBox.Show("Selectioner une ligne pour modifier",
+                       "Action incorrect", MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)

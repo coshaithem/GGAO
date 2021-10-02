@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GGAO.Driver;
+using GGAO.Engine;
+using GGAO.NaftalCard;
+using GGAO.Pole;
+using GGAO.Product;
 using GGAO.Utilities;
+using System;
+using System.Data;
+using System.Windows.Forms;
 namespace GGAO.Consommation
 {
     public partial class InsertUpdateConsommation : Form
@@ -37,33 +36,55 @@ namespace GGAO.Consommation
         }
         private void InsertUpdateConsommation_Load(object sender, EventArgs e)
         {
-            // load the tables
-            DataTable poleDtDES = GGAO.PoleCRUDOps.getVisiblePole(true, "SELECT");
-            DataTable driverDt = GGAO.DriverCRUDOps.getVisibleDriver();
-            DataTable engineDt = GGAO.EngineCRUDOps.getVisibleEngine();
+
+            this.loadPoleDataIntoCombo();
+            this.loadDriverDataIntoCombo();
+            this.loadEngineDataIntoCombo();
+            this.loadProductDataIntoCombo();
+
+        }
+        private void loadProductDataIntoCombo()
+        {
             DataTable produitDt = GGAO.ProductCRUDOps.getVisibleProduct();
-
-            this.PoleCombobox.Clear();
-            this.DriverCombobox.Clear();
-            this.EngineCombobox.Clear();
             this.ProductCombobox.Clear();
-            // auto generate this column
-            //multiColumComboBox.SourceDataString = ColumnNames.ToArray();
-            PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDtDES.Columns);
-            DriverCombobox.SourceDataString = Tools.ConvColNametoArray(driverDt.Columns);
-            EngineCombobox.SourceDataString = Tools.ConvColNametoArray(engineDt.Columns);
             ProductCombobox.SourceDataString = Tools.ConvColNametoArray(produitDt.Columns);
-
-            PoleCombobox.DataSource = poleDtDES;
-            DriverCombobox.DataSource = driverDt;
-            EngineCombobox.DataSource = engineDt;
             ProductCombobox.DataSource = produitDt;
-            //multiColumComboBox.setTextBox(this.selectedPoleLibelle.Trim());
-            DriverCombobox.setTextBox(this.selectedDriverLib);
-            PoleCombobox.setTextBox(this.selectedPoleLib);
-            ProductCombobox.setTextBox(this.selectedProductLib);
-            //_Engine.Split('-')[0].Trim();
+             ProductCombobox.setTextBox(this.selectedProductLib);
+        }
+        private void loadEngineDataIntoCombo()
+        {
+            DataTable engineDt = GGAO.EngineCRUDOps.getVisibleEngine();
+            this.EngineCombobox.Clear();
+            EngineCombobox.SourceDataString = Tools.ConvColNametoArray(engineDt.Columns);
+            EngineCombobox.DataSource = engineDt;
             EngineCombobox.setTextBox(this.selectedEngineLib.Split('-')[0].Trim());
+
+        }
+        private void loadDriverDataIntoCombo()
+        {
+            DataTable driverDt = GGAO.DriverCRUDOps.getVisibleDriver();
+            this.DriverCombobox.Clear();
+            DriverCombobox.SourceDataString = Tools.ConvColNametoArray(driverDt.Columns);
+            DriverCombobox.DataSource = driverDt;
+            DriverCombobox.setTextBox(this.selectedDriverLib);
+        }
+        private void loadCardDataIntoCombo()
+        {
+            DataTable poleDtDES = GGAO.NaftalCardCRUDOps.getVisibleNaftalCard();
+            this.PoleCombobox.Clear();
+            PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDtDES.Columns);
+            PoleCombobox.DataSource = poleDtDES;
+            PoleCombobox.setTextBox(this.selectedPoleLib);
+        }
+        private void loadPoleDataIntoCombo()
+        {
+            DataTable poleDtDES = GGAO.PoleCRUDOps.getVisiblePole(true, "SELECT");
+            this.PoleCombobox.Clear();
+            PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDtDES.Columns);
+            PoleCombobox.DataSource = poleDtDES;
+            PoleCombobox.setTextBox(this.selectedPoleLib);
+
+
         }
         private string getSelectedEngine()
         {
@@ -74,26 +95,26 @@ namespace GGAO.Consommation
                 //string strValue = "";
                 //for (int index = 0; index < EngineCombobox.SelectedItem.ItemData.Count; index++)
                 //{
-                engineStr += EngineCombobox.SelectedItem.ItemData[2] + " - "+
-                    EngineCombobox.SelectedItem.ItemData[5] + " - "+
-                    EngineCombobox.SelectedItem.ItemData[7] ;
+                engineStr += EngineCombobox.SelectedItem.ItemData[2] + " - " +
+                    EngineCombobox.SelectedItem.ItemData[5] + " - " +
+                    EngineCombobox.SelectedItem.ItemData[7];
                 //}
                 //MessageBox.Show(strValue);
             }
             return engineStr;
         }
-        private bool FindReccurence(string engine,string date)
+        private bool FindReccurence(string engine, string date)
         {
             bool check = false;
             DataTable tbl = GGAOWindow.getDataSource();
-            if( tbl != null)
+            if (tbl != null)
             {
                 DataView dv = new DataView(tbl);
                 dv.RowFilter = "([Engine] IN('" + engine + "') ) AND " +
                     "((Convert([Date], 'System.String') LIKE '%" + date + "%')) ";
 
                 //MessageBox.Show(dv.RowFilter +" \n Count"+ dv.Count.ToString());
-                return  (dv.Count > 0)?true:false;
+                return (dv.Count > 0) ? true : false;
             }
             else
                 return check;
@@ -118,28 +139,30 @@ namespace GGAO.Consommation
                     if (OccExist)
                     {
                         if (MessageBox.Show("Attention... \n" +
-                            "N'est pas la première fois pour cette véhicule dans ce jour!\nVous voulez validé", "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                            "Ce n'est pas la première fois pour cette véhicule dans ce jour!\nVous voulez validé", "Notification", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             userConfirmation = true;
                         }
 
                     }
                     // if the user accept to insert so be it ;)
-                    if (userConfirmation || !OccExist) {  
-                    ConsommationCRUDOps.createConsommation(
-                        ReftextBox.Text.Trim(),
-                        TypeComboBox.Text.Trim(),
-                        dateTimePicker.Value,
-                         (EngineCombobox.SelectedItem == null) ? "0" : EngineCombobox.SelectedItem.Value,
-                         (ProductCombobox.SelectedItem == null) ? "2" : ProductCombobox.SelectedItem.Value,
-                         (PoleCombobox.SelectedItem == null) ? "1007" : PoleCombobox.SelectedItem.Value,
-                         (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
-                         KilotextBox.Text.Trim(),
-                         QuanitytextBox.Text.Trim(),
-                     //checkBoxPrinting.Checked,
-                     checkBoxCalc.Checked
-                    );
-                    this.ResetFields();
+                    if (userConfirmation || !OccExist)
+                    {
+                        // MessageBox.Show(PoleCombobox.SelectedItem.Value);
+                        ConsommationCRUDOps.createConsommation(
+                            ReftextBox.Text.Trim(),
+                            TypeComboBox.Text.Trim(),
+                            dateTimePicker.Value,
+                             (EngineCombobox.SelectedItem == null) ? "0" : EngineCombobox.SelectedItem.Value,
+                             (ProductCombobox.SelectedItem == null) ? "2" : ProductCombobox.SelectedItem.Value,
+                             (PoleCombobox.SelectedItem == null) ? "1007" : PoleCombobox.SelectedItem.Value,
+                             (DriverCombobox.SelectedItem == null) ? "0" : DriverCombobox.SelectedItem.Value,
+                             KilotextBox.Text.Trim(),
+                             QuanitytextBox.Text.Trim(),
+                          checkBoxPrinting.Checked,
+                         checkBoxCalc.Checked
+                        );
+                        this.ResetFields();
                     }
                 }
                 else // means Update existing record
@@ -154,15 +177,78 @@ namespace GGAO.Consommation
                          (PoleCombobox.SelectedItem == null) ? null : PoleCombobox.SelectedItem.Value,
                          (DriverCombobox.SelectedItem == null) ? null : DriverCombobox.SelectedItem.Value,
                          KilotextBox.Text.Trim(),
-                         QuanitytextBox.Text.Trim()
-                         //checkBoxPrinting.Checked,
-                         //checkBoxCalc.Checked
+                         QuanitytextBox.Text.Trim(),
+                         checkBoxPrinting.Checked,
+                         checkBoxCalc.Checked
                         );
                     this.Close();
                     this.ResetFields();
                 }
-               
+
             }
+        }
+
+        private void TypeComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.PoleCombobox.Clear();
+            this.PoleCombobox.setTextBox(""); 
+            if (this.TypeComboBox.SelectedItem.ToString() == "Carte Naftal")
+            {
+                this.checkBoxCalc.Checked = false;
+                this.checkBoxCalc.Enabled = false;
+                DataTable cardDt = GGAO.NaftalCardCRUDOps.getVisibleNaftalCard();
+                this.PoleCombobox.SourceDataString = Tools.ConvColNametoArray(cardDt.Columns);
+                this.PoleCombobox.DataSource = cardDt;
+                //#ERROR452
+            }
+            else
+            {
+                this.checkBoxCalc.Checked = true;
+                this.checkBoxCalc.Enabled = true;
+                DataTable poleDtDES = GGAO.PoleCRUDOps.getVisiblePole(true, "SELECT");
+                this.PoleCombobox.SourceDataString = Tools.ConvColNametoArray(poleDtDES.Columns);
+                this.PoleCombobox.DataSource = poleDtDES;
+            }
+
+            PoleCombobox.setTextBox(this.selectedPoleLib);
+        }
+
+        private void BtnNewSource_Click(object sender, EventArgs e)
+        {
+            if ( this.TypeComboBox.Text == "Carte Naftal")
+            {
+                InsertUpdateNaftalCard form = new InsertUpdateNaftalCard(true);
+                form.ShowDialog();
+                this.loadCardDataIntoCombo();
+            }
+            else
+            {
+                InsertUpdatePole form = new InsertUpdatePole(true);
+                form.ShowDialog();
+                this.loadPoleDataIntoCombo();
+
+            }
+        }
+
+        private void BtnNewDriver_Click(object sender, EventArgs e)
+        {
+            InsertUpdateDriver form = new InsertUpdateDriver(true);
+            form.ShowDialog();
+            this.loadDriverDataIntoCombo();
+        }
+
+        private void BtnNewEngine_Click(object sender, EventArgs e)
+        {
+            InsertUpdateEngine form = new InsertUpdateEngine(true);
+            form.ShowDialog();
+            this.loadEngineDataIntoCombo();
+        }
+
+        private void BtnNewProduct_Click(object sender, EventArgs e)
+        {
+            InsertUpdateProduct form = new InsertUpdateProduct(true);
+            form.ShowDialog();
+            this.loadProductDataIntoCombo();
         }
     }
 }
