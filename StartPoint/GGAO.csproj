@@ -157,6 +157,12 @@
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
     </Compile>
     <Compile Include="Stock\Consommation\ConsommationCRUDOps.cs" />
+    <Compile Include="Stock\Consommation\DateIntervalleSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\Consommation\DateIntervalleSelector.Designer.cs">
+      <DependentUpon>DateIntervalleSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock\Consommation\InsertUpdateConsommation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     <EmbeddedResource Include="Reports\RptEngineConsumption.rdlc" />
     <EmbeddedResource Include="Stock\Alimentation\InsertUpdateAlimentation.resx">
       <DependentUpon>InsertUpdateAlimentation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\Consommation\DateIntervalleSelector.resx">
+      <DependentUpon>DateIntervalleSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock\Consommation\InsertUpdateConsommation.resx">
       <DependentUpon>InsertUpdateConsommation.cs</DependentUpon>

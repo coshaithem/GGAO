@@ -422,6 +422,7 @@ namespace GGAO
             this.SecondBtnd.Name = "SecondBtnd";
             this.SecondBtnd.SmallImage = ((System.Drawing.Image)(resources.GetObject("SecondBtnd.SmallImage")));
             this.SecondBtnd.Text = "Selectioner une Date";
+            this.SecondBtnd.Click += new System.EventHandler(this.SecondBtnd_Click);
             // 
             // NewOilOutBtn
             // 
@@ -1123,7 +1124,6 @@ namespace GGAO
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1462, 20);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // FilteredQuantity
             // 

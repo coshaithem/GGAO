@@ -13,7 +13,7 @@ namespace GGAO
     {
         static SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
 
-        public static DataTable getVisibleConsommation( string yourChoise )
+        public static DataTable getVisibleConsommation( string yourChoise, DateTime Fromdate, DateTime Todate)
         {
             DataTable dt = new DataTable(); 
             System.Data.DataSet ds = new DataSet();
@@ -23,7 +23,9 @@ namespace GGAO
                 con.Open();
                 SqlCommand cmd = new SqlCommand("CRUDConsommation", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@choice", SqlDbType.NVarChar).Value = yourChoise.ToString() ;
+                cmd.Parameters.AddWithValue("@FromDate", SqlDbType.NVarChar).Value = Fromdate.Date ;
+                cmd.Parameters.AddWithValue("@choice", SqlDbType.Date ).Value = yourChoise.ToString() ;
+                cmd.Parameters.AddWithValue("@ToDate", SqlDbType.Date ).Value = Todate.Date;
                 
                 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

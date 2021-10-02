@@ -16,7 +16,7 @@ using GGAO.NaftalCard;
 using GGAO.Consommation;
 using GGAO.Alimentation;
 using GGAO.Stock.Transfer;
-
+using GGAO.Stock.Consommation;
 
 namespace GGAO
 {
@@ -34,7 +34,7 @@ namespace GGAO
             ENGINE,
             NaftalCard,
         }
-
+        DateTime dateFrom, dateTo;
         private const bool V = true;
         SqlConnection con = new SqlConnection(GGAO.Properties.Settings.Default.GGAOConnectionString);
         private Table selectedTable = Table.NONE;
@@ -89,9 +89,9 @@ namespace GGAO
                 case Table.CONSOMMATION:
                     
 
-                    DataTable tbl = ConsommationCRUDOps.getVisibleConsommation("SELECTALL");  //SELECTALL
+                    DataTable tbl = ConsommationCRUDOps.getVisibleConsommation("SELECTALL",dateFrom,dateTo);  //SELECTALL
                     //MessageBox.Show(tbl.Rows.Count.ToString() );
-                    tbl.Merge(ConsommationCRUDOps.getVisibleConsommation("SELECTALLCARD"));
+                    tbl.Merge(ConsommationCRUDOps.getVisibleConsommation("SELECTALLCARD", dateFrom, dateTo));
                     //MessageBox.Show(tbl.Rows.Count.ToString());
                     DataView dv = tbl.DefaultView;
                     dv.Sort = "date desc";
@@ -719,10 +719,13 @@ namespace GGAO
             this.updateTotalRow();
         }
         private void OilOutBtn_Click(object sender, EventArgs e)
-        {
+        { 
+            this.dateTo = new DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, 20);
+            this.dateFrom = this.dateTo.AddMonths(-3);
 
             LoadVisible(Table.CONSOMMATION );
             this.selectedTable = Table.CONSOMMATION ;
+           
             // toggle Sort and Filter stat
             if (DGVMain.FilterAndSortEnabled == true)
                 this.toggleFilterAndSort();
@@ -1120,10 +1123,26 @@ namespace GGAO
                 }
             }
         }
+         
+        private void SecondBtnd_Click(object sender, EventArgs e)
+        { 
+            DateIntervalleSelector form = new DateIntervalleSelector() ;
+            var result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.dateFrom = form.dialogFromDate.Date;            //values preserved after close
+                this.dateTo = form.dialogToDate.Date;            //values preserved after close
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+                LoadVisible(Table.CONSOMMATION);
+                this.selectedTable = Table.CONSOMMATION;
 
+                // toggle Sort and Filter stat
+                if (DGVMain.FilterAndSortEnabled == true)
+                    this.toggleFilterAndSort();
+                this.updateFooterInfo();
+            }
+
+            
         }
 
         private void DelProductBtn_Click(object sender, EventArgs e)
