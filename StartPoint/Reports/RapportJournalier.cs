@@ -29,6 +29,9 @@ namespace GGAO.Reports
             this.PoleCombobox.Clear();
             this.SourceComboBox.Clear();
 
+            this.PoleCombobox.setFilter(new int[] { 1, 2 });
+            this.SourceComboBox.setFilter(new int[] { 1, 2 });
+
             PoleCombobox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(poleDtrj.Columns);
             SourceComboBox.SourceDataString = GGAO.Utilities.Tools.ConvColNametoArray(SourceDtrj.Columns);
 
@@ -39,19 +42,24 @@ namespace GGAO.Reports
             SourceComboBox.setTextBox("");
         }
 
-        private DataTable getData(DateTime today, string Sourceid, string poleid)
+        private DataTable getData(DateTime today, string Sourceid, string poleid,string idlists )
         {
             DataTable dt = new DataTable();
             //System.Data.DataSet ds = new DataSet();
             try
             {
-                //con.Open();
-                SqlCommand cmd = new SqlCommand("ConsumptionByDateAndPole", con);
+                if( idlists.Trim().Length > 0)
+                    idlists = idlists.Substring(0, idlists.Length-1);
+                con.Open();
+                SqlCommand cmd = new SqlCommand((idlists.Trim().Length <= 0) ?"ConsumptionByDateAndPole": "ConsumptionByDateAndPoleVlist", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@date", SqlDbType.DateTime).Value = today;
                 //DateTime.Parse("12-03-2021");  new System.DateTime(2021, 03, 12); 
-                cmd.Parameters.AddWithValue("@poleID", SqlDbType.Int).Value = int.Parse(poleid);
                 cmd.Parameters.AddWithValue("@sourceID", SqlDbType.Int).Value = int.Parse(Sourceid);
+                if (idlists.Trim().Length <= 0)
+                    cmd.Parameters.AddWithValue("@poleID",  SqlDbType.Int  ).Value =  int.Parse(poleid )  ;
+                else
+                    cmd.Parameters.AddWithValue("@poleID",  SqlDbType.NVarChar  ).Value =  idlists ;
 
                 //cmd.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -60,10 +68,7 @@ namespace GGAO.Reports
             }
             catch (Exception exs)
             {
-
-                MessageBox.Show(exs.ToString(),
-                                   " Report ", MessageBoxButtons.OK,
-                                   MessageBoxIcon.Error);
+                MessageBox.Show(exs.ToString()," Report ", MessageBoxButtons.OK,  MessageBoxIcon.Error );
             }
             finally
             {
@@ -127,7 +132,11 @@ namespace GGAO.Reports
             ReportParameter[] rptParams = new ReportParameter[]
             {
                 new ReportParameter("date", dateTimePickerLocal.Value.ToString() ),
-                new ReportParameter("pole", PoleCombobox.SelectedItem.Text),
+                new ReportParameter("pole",
+                    (this.ListOfItem.Text.Trim().Length == 0)?
+                        PoleCombobox.SelectedItem.Text:
+                        this.ListOfItem.Text.Substring(0, this.ListOfItem.Text.Length -1)
+                ),
                 new ReportParameter("source", SourceComboBox.SelectedItem.Text)
             };
             rptViewer.LocalReport.SetParameters(rptParams);
@@ -139,7 +148,13 @@ namespace GGAO.Reports
         {
             if (SourceComboBox.SelectedItem != null &&  PoleCombobox.SelectedItem != null)
             {
-                DataTable dt = getData(dateTimePickerLocal.Value, SourceComboBox.SelectedItem.Value , PoleCombobox.SelectedItem.Value);
+                DataTable dt = getData(
+                    dateTimePickerLocal.Value,
+                    SourceComboBox.SelectedItem.Value ,
+                    PoleCombobox.SelectedItem.Value,
+                    this.idLists.Text 
+                    );
+
                 DataTable dtTransfer = getDataTransfer(dateTimePickerLocal.Value);
                 if ( (dt == null || dt.Rows.Count <= 0) && (dtTransfer == null || dtTransfer.Rows.Count <= 0))
                 {
@@ -155,8 +170,31 @@ namespace GGAO.Reports
             }
             
         }
- 
- 
- 
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AddNewItemBtn_Click(object sender, EventArgs e)
+        { 
+            if (PoleCombobox.SelectedItem != null) { 
+                string result = Array.Find(
+                    this.ListOfItem.Text.ToLower().Split(',')
+                    , element => element == PoleCombobox.SelectedItem.Text.ToLower() 
+                    );
+                if (result == null) 
+                {
+                    this.ListOfItem.Text += PoleCombobox.SelectedItem.Text + ",";
+                    this.idLists.Text += PoleCombobox.SelectedItem.Value + ",";
+                }
+            }
+        }
+
+        private void ListOfItem_DoubleClick(object sender, EventArgs e)
+        {
+            ListOfItem.Text = "";
+            this.idLists.Text = "";
+        }
     }
 }

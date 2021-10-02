@@ -2156,7 +2156,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox31</rd:DefaultName>
               <Top>4.82106cm</Top>
-              <Left>6.9129cm</Left>
+              <Left>6.27946cm</Left>
               <Height>0.6cm</Height>
               <Width>4.41761cm</Width>
               <ZIndex>6</ZIndex>
@@ -2196,14 +2196,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox6</rd:DefaultName>
               <Top>4.84752cm</Top>
-              <Left>15.10176cm</Left>
+              <Left>12.1853cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.26729cm</Width>
+              <Width>6.18375cm</Width>
               <ZIndex>8</ZIndex>
               <Visibility>
                 <Hidden>=if (Sum(Fields!Qte.Value, "DataSetReportConsumption") &gt; 0 , False ,True)</Hidden>

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ToutChkBox = new System.Windows.Forms.CheckBox();
             this.ShowRptBtn = new System.Windows.Forms.Button();
             this.EngineComboBox = new VMultiColumnComboBox.MultiColumComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.rptViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.ToutChkBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1016, 45);
             this.panel1.TabIndex = 0;
+            // 
+            // ToutChkBox
+            // 
+            this.ToutChkBox.AutoSize = true;
+            this.ToutChkBox.Enabled = false;
+            this.ToutChkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToutChkBox.Location = new System.Drawing.Point(459, 10);
+            this.ToutChkBox.Name = "ToutChkBox";
+            this.ToutChkBox.Size = new System.Drawing.Size(67, 28);
+            this.ToutChkBox.TabIndex = 5;
+            this.ToutChkBox.Text = "Tout";
+            this.ToutChkBox.UseVisualStyleBackColor = true;
+            this.ToutChkBox.Visible = false;
+            this.ToutChkBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // ShowRptBtn
             // 
@@ -123,18 +137,6 @@
             this.rptViewer.ServerReport.BearerToken = null;
             this.rptViewer.Size = new System.Drawing.Size(1016, 389);
             this.rptViewer.TabIndex = 1;
-            // 
-            // ToutChkBox
-            // 
-            this.ToutChkBox.AutoSize = true;
-            this.ToutChkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ToutChkBox.Location = new System.Drawing.Point(459, 10);
-            this.ToutChkBox.Name = "ToutChkBox";
-            this.ToutChkBox.Size = new System.Drawing.Size(67, 28);
-            this.ToutChkBox.TabIndex = 5;
-            this.ToutChkBox.Text = "Tout";
-            this.ToutChkBox.UseVisualStyleBackColor = true;
-            this.ToutChkBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // RapportEngine
             // 
